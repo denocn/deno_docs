@@ -1,6 +1,6 @@
-# An implementation of the unix "cat" program
+# An implementation of the unix "cat" program {#an-implementation-of-the-unix-cat-program}
 
-## Concepts
+## Concepts {#concepts}
 
 - Use the Deno runtime API to output the contents of a file to the console.
 - [Deno.args](https://doc.deno.land/builtin/stable#Deno.args) accesses the
@@ -12,7 +12,7 @@
 - Files should be closed when you are finished with them
 - Modules can be run directly from remote URLs.
 
-## Example
+## Example {#example}
 
 In this program each command-line argument is assumed to be a filename, the file
 is opened, and printed to stdout (e.g. the console).

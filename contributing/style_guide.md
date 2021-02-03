@@ -1,6 +1,6 @@
-# Deno Style Guide
+# Deno Style Guide {#deno-style-guide}
 
-## Copyright Headers
+## Copyright Headers {#copyright-headers}
 
 Most modules in the repository should have the following copyright header:
 
@@ -11,16 +11,16 @@ Most modules in the repository should have the following copyright header:
 If the code originates elsewhere, ensure that the file has the proper copyright
 headers. We only allow MIT, BSD, and Apache licensed code.
 
-## Use underscores, not dashes in filenames.
+## Use underscores, not dashes in filenames. {#use-underscores-not-dashes-in-filenames}
 
 Example: Use `file_server.ts` instead of `file-server.ts`.
 
-## Add tests for new features.
+## Add tests for new features. {#add-tests-for-new-features}
 
 Each module should contain or be accompanied by tests for its public
 functionality.
 
-## TODO Comments
+## TODO Comments {#todo-comments}
 
 TODO comments should usually include an issue or the author's github username in
 parentheses. Example:
@@ -31,36 +31,36 @@ parentheses. Example:
 // FIXME(#349): Sometimes panics.
 ```
 
-## Meta-programming is discouraged. Including the use of Proxy.
+## Meta-programming is discouraged. Including the use of Proxy. {#meta-programming-is-discouraged-including-the-use-of-proxy}
 
 Be explicit even when it means more code.
 
 There are some situations where it may make sense to use such techniques, but in
 the vast majority of cases it does not.
 
-## Inclusive code
+## Inclusive code {#inclusive-code}
 
 Please follow the guidelines for inclusive code outlined at
 https://chromium.googlesource.com/chromium/src/+/master/styleguide/inclusive_code.md.
 
-## Rust
+## Rust {#rust}
 
 Follow Rust conventions and be consistent with existing code.
 
-## TypeScript
+## TypeScript {#typescript}
 
 The TypeScript portions of the codebase include `cli/js` for the built-ins and
 the standard library `std`.
 
-### Use TypeScript instead of JavaScript.
+### Use TypeScript instead of JavaScript. {#use-typescript-instead-of-javascript}
 
-### Use the term "module" instead of "library" or "package".
+### Use the term "module" instead of "library" or "package". {#use-the-term-module-instead-of-library-or-package}
 
 For clarity and consistency avoid the terms "library" and "package". Instead use
 "module" to refer to a single JS or TS file and also to refer to a directory of
 TS/JS code.
 
-### Do not use the filename `index.ts`/`index.js`.
+### Do not use the filename `index.ts`/`index.js`. {#do-not-use-the-filename-indextsindexjs}
 
 Deno does not treat "index.js" or "index.ts" in a special way. By using these
 filenames, it suggests that they can be left out of the module specifier when
@@ -70,7 +70,7 @@ If a directory of code needs a default entry point, use the filename `mod.ts`.
 The filename `mod.ts` follows Rust’s convention, is shorter than `index.ts`, and
 doesn’t come with any preconceived notions about how it might work.
 
-### Exported functions: max 2 args, put the rest into an options object.
+### Exported functions: max 2 args, put the rest into an options object. {#exported-functions-max-2-args-put-the-rest-into-an-options-object}
 
 When designing function interfaces, stick to the following rules.
 
@@ -174,7 +174,7 @@ export interface PWrite {
 export function pwrite(options: PWrite) {}
 ```
 
-### Export all interfaces that are used as parameters to an exported member
+### Export all interfaces that are used as parameters to an exported member {#export-all-interfaces-that-are-used-as-parameters-to-an-exported-member}
 
 Whenever you are using interfaces that are included in the arguments of an
 exported member, you should export the interface that is used. Here is an
@@ -196,19 +196,19 @@ export { createPerson } from "./my_file.ts";
 export type { Person } from "./my_file.ts";
 ```
 
-### Minimize dependencies; do not make circular imports.
+### Minimize dependencies; do not make circular imports. {#minimize-dependencies-do-not-make-circular-imports}
 
 Although `cli/js` and `std` have no external dependencies, we must still be
 careful to keep internal dependencies simple and manageable. In particular, be
 careful not to introduce circular imports.
 
-### If a filename starts with an underscore: `_foo.ts`, do not link to it.
+### If a filename starts with an underscore: `_foo.ts`, do not link to it. {#if-a-filename-starts-with-an-underscore-_foots-do-not-link-to-it}
 
 Sometimes there may be situations where an internal module is necessary but its
 API is not meant to be stable or linked to. In this case prefix it with an
 underscore. By convention, only files in its own directory should import it.
 
-### Use JSDoc for exported symbols.
+### Use JSDoc for exported symbols. {#use-jsdoc-for-exported-symbols}
 
 We strive for complete documentation. Every exported symbol ideally should have
 a documentation line.
@@ -279,7 +279,7 @@ the first column of the comment. For example:
 Code examples should not contain additional comments. It is already inside a
 comment. If it needs further comments it is not a good example.
 
-### Resolve linting problems using directives
+### Resolve linting problems using directives {#resolve-linting-problems-using-directives}
 
 Currently, the building process uses `dlint` to validate linting problems in the
 code. If the task requires code that is non-conformant to linter use
@@ -293,14 +293,14 @@ let x: any;
 This ensures the continuous integration process doesn't fail due to linting
 problems, but it should be used scarcely.
 
-### Each module should come with a test module.
+### Each module should come with a test module. {#each-module-should-come-with-a-test-module}
 
 Every module with public functionality `foo.ts` should come with a test module
 `foo_test.ts`. A test for a `cli/js` module should go in `cli/js/tests` due to
 their different contexts, otherwise it should just be a sibling to the tested
 module.
 
-### Unit Tests should be explicit.
+### Unit Tests should be explicit. {#unit-tests-should-be-explicit}
 
 For a better understanding of the tests, function should be correctly named as
 its prompted throughout the test command. Like:
@@ -320,7 +320,7 @@ Deno.test("myTestFunction", function () {
 });
 ```
 
-### Top level functions should not use arrow syntax.
+### Top level functions should not use arrow syntax. {#top-level-functions-should-not-use-arrow-syntax}
 
 Top level functions should use the `function` keyword. Arrow syntax should be
 limited to closures.
@@ -341,15 +341,15 @@ export function foo(): string {
 }
 ```
 
-### `std`
+### `std` {#std}
 
-#### Do not depend on external code.
+#### Do not depend on external code. {#do-not-depend-on-external-code}
 
 `https://deno.land/std/` is intended to be baseline functionality that all Deno
 programs can rely on. We want to guarantee to users that this code does not
 include potentially unreviewed third party code.
 
-#### Document and maintain browser compatibility.
+#### Document and maintain browser compatibility. {#document-and-maintain-browser-compatibility}
 
 If a module is browser compatible, include the following in the JSDoc at the top
 of the module:

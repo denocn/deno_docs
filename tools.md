@@ -1,4 +1,4 @@
-# Built-in tooling
+# Built-in tooling {#built-in-tooling}
 
 Deno provides some built in tooling that is useful when working with JavaScript
 and TypeScript:

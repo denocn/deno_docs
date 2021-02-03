@@ -1,10 +1,10 @@
-## Location API
+## Location API {#location-api}
 
 Deno supports the
 [`location`](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)
 global from the web. Please read on.
 
-### Location flag
+### Location flag {#location-flag}
 
 There is no "web page" whose URL we can use for a location in a Deno process. We
 instead allow users to emulate a document location by specifying one on the CLI
@@ -37,13 +37,13 @@ location.pathname = "./foo";
 // error: Uncaught NotSupportedError: Cannot set "location.pathname".
 ```
 
-### Extended usage
+### Extended usage {#extended-usage}
 
 On the web, resource resolution (excluding modules) typically uses the value of
 `location.href` as the root on which to base any relative URLs. This affects
 some web APIs adopted by Deno.
 
-#### Fetch API
+#### Fetch API {#fetch-api}
 
 ```ts
 // deno run --location https://api.github.com/ --allow-net main.ts
@@ -55,7 +55,7 @@ const response = await fetch("./orgs/denoland");
 The `fetch()` call above would throw if the `--location` flag was not passed,
 since there is no web-analogous location to base it onto.
 
-#### Worker modules
+#### Worker modules {#worker-modules}
 
 ```ts
 // deno run --location https://example.com/index.html --allow-net main.ts
@@ -64,7 +64,7 @@ const worker = new Worker("./workers/hello.ts", { type: "module" });
 // Fetches worker module at "https://example.com/workers/hello.ts".
 ```
 
-### Only use if necessary
+### Only use if necessary {#only-use-if-necessary}
 
 For the above use cases, it is preferable to pass URLs in full rather than
 relying on `--location`. You can manually base a relative URL using the `URL`

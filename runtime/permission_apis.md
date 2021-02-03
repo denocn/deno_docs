@@ -1,4 +1,4 @@
-## Permission APIs
+## Permission APIs {#permission-apis}
 
 > This API is unstable. Learn more about
 > [unstable features](../runtime/stability.md).
@@ -10,7 +10,7 @@ during execution that the set of _granted_ permissions will align with this.
 In some cases, ensuring a fault-tolerant program requires a way to interact with
 the permission system at runtime.
 
-### Permission descriptors
+### Permission descriptors {#permission-descriptors}
 
 On the CLI, read permission for `/foo/bar` is represented as
 `--allow-read=/foo/bar`. In runtime JS, it is represented as the following:
@@ -38,7 +38,7 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
-### Query permissions
+### Query permissions {#query-permissions}
 
 Check, by descriptor, if a permission is granted or not.
 
@@ -58,7 +58,7 @@ console.log(await Deno.permissions.query(desc3));
 // PermissionStatus { state: "prompt" }
 ```
 
-### Permission states
+### Permission states {#permission-states}
 
 A permission state can be either "granted", "prompt" or "denied". Permissions
 which have been granted from the CLI will query to `{ state: "granted" }`. Those
@@ -66,7 +66,7 @@ which have not been granted query to `{ state: "prompt" }` by default, while
 `{ state: "denied" }` reserved for those which have been explicitly refused.
 This will come up in [Request permissions](#request-permissions).
 
-### Permission strength
+### Permission strength {#permission-strength}
 
 The intuitive understanding behind the result of the second query in
 [Query permissions](#query-permissions) is that read access was granted to
@@ -91,7 +91,7 @@ const desc3 = { name: "net", host: "127.0.0.1" } as const;
 const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 ```
 
-### Request permissions
+### Request permissions {#request-permissions}
 
 Request an ungranted permission from the user via CLI prompt.
 
@@ -122,7 +122,7 @@ request will behave like a query and just return the current status. This
 prevents prompts both for already granted permissions and previously denied
 requests.
 
-### Revoke permissions
+### Revoke permissions {#revoke-permissions}
 
 Downgrade a permission from "granted" to "prompt".
 

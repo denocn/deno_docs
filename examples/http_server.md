@@ -1,16 +1,16 @@
-# Simple HTTP web server
+# Simple HTTP web server {#simple-http-web-server}
 
-## Concepts
+## Concepts {#concepts}
 
 - Use the std library [http module](https://deno.land/std@$STD_VERSION/http) to
   run your own web server.
 
-## Overview
+## Overview {#overview}
 
 With just a few lines of code you can run your own http web server with control
 over the response status, request headers and more.
 
-## Sample web server
+## Sample web server {#sample-web-server}
 
 In this example, the user-agent of the client is returned to the client:
 

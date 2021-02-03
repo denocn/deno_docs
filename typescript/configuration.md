@@ -1,4 +1,4 @@
-## Configuring TypeScript in Deno
+## Configuring TypeScript in Deno {#configuring-typescript-in-deno}
 
 TypeScript comes with a load of different options that can be configured, but
 Deno strives to make it easy to use TypeScript with Deno. Lots of different
@@ -21,7 +21,7 @@ provide a path on the command line. For example:
 > other TypeScript modules incompatible. Honestly it is best to use the Deno
 > defaults and to think long and hard about using a configuration file.
 
-### How Deno uses a configuration file
+### How Deno uses a configuration file {#how-deno-uses-a-configuration-file}
 
 Deno does not process a TypeScript configuration file like `tsc` does, as there
 are lots of parts of a TypeScript configuration file that are meaningless in a
@@ -67,7 +67,7 @@ For a full list of compiler options and how they affect TypeScript, please refer
 to the
 [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 
-### What an implied tsconfig.json looks like
+### What an implied tsconfig.json looks like {#what-an-implied-tsconfigjson-looks-like}
 
 It is impossible to get `tsc` to behave like Deno. It is also difficult to get
 the TypeScript language service to behave like Deno. This is why we have built a
@@ -106,6 +106,6 @@ If you use the `--unstable` flag, Deno will change the `"lib"` option to
 `[ "deno.window", "deno.unstable" ]`. If you are trying to load a worker, that
 is type checked with `"deno.worker"` instead of `"deno.window"`.
 
-### Using the "lib" property
+### Using the "lib" property {#using-the-lib-property}
 
 [TBC]

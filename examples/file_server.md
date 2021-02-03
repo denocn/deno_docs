@@ -1,6 +1,6 @@
-# File server
+# File server {#file-server}
 
-## Concepts
+## Concepts {#concepts}
 
 - Use the Deno standard library
   [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts) to
@@ -8,7 +8,7 @@
 - Run [Deno install](../tools/script_installer.md) to install the file server
   locally.
 
-## Example
+## Example {#example}
 
 Serve a local directory via HTTP. First install the remote script to your local
 file system. This will install the script to the Deno installation root's bin
@@ -30,7 +30,7 @@ HTTP server listening on http://0.0.0.0:4507/
 Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to
 see your local directory contents.
 
-## Help
+## Help {#help}
 
 Help and a complete list of options are available via:
 

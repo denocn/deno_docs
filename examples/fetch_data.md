@@ -1,6 +1,6 @@
-# Fetch data
+# Fetch data {#fetch-data}
 
-## Concepts
+## Concepts {#concepts}
 
 - Like browsers, Deno implements web standard APIs such as
   [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
@@ -8,7 +8,7 @@
   access the network.
 - See also: Deno's [permissions](../getting_started/permissions.md) model.
 
-## Overview
+## Overview {#overview}
 
 When building any sort of web application developers will usually need to
 retrieve data from somewhere else on the web. This works no differently in Deno
@@ -22,7 +22,7 @@ prohibited. To make a call over the web Deno must be explicitly told it is ok to
 do so. This is achieved by adding the `--allow-net` flag to the `deno run`
 command.
 
-## Example
+## Example {#example}
 
 **Command:** `deno run --allow-net fetch.ts`
 

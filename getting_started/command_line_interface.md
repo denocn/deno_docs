@@ -1,4 +1,4 @@
-## Command line interface
+## Command line interface {#command-line-interface}
 
 Deno is a command line program. You should be familiar with some simple commands
 having followed the examples thus far and already understand the basics of shell
@@ -29,7 +29,7 @@ deno bundle --help
 
 Detailed guides to each subcommand can be found [here](../tools.md).
 
-### Script source
+### Script source {#script-source}
 
 Deno can grab the scripts from multiple sources, a filename, a url, and '-' to
 read the file from stdin. The last is useful for integration with other
@@ -41,7 +41,7 @@ deno run https://mydomain.com/main.ts
 cat main.ts | deno run -
 ```
 
-### Script arguments
+### Script arguments {#script-arguments}
 
 Separately from the Deno runtime flags, you can pass user-space arguments to the
 script you are running by specifying them after the script name:
@@ -87,7 +87,7 @@ However:
 There exist logical groups of flags that are shared between related subcommands.
 We discuss these below.
 
-### Watch mode
+### Watch mode {#watch-mode}
 
 You can supply the `--watch` flag to `deno run` to enable the built in file
 watcher. When Deno starts up with this flag it watches the entrypoint, and all
@@ -101,7 +101,7 @@ changed on disk, the program will automatically be restarted.
 deno run --watch --unstable main.ts
 ```
 
-### Integrity flags
+### Integrity flags {#integrity-flags}
 
 Affect commands which can download resources to the cache: `deno cache`,
 `deno run` and `deno test`.
@@ -114,7 +114,7 @@ Affect commands which can download resources to the cache: `deno cache`,
 Find out more about these
 [here](../linking_to_external_code/integrity_checking.md).
 
-### Cache and compilation flags
+### Cache and compilation flags {#cache-and-compilation-flags}
 
 Affect commands which can populate the cache: `deno cache`, `deno run` and
 `deno test`. As well as the flags above this includes those which affect module
@@ -128,16 +128,16 @@ resolution, compilation configuration etc.
 --unstable                    Enable unstable APIs
 ```
 
-### Runtime flags
+### Runtime flags {#runtime-flags}
 
 Affect commands which execute user code: `deno run` and `deno test`. These
 include all of the above as well as the following.
 
-#### Permission flags
+#### Permission flags {#permission-flags}
 
 These are listed [here](./permissions.md#permissions-list).
 
-#### Other runtime flags
+#### Other runtime flags {#other-runtime-flags}
 
 More flags which affect the execution environment.
 

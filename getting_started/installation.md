@@ -1,9 +1,9 @@
-## Installation
+## Installation {#installation}
 
 Deno works on macOS, Linux, and Windows. Deno is a single binary executable. It
 has no external dependencies.
 
-### Download and install
+### Download and install {#download-and-install}
 
 [deno_install](https://github.com/denoland/deno_install) provides convenience
 scripts to download and install the binary.
@@ -49,7 +49,7 @@ Deno binaries can also be installed manually, by downloading a zip file at
 These packages contain just a single executable file. You will have to set the
 executable bit on macOS and Linux.
 
-### Testing your installation
+### Testing your installation {#testing-your-installation}
 
 To test your installation, run `deno --version`. If this prints the Deno version
 to the console the installation was successful.
@@ -57,7 +57,7 @@ to the console the installation was successful.
 Use `deno help` to see help text documenting Deno's flags and usage. Get a
 detailed guide on the CLI [here](./command_line_interface.md).
 
-### Updating
+### Updating {#updating}
 
 To update a previously installed version of Deno, you can run:
 
@@ -75,7 +75,7 @@ You can also use this utility to install a specific version of Deno:
 deno upgrade --version 1.0.1
 ```
 
-### Building from source
+### Building from source {#building-from-source}
 
 Information about how to build from source can be found in the `Contributing`
 chapter.

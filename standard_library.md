@@ -1,11 +1,11 @@
-# Standard library
+# Standard library {#standard-library}
 
 Deno provides a set of standard modules that are audited by the core team and
 are guaranteed to work with Deno.
 
 Standard library is available at: https://deno.land/std/
 
-## Versioning and stability
+## Versioning and stability {#versioning-and-stability}
 
 Standard library is not yet stable and therefore it is versioned differently
 than Deno. For latest release consult https://deno.land/std/ or
@@ -30,7 +30,7 @@ change:
 import { copy } from "https://deno.land/std@$STD_VERSION/fs/copy.ts";
 ```
 
-## Troubleshooting
+## Troubleshooting {#troubleshooting}
 
 Some of the modules provided in standard library use unstable Deno APIs.
 

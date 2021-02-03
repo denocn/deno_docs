@@ -1,6 +1,6 @@
-## Testing and Tools
+## Testing and Tools {#testing-and-tools}
 
-### Tests
+### Tests {#tests}
 
 Test `deno`:
 
@@ -18,7 +18,7 @@ Test `std/`:
 cargo test std_tests
 ```
 
-### Lint and format
+### Lint and format {#lint-and-format}
 
 Lint the code:
 
@@ -32,7 +32,7 @@ Format the code:
 deno run -A --unstable ./tools/format.js
 ```
 
-### Profiling
+### Profiling {#profiling}
 
 To start profiling:
 
@@ -84,7 +84,7 @@ To learn more about `d8` and profiling, check out the following links:
 - [https://v8.dev/docs/d8](https://v8.dev/docs/d8)
 - [https://v8.dev/docs/profile](https://v8.dev/docs/profile)
 
-### Debugging with LLDB
+### Debugging with LLDB {#debugging-with-lldb}
 
 To debug the deno binary, we can use `rust-lldb`. It should come with `rustc`
 and is a wrapper around LLDB.
@@ -105,7 +105,7 @@ Current executable set to '../deno/target/debug/deno' (x86_64).
 (lldb) r
 ```
 
-### V8 flags
+### V8 flags {#v8-flags}
 
 V8 has many many internal command-line flags:
 
@@ -1094,7 +1094,7 @@ Particularly useful ones:
 --async-stack-trace
 ```
 
-### Continuous Benchmarks
+### Continuous Benchmarks {#continuous-benchmarks}
 
 See our benchmarks [over here](https://deno.land/benchmarks)
 

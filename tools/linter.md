@@ -1,4 +1,4 @@
-## Linter
+## Linter {#linter}
 
 Deno ships with a built in code linter for JavaScript and TypeScript.
 
@@ -18,7 +18,7 @@ cat file.ts | deno lint --unstable -
 
 For more detail, run `deno lint --help`.
 
-### Available rules
+### Available rules {#available-rules}
 
 - `adjacent-overload-signatures`
 - `ban-ts-comment`
@@ -91,9 +91,9 @@ For more detail, run `deno lint --help`.
 For more detail about each rule, visit
 [the deno_lint rule documentation](https://lint.deno.land).
 
-### Ignore directives
+### Ignore directives {#ignore-directives}
 
-#### Files
+#### Files {#files}
 
 To ignore whole file `// deno-lint-ignore-file` directive should placed at the
 top of the file:
@@ -134,7 +134,7 @@ function foo(): any {
 }
 ```
 
-#### Diagnostics
+#### Diagnostics {#diagnostics}
 
 To ignore certain diagnostic `// deno-lint-ignore <codes...>` directive should
 be placed before offending line. Specifying ignored rule name is required:

@@ -1,4 +1,4 @@
-# Linking to third party code
+# Linking to third party code {#linking-to-third-party-code}
 
 In the [Getting Started](./getting_started.md) section, we saw Deno could
 execute scripts from URLs. Like browser JavaScript, Deno can import libraries
@@ -41,14 +41,14 @@ directory is:
 - On macOS: `$HOME/Library/Caches/deno`
 - If something fails, it falls back to `$HOME/.deno`
 
-## FAQ
+## FAQ {#faq}
 
-### How do I import a specific version of a module?
+### How do I import a specific version of a module? {#how-do-i-import-a-specific-version-of-a-module}
 
 Specify the version in the URL. For example, this URL fully specifies the code
 being run: `https://unpkg.com/liltest@0.0.5/dist/liltest.js`.
 
-### It seems unwieldy to import URLs everywhere.
+### It seems unwieldy to import URLs everywhere. {#it-seems-unwieldy-to-import-urls-everywhere}
 
 > What if one of the URLs links to a subtly different version of a library?
 
@@ -81,14 +81,14 @@ import { assertEquals, runTests, test } from "./deps.ts";
 This design circumvents a plethora of complexity spawned by package management
 software, centralized code repositories, and superfluous file formats.
 
-### How can I trust a URL that may change?
+### How can I trust a URL that may change? {#how-can-i-trust-a-url-that-may-change}
 
 By using a lock file (with the `--lock` command line flag), you can ensure that
 the code pulled from a URL is the same as it was during initial development. You
 can learn more about this
 [here](./linking_to_external_code/integrity_checking.md).
 
-### But what if the host of the URL goes down? The source won't be available.
+### But what if the host of the URL goes down? The source won't be available. {#but-what-if-the-host-of-the-url-goes-down-the-source-wont-be-available}
 
 This, like the above, is a problem faced by _any_ remote dependency system.
 Relying on external servers is convenient for development but brittle in

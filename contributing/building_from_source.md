@@ -1,10 +1,10 @@
-## Building from source
+## Building from source {#building-from-source}
 
 Below are instructions on how to build Deno from source. If you just want to use
 Deno you can download a prebuilt executable (more information in the
 `Getting Started` chapter).
 
-### Cloning the Repository
+### Cloning the Repository {#cloning-the-repository}
 
 Clone on Linux or Mac:
 
@@ -23,7 +23,7 @@ Extra steps for Windows users:
    git clone --recurse-submodules https://github.com/denoland/deno.git
    ```
 
-### Prerequisites
+### Prerequisites {#prerequisites}
 
 > Deno requires the progressively latest stable release of Rust. Deno does not
 > support the Rust nightlies.
@@ -36,14 +36,14 @@ rustc -V
 cargo -V
 ```
 
-### Setup rust targets and components
+### Setup rust targets and components {#setup-rust-targets-and-components}
 
 ```shell
 rustup target add wasm32-unknown-unknown
 rustup target add wasm32-wasi
 ```
 
-### Building Deno
+### Building Deno {#building-deno}
 
 The easiest way to build Deno is by using a precompiled version of V8:
 
@@ -95,7 +95,7 @@ For Windows users:
 See [rusty_v8's README](https://github.com/denoland/rusty_v8) for more details
 about the V8 build.
 
-### Building
+### Building {#building}
 
 Build with Cargo:
 

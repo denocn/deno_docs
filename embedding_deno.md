@@ -1,4 +1,4 @@
-# Embedding Deno
+# Embedding Deno {#embedding-deno}
 
 Deno consists of multiple parts, one of which is `deno_core`. This is a rust
 crate that can be used to embed a JavaScript runtime into your rust application.

@@ -1,9 +1,9 @@
-# Read-eval-print-loop
+# Read-eval-print-loop {#read-eval-print-loop}
 
 `deno repl` starts an read-eval-print-loop, which lets you interactively build
 up program state in the global context.
 
-## Keyboard shortcuts
+## Keyboard shortcuts {#keyboard-shortcuts}
 
 | Keystroke             | Action                                                                                           |
 | --------------------- | ------------------------------------------------------------------------------------------------ |
@@ -44,7 +44,7 @@ up program state in the global context.
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
 
-## Special variables
+## Special variables {#special-variables}
 
 | Identifier | Description                          |
 | ---------- | ------------------------------------ |

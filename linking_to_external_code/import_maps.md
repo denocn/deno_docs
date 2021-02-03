@@ -1,4 +1,4 @@
-## Import maps
+## Import maps {#import-maps}
 
 > This is an unstable feature. Learn more about
 > [unstable features](../runtime/stability.md).

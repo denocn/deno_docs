@@ -1,6 +1,6 @@
-# Import and export modules
+# Import and export modules {#import-and-export-modules}
 
-## Concepts
+## Concepts {#concepts}
 
 - [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
   allows you to include and use modules held elsewhere, on your local file
@@ -10,7 +10,7 @@
   allows you to specify which parts of your module are accessible to users who
   import your module.
 
-## Overview
+## Overview {#overview}
 
 Deno by default standardizes the way modules are imported in both JavaScript and
 TypeScript using the ECMAScript 6 `import/export` standard.
@@ -28,7 +28,7 @@ overhead. Local modules are imported in exactly the same way as remote modules.
 As the examples show below, the same functionality can be produced in the same
 way with local or remote modules.
 
-## Local Import
+## Local Import {#local-import}
 
 In this example the `add` and `multiply` functions are imported from a local
 `arithmetic.ts` module.
@@ -56,7 +56,7 @@ console.log(totalCost(45, 27, 1.15));
  */
 ```
 
-## Remote Import
+## Remote Import {#remote-import}
 
 In the local import example above an `add` and `multiply` method are imported
 from a locally stored arithmetic module. The same functionality can be created
@@ -92,7 +92,7 @@ console.log(totalCost(45, 27, 1.15));
  */
 ```
 
-## Export
+## Export {#export}
 
 In the local import example above the `add` and `multiply` functions are
 imported from a locally stored arithmetic module. To make this possible the

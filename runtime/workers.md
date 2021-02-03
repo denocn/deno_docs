@@ -1,4 +1,4 @@
-## Workers
+## Workers {#workers}
 
 Deno supports
 [`Web Worker API`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker).
@@ -25,7 +25,7 @@ new Worker(new URL("./worker.js", import.meta.url).href, { type: "classic" });
 new Worker("./worker.js", { type: "module" });
 ```
 
-### Instantiation permissions
+### Instantiation permissions {#instantiation-permissions}
 
 Creating a new `Worker` instance is similar to a dynamic import; therefore Deno
 requires appropriate permission for this action.
@@ -76,7 +76,7 @@ $ deno run --allow-net main.ts
 hello world
 ```
 
-### Using Deno in worker
+### Using Deno in worker {#using-deno-in-worker}
 
 > This is an unstable Deno feature. Learn more about
 > [unstable features](./stability.md).
@@ -120,7 +120,7 @@ $ deno run --allow-read --unstable main.js
 hello world
 ```
 
-### Specifying worker permissions
+### Specifying worker permissions {#specifying-worker-permissions}
 
 > This is an unstable Deno feature. Learn more about
 > [unstable features](./stability.md).

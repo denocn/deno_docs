@@ -1,4 +1,4 @@
-## Types and Type Declarations
+## Types and Type Declarations {#types-and-type-declarations}
 
 One of the design principles of Deno is no _magical_ resolution. When TypeScript
 is type checking a file, it only cares about the types for the file, and the
@@ -29,7 +29,7 @@ module, everyone can consume it without having to figure out how to resolve the
 types for the JavaScript module, but when consuming modules that you may not
 have direct control over, the ability to do the former is also required.
 
-### Providing types when importing
+### Providing types when importing {#providing-types-when-importing}
 
 If you are consuming a JavaScript module and you have either created types (a
 `.d.ts` file) or have otherwise obtained the types, you want to use, you can
@@ -53,13 +53,13 @@ The pattern matching for the compiler hint is somewhat forgiving and will accept
 quoted and non-question values for the specifier as well as it accepts
 whitespace before and after the equals sign.
 
-### Providing types when hosting
+### Providing types when hosting {#providing-types-when-hosting}
 
 If you are in control of the source code of the module, or you are in control of
 how the file is hosted on a web server, there are two ways to inform Deno of the
 types for a given module, without requiring the importer to do anything special.
 
-#### Using the triple-slash reference directive
+#### Using the triple-slash reference directive {#using-the-triple-slash-reference-directive}
 
 Deno supports using the triple-slash reference directive, which adopts the
 reference comment used by TypeScript in TypeScript files to _include_ other
@@ -79,7 +79,7 @@ When Deno encounters this directive, it would resolve the `./coolLib.d.ts` file
 and use that instead of the JavaScript file when TypeScript was type checking
 the file, but still load the JavaScript file when running the program.
 
-#### Using X-TypeScript-Types header
+#### Using X-TypeScript-Types header {#using-x-typescript-types-header}
 
 Similar to the triple-slash directive, Deno supports a header for remote modules
 that instructs Deno where to locate the types for a given module. For example, a
@@ -96,9 +96,9 @@ When seeing this header, Deno would attempt to retrieve
 `https://example.com/coolLib.d.ts` and use that when type checking the original
 module.
 
-### Important points
+### Important points {#important-points}
 
-#### Type declaration semantics
+#### Type declaration semantics {#type-declaration-semantics}
 
 Type declaration files (`.d.ts` files) follow the same semantics as other files
 in Deno. This means that declaration files are assumed to be module declarations
@@ -114,7 +114,7 @@ To overcome this problem, some solution providers, like the
 [Skypack CDN](https://www.skypack.dev/), will automatically bundle type
 declarations just like they provide bundles of JavaScript as ESM.
 
-#### Deno Friendly CDNs
+#### Deno Friendly CDNs {#deno-friendly-cdns}
 
 There are CDNs which host JavaScript modules that integrate well with Deno.
 
@@ -127,7 +127,7 @@ There are CDNs which host JavaScript modules that integrate well with Deno.
   import React from "https://cdn.skypack.dev/react?dts";
   ```
 
-### Behavior of JavaScript when type checking
+### Behavior of JavaScript when type checking {#behavior-of-javascript-when-type-checking}
 
 If you import JavaScript into TypeScript in Deno and there are no types, even if
 you have `checkJs` set to `false` (the default for Deno), the TypeScript
@@ -141,7 +141,7 @@ TypeScript's analysis of the module can fail and cause misleading errors. The
 best thing to do in this situation is provide some form of types using one of
 the methods mention above.
 
-#### Internals
+#### Internals {#internals}
 
 While it isn't required to understand how Deno works internally to be able to
 leverage TypeScript with Deno well, it can help to understand how it works.

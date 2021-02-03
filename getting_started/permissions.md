@@ -1,4 +1,4 @@
-## Permissions
+## Permissions {#permissions}
 
 Deno is secure by default. Therefore, unless you specifically enable it, a deno
 module has no file, network, or environment access for example. Access to
@@ -13,7 +13,7 @@ functions.
 deno run --allow-read mod.ts
 ```
 
-### Permissions list
+### Permissions list {#permissions-list}
 
 The following permissions are available:
 
@@ -37,7 +37,7 @@ The following permissions are available:
   specify an optional, comma-separated list of directories or files to provide a
   allow-list of allowed file system access.
 
-### Permissions allow-list
+### Permissions allow-list {#permissions-allow-list}
 
 Deno also allows you to control the granularity of some permissions with
 allow-lists.
@@ -62,7 +62,7 @@ deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /e
 
 `--allow-write` works the same as `--allow-read`.
 
-### Network access:
+### Network access: {#network-access}
 
 _fetch.ts_:
 
@@ -85,7 +85,7 @@ Allow net calls to any host/url:
 deno run --allow-net fetch.ts
 ```
 
-### Conference
+### Conference {#conference}
 
 Ryan Dahl. (September 25, 2020).
 [The Deno security model](https://www.youtube.com/watch?v=r5F6dekUmdE#t=34m57).

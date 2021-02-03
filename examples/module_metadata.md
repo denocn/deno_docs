@@ -1,6 +1,6 @@
-# Module metadata
+# Module metadata {#module-metadata}
 
-## Concepts
+## Concepts {#concepts}
 
 - [import.meta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta)
   can provide information on the context of the module.
@@ -14,7 +14,7 @@
   give you the URL of the main module entry point, i.e. the module invoked by
   the deno runtime.
 
-## Example
+## Example {#example}
 
 The example below uses two modules to show the difference between
 `import.meta.url`, `import.meta.main` and `Deno.mainModule`. In this example,
