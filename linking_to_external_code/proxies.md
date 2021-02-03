@@ -1,4 +1,4 @@
-## Proxies
+## Proxies {#proxies}
 
 Deno supports proxies for module downloads and the Web standard `fetch` API.
 

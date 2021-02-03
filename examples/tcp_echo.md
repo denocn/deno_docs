@@ -1,13 +1,13 @@
-# TCP echo server
+# TCP echo server {#tcp-echo-server}
 
-## Concepts
+## Concepts {#concepts}
 
 - Listening for TCP port connections with
   [Deno.listen](https://doc.deno.land/builtin/stable#Deno.listen).
 - Use [Deno.copy](https://doc.deno.land/builtin/stable#Deno.copy) to take
   inbound data and redirect it to be outbound data.
 
-## Example
+## Example {#example}
 
 This is an example of a server which accepts connections on port 8080, and
 returns to the client anything it sends.

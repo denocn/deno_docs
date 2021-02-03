@@ -1,4 +1,4 @@
-# Web Platform APIs
+# Web Platform APIs {#web-platform-apis}
 
 Deno aims to use web platform APIs (like `fetch`) instead of inventing a new
 proprietary API where it makes sense. These APIs generally follow the
@@ -8,9 +8,9 @@ different security model Deno has.
 
 Here is a list of web platform APIs Deno implements:
 
-## `fetch` API
+## `fetch` API {#fetch-api}
 
-### Overview
+### Overview {#overview}
 
 The `fetch` API can be used to make HTTP requests. It is implemented as
 specified in the [WHATWG `fetch` spec](https://fetch.spec.whatwg.org/).
@@ -18,7 +18,7 @@ specified in the [WHATWG `fetch` spec](https://fetch.spec.whatwg.org/).
 You can find documentation about this API on
 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-### Spec deviations
+### Spec deviations {#spec-deviations}
 
 - The Deno user agent does not have a cookie jar. As such, the `set-cookie`
   header on a response is not processed, or filtered from the visible response
@@ -37,9 +37,9 @@ You can find documentation about this API on
 - A `fetch` with a `redirect` mode of `manual` will return a `basic` response
   rather than an `opaqueredirect` response.
 
-## `CustomEvent`, `EventTarget` and `EventListener`
+## `CustomEvent`, `EventTarget` and `EventListener` {#customevent-eventtarget-and-eventlistener}
 
-### Overview
+### Overview {#overview}
 
 The DOM Event API can be used to dispatch and listen to events happening in an
 application. It is implemented as specified in the
@@ -48,14 +48,14 @@ application. It is implemented as specified in the
 You can find documentation about this API on
 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget).
 
-### Spec deviations
+### Spec deviations {#spec-deviations}
 
 - Events do not bubble, because Deno does not have a DOM hierarchy, so there is
   no tree for Events to bubble/capture through.
 
-## Web Worker API
+## Web Worker API {#web-worker-api}
 
-### Overview
+### Overview {#overview}
 
 The WebWorker API can be used to executing code in a separate thread. It is
 implemented as specified in the
@@ -64,13 +64,13 @@ implemented as specified in the
 You can find documentation about this API on
 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Worker).
 
-### Spec deviations
+### Spec deviations {#spec-deviations}
 
 - Currently creating workers from blob URLs is not supported.
 - Currently posted data is serialized to JSON instead of structured cloning.
 - Currently object ownership cannot be transferred between workers.
 
-## Other APIs
+## Other APIs {#other-apis}
 
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 - [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
@@ -84,7 +84,7 @@ You can find documentation about this API on
 
 ---
 
-## Typings
+## Typings {#typings}
 
 The TypeScript definitions for the implemented web APIs can be found in the
 [`lib.deno.shared_globals.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.shared_globals.d.ts)

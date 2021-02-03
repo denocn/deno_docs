@@ -1,4 +1,4 @@
-## WebAssembly support
+## WebAssembly support {#webassembly-support}
 
 Deno can execute [WebAssembly](https://webassembly.org/) modules with the same
 interfaces that

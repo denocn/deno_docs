@@ -1,6 +1,6 @@
-# Read and write files
+# Read and write files {#read-and-write-files}
 
-## Concepts
+## Concepts {#concepts}
 
 - Deno's runtime API provides the
   [Deno.readTextFile](https://doc.deno.land/builtin/stable#Deno.readTextFile)
@@ -14,7 +14,7 @@
 - Use `--allow-read` and `--allow-write` permissions to gain access to the file
   system.
 
-## Overview
+## Overview {#overview}
 
 Interacting with the filesystem to read and write files is a common requirement.
 Deno provides a number of ways to do this via the
@@ -26,7 +26,7 @@ to Input / Output by default for security reasons. Therefore when interacting
 with the filesystem the `--allow-read` and `--allow-write` flags must be used
 with the `deno run` command.
 
-## Reading a text file
+## Reading a text file {#reading-a-text-file}
 
 The Deno runtime API makes it possible to read text files via the
 `Deno.readTextFile()` method, it just requires a path string or URL object. The
@@ -53,7 +53,7 @@ text.then((response) => console.log(response));
  */
 ```
 
-## Writing a text file
+## Writing a text file {#writing-a-text-file}
 
 The Deno runtime API allows developers to write text to files via the
 `Deno.writeTextFile()` method. It just requires a file path and text string. The

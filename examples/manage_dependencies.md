@@ -1,6 +1,6 @@
-# Managing dependencies
+# Managing dependencies {#managing-dependencies}
 
-## Concepts
+## Concepts {#concepts}
 
 - Deno uses URLs for dependency management.
 - One convention places all these dependent URLs into a local `deps.ts` file.
@@ -9,7 +9,7 @@
   `dev_deps.ts` file.
 - See also [Linking to external code](../linking_to_external_code.md)
 
-## Overview
+## Overview {#overview}
 
 In Deno there is no concept of a package manager as external modules are
 imported directly into local modules. This raises the question of how to manage
@@ -29,7 +29,7 @@ With all dependencies centralized in `deps.ts`, managing these becomes easier.
 Dev dependencies can also be managed in a separate `dev_deps.ts` file, allowing
 clean separation between dev only and production dependencies.
 
-## Example
+## Example {#example}
 
 ```ts
 /**

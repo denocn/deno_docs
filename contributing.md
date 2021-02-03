@@ -1,4 +1,4 @@
-# Contributing
+# Contributing {#contributing}
 
 - Read the [style guide](./contributing/style_guide.md).
 
@@ -16,12 +16,12 @@
   [Rust's code of conduct](https://www.rust-lang.org/policies/code-of-conduct)
   (CoC). Have a problem? Email ry@tinyclouds.org.
 
-## Development
+## Development {#development}
 
 Instructions on how to build from source can be found
 [here](./contributing/building_from_source.md).
 
-## Submitting a Pull Request
+## Submitting a Pull Request {#submitting-a-pull-request}
 
 Before submitting, please make sure the following is done:
 
@@ -45,7 +45,7 @@ Examples of bad PR title:
 5. Ensure `./tools/format.js` passes without changing files.
 6. Ensure `./tools/lint.js` passes.
 
-## Adding Ops (aka bindings)
+## Adding Ops (aka bindings) {#adding-ops-aka-bindings}
 
 We are very concerned about making mistakes when adding new APIs. When adding an
 Op to Deno, the counterpart interfaces on other platforms should be researched.
@@ -54,18 +54,18 @@ Please list how this functionality is done in Go, Node, Rust, and Python.
 As an example, see how `Deno.rename()` was proposed and added in
 [PR #671](https://github.com/denoland/deno/pull/671).
 
-## Releases
+## Releases {#releases}
 
 Summary of the changes from previous releases can be found
 [here](https://github.com/denoland/deno/releases).
 
-## Documenting APIs
+## Documenting APIs {#documenting-apis}
 
 It is important to document public APIs and we want to do that inline with the
 code. This helps ensure that code and documentation are tightly coupled
 together.
 
-### Utilize JSDoc
+### Utilize JSDoc {#utilize-jsdoc}
 
 All publicly exposed APIs and types, both via the `deno` module as well as the
 global/`window` namespace should have JSDoc documentation. This documentation is

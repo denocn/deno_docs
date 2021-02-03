@@ -1,9 +1,9 @@
-# Handle OS Signals
+# Handle OS Signals {#handle-os-signals}
 
 > This program makes use of an unstable Deno feature. Learn more about
 > [unstable features](../runtime/stability.md).
 
-## Concepts
+## Concepts {#concepts}
 
 - Use the `--unstable` flag to access new or unstable features in Deno.
 - [Deno.signal](https://doc.deno.land/builtin/unstable#Deno.signal) can be used
@@ -12,7 +12,7 @@
   [SignalStream](https://doc.deno.land/builtin/unstable#Deno.SignalStream) to
   stop watching the signal.
 
-## Async iterator example
+## Async iterator example {#async-iterator-example}
 
 You can use `Deno.signal()` function for handling OS signals:
 
@@ -33,7 +33,7 @@ Run with:
 deno run --unstable async-iterator-signal.ts
 ```
 
-## Promise based example
+## Promise based example {#promise-based-example}
 
 `Deno.signal()` also works as a promise:
 
@@ -53,7 +53,7 @@ Run with:
 deno run --unstable promise-signal.ts
 ```
 
-## Stop watching signals
+## Stop watching signals {#stop-watching-signals}
 
 If you want to stop watching the signal, you can use `dispose()` method of the
 signal object:

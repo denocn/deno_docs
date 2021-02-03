@@ -1,4 +1,4 @@
-## Code formatter
+## Code formatter {#code-formatter}
 
 Deno ships with a built in code formatter that auto-formats TypeScript and
 JavaScript code.

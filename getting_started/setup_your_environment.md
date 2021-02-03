@@ -1,10 +1,10 @@
-## Set up your environment
+## Set up your environment {#set-up-your-environment}
 
 To productively get going with Deno you should set up your environment. This
 means setting up shell autocomplete, environmental variables and your editor or
 IDE of choice.
 
-### Environmental variables
+### Environmental variables {#environmental-variables}
 
 There are several env vars that control how Deno behaves:
 
@@ -15,7 +15,7 @@ where generated and cached source code is written and read to.
 code can test if `NO_COLOR` was set without having `--allow-env` by using the
 boolean constant `Deno.noColor`.
 
-### Shell autocomplete
+### Shell autocomplete {#shell-autocomplete}
 
 You can generate completion script for your shell using the
 `deno completions <shell>` command. The command outputs to stdout so you should
@@ -77,7 +77,7 @@ This will be create a Powershell profile at
 `$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` by default,
 and it will be run whenever you launch the PowerShell.
 
-### Editors and IDEs
+### Editors and IDEs {#editors-and-ides}
 
 Because Deno requires the use of file extensions for module imports and allows
 http imports, and most editors and language servers do not natively support this
@@ -86,14 +86,14 @@ or imports having unnecessary file extensions.
 
 The community has developed extensions for some editors to solve these issues:
 
-#### VS Code
+#### VS Code {#vs-code}
 
 The beta version of [vscode_deno](https://github.com/denoland/vscode_deno) is
 published on the
 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
 Please report any issues.
 
-#### JetBrains IDEs
+#### JetBrains IDEs {#jetbrains-ides}
 
 Support for JetBrains IDEs is available through
 [the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno).
@@ -102,14 +102,14 @@ For more information on how to set-up your JetBrains IDE for Deno, read
 [this comment](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0)
 on YouTrack.
 
-#### Vim and NeoVim
+#### Vim and NeoVim {#vim-and-neovim}
 
 Vim works fairly well for Deno/TypeScript if you install
 [CoC](https://github.com/neoclide/coc.nvim) (intellisense engine and language
 server protocol) or [ALE](https://github.com/dense-analysis/ale) (syntax checker
 and language server protocol client).
 
-##### CoC
+##### CoC {#coc}
 
 After CoC is installed, from inside Vim, run`:CocInstall coc-tsserver` and
 `:CocInstall coc-deno`. To get autocompletion working for Deno type definitions
@@ -117,7 +117,7 @@ run `:CocCommand deno.types`. Optionally restart the CoC server `:CocRestart`.
 From now on, things like `gd` (go to definition) and `gr` (goto/find references)
 should work.
 
-##### ALE
+##### ALE {#ale}
 
 ALE integrates with Deno's LSP out of the box and should not require any extra
 configuration. However, if your Deno executable is not located in `$PATH`, has a
@@ -151,7 +151,7 @@ let g:ale_fixers = {'typescript': ['deno']}
 let g:ale_fix_on_save = 1 " run deno fmt when saving a buffer
 ```
 
-#### Emacs
+#### Emacs {#emacs}
 
 Emacs works pretty well for a TypeScript project targeted to Deno by using a
 combination of [tide](https://github.com/ananthakumaran/tide) which is the
@@ -181,7 +181,7 @@ project (`npm init -y` as necessary), then add the following block to your
 }
 ```
 
-#### LSP clients
+#### LSP clients {#lsp-clients}
 
 Deno has builtin support for the
 [Language server protocol](https://langserver.org) as of version 1.6.0 or later.
@@ -191,7 +191,7 @@ TypeScript and JavaScript.
 
 The editor can start the server with `deno lsp`.
 
-##### Example for Kakoune
+##### Example for Kakoune {#example-for-kakoune}
 
 After installing the [`kak-lsp`](https://github.com/kak-lsp/kak-lsp) LSP client
 you can add the Deno language server by adding the following to your
@@ -205,7 +205,7 @@ command = "deno"
 args = ["lsp"]
 ```
 
-##### Example for Vim/Neovim
+##### Example for Vim/Neovim {#example-for-vimneovim}
 
 After installing the [`vim-lsp`](https://github.com/prabirshrestha/vim-lsp) LSP
 client you can add the Deno language server by adding the following to your
@@ -230,7 +230,7 @@ if executable("deno")
 endif
 ```
 
-##### Example for Sublime Text
+##### Example for Sublime Text {#example-for-sublime-text}
 
 - Install the [Sublime LSP package](https://packagecontrol.io/packages/LSP)
 - Install the

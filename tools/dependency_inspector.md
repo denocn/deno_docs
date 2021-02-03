@@ -1,4 +1,4 @@
-## Dependency Inspector
+## Dependency Inspector {#dependency-inspector}
 
 `deno info [URL]` will inspect ES module and all of its dependencies.
 
@@ -62,7 +62,7 @@ https://deno.land/std@0.67.0/http/file_server.ts (10.49KB)
 
 Dependency inspector works with any local or remote ES modules.
 
-## Cache location
+## Cache location {#cache-location}
 
 `deno info` can be used to display information about cache location:
 

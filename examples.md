@@ -1,9 +1,9 @@
-# Examples
+# Examples {#examples}
 
 In this chapter you can find some example programs that you can use to learn
 more about the runtime.
 
-## Basic
+## Basic {#basic}
 
 - [Hello world](./examples/hello_world.md)
 - [Import and export modules](./examples/import_export.md)
@@ -11,7 +11,7 @@ more about the runtime.
 - [Fetch data](./examples/fetch_data.md)
 - [Read and write files](./examples/read_write_files.md)
 
-## Advanced
+## Advanced {#advanced}
 
 - [Unix cat program](./examples/unix_cat.md)
 - [HTTP web server](./examples/http_server.md)

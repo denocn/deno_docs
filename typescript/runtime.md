@@ -1,4 +1,4 @@
-## Runtime compiler APIs
+## Runtime compiler APIs {#runtime-compiler-apis}
 
 > ⚠️ The runtime compiler API is unstable (and requires the `--unstable` flag to
 > be used to enable it).
@@ -7,7 +7,7 @@ The runtime compiler API allows access to the internals of Deno to be able to
 type check, transpile and bundle JavaScript and TypeScript. As of Deno 1.7,
 several disparate APIs we consolidated into a single API, `Deno.emit()`.
 
-### Deno.emit()
+### Deno.emit() {#denoemit}
 
 The API is defined in the `Deno` namespace as:
 
@@ -74,7 +74,7 @@ interface EmitResult {
 The API is designed to support several use cases, which are described in the
 sections below.
 
-### Using external sources
+### Using external sources {#using-external-sources}
 
 Using external sources, both local and remote, `Deno.emit()` can behave like
 `deno cache` does on the command line, resolving those external dependencies,
@@ -115,7 +115,7 @@ The _rootSpecifier_ can be a string file path, a string URL, or a URL.
 `Deno.emit()` supports the same protocols for URLs that Deno supports, which are
 currently `file`, `http`, `https`, and `data`.
 
-### Providing sources
+### Providing sources {#providing-sources}
 
 Instead of resolving modules externally, you can provide `Deno.emit()` with the
 sources directly. This is especially useful for a server to be able to provide
@@ -141,7 +141,7 @@ all module specifiers need their full filename. Also, because there are no media
 types, if you are providing remote URLs in the sources, the path should end with
 the appropriate extension, so that Deno can determine how to handle the file.
 
-### Type checking and emitting
+### Type checking and emitting {#type-checking-and-emitting}
 
 By default, `Deno.emit()` will type check any TypeScript (and TSX) it
 encounters, just like on the command line. It will also attempt to transpile
@@ -176,7 +176,7 @@ if (diagnostics.length) {
 }
 ```
 
-### Bundling
+### Bundling {#bundling}
 
 `Deno.emit()` is also capable of providing output similar to `deno bundle` on
 the command line. This is enabled by setting the _bundle_ option to `"esm"`.
@@ -196,7 +196,7 @@ which the value with be the resulting bundle.
 > dynamic imports or worker scripts, and those would be expected to be resolved
 > and available when the code is run.
 
-### Import maps
+### Import maps {#import-maps}
 
 `Deno.emit()` supports import maps as well, just like on the command line. This
 is a really powerful feature that can be used even more effectively to emit and
@@ -228,7 +228,7 @@ const { files } = await Deno.emit("mod.ts", {
 > browser for example, would need to support import maps and have that map
 > available at runtime.
 
-### Skip type checking/transpiling only
+### Skip type checking/transpiling only {#skip-type-checkingtranspiling-only}
 
 `Deno.emit()` supports skipping type checking similar to the `--no-check` flag
 on the command line. This is accomplished by setting the _check_ property to
@@ -245,7 +245,7 @@ compiler to type check the code and emit it, instead only transpiling the code
 from within Deno. This can be significantly quicker than doing the full type
 checking.
 
-### Compiler options
+### Compiler options {#compiler-options}
 
 `Deno.emit()` supports quite a few compiler options that can impact how code is
 type checked and emitted. They are similar to the options supported by a

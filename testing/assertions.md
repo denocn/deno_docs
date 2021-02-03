@@ -1,4 +1,4 @@
-## Assertions
+## Assertions {#assertions}
 
 To help developers write tests the Deno standard library comes with a built in
 [assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which
@@ -25,7 +25,7 @@ The assertions module provides 10 assertions:
 - `assertThrows(fn: () => void, ErrorClass?: Constructor, msgIncludes = "", msg?: string): Error`
 - `assertThrowsAsync(fn: () => Promise<void>, ErrorClass?: Constructor, msgIncludes = "", msg?: string): Promise<Error>`
 
-### Assert
+### Assert {#assert}
 
 The assert method is a simple 'truthy' assertion and can be used to assert any
 value which can be inferred as true.
@@ -38,7 +38,7 @@ Deno.test("Test Assert", () => {
 });
 ```
 
-### Equality
+### Equality {#equality}
 
 There are three equality assertions available, `assertEquals()`,
 `assertNotEquals()` and `assertStrictEquals()`.
@@ -89,7 +89,7 @@ Deno.test("Test Assert Strict Equals", () => {
 The `assertStrictEquals()` assertion is best used when you wish to make a
 precise check against two primitive types.
 
-### Contains
+### Contains {#contains}
 
 There are two methods available to assert a value contains a value,
 `assertStringIncludes()` and `assertArrayIncludes()`.
@@ -114,7 +114,7 @@ Deno.test("Test Assert Array Contains", () => {
 });
 ```
 
-### Regex
+### Regex {#regex}
 
 You can assert regular expressions via `assertMatch()` and `assertNotMatch()`
 assertions.
@@ -136,7 +136,7 @@ Deno.test("Test Assert Not Match", () => {
 });
 ```
 
-### Throws
+### Throws {#throws}
 
 There are two ways to assert whether something throws an error in Deno,
 `assertThrows()` and `assertThrowsAsync()`. Both assertions allow you to check
@@ -190,7 +190,7 @@ Deno.test("Test Assert Throws Async", () => {
 });
 ```
 
-### Custom Messages
+### Custom Messages {#custom-messages}
 
 Each of Deno's built in assertions allow you to overwrite the standard CLI error
 message if you wish. For instance this example will output "Values Don't Match!"

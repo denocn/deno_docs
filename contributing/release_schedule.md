@@ -1,4 +1,4 @@
-## Release Schedule
+## Release Schedule {#release-schedule}
 
 A new minor release for the `deno` cli is released every 6 weeks. A new patch
 version is released weekly, except in the week before a new minor release.
@@ -11,7 +11,7 @@ The release dates for the upcoming minor releases are:
 Stable releases can be found on the
 [GitHub releases page](https://github.com/denoland/deno/releases).
 
-### Canary channel
+### Canary channel {#canary-channel}
 
 In addition to the stable channel described above, canaries are released
 multiple times daily (for each commit on master). You can upgrade to the latest

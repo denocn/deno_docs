@@ -1,4 +1,4 @@
-## Bundling
+## Bundling {#bundling}
 
 `deno bundle [URL]` will output a single JavaScript file, which includes all
 dependencies of the specified input. For example:

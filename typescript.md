@@ -1,4 +1,4 @@
-# Using TypeScript
+# Using TypeScript {#using-typescript}
 
 In this chapter we will discuss:
 

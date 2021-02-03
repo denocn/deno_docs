@@ -1,12 +1,12 @@
-# File system events
+# File system events {#file-system-events}
 
-## Concepts
+## Concepts {#concepts}
 
 - Use [Deno.watchFs](https://doc.deno.land/builtin/stable#Deno.watchFs) to watch
   for file system events.
 - Results may vary between operating systems.
 
-## Example
+## Example {#example}
 
 To poll for file system events in the current directory:
 

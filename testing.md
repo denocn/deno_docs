@@ -1,9 +1,9 @@
-# Testing
+# Testing {#testing}
 
 Deno has a built-in test runner that you can use for testing JavaScript or
 TypeScript code.
 
-## Writing tests
+## Writing tests {#writing-tests}
 
 To define a test you need to call `Deno.test` with a name and function to be
 tested. There are two styles you can use.
@@ -27,7 +27,7 @@ Deno.test({
 });
 ```
 
-## Assertions
+## Assertions {#assertions}
 
 There are some useful assertion utilities at
 https://deno.land/std@$STD_VERSION/testing#usage to make testing easier:
@@ -45,7 +45,7 @@ Deno.test("hello world", () => {
 });
 ```
 
-### Async functions
+### Async functions {#async-functions}
 
 You can also test asynchronous code by passing a test function that returns a
 promise. For this you can use the `async` keyword when defining a function:
@@ -65,7 +65,7 @@ Deno.test("async hello world", async () => {
 });
 ```
 
-### Resource and async op sanitizers
+### Resource and async op sanitizers {#resource-and-async-op-sanitizers}
 
 Certain actions in Deno create resources in the resource table
 ([learn more here](./contributing/architecture.md)). These resources should be
@@ -92,7 +92,7 @@ Deno.test({
 });
 ```
 
-## Running tests
+## Running tests {#running-tests}
 
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the
@@ -122,11 +122,11 @@ help:
 deno help test
 ```
 
-## Filtering
+## Filtering {#filtering}
 
 There are a number of options to filter the tests you are running.
 
-### Command line filtering
+### Command line filtering {#command-line-filtering}
 
 Tests can be run individually or in groups using the command line `--filter`
 option.
@@ -158,11 +158,11 @@ deno test --filter "/test-*\d/" tests/
 _To let Deno know that you want to use a pattern, wrap your filter with
 forward-slashes like the JavaScript syntactic sugar for a REGEX._
 
-### Test definition filtering
+### Test definition filtering {#test-definition-filtering}
 
 Within the tests themselves, you have two options for filtering.
 
-#### Filtering out (Ignoring these tests)
+#### Filtering out (Ignoring these tests) {#filtering-out-ignoring-these-tests}
 
 Sometimes you want to ignore tests based on some sort of condition (for example
 you only want a test to run on Windows). For this you can use the `ignore`
@@ -178,7 +178,7 @@ Deno.test({
 });
 ```
 
-#### Filtering in (Only run these tests)
+#### Filtering in (Only run these tests) {#filtering-in-only-run-these-tests}
 
 Sometimes you may be in the middle of a problem within a large test class and
 you would like to focus on just that test and ignore the rest for now. For this
@@ -198,7 +198,7 @@ Deno.test({
 });
 ```
 
-## Failing fast
+## Failing fast {#failing-fast}
 
 If you have a long running test suite and wish for it to stop on the first
 failure, you can specify the `--fail-fast` flag when running the suite.
@@ -207,7 +207,7 @@ failure, you can specify the `--fail-fast` flag when running the suite.
 deno test --fail-fast
 ```
 
-## Test coverage
+## Test coverage {#test-coverage}
 
 Deno will automatically determine test coverage for your code if you specify the
 `--coverage` flag when starting `deno test`. Coverage is determined on a line by
