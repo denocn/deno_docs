@@ -31,7 +31,7 @@
       "reloading_modules": "重新载入模块",
       "integrity_checking": "完整性检查",
       "proxies": "代理",
-      "import_maps": "引入 map"
+      "import_maps": "Import maps"
     }
   },
   "typescript": {
