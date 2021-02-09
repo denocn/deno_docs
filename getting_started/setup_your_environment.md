@@ -53,7 +53,7 @@ mkdir ~/.oh-my-zsh/custom/plugins/deno
 deno completions zsh > ~/.oh-my-zsh/custom/plugins/deno/_deno
 ```
 
-随后，将 deno 插件添加到 `~/.zshrc` 文件的 "plugins" 标签下。对于`antigen`之类的工具，你的 path 将会是 `~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins`，而你的指令则是 `antigen bundle deno`，以此类推。
+随后，将 deno 插件添加到 `~/.zshrc` 文件的 "plugins" 标签下。对于 `antigen` 之类的工具来说，你的 path 将会是 `~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins`，而你的指令则是 `antigen bundle deno`，以此类推。
 
 范例（Powershell）：
 
