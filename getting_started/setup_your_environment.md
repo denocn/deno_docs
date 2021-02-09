@@ -99,7 +99,7 @@ ALE 原生支持 Deno 的 LSP（语言服务器协议），不许要额外配置
 
 ALE 提供了自动补全、重构、跳转定义、跳转引用等功能。不过，您需要手动配置按键绑定。您可以选择拷贝以下代码片段到您的 `vimrc`/`init.vim` 以获得最基本的支持，或者参考 [官方文档](https://github.com/dense-analysis/ale#table-of-contents)来对如何配置 ALE 获得更深的了解。
 
-ALE 可以通过运行`deno fmt`来修复 linter 提出的问题。如果想要让 ALE 使用 Deno 的格式化工具，您需要配置 `ale_linter` 。如果您想调整当前 buffer 配置，则使用(`let b:ale_linter = ['deno']`) 。如果想为所有 TypeScript 文件提供全局配置，则需要设置成(`let g:ale_fixers={'typescript': ['deno']}`)
+ALE 可以通过运行 `deno fmt` 来修复 linter 提出的问题。如果想要让 ALE 使用 Deno 的格式化工具，您需要配置 `ale_linter`。如果您想调整当前 buffer 配置，则使用（`let b:ale_linter = ['deno']`）。如果想为所有 TypeScript 文件提供全局配置，则需要设置成（`let g:ale_fixers={'typescript': ['deno']}`）。
 
 ```vim
 " 通过 Vim 的 'omnifunc' 设置来使用 ALE 的自动补全 (在插入模式下按 <C-x><C-o>)
