@@ -22,14 +22,14 @@
 - powershell
 - elvish
 
-范例（bash）：
+示例（bash）：
 
 ```shell
 deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
 source /usr/local/etc/bash_completion.d/deno.bash
 ```
 
-范例（不带任何框架的 zsh）：
+示例（不带任何框架的 zsh）：
 
 ```shell
 mkdir ~/.zsh # 为你的补全创建一个文件夹。该文件夹可以位于任何位置。
@@ -46,7 +46,7 @@ compinit -u
 
 最后重启终端。请注意，如果自动补全未能成功载入，你可能需要先运行 `rm ~/.zcompdump/` 来删除之前生成的 compinit 文件，再运行 `compinit` 来重新生成。
 
-范例（zsh + oh-my-zsh) [推荐 zsh 用户采用这个方案] :
+示例（zsh + oh-my-zsh) [推荐 zsh 用户采用这个方案] :
 
 ```shell
 mkdir ~/.oh-my-zsh/custom/plugins/deno
@@ -55,7 +55,7 @@ deno completions zsh > ~/.oh-my-zsh/custom/plugins/deno/_deno
 
 随后，将 deno 插件添加到 `~/.zshrc` 文件的 "plugins" 标签下。对于 `antigen` 之类的工具来说，你的 path 将会是 `~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins`，而你的指令则是 `antigen bundle deno`，以此类推。
 
-范例（Powershell）：
+示例（Powershell）：
 
 ```shell
 deno completions powershell > $profile
@@ -143,7 +143,7 @@ Deno 在 1.6.0 以后的版本对[语言服务器协议](https://langserver.org)
 
 编辑器可以通过 `deno lsp`命令来开启语言服务器。
 
-##### 范例：Kakoune {#example-for-kakoune}
+##### 示例：Kakoune {#example-for-kakoune}
 
 在安装 [`kak-lsp`](https://github.com/kak-lsp/kak-lsp) LSP 客户端以后，你可以你可以通过添加以下内容至 `kak-lsp.toml` 以添加 Deno 的语言服务器。
 
@@ -155,7 +155,7 @@ command = "deno"
 args = ["lsp"]
 ```
 
-##### 范例：Vim/Neovim {#example-for-vimneovim}
+##### 示例：Vim/Neovim {#example-for-vimneovim}
 
 在安装 [`vim-lsp`](https://github.com/prabirshrestha/vim-lsp) LSP 客户端以后，你可以你可以通过添加以下内容至 `vimrc`/`init.vim` 以添加 Deno 的语言服务器。
 
@@ -178,7 +178,7 @@ if executable("deno")
 endif
 ```
 
-##### 范例：Sublime Text {#example-for-sublime-text}
+##### 示例：Sublime Text {#example-for-sublime-text}
 
 - 安装 [Sublime LSP 包](https://packagecontrol.io/packages/LSP)
 - 安装
