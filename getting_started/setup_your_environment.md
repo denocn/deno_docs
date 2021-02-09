@@ -95,7 +95,7 @@ JetBrains 的 IDEs 的支持由
 
 ##### ALE {#ale}
 
-ALE 原生支持 Deno 的 LSP（语言服务器协议），不许要额外配置。然而，如果您的 Deno 可执行文件不存在于`$PATH`，或者拥有不同于`deno`的名字，亦或是您想尝试不稳定的特性与接口，您需要覆盖 ALE 的默认值。详情请见 [`:help ale-typescript`](https://github.com/dense-analysis/ale/blob/master/doc/ale-typescript.txt)。
+ALE 原生支持 Deno 的 LSP（语言服务器协议），不许要额外配置。然而，如果你的 Deno 可执行文件不存在于 `$PATH`，或者拥有不同于 `deno` 的名字，亦或是你想尝试不稳定的特性与接口，你需要覆盖 ALE 的默认值。详情请见 [`:help ale-typescript`](https://github.com/dense-analysis/ale/blob/master/doc/ale-typescript.txt)。
 
 ALE 提供了自动补全、重构、跳转定义、跳转引用等功能。不过，您需要手动配置按键绑定。您可以选择拷贝以下代码片段到您的 `vimrc`/`init.vim` 以获得最基本的支持，或者参考 [官方文档](https://github.com/dense-analysis/ale#table-of-contents)来对如何配置 ALE 获得更深的了解。
 
