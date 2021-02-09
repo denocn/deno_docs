@@ -64,7 +64,7 @@ deno completions powershell > $profile
 
 以上命令默认将会在`$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`创建一个 Powershell 的档案，并且会在您每次运行 Powershell 时执行。
 
-### 编辑器和 IDE {#editors-and-ides}
+### 编辑器及 IDE {#editors-and-ides}
 
 Deno 的模组引入机制依赖文件拓展名，并且支持通过 http 导入。由于绝大多数编辑器和编程语言服务器并不对此提供原生支持，很多编辑器在现阶段会由于无法找到文件而报错，或者会在引入时加入不必要的文件拓展名。
 
