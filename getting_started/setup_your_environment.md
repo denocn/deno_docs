@@ -44,7 +44,7 @@ autoload -Uz compinit
 compinit -u
 ```
 
-最后重启你的终端。请注意，如果自动补全未能成功载入，您可能需要先运行`rm ~/.zcompdump/` 来删除之前创建的补全，再运行`compinit` 来重新生成。
+最后重启终端。请注意，如果自动补全未能成功载入，你可能需要先运行 `rm ~/.zcompdump/` 来删除之前生成的 compinit 文件，再运行 `compinit` 来重新生成。
 
 范例（zsh + oh-my-zsh) [推荐 zsh 用户采用这个方案] :
 
