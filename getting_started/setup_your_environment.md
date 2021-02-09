@@ -102,10 +102,10 @@ ALE 提供了自动补全、重构、跳转定义、跳转引用等功能。不�
 ALE 可以通过运行 `deno fmt` 来修复 linter 提出的问题。如果想要让 ALE 使用 Deno 的格式化工具，你需要配置 `ale_linter`。如果你想调整当前 buffer 配置，则使用（`let b:ale_linter = ['deno']`）。如果想为所有 TypeScript 文件提供全局配置，则需要设置成（`let g:ale_fixers={'typescript': ['deno']}`）。
 
 ```vim
-" 通过 Vim 的 'omnifunc' 设置来使用 ALE 的自动补全 (在插入模式下按 <C-x><C-o>)
+" Use ALE autocompletion with Vim's 'omnifunc' setting (press <C-x><C-o> in insert mode)
 autocmd FileType typescript set omnifunc=ale#completion#OmniFunc
 
-" 如果你想在命令右侧使用 <Plug>(...) 表达式，请确保你使用的是 map 而不是 noremap
+" Make sure to use map instead of noremap when using a <Plug>(...) expression as the {rhs}
 nmap gr <Plug>(ale_rename)
 nmap gR <Plug>(ale_find_reference)
 nmap gd <Plug>(ale_go_to_definition)
