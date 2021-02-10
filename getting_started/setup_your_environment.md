@@ -1,27 +1,20 @@
-## Set up your environment {#set-up-your-environment}
+## 配置你的环境 {#set-up-your-environment}
 
-To productively get going with Deno you should set up your environment. This
-means setting up shell autocomplete, environmental variables and your editor or
-IDE of choice.
+你需要正确地配置环境以高效地使用 Deno 进行开发。配置内容将会涵盖 shell 自动补全，环境变量以及你的 IDE 配置。
 
-### Environmental variables {#environmental-variables}
+### 环境变量 {#environmental-variables}
 
-There are several env vars that control how Deno behaves:
+以下这些环境变量会影响 Deno 的各种行为。
 
-`DENO_DIR` defaults to `$HOME/.cache/deno` but can be set to any path to control
-where generated and cached source code is written and read to.
+`DENO_DIR` 的默认值为 `$HOME/.cache/deno`，但是你可以选择其他任何路径来读写生成的源码。
 
-`NO_COLOR` will turn off color output if set. See https://no-color.org/. User
-code can test if `NO_COLOR` was set without having `--allow-env` by using the
-boolean constant `Deno.noColor`.
+如果设置了 `NO_COLOR` 变量，Deno 的输出将不会带有颜色。详情请参照 https://no-color.org/。你不需要使用 `--allow-env` 来验证是否设置了 `NO_COLOR`，只需要检查常量 `Deno.noColor` 的值，其类型为 Boolean。
 
-### Shell autocomplete {#shell-autocomplete}
+### Shell 自动补全 {#shell-autocomplete}
 
-You can generate completion script for your shell using the
-`deno completions <shell>` command. The command outputs to stdout so you should
-redirect it to an appropriate file.
+你可以通过 `deno completions <shell>` 命令来为你的 Shell 生成自动补全脚本并输出到控制台。你仍需要将控制台的输出保存在相关的文件中以使其生效。
 
-The supported shells are:
+该功能支持以下 shell 环境：
 
 - zsh
 - bash
@@ -29,21 +22,21 @@ The supported shells are:
 - powershell
 - elvish
 
-Example (bash):
+示例（bash）：
 
 ```shell
 deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
 source /usr/local/etc/bash_completion.d/deno.bash
 ```
 
-Example (zsh without framework):
+示例（不带任何框架的 zsh）：
 
 ```shell
-mkdir ~/.zsh # create a folder to save your completions. it can be anywhere
+mkdir ~/.zsh # 为你的补全创建一个文件夹。该文件夹可以位于任何位置。
 deno completions zsh > ~/.zsh/_deno
 ```
 
-then add this to your `.zshrc`
+再将此路径添加到 `.zshrc`
 
 ```shell
 fpath=(~/.zsh $fpath)
@@ -51,91 +44,59 @@ autoload -Uz compinit
 compinit -u
 ```
 
-and restart your terminal. note that if completions are still not loading, you
-may need to run `rm ~/.zcompdump/` to remove previously generated completions
-and then `compinit` to generate them again.
+最后重启终端。请注意，如果自动补全未能成功载入，你可能需要先运行 `rm ~/.zcompdump/` 来删除之前生成的 compinit 文件，再运行 `compinit` 来重新生成。
 
-Example (zsh + oh-my-zsh) [recommended for zsh users] :
+示例（zsh + oh-my-zsh) [推荐 zsh 用户采用这个方案] :
 
 ```shell
 mkdir ~/.oh-my-zsh/custom/plugins/deno
 deno completions zsh > ~/.oh-my-zsh/custom/plugins/deno/_deno
 ```
 
-After this add deno plugin under plugins tag in `~/.zshrc` file. for tools like
-`antigen` path will be `~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins` and
-command will be `antigen bundle deno` and so on.
+随后，将 deno 插件添加到 `~/.zshrc` 文件的 "plugins" 标签下。对于 `antigen` 之类的工具来说，你的 path 将会是 `~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins`，而你的指令则是 `antigen bundle deno`，以此类推。
 
-Example (Powershell):
+示例（Powershell）：
 
 ```shell
 deno completions powershell > $profile
 .$profile
 ```
 
-This will be create a Powershell profile at
-`$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` by default,
-and it will be run whenever you launch the PowerShell.
+以上命令默认会在 `$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` 创建一个 Powershell 的配置文件，并且会在你每次运行 Powershell 时执行。
 
-### Editors and IDEs {#editors-and-ides}
+### 编辑器及 IDE {#editors-and-ides}
 
-Because Deno requires the use of file extensions for module imports and allows
-http imports, and most editors and language servers do not natively support this
-at the moment, many editors will throw errors about being unable to find files
-or imports having unnecessary file extensions.
+由于 Deno 的模块引入机制依赖文件拓展名，且允许通过 http 引入。而目前绝大多数编辑器和语言服务器并未对此提供原生支持，因此很多编辑器在现阶段会因为无法找到文件而报错，或者会在引入时加入不必要的文件拓展名。
 
-The community has developed extensions for some editors to solve these issues:
+为了应对这种情况，社区提供了以下编辑器插件：
 
 #### VS Code {#vs-code}
 
-The beta version of [vscode_deno](https://github.com/denoland/vscode_deno) is
-published on the
-[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
-Please report any issues.
+[vscode_deno](https://github.com/denoland/vscode_deno) 的测试版已在 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)发布，欢迎反馈任何使用中遇到的问题。
 
 #### JetBrains IDEs {#jetbrains-ides}
 
-Support for JetBrains IDEs is available through
-[the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno).
+JetBrains 的 IDEs 的支持由
+[the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno)提供。
 
-For more information on how to set-up your JetBrains IDE for Deno, read
-[this comment](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0)
-on YouTrack.
+此插件的详细使用说明已发布在 YouTrack 的 [评论](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0) 中。
 
 #### Vim and NeoVim {#vim-and-neovim}
 
-Vim works fairly well for Deno/TypeScript if you install
-[CoC](https://github.com/neoclide/coc.nvim) (intellisense engine and language
-server protocol) or [ALE](https://github.com/dense-analysis/ale) (syntax checker
-and language server protocol client).
+通过安装 [CoC](https://github.com/neoclide/coc.nvim)（intellisense 智能化引擎和语言服务器协议）或者 [ALE](https://github.com/dense-analysis/ale)（语法检查器和
+语言服务器协议客户端）便可对 Deno/TypeScript 提供很好的支持。
 
 ##### CoC {#coc}
 
-After CoC is installed, from inside Vim, run`:CocInstall coc-tsserver` and
-`:CocInstall coc-deno`. To get autocompletion working for Deno type definitions
-run `:CocCommand deno.types`. Optionally restart the CoC server `:CocRestart`.
-From now on, things like `gd` (go to definition) and `gr` (goto/find references)
-should work.
+在安装 CoC 以后，请在 Vim 内运行 `:CocInstall coc-tsserver` 和 `:CocInstall coc-deno`。运行 `:CocCommand deno.types` 以获得对 Deno 类型的自动补选。你也可以选择性地运行 `:CocRestart` 来重启 CoC 服务器。到此为止，`gd` （跳转到定义） 和 `gr` （跳转到引用）等功能应该已生效。
 
 ##### ALE {#ale}
 
-ALE integrates with Deno's LSP out of the box and should not require any extra
-configuration. However, if your Deno executable is not located in `$PATH`, has a
-different name than `deno` or you want to use unstable features/APIs, you need
-to override ALE's default values. See
-[`:help ale-typescript`](https://github.com/dense-analysis/ale/blob/master/doc/ale-typescript.txt).
+ALE 原生支持 Deno 的 LSP（语言服务器协议），不许要额外配置。然而，如果你的 Deno 可执行文件不存在于 `$PATH`，或者拥有不同于 `deno` 的名字，亦或是你想尝试不稳定的特性与接口，你需要覆盖 ALE 的默认值。详情请见 [`:help ale-typescript`](https://github.com/dense-analysis/ale/blob/master/doc/ale-typescript.txt)。
 
-ALE provides support for autocompletion, refactoring, going to definition,
-finding references and more, however, key bindings need to be configured
-manually. Copy the snippet below into your `vimrc`/`init.vim` for basic
-configuration or consult the
-[official documentation](https://github.com/dense-analysis/ale#table-of-contents)
-for a more in-depth look at how to configure ALE.
+ALE 提供了自动补全、重构、跳转定义、跳转引用等功能。不过，你需要手动配置按键绑定。你可以选择拷贝以下代码片段到你的 `vimrc`/`init.vim` 以获得最基本的支持，或者参考 [官方文档](https://github.com/dense-analysis/ale#table-of-contents)来对如何配置 ALE 获得更深的了解。
 
-ALE can fix linter issues by running `deno fmt`. To instruct ALE to use the Deno
-formatter the `ale_linter` setting needs to be set either on a per buffer basis
-(`let b:ale_linter = ['deno']`) or globally for all TypeScript files
-(`let g:ale_fixers={'typescript': ['deno']}`)
+ALE 可以通过运行 `deno fmt` 来修复 linter 提出的问题。如果想要让 ALE 使用 Deno 的格式化工具，你需要配置 `ale_linter`。如果你想调整当前 buffer 配置，则使用（`let b:ale_linter = ['deno']`）。如果想为所有 TypeScript 文件提供全局配置，则需要设置成（`let g:ale_fixers={'typescript': ['deno']}`）。
 
 ```vim
 " Use ALE autocompletion with Vim's 'omnifunc' setting (press <C-x><C-o> in insert mode)
@@ -153,19 +114,9 @@ let g:ale_fix_on_save = 1 " run deno fmt when saving a buffer
 
 #### Emacs {#emacs}
 
-Emacs works pretty well for a TypeScript project targeted to Deno by using a
-combination of [tide](https://github.com/ananthakumaran/tide) which is the
-canonical way of using TypeScript within Emacs and
-[typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin)
-which is what is used by the
-[official VSCode extension for Deno](https://github.com/denoland/vscode_deno).
+通过组合使用 [tide](https://github.com/ananthakumaran/tide) 和 [typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin)，Emacs 便可对使用 TypeScript 的 Deno 项目提供很好的支持。[tide](https://github.com/ananthakumaran/tide) 是在 Emacs 中使用 TypeScript 所需要的正规方式，而 [typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin) 则是 [VSCode 官方 Deno 插件](https://github.com/denoland/vscode_deno)。
 
-To use it, first make sure that `tide` is setup for your instance of Emacs.
-Next, as instructed on the
-[typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin)
-page, first `npm install --save-dev typescript-deno-plugin typescript` in your
-project (`npm init -y` as necessary), then add the following block to your
-`tsconfig.json` and you are off to the races!
+首先，确保 `tide` 已经在你的 Emacs 实例中正确配置。其次，根据 [typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin) 的引导，在你的项目文件夹内运行 `npm install --save-dev typescript-deno-plugin typescript`（如果你仍未初始化你的项目文件夹，按需运行 `npm init -y`）。最后，在你的 `tsconfig.json` 文件内添加以下内容即可。
 
 ```json
 {
@@ -173,7 +124,7 @@ project (`npm init -y` as necessary), then add the following block to your
     "plugins": [
       {
         "name": "typescript-deno-plugin",
-        "enable": true, // default is `true`
+        "enable": true, // 默认值为 `true`
         "importmap": "import_map.json"
       }
     ]
@@ -181,21 +132,17 @@ project (`npm init -y` as necessary), then add the following block to your
 }
 ```
 
-#### LSP clients {#lsp-clients}
+#### LSP 客户端 {#lsp-clients}
 
-Deno has builtin support for the
-[Language server protocol](https://langserver.org) as of version 1.6.0 or later.
+Deno 在 1.6.0 以后的版本对[语言服务器协议](https://langserver.org)提供了内建支持。
 
-If your editor supports the LSP, you can use Deno as a language server for
-TypeScript and JavaScript.
+如果你的编辑器支持 LSP，你可以将 Deno 用作你的 JavaScript 和 TypeScript 语言服务器。
 
-The editor can start the server with `deno lsp`.
+编辑器可以通过 `deno lsp`命令来开启语言服务器。
 
-##### Example for Kakoune {#example-for-kakoune}
+##### 示例：Kakoune {#example-for-kakoune}
 
-After installing the [`kak-lsp`](https://github.com/kak-lsp/kak-lsp) LSP client
-you can add the Deno language server by adding the following to your
-`kak-lsp.toml`
+在安装 [`kak-lsp`](https://github.com/kak-lsp/kak-lsp) LSP 客户端以后，你可以你可以通过添加以下内容至 `kak-lsp.toml` 以添加 Deno 的语言服务器。
 
 ```toml
 [language.deno]
@@ -205,11 +152,9 @@ command = "deno"
 args = ["lsp"]
 ```
 
-##### Example for Vim/Neovim {#example-for-vimneovim}
+##### 示例：Vim/Neovim {#example-for-vimneovim}
 
-After installing the [`vim-lsp`](https://github.com/prabirshrestha/vim-lsp) LSP
-client you can add the Deno language server by adding the following to your
-`vimrc`/`init.vim`:
+在安装 [`vim-lsp`](https://github.com/prabirshrestha/vim-lsp) LSP 客户端以后，你可以你可以通过添加以下内容至 `vimrc`/`init.vim` 以添加 Deno 的语言服务器。
 
 ```vim
 if executable("deno")
@@ -230,13 +175,12 @@ if executable("deno")
 endif
 ```
 
-##### Example for Sublime Text {#example-for-sublime-text}
+##### 示例：Sublime Text {#example-for-sublime-text}
 
-- Install the [Sublime LSP package](https://packagecontrol.io/packages/LSP)
-- Install the
-  [TypeScript package](https://packagecontrol.io/packages/TypeScript) to get
-  syntax highlighting
-- Add the following `.sublime-project` file to your project folder
+- 安装 [Sublime LSP 包](https://packagecontrol.io/packages/LSP)
+- 安装
+  [TypeScript 包](https://packagecontrol.io/packages/TypeScript) 以获得语法高亮。
+- 在你的项目文件下添加 `.sublime-project` 文件，内容如下：
 
 ```json
 {
@@ -248,9 +192,9 @@ endif
           "lsp"
         ],
         "initializationOptions": {
-          // "config": "", // Sets the path for the config file in your project
+          // "config": "", // 添加你项目配置文件的路径
           "enable": true,
-          // "importMap": "", // Sets the path for the import-map in your project
+          // "importMap": "", // 添加你项目导入图的路径
           "lint": true,
           "unstable": false
         },
@@ -295,6 +239,4 @@ endif
 }
 ```
 
-If you don't see your favorite IDE on this list, maybe you can develop an
-extension. Our [community Discord group](https://discord.gg/deno) can give you
-some pointers on where to get started.
+如果你未能在以上列表内找到你最爱的 IDE，或许你可以亲自开发扩展程序。我们的[社区 Discord 小组](https://discord.gg/deno)可以给你提供上手指导。
