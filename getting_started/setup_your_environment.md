@@ -72,8 +72,7 @@ deno completions powershell > $profile
 
 #### VS Code {#vs-code}
 
-[vscode_deno](https://github.com/denoland/vscode_deno) 的测试版已在
-[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)发布，欢迎反馈任何使用中遇到的问题。
+[vscode_deno](https://github.com/denoland/vscode_deno) 的测试版已在 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)发布，欢迎反馈任何使用中遇到的问题。
 
 #### JetBrains IDEs {#jetbrains-ides}
 
