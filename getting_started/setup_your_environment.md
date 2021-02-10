@@ -8,7 +8,7 @@
 
 `DENO_DIR` 的默认值为 `$HOME/.cache/deno`，但是你可以选择其他任何路径来读写生成的源码。
 
-`NO_COLOR` 如果给这个变量赋值，Deno 的输出将不会带有颜色。详情参照 <https://no-color.org/>。 你不需要使用`--allow-env`来验证是否已给`NO_COLOR`赋值，只需要检查 Boolean 常量`Deno.noColor`的值。
+如果设置了 `NO_COLOR` 变量，Deno 的输出将不会带有颜色。详情请参照 https://no-color.org/。你不需要使用 `--allow-env` 来验证是否设置了 `NO_COLOR`，只需要检查常量 `Deno.noColor` 的值，其类型为 Boolean。
 
 ### Shell 自动补全 {#shell-autocomplete}
 
