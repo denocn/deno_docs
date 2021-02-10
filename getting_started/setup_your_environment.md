@@ -109,7 +109,7 @@ nmap gd <Plug>(ale_go_to_definition)
 nmap gD <Plug>(ale_go_to_type_definition)
 
 let g:ale_fixers = {'typescript': ['deno']}
-let g:ale_fix_on_save = 1 " 在保存buffer时运行deno fmt
+let g:ale_fix_on_save = 1 " run deno fmt when saving a buffer
 ```
 
 #### Emacs {#emacs}
