@@ -187,7 +187,10 @@ endif
   "settings": {
     "LSP": {
       "deno": {
-        "command": ["deno", "lsp"],
+        "command": [
+          "deno",
+          "lsp"
+        ],
         "initializationOptions": {
           // "config": "", // 添加你项目配置文件的路径
           "enable": true,
