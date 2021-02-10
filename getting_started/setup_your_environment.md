@@ -81,7 +81,7 @@ JetBrains 的 IDEs 的支持由
 [the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno)提供。
 
 此插件的详细使用说明已发布在 YouTrack 的
-[这条评论](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0)
+[评论](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0) 中
 里。
 
 #### Vim and NeoVim {#vim-and-neovim}
