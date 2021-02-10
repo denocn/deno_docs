@@ -14,7 +14,7 @@
 
 你可以通过`deno completions <shell>`命令来为你的 Shell 生成自动补全脚本并输出到控制台。你仍需要将控制台的输出保存在相关的文件中以使其生效。
 
-该功能支持以下 Shell：
+该功能支持以下 shell 环境：
 
 - zsh
 - bash
