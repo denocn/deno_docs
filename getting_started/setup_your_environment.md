@@ -62,7 +62,7 @@ deno completions powershell > $profile
 .$profile
 ```
 
-以上命令默认将会在`$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`创建一个 Powershell 的档案，并且会在你每次运行 Powershell 时执行。
+以上命令默认会在 `$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` 创建一个 Powershell 的配置文件，并且会在你每次运行 Powershell 时执行。
 
 ### 编辑器及 IDE {#editors-and-ides}
 
