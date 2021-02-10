@@ -239,4 +239,4 @@ endif
 }
 ```
 
-如果你未能在以上列表内找到你最爱的 IDE，或许你可以亲自开发扩展程序。我们的[社区 Discord 小组](https://discord.gg/deno) 可以给你提供上手指导。
+如果你未能在以上列表内找到你最爱的 IDE，或许你可以亲自开发扩展程序。我们的[社区 Discord 小组](https://discord.gg/deno)可以给你提供上手指导。
