@@ -10,7 +10,7 @@
 
 如果代码来源于其他地方，请确保文件有恰当的版权声明。我们只允许 MIT、BSD 和 Apache 授权的代码。
 
-## 在文件名中使用下划线而非破折号 {#use-underscores-not-dashes-in-filenames}
+## 在文件名中使用下划线而非连字符 {#use-underscores-not-dashes-in-filenames}
 
 举例: 使用 `file_server.ts` 而不是 `file-server.ts`.
 
@@ -57,26 +57,26 @@ Deno 不会特殊对待 "index.js" 或 "index.ts"。虽然要使用这些文件�
 
 如果一个代码目录需要一个默认的入口，请使用文件名 `mod.ts`。文件名 `mod.ts` 遵循 Rust 的惯例， 它比 `index.ts` 更短，并且无需事先知道它是如何工作的。
 
-### 导出函数：最多 2 个参数，把其余的参数放入一个配置对象中{#exported-functions-max-2-args-put-the-rest-into-an-options-object}
+### 导出函数：最多 2 个参数，把其余的参数放入一个配置对象中 {#exported-functions-max-2-args-put-the-rest-into-an-options-object}
 
 当设计函数接口时，应遵循以下规则。
 
-1. 组成公共 API 的函数拥有 0-2 个必选参数，和（如果必要）一个选项对象（总共最多 3 个）。
+1. 组成公共 API 的函数拥有 0-2 个必选参数，和（如果必要）一个可选对象（总共最多 3 个）。
 
-2. 可选参数一般应放入选项对象中。
-   仅有一个不在选项对象中的可选参数是可接受的，并且未来不考虑新增可选参数。
+2. 可选参数一般应放入可选对象中。
+   仅有一个不在可选对象中的可选参数是可接受的，并且未来不考虑新增可选参数。
 
-3. 选项参数是唯一的参数且是一个常规的对象。
+3. 可选参数是唯一的参数且是一个常规的对象。
 
    其他的参数可以是对象，但他们必须能够与普通的对象运行时区分开来，通过拥有以下内容：
 
-   - 可辨识原型 (e.g. `Array`, `Map`, `Date`, `class MyThing`).
+   - 可辨识原型（例如：`Array`、`Map`、`Date`、`class MyThing`）。
    - 已知的符号属性 (e.g. an iterable with `Symbol.iterator`).
    
    这使得 API 即使当选项对象的位置发生变化时，也能以一种向后兼容的方式发展。
 
 ```ts
-// BAD: 可选参数不是配置对象的一部分 (#2)
+// BAD: 可选参数不是可选对象的一部分 (#2)
 export function resolve(
   hostname: string,
   family?: "ipv4" | "ipv6",
@@ -99,7 +99,7 @@ export interface Environment {
   [key: string]: string;
 }
 
-// BAD: `env` 可以是一个常规的对象因此不能与选项区分开来。 (#3)
+// BAD: `env` 可以是一个常规的对象因此不能与可选对象区分开来。 (#3)
 export function runShellWithEnv(cmdline: string, env: Environment): string {}
 
 // GOOD.
