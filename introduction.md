@@ -10,7 +10,7 @@ Deno 建立在 V8、Rust 和 Tokio 的基础上。
 - 支持开箱即用的 TypeScript 的环境。
 - 只发布一个独立的可执行文件 (`deno`)。
 - 有着内置的工具箱，比如依赖查看器 (`deno info`) 和代码格式化工具 (`deno fmt`)。
-- 有一组经过审计的 [标准模块](https://github.com/denoland/deno/tree/master/std)，保证能在 Deno 上工作。
+- 有一组经过审计的 [标准模块](https://github.com/denoland/deno_std)，保证能在 Deno 上工作。
 - 脚本代码能被打包为单独的 JavaScript 文件。
 
 ## 哲学 {#philosophy}
