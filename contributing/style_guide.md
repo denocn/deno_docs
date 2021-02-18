@@ -157,7 +157,7 @@ export function pwrite(options: PWrite) {}
 
 ### 导出所有被依赖的接口 {#export-all-interfaces-that-are-used-as-parameters-to-an-exported-member}
 
-请一并导出被导出成员所依赖的接口。下面是一个例子。
+被导出函数签名中所依赖的接口，请一并导出。示例如下：
 
 ```ts
 // my_file.ts
@@ -206,11 +206,11 @@ export function foo() {
 /** 从 `deno` 模块中导入一些东西 */
 ```
 
-不要为显而易见的函数参数作注释。（虽然它是显而易见的，但总之应以 API 为准）。因此一般不要使用 `@param`。如果一定要用，它不应当包含 `类型` 因为 TypeScript 已经在这方面做的很好了。
+无需记录函数的参数，除非函数参数无法做到见名知意。（尽管参数做到了见名知意，但最终还应以 API 为准）。因此一般无需使用 `@param`。如果一定要用，它不应当包含 `type`，因为 TypeScript 已经在这方面做的很好了。
 
 ```ts
 /**
- * 函数参数并非显而易见
+ * 函数参数无法见名知意
  * @param foo Description of non obvious parameter.
  */
 ```
