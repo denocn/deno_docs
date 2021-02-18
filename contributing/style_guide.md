@@ -8,9 +8,9 @@
 // Copyright 2018-2021 the Deno authors. All rights reserved. MIT license.
 ```
 
-如果代码来源于其他地方，请确保文件有恰当的版权声明。我们只允许 MIT、BSD 和 Apache 授权的代码。
+如果引用了其他地方的代码，请确保文件有恰当的版权声明。我们只允许使用遵循 MIT、BSD 和 Apache 协议的代码。
 
-## 在文件名中使用下划线而非连字符 {#use-underscores-not-dashes-in-filenames}
+## 文件命名时请使用下划线连接，而非连字符 {#use-underscores-not-dashes-in-filenames}
 
 举例: 使用 `file_server.ts` 而不是 `file-server.ts`.
 
@@ -53,7 +53,8 @@ TODO 注释通常应该在括号中包含 Issue ID 或作者的 Github 用户名
 为了保持清晰性和一致性，请避免使用 "library" 和 "package"。使用 "module" 来指代一个 JS 或 TS 文件，也可以指代一个目录中的 TS/JS 代码。
 
 ### 不要用 `index.ts`/`index.js` 当文件名 {#do-not-use-the-filename-indextsindexjs}
-Deno 不会特殊对待 "index.js" 或 "index.ts"。虽然要使用这些文件名，但又不能将它们排除在模块说明符之外，这十分令人困惑。
+
+Deno 不会对 "index.js" 或 "index.ts" 进行特殊处理。虽然要使用这些文件名，但又不能将它们排除在模块说明符之外，这令人十分困惑。
 
 如果一个代码目录需要一个默认的入口，请使用文件名 `mod.ts`。文件名 `mod.ts` 遵循 Rust 的惯例， 它比 `index.ts` 更短，并且无需事先知道它是如何工作的。
 
@@ -72,7 +73,7 @@ Deno 不会特殊对待 "index.js" 或 "index.ts"。虽然要使用这些文件�
 
    - 可辨识原型（例如：`Array`、`Map`、`Date`、`class MyThing`）。
    - 已知的符号属性 (e.g. an iterable with `Symbol.iterator`).
-   
+
    这使得 API 即使当选项对象的位置发生变化时，也能以一种向后兼容的方式发展。
 
 ```ts
@@ -194,6 +195,7 @@ export function foo() {
   // ...
 }
 ```
+
 文档易读性是重要的，但也需要提供额外的样式信息，以确保生成的文档是更丰富的文本。因此 JSDoc 一般应遵循 markdown 标记来丰富文本。
 
 虽然 markdown 支持 HTML 标签，但在 JSDoc 块中是被禁止的。
@@ -205,7 +207,6 @@ export function foo() {
 ```
 
 不要为显而易见的函数参数作注释。（虽然它是显而易见的，但总之应以 API 为准）。因此一般不要使用 `@param`。如果一定要用，它不应当包含 `类型` 因为 TypeScript 已经在这方面做的很好了。
-
 
 ```ts
 /**
@@ -227,7 +228,8 @@ export function foo() {
  * 这是一个不被提倡的单行 JSDoc 注释
  */
 ```
-范例代码不应使用三个反引号 (\`\`\`) 来表示。它们仅应由缩进来标记，在代码块之前需要一个空行，且每行代码前应有 6 个额外的空格。这相比于与第一列的注释缩进了 4 个空格。举例：
+
+示例代码不应使用三个反引号 (\`\`\`) 来表示。它们仅应由缩进来标记，在代码块之前需要一个空行，且每行代码前应有 6 个额外的空格。这相比于与第一列的注释缩进了 4 个空格。举例：
 
 ```ts
 /** A straight forward comment and an example:
@@ -236,6 +238,7 @@ export function foo() {
  *       foo("bar");
  */
 ```
+
 代码示例不应包含额外的注释，因为它已经在注释里面了。还需要进一步说明的示例不好。
 
 ### 使用指令来解决 linting 问题 {#resolve-linting-problems-using-directives}
