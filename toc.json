@@ -31,6 +31,7 @@
       "reloading_modules": "重新载入模块",
       "integrity_checking": "完整性检查",
       "proxies": "代理",
+      "private": "私有模块",
       "import_maps": "Import maps"
     }
   },
