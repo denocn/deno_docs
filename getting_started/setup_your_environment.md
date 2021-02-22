@@ -118,7 +118,7 @@ let g:ale_fix_on_save = 1 " run deno fmt when saving a buffer
 
 首先，确保 `tide` 已经在你的 Emacs 实例中正确配置。其次，根据 [typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin) 的引导，在你的项目文件夹内运行 `npm install --save-dev typescript-deno-plugin typescript`（如果你仍未初始化你的项目文件夹，按需运行 `npm init -y`）。最后，在你的 `tsconfig.json` 文件内添加以下内容即可。
 
-```json
+```jsonc
 {
   "compilerOptions": {
     "plugins": [
@@ -182,7 +182,7 @@ endif
   [TypeScript 包](https://packagecontrol.io/packages/TypeScript) 以获得语法高亮。
 - 在你的项目文件下添加 `.sublime-project` 文件，内容如下：
 
-```json
+```jsonc
 {
   "settings": {
     "LSP": {
