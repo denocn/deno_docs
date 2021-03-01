@@ -88,7 +88,7 @@ JetBrains 的 IDEs 的支持由
 
 ##### CoC {#coc}
 
-在安装 CoC 以后，请在 Vim 内运行 `:CocInstall coc-tsserver` 和 `:CocInstall coc-deno`。运行 `:CocCommand deno.types` 以获得对 Deno 类型的自动补选。你也可以选择性地运行 `:CocRestart` 来重启 CoC 服务器。到此为止，`gd` （跳转到定义） 和 `gr` （跳转到引用）等功能应该已生效。
+在安装 CoC 以后，请在 Vim 内运行 `:CocInstall coc-tsserver` 和 `:CocInstall coc-deno`。在你的项目中运行 `:CocCommand deno.initializeWorkspace` 以初始化工作空间配置。到此为止，`gd` （跳转到定义） 和 `gr` （跳转到引用）等功能应该已生效。
 
 ##### ALE {#ale}
 
