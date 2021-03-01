@@ -92,10 +92,7 @@ Deno.test({
 });
 ```
 
-<<<<<<< HEAD
-## Running tests {#running-tests}
-=======
-### Exit sanitizer
+### Exit sanitizer {#exit-sanitizer}
 
 There's also the exit sanitizer which ensures that tested code doesn't call
 Deno.exit() signaling a false test success.
@@ -120,8 +117,7 @@ Deno.test({
 });
 ```
 
-## Running tests
->>>>>>> 857cebad214821b0afb8d34639f29573ac1569fc
+## Running tests {#running-tests}
 
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the

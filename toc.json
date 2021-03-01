@@ -28,17 +28,10 @@
   "linking_to_external_code": {
     "name": "链接至外部代码",
     "children": {
-<<<<<<< HEAD
       "reloading_modules": "重新载入模块",
       "integrity_checking": "完整性检查",
       "proxies": "代理",
       "private": "私有模块",
-=======
-      "reloading_modules": "Reloading modules",
-      "integrity_checking": "Integrity checking",
-      "proxies": "Proxies",
-      "private": "Private modules",
->>>>>>> 857cebad214821b0afb8d34639f29573ac1569fc
       "import_maps": "Import maps"
     }
   },
