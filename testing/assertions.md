@@ -40,10 +40,7 @@ Deno.test("Test Assert", () => {
 });
 ```
 
-<<<<<<< HEAD
-### Equality {#equality}
-=======
-### Exists
+### Exists {#exists}
 
 The `assertExists` can be used to check if a value is not `null` or `undefined`.
 
@@ -56,8 +53,7 @@ Deno.test("Test Assert Exists", () => {
 });
 ```
 
-### Equality
->>>>>>> 85f9f825e2e90935e6a05cd37e27d6f02f015522
+### Equality {#equality}
 
 There are three equality assertions available, `assertEquals()`,
 `assertNotEquals()` and `assertStrictEquals()`.
@@ -155,10 +151,7 @@ Deno.test("Test Assert Not Match", () => {
 });
 ```
 
-<<<<<<< HEAD
-### Throws {#throws}
-=======
-### Object
+### Object {#object}
 
 Use `assertObjectMatch` to check that a JavaScript object matches a subset of
 the properties of an object.
@@ -173,8 +166,7 @@ assertObjectMatch(
 );
 ```
 
-### Throws
->>>>>>> 85f9f825e2e90935e6a05cd37e27d6f02f015522
+### Throws {#throws}
 
 There are two ways to assert whether something throws an error in Deno,
 `assertThrows()` and `assertThrowsAsync()`. Both assertions allow you to check
