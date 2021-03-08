@@ -17,7 +17,7 @@ Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
 Deno 旨在为现代程序员提供高效、安全的脚本环境。
 
-Deno 将始终作为单个可执行文件分发。给定一个 Deno 程序的 URL，您应该能够用[压缩后不超过 15 MB 的 Deno 可执行文件](https://github.com/denoland/deno/releases)运行它。Deno 明确地承担了运行时和包管理器的角色。它使用标准的浏览器兼容协议(URL)来加载模块。
+Deno 将始终作为单个可执行文件分发。给定一个 Deno 程序的 URL，您应该能够用[压缩后不超过 25 MB 的 Deno 可执行文件](https://github.com/denoland/deno/releases)运行它。Deno 明确地承担了运行时和包管理器的角色。它使用标准的浏览器兼容协议(URL)来加载模块。
 
 对于过去用 Bash 或 Python 编写的工具脚本来说，Deno 是一个优秀的替代品。
 
