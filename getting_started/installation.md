@@ -36,10 +36,10 @@ choco install deno
 brew install deno
 ```
 
-使用 [Cargo](https://crates.io/crates/deno)（Windows，macOS，Linux）：
+使用 [Cargo](https://crates.io/crates/deno) 从源代码构建并安装：
 
 ```shell
-cargo install deno
+cargo install deno --locked
 ```
 
 Deno 二进制文件也可以手动安装，你可以从 [github.com/denoland/deno/releases](https://github.com/denoland/deno/releases) 下载一个 zip 文件。这些软件包仅包含一个可执行文件。在 macOS 和 Linux 中使用前，需将其设为可执行。
