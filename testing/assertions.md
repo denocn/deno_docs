@@ -232,7 +232,7 @@ Deno.test("Test Assert Equal Fail Custom Message", () => {
 });
 ```
 
-### Custom Tests
+### Custom Tests {#custom-tests}
 
 While Deno comes with powerful
 [assertions modules](https://deno.land/std@$STD_VERSION/testing/asserts.ts) but

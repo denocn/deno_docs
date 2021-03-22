@@ -36,11 +36,7 @@ choco install deno
 brew install deno
 ```
 
-<<<<<<< HEAD
-使用 [Cargo](https://crates.io/crates/deno)（Windows，macOS，Linux）：
-=======
-Build and install from source using [Cargo](https://crates.io/crates/deno):
->>>>>>> f9ac640a881204561e6eed8848dac3578ffb52f8
+使用 [Cargo](https://crates.io/crates/deno) 从源代码构建并安装：
 
 ```shell
 cargo install deno --locked
