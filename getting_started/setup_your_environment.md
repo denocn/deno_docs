@@ -58,7 +58,7 @@ deno completions zsh > ~/.oh-my-zsh/custom/plugins/deno/_deno
 示例（Powershell）：
 
 ```shell
-deno completions powershell > $profile
+deno completions powershell >> $profile
 .$profile
 ```
 

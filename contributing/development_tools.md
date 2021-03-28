@@ -32,6 +32,7 @@ Format the code:
 deno run -A --unstable ./tools/format.js
 ```
 
+<<<<<<< HEAD
 ### Profiling {#profiling}
 
 To start profiling:
@@ -1095,6 +1096,9 @@ Particularly useful ones:
 ```
 
 ### Continuous Benchmarks {#continuous-benchmarks}
+=======
+### Continuous Benchmarks
+>>>>>>> c4638a592dd29ba7221ace5c6d9dcc82cb159fc2
 
 See our benchmarks [over here](https://deno.land/benchmarks)
 
