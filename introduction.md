@@ -6,12 +6,26 @@ Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
 ## 功能亮点 {#feature-highlights}
 
+<<<<<<< HEAD
 - 默认安全。代码不能访问文件、网络、环境变量等（除非显式开启）。
 - 支持开箱即用的 TypeScript 的环境。
 - 只发布一个独立的可执行文件 (`deno`)。
 - 有着内置的工具箱，比如依赖查看器 (`deno info`) 和代码格式化工具 (`deno fmt`)。
 - 有一组经过审计的 [标准模块](https://github.com/denoland/deno_std)，保证能在 Deno 上工作。
 - 脚本代码能被打包为单独的 JavaScript 文件。
+=======
+- Secure by default. No file, network, or environment access (unless explicitly
+  enabled).
+- Supports TypeScript out of the box.
+- Ships a single executable (`deno`).
+- Has built-in utilities like a dependency inspector (`deno info`) and a code
+  formatter (`deno fmt`).
+- Has
+  [a set of reviewed (audited) standard
+  modules](https://github.com/denoland/deno_std) that are guaranteed to work
+  with Deno.
+- Can bundle scripts into a single JavaScript file.
+>>>>>>> bee296ae094be5f2e826444d57720d35b4868e7d
 
 ## 哲学 {#philosophy}
 
@@ -23,6 +37,7 @@ Deno 将始终作为单个可执行文件分发。给定一个 Deno 程序的 UR
 
 ## 目标 {#goals}
 
+<<<<<<< HEAD
 - 只分发一个独立的可执行文件 (`deno`)。
 - 默认安全。
   - 除非显式开启，否则脚本代码不能访问文件、网络、环境变量。
@@ -32,9 +47,24 @@ Deno 将始终作为单个可执行文件分发。给定一个 Deno 程序的 UR
   - 比如单元测试、代码格式化、代码检查。
 - 不把 V8 的概念泄露到用户空间。
 - 能够高效地提供 HTTP 服务。
+=======
+- Ship as just a single executable (`deno`).
+- Provide secure defaults.
+  - Unless specifically allowed, scripts can't access files, the environment, or
+    the network.
+- Be browser-compatible.
+  - The subset of Deno programs which are written completely in JavaScript and
+    do not use the global `Deno` namespace (or feature test for it), ought to
+    also be able to be run in a modern web browser without change.
+- Provide built-in tooling to improve developer experience.
+  - E.g. unit testing, code formatting, and linting.
+- Keep V8 concepts out of user land.
+- Serve HTTP efficiently.
+>>>>>>> bee296ae094be5f2e826444d57720d35b4868e7d
 
 ## 与 Node.js 的比较 {#comparison-to-nodejs}
 
+<<<<<<< HEAD
 - Deno 不使用 `npm`。
   - Deno 使用 URL 或文件路径引用模块。
 - Deno 在模块解析算法中不使用 `package.json`。
@@ -42,6 +72,17 @@ Deno 将始终作为单个可执行文件分发。给定一个 Deno 程序的 UR
 - Deno 需要显式指定文件、网络和环境变量的访问权限。
 - 当遇到未捕获的错误发生时，Deno 总是会异常退出。
 - 使用 ES 模块，不支持 `require()`。第三方模块通过 URL 导入：
+=======
+- Deno does not use `npm`.
+  - It uses modules referenced as URLs or file paths.
+- Deno does not use `package.json` in its module resolution algorithm.
+- All async actions in Deno return a promise. Thus Deno provides different APIs
+  than Node.
+- Deno requires explicit permissions for file, network, and environment access.
+- Deno always dies on uncaught errors.
+- Deno uses "ES Modules" and does not support `require()`. Third party modules
+  are imported via URLs:
+>>>>>>> bee296ae094be5f2e826444d57720d35b4868e7d
 
   ```javascript
   import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
@@ -49,5 +90,13 @@ Deno 将始终作为单个可执行文件分发。给定一个 Deno 程序的 UR
 
 ## 其他关键行为 {#other-key-behaviors}
 
+<<<<<<< HEAD
 - 远程代码在第一次运行时获取并缓存，直到代码通过 `--reload` 选项运行。（所以 Deno 在飞行模式也能正常工作）
 - 从远程 URL 加载的模块或文件应当是不可变且可缓存的。
+=======
+- Fetch and cache remote code upon first execution, and never update it until
+  the code is run with the `--reload` flag. (So, this will still work on an
+  airplane.)
+- Modules/files loaded from remote URLs are intended to be immutable and
+  cacheable.
+>>>>>>> bee296ae094be5f2e826444d57720d35b4868e7d
