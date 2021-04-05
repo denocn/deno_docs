@@ -79,17 +79,9 @@ deno completions powershell >> $profile
 JetBrains 的 IDEs 的支持由
 [the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno)提供。
 
-<<<<<<< HEAD
-此插件的详细使用说明已发布在 YouTrack 的 [评论](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0) 中。
-=======
-Once installed, replace the content of
-`External Libraries > Deno Library > lib > lib.deno.d.ts` with the output of
-`deno types`. This will ensure the typings for the extension match the current
-version. You will have to do this every time you update the version of Deno. For
-more information on how to set-up your JetBrains IDE for Deno, read
-[this comment](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0)
-on YouTrack.
->>>>>>> bee296ae094be5f2e826444d57720d35b4868e7d
+安装之后，将 
+`External Libraries > Deno Library > lib > lib.deno.d.ts` 替换为 
+`deno types` 命令的输出。这会为当前版本提供自动补全和代码提示。当你每次升级 Deno 版本后，需要再次执行以上操作。此插件的详细使用说明已发布在 YouTrack 的 [评论](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0) 中。
 
 #### Vim and NeoVim {#vim-and-neovim}
 
