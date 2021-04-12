@@ -134,16 +134,7 @@ let g:ale_fix_on_save = 1 " run deno fmt when saving a buffer
 }
 ```
 
-<<<<<<< HEAD
 #### LSP 客户端 {#lsp-clients}
-=======
-#### Atom
-
-Install [atom-ide-base](https://atom.io/packages/atom-ide-base) package and
-[atom-ide-deno](https://atom.io/packages/atom-ide-deno) package on Atom.
-
-#### LSP clients
->>>>>>> 9c4ce5db2f4663ed841f426d5537a776783fb7b7
 
 Deno 在 1.6.0 以后的版本对[语言服务器协议](https://langserver.org)提供了内建支持。
 
