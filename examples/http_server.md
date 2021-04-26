@@ -9,16 +9,12 @@
 With just a few lines of code you can run your own HTTP web server with control
 over the response status, request headers and more.
 
-<<<<<<< HEAD
-## Sample web server {#sample-web-server}
-=======
 > ℹ️ The _native_ HTTP server is currently unstable, meaning the API is not
 > finalized and may change in breaking ways in future version of Deno. To have
 > the APIs discussed here available, you must run Deno with the `--unstable`
 > flag.
 
-## Sample web server
->>>>>>> 132155005026b6e2c3c0cafc5d8b72e44aaa8382
+## Sample web server {#sample-web-server}
 
 In this example, the user-agent of the client is returned to the client:
 

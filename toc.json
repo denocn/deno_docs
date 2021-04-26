@@ -17,18 +17,11 @@
   "runtime": {
     "name": "运行时",
     "children": {
-<<<<<<< HEAD
       "stability": "稳定性",
       "program_lifecycle": "程序生命周期",
       "permission_apis": "权限 API",
       "web_platform_apis": "Web 平台 API",
-=======
-      "stability": "Stability",
-      "program_lifecycle": "Program lifecycle",
-      "permission_apis": "Permission APIs",
-      "web_platform_apis": "Web Platform APIs",
       "http_server_apis": "HTTP Server APIs",
->>>>>>> 132155005026b6e2c3c0cafc5d8b72e44aaa8382
       "location_api": "Location API",
       "workers": "Workers"
     }
