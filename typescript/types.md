@@ -61,16 +61,16 @@ types for a given module, without requiring the importer to do anything special.
 
 #### Using the triple-slash reference directive {#using-the-triple-slash-reference-directive}
 
-Deno supports using the triple-slash reference directive, which adopts the
-reference comment used by TypeScript in TypeScript files to _include_ other
-files and applies it to JavaScript files.
+Deno supports using the triple-slash reference `types` directive, which adopts
+the reference comment used by TypeScript in TypeScript files to _include_ other
+files and applies it only to JavaScript files.
 
-For example, if I had create `coolLib.js` and along side of it I had created my
+For example, if I had created `coolLib.js` and along side of it I had created my
 type definitions for my library in `coolLib.d.ts` I could do the following in
 the `coolLib.js` file:
 
 ```js
-/// <reference path="./coolLib.d.ts" />
+/// <reference types="./coolLib.d.ts" />
 
 // ... the rest of the JavaScript ...
 ```
@@ -79,7 +79,16 @@ When Deno encounters this directive, it would resolve the `./coolLib.d.ts` file
 and use that instead of the JavaScript file when TypeScript was type checking
 the file, but still load the JavaScript file when running the program.
 
+<<<<<<< HEAD
 #### Using X-TypeScript-Types header {#using-x-typescript-types-header}
+=======
+> ℹ️ _Note_ this is a repurposed directive for TypeScript that only applies to
+> JavaScript files. Using the triple-slash reference directive of `types` in a
+> TypeScript file works under Deno as well, but has essentially the same
+> behavior as the `path` directive.
+
+#### Using X-TypeScript-Types header
+>>>>>>> 22d8217632959ab6ce2f2fd4e236d03d0bccd9a6
 
 Similar to the triple-slash directive, Deno supports a header for remote modules
 that instructs Deno where to locate the types for a given module. For example, a
