@@ -1,25 +1,21 @@
-## Command line interface {#command-line-interface}
+## 命令行接口 {#command-line-interface}
 
-Deno is a command line program. You should be familiar with some simple commands
-having followed the examples thus far and already understand the basics of shell
-usage.
+Deno 是一个命令行程序。到目前为止，你应该熟悉一些简单的命令，并且已经了解了 shell 使用的基本知识。
 
-There are multiple ways of viewing the main help text:
+这是查看主要帮助文档的几种方式:
 
 ```shell
-# Using the subcommand.
+# 使用子命令
 deno help
 
-# Using the short flag -- outputs the same as above.
+# 使用短选项 -- 输出和上面一样
 deno -h
 
-# Using the long flag -- outputs more detailed help text where available.
+# 使用长选项 -- 输出更详细的帮助文本（如有）
 deno --help
 ```
 
-Deno's CLI is subcommand-based. The above commands should show you a list of
-those supported, such as `deno bundle`. To see subcommand-specific help for
-`bundle`, you can similarly run one of:
+Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle` 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
 
 ```shell
 deno help bundle
@@ -27,13 +23,11 @@ deno bundle -h
 deno bundle --help
 ```
 
-Detailed guides to each subcommand can be found [here](../tools.md).
+在[这里](../tools.md)你能够找到各个子命令更详细的指南。
 
-### Script source {#script-source}
+### 脚本来源 {#script-source}
 
-Deno can grab the scripts from multiple sources, a filename, a url, and '-' to
-read the file from stdin. The last is useful for integration with other
-applications.
+Deno 能够从多个来源抓取脚本，比如一个文件名、一个 URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。 
 
 ```shell
 deno run main.ts
@@ -41,10 +35,9 @@ deno run https://mydomain.com/main.ts
 cat main.ts | deno run -
 ```
 
-### Script arguments {#script-arguments}
+### 脚本参数 {#script-arguments}
 
-Separately from the Deno runtime flags, you can pass user-space arguments to the
-script you are running by specifying them after the script name:
+通过在脚本名称后指定参数，您可以将用户空间参数传递给要运行的脚本，这些参数与 Deno 运行时选项区分开。
 
 ```shell
 deno run main.ts a b -c --quiet
@@ -55,93 +48,79 @@ deno run main.ts a b -c --quiet
 console.log(Deno.args); // [ "a", "b", "-c", "--quiet" ]
 ```
 
-**Note that anything passed after the script name will be passed as a script
-argument and not consumed as a Deno runtime flag.** This leads to the following
-pitfall:
+**请注意，在脚本名称之后传递的所有内容都将作为脚本参数传递，而不会用作 Deno 运行时选项。** 这将导致以下陷阱：
 
 ```shell
-# Good. We grant net permission to net_client.ts.
+# 正常情况：我们给 net_client.ts 授予网络权限。
 deno run --allow-net net_client.ts
 
-# Bad! --allow-net was passed to Deno.args, throws a net permission error.
+# 错误情况：--allow-net 传递为 Deno.args，引发网络权限错误。
 deno run net_client.ts --allow-net
 ```
 
-Some see it as unconventional that:
+有人认为这打破了常规：
 
-> a non-positional flag is parsed differently depending on its position.
+> 一个非位置选项的解析方式会根据位置变化。
 
-However:
+然而:
 
-1. This is the most logical way of distinguishing between runtime flags and
-   script arguments.
-2. This is the most ergonomic way of distinguishing between runtime flags and
-   script arguments.
-3. This is, in fact, the same behaviour as that of any other popular runtime.
-   - Try `node -c index.js` and `node index.js -c`. The first will only do a
-     syntax check on `index.js` as per Node's `-c` flag. The second will
-     _execute_ `index.js` with `-c` passed to `require("process").argv`.
+1. 这是区分运行时选项和脚本参数的最合乎逻辑的方法。
+2. 这是区分运行时选项和脚本参数的最符合人体工程学的方法。
+3. 实际上，这和其他流行的运行时具有相同的行为。
+   - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js` 做语法检查. 而第二个会_执行_ `index.js`，将`-c` 传递为`require("process").argv`。
 
 ---
 
-There exist logical groups of flags that are shared between related subcommands.
-We discuss these below.
+存在一些有逻辑的选项组，它们在相关的子命令之间共享。
+接下来我们将会讨论。
 
-### Watch mode {#watch-mode}
+### 观察模式 {#watch-mode}
 
-You can supply the `--watch` flag to `deno run` to enable the built in file
-watcher. When Deno starts up with this flag it watches the entrypoint, and all
-local files the entrypoint statically imports. Whenever one of these files is
-changed on disk, the program will automatically be restarted.
+你可以在 `deno run` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
 
 ```
 deno run --watch main.ts
 ```
 
-### Integrity flags {#integrity-flags}
+### 完整性选项 {#integrity-flags}
 
-Affect commands which can download resources to the cache: `deno cache`,
-`deno run` and `deno test`.
-
-```
---lock <FILE>    Check the specified lock file
---lock-write     Write lock file. Use with --lock.
-```
-
-Find out more about these
-[here](../linking_to_external_code/integrity_checking.md).
-
-### Cache and compilation flags {#cache-and-compilation-flags}
-
-Affect commands which can populate the cache: `deno cache`, `deno run` and
-`deno test`. As well as the flags above this includes those which affect module
-resolution, compilation configuration etc.
+对资源下载到缓存有影响的命令: `deno cache`,`deno run` 和 `deno test`.
 
 ```
---config <FILE>               Load tsconfig.json configuration file
---import-map <FILE>           UNSTABLE: Load import map file
---no-remote                   Do not resolve remote modules
---reload=<CACHE_BLOCKLIST>    Reload source code cache (recompile TypeScript)
---unstable                    Enable unstable APIs
+--lock <FILE>    检查指定的锁文件
+--lock-write     写入锁文件. 和 --lock 一起使用.
 ```
 
-### Runtime flags {#runtime-flags}
+更多信息在[这里](../linking_to_external_code/integrity_checking.md).
 
-Affect commands which execute user code: `deno run` and `deno test`. These
-include all of the above as well as the following.
+### 缓存和编译选项 {#cache-and-compilation-flags}
 
-#### Permission flags {#permission-flags}
-
-These are listed [here](./permissions.md#permissions-list).
-
-#### Other runtime flags {#other-runtime-flags}
-
-More flags which affect the execution environment.
+对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
 
 ```
---cached-only                Require that remote dependencies are already cached
---inspect=<HOST:PORT>        activate inspector on host:port ...
---inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
---seed <NUMBER>              Seed Math.random()
---v8-flags=<v8-flags>        Set V8 command line options. For help: ...
+--config <FILE>               加载 tsconfig.json 配置文件
+--import-map <FILE>           不稳定的: 加载导入映射文件
+--no-remote                   不要解析远程模块
+--reload=<CACHE_BLOCKLIST>    重新加载源代码缓存（重新编译 TypeScript）
+--unstable                    启用不稳定 API
+```
+
+### 运行时选项 {#runtime-flags}
+
+对运行用户代码有影响的命令: `deno run` 和 `deno test`. 这些包括以上所有和以下内容。
+
+#### 权限选项 {#permission-flags}
+
+[这里](./permissions.md#permissions-list)列出了所有权限选项
+
+#### 其他运行时选项 {#other-runtime-flags}
+
+对运行环境有影响的更多选项：
+
+```
+--cached-only                要求远程依赖已经被缓存
+--inspect=<HOST:PORT>        在 host:port 启动检查器
+--inspect-brk=<HOST:PORT>    在 host:port 启动检查器并且暂停执行
+--seed <NUMBER>              指定 Math.random() 的随机种子
+--v8-flags=<v8-flags>        设置 V8 命令行选项
 ```
