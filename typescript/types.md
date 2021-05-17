@@ -79,16 +79,12 @@ When Deno encounters this directive, it would resolve the `./coolLib.d.ts` file
 and use that instead of the JavaScript file when TypeScript was type checking
 the file, but still load the JavaScript file when running the program.
 
-<<<<<<< HEAD
-#### Using X-TypeScript-Types header {#using-x-typescript-types-header}
-=======
 > ℹ️ _Note_ this is a repurposed directive for TypeScript that only applies to
 > JavaScript files. Using the triple-slash reference directive of `types` in a
 > TypeScript file works under Deno as well, but has essentially the same
 > behavior as the `path` directive.
 
-#### Using X-TypeScript-Types header
->>>>>>> 22d8217632959ab6ce2f2fd4e236d03d0bccd9a6
+#### Using X-TypeScript-Types header {#using-x-typescript-types-header}
 
 Similar to the triple-slash directive, Deno supports a header for remote modules
 that instructs Deno where to locate the types for a given module. For example, a
