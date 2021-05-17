@@ -1,6 +1,6 @@
 ## 命令行接口 {#command-line-interface}
 
-Deno是一个命令行程序。到目前为止，你应该熟悉一些简单的命令，并且已经了解了shell使用的基本知识。
+Deno 是一个命令行程序。到目前为止，你应该熟悉一些简单的命令，并且已经了解了 shell 使用的基本知识。
 
 这是查看主要帮助文档的几种方式:
 
@@ -15,7 +15,7 @@ deno -h
 deno --help
 ```
 
-Deno的CLI是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如`deno bundle`。 如果你想查看`bundle`特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
+Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle` 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
 
 ```shell
 deno help bundle
@@ -27,7 +27,7 @@ deno bundle --help
 
 ### 脚本来源 {#script-source}
 
-Deno能够从多个来源抓取脚本，比如一个文件名、一个URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。 
+Deno 能够从多个来源抓取脚本，比如一个文件名、一个 URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。 
 
 ```shell
 deno run main.ts
@@ -76,7 +76,7 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
-你可以在`deno run`后面应用`--watch`选项，启用内置的文件观察器。当Deno用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
+你可以在 `deno run` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
 
 ```
 deno run --watch main.ts
@@ -95,7 +95,7 @@ deno run --watch main.ts
 
 ### 缓存和编译选项 {#cache-and-compilation-flags}
 
-对增加缓存有影响的命令: `deno cache`, `deno run` 和`deno test`. 以及影响模块解析、编译配置等的选项。
+对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
 
 ```
 --config <FILE>               加载 tsconfig.json 配置文件
