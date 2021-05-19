@@ -2,7 +2,7 @@
 
 Deno 支持 [V8 Inspector Protocol](https://v8.dev/docs/inspector).
 
-支持 V8，也就是说可以使用 Chrome Devtools 或其他支持V8协议的客户端来调试 Deno 程序 (例如 VSCode)。
+支持 V8，也就是说可以使用 Chrome Devtools 或其他支持 V8 协议的客户端来调试 Deno 程序 (例如 VSCode)。
 
 要调试，请使用 `——inspect` 或 `——inspect-brk` 标志来运行 Deno。
 
@@ -30,9 +30,9 @@ Compile https://deno.land/std@$STD_VERSION/http/file_server.ts
 
 ![Devtools opened](../images/debugger2.jpg)
 
-您可能会注意到，Devtools在 `_constants.ts` 的第一行暂停了执行，而不是 `file_server.ts`。
+您可能会注意到，Devtools 在 `_constants.ts` 的第一行暂停了执行，而不是 `file_server.ts`。
 
- 这是预期的行为，是由V8评估ES模块的方式导致的（`_constants.ts` 是 `file_server.ts` 的最原始、最基础的依赖项，因此将首先对其进行评估）。
+这是预期的行为，是由 V8 评估 ES 模块的方式导致的（`_constants.ts` 是 `file_server.ts` 的最原始、最基础的依赖项，因此将首先对其进行评估）。
 
 此时所有的源码都可以在 Devtools 中找到的，所以让我们打开 `file_server.ts` 并在其中添加一个断点。转到 “Sources” 面板并展开文件树：
 
@@ -44,7 +44,7 @@ _仔细观察，您会发现每个文件都有重复；一份是常规字体，�
 
 ![Break in file_server.ts](../images/debugger4.jpg)
 
-添加断点后，Devtools会自动打开 SourceMap 文件，我们就可以逐步浏览实际的源码。
+添加断点后，Devtools 会自动打开 SourceMap 文件，我们就可以逐步浏览实际的源码。
 
 现在我们已经设置了断点，我们可以继续执行脚本，以便我们可以检查传入的请求。点击恢复脚本执行按钮。您甚至可能需要打两次！
 
