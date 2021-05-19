@@ -1,22 +1,18 @@
-## Permission APIs {#permission-apis}
+## 权限 APIs {#permission-apis}
 
-Permissions are granted from the CLI when running the `deno` command. User code
-will often assume its own set of required permissions, but there is no guarantee
-during execution that the set of _granted_ permissions will align with this.
+运行 `deno` 命令时，会从 CLI 授予权限。用户代码通常会假定自己拥有一组必需的权限，但是在执行过程中不能保证 _已授予的_ 权限集会与此对齐。
 
-In some cases, ensuring a fault-tolerant program requires a way to interact with
-the permission system at runtime.
+在某些情况下，确保容错程序需要一种在运行时与权限系统进行交互的方法。
 
-### Permission descriptors {#permission-descriptors}
+### 权限描述符 {#permission-descriptors}
 
-On the CLI, read permission for `/foo/bar` is represented as
-`--allow-read=/foo/bar`. In runtime JS, it is represented as the following:
+在 CLI 上，对 `/foo/bar` 的读取许可被表示为 `--allow-read=/foo/bar`。在运行时 JS 中，它表示如下：
 
 ```ts
 const desc = { name: "read", path: "/foo/bar" } as const;
 ```
 
-Other examples:
+其他例子：
 
 ```ts
 // Global write permission.
@@ -35,9 +31,9 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
-### Query permissions {#query-permissions}
+### 查询权限 {#query-permissions}
 
-Check, by descriptor, if a permission is granted or not.
+通过描述符检查是否授予许可。
 
 ```ts
 // deno run --allow-read=/foo main.ts
@@ -55,28 +51,21 @@ console.log(await Deno.permissions.query(desc3));
 // PermissionStatus { state: "prompt" }
 ```
 
-### Permission states {#permission-states}
+### 权限状态 {#permission-states}
 
-A permission state can be either "granted", "prompt" or "denied". Permissions
-which have been granted from the CLI will query to `{ state: "granted" }`. Those
-which have not been granted query to `{ state: "prompt" }` by default, while
-`{ state: "denied" }` reserved for those which have been explicitly refused.
-This will come up in [Request permissions](#request-permissions).
+权限状态可以是 “已授予”（granted），“提示”（prompt） 或 “被拒绝”（denied）。从 CLI 授予的权限将查询到 `{ state: "granted" }`。那些没有被授予查询的对象默认情况下会查询到 `{ state: "prompt" }`，而 `{ state: "denied" }` 保留给那些被明确拒绝的对象。
+这将在 [请求权限](#request-permissions) 中出现。
 
-### Permission strength {#permission-strength}
+### 权限强度 {#permission-strength}
 
-The intuitive understanding behind the result of the second query in
-[Query permissions](#query-permissions) is that read access was granted to
-`/foo` and `/foo/bar` is within `/foo` so `/foo/bar` is allowed to be read.
+对 [查询权限](#query-permissions) 中第二个查询的结果的直观理解是，授予了对 `/foo` 的读取访问权限，并且 `/foo/bar` 位于 `/foo` 之内，因此允许读取 `/foo/bar`。
 
-We can also say that `desc1` is
-_[stronger than](https://www.w3.org/TR/permissions/#ref-for-permissiondescriptor-stronger-than)_
-`desc2`. This means that for any set of CLI-granted permissions:
+我们也可以说 `desc1` 比 `desc2` _[更高](https://www.w3.org/TR/permissions/#ref-for-permissiondescriptor-stronger-than)_。 这意味着对于任何 CLI 授予的权限：
 
-1. If `desc1` queries to `{ state: "granted" }` then so must `desc2`.
-2. If `desc2` queries to `{ state: "denied" }` then so must `desc1`.
+1. 如果 `desc1` 查询到 `{ state: "granted" }`，那么 `desc2` 也必须如此。
+2. 如果 `desc2` 查询到 `{ state: "denied" }`，那么 `desc1` 也必须如此。
 
-More examples:
+更多示例：
 
 ```ts
 const desc1 = { name: "write" } as const;
@@ -88,9 +77,9 @@ const desc3 = { name: "net", host: "127.0.0.1" } as const;
 const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 ```
 
-### Request permissions {#request-permissions}
+### 请求权限 {#request-permissions}
 
-Request an ungranted permission from the user via CLI prompt.
+通过 CLI 提示符请求用户的非授权权限。
 
 ```ts
 // deno run main.ts
@@ -108,20 +97,13 @@ console.log(status2);
 // PermissionStatus { state: "denied" }
 ```
 
-If the current permission state is "prompt", a prompt will appear on the user's
-terminal asking them if they would like to grant the request. The request for
-`desc1` was granted so its new status is returned and execution will continue as
-if `--allow-read=/foo` was specified on the CLI. The request for `desc2` was
-denied so its permission state is downgraded from "prompt" to "denied".
+如果当前许可状态为 “提示”（prompt），则提示将出现在用户的终端上，询问他们是否要批准该请求。授予对 `desc1` 的请求，因此将返回其新状态，并且执行将继续，就像在 `CLI` 上指定了 `--allow-read=/foo` 一样。对 `desc2` 的请求被拒绝，因此其许可状态从 “提示”（prompt） 降为 “拒绝”。
 
-If the current permission state is already either "granted" or "denied", the
-request will behave like a query and just return the current status. This
-prevents prompts both for already granted permissions and previously denied
-requests.
+如果当前许可状态已经是 “已授予”（granted） 或 “已拒绝”，则请求的行为将类似于查询，并仅返回当前状态。这样既可以防止提示已授予的权限，也可以防止先前拒绝的请求。
 
-### Revoke permissions {#revoke-permissions}
+### 撤消权限 {#revoke-permissions}
 
-Downgrade a permission from "granted" to "prompt".
+将权限从 “已授予”（granted） 降级为 “提示”（prompt）。
 
 ```ts
 // deno run --allow-read=/foo main.ts
@@ -131,8 +113,7 @@ console.log(await Deno.permissions.revoke(desc));
 // PermissionStatus { state: "prompt" }
 ```
 
-However, what happens when you try to revoke a permission which is _partial_ to
-one granted on the CLI?
+但是，当您尝试撤消仅属于 CLI 授予的权限的 _一部分_ 时，会发生什么情况？
 
 ```ts
 // deno run --allow-read=/foo main.ts
@@ -142,11 +123,9 @@ console.log(await Deno.permissions.revoke(desc));
 // PermissionStatus { state: "granted" }
 ```
 
-It was not revoked.
+它没有被撤销。
 
-To understand this behaviour, imagine that Deno stores an internal set of
-_explicitly granted permission descriptors_. Specifying `--allow-read=/foo,/bar`
-on the CLI initializes this set to:
+要了解这种行为，可以想象 Deno 存储了一组内部的 _显式授予的权限描述符_。在 CLI 上指定 `--allow-read=/foo,/bar` 可以将此设置初始化为：
 
 ```ts
 [
@@ -155,8 +134,7 @@ on the CLI initializes this set to:
 ];
 ```
 
-Granting a runtime request for `{ name: "write", path: "/foo" }` updates the set
-to:
+授予运行时请求 `{ name: "write", path: "/foo" }` 的集合，将其更新为：
 
 ```ts
 [
@@ -166,10 +144,7 @@ to:
 ];
 ```
 
-Deno's permission revocation algorithm works by removing every element from this
-set which the argument permission descriptor is _stronger than_. So to ensure
-`desc` is not longer granted, pass an argument descriptor _stronger than_
-whichever _explicitly granted permission descriptor_ is _stronger than_ `desc`.
+Deno 的权限撤销算法的工作原理是从该集合中删除参数权限描述符比其参数 _强_ 的每个元素因此，要确保不再授予 `desc`，请传递一个比任何显式授予的权限描述符都要 _强_ 于 `desc` _强_ 的参数描述符。
 
 ```ts
 // deno run --allow-read=/foo main.ts
