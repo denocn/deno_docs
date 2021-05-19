@@ -1,26 +1,17 @@
-# Runtime {#runtime}
+# 运行时 {#runtime}
 
-Documentation for all runtime functions (Web APIs + `Deno` global) can be found
-on
-[`doc.deno.land`](https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts).
+可以在 [`doc.deno.land`](https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts) 上找到所有运行时功能（Web API + `Deno` global）的文档。
 
 ## Web Platform APIs {#web-platform-apis}
 
-For APIs where a web standard already exists, like `fetch` for HTTP requests,
-Deno uses these rather than inventing a new proprietary API.
+对于已经存在的 Web 标准 API（例如，HTTP 请求的 `fetch`），Deno 是去使用这些标准，而不是发明新的专有 API。
 
-For more details, view the chapter on
-[Web Platform APIs](./runtime/web_platform_apis.md).
-
+更多详细信息，请参见 [Web Platform APIs](./runtime/web_platform_apis.md)。
 ## `Deno` global {#deno-global}
 
-All APIs that are not web standard are contained in the global `Deno` namespace.
-It has the APIs for reading from files, opening TCP sockets, serving HTTP, and
-executing subprocesses, etc.
+所有非 Web 标准的 API 都包含在全局 `Deno` 命名空间中。
+这些 API 包括：读取文件，打开 TCP 套接字，提供 HTTP 服务以及执行子进程等的。
 
-The TypeScript definitions for the Deno namespaces can be found in the
-[`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)
-file.
+有关 Deno 命名空间的 TypeScript 定义，请参见 [`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)。
 
-The documentation for all of the Deno specific APIs can be found on
-[doc.deno.land](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts).
+有关所有 Deno 特定 API 文档，请参见 [doc.deno.land](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts)。
