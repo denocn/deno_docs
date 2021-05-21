@@ -3,7 +3,7 @@
 Deno 支持浏览器兼容的生命周期事件: `load` and `unload`. 你可以使用
 这些事件在你的程序中提供用于安装和清理的代码。
 
-`load` 的事件的监听器可以是异步的，并且将被被等待。`unload` 事件的监听器则需要时同步的。这两种事件都不能被取消。
+`load` 事件的监听器可以是异步的，并且将被等待。`unload` 事件的监听器则需要是同步的。这两种事件都不能被取消。
 
 示例:
 
@@ -72,4 +72,4 @@ got unload event in onunload function (main)
 
 换句话说, 你可以同时注册多个 `window.addEventListener` `"load"` 或
 `"unload"` 事件, 但是，只有最后加载的 `window.onload` 或 `window.onunload`
-事件处理程序会被执行。因此，在可能的情况下，最好使用 `addEventListener`。
+事件处理程序会被执行。因此，在可能的情况下，最好是使用 `addEventListener`。
