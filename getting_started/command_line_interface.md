@@ -64,19 +64,9 @@ deno run net_client.ts --allow-net
 
 然而:
 
-<<<<<<< HEAD
 1. 这是区分运行时选项和脚本参数的最合乎逻辑的方法。
-2. 这是区分运行时选项和脚本参数的最符合人体工程学的方法。
-3. 实际上，这和其他流行的运行时具有相同的行为。
+2. 实际上，这和其他流行的运行时具有相同的行为。
    - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js` 做语法检查. 而第二个会_执行_ `index.js`，将`-c` 传递为`require("process").argv`。
-=======
-1. This is the most logical and ergonomic way of distinguishing between runtime
-   flags and script arguments.
-2. This is, in fact, the same behaviour as that of any other popular runtime.
-   - Try `node -c index.js` and `node index.js -c`. The first will only do a
-     syntax check on `index.js` as per Node's `-c` flag. The second will
-     _execute_ `index.js` with `-c` passed to `require("process").argv`.
->>>>>>> d72cb518951cf6cb2db4308d89a6b2eeca82572c
 
 ---
 
