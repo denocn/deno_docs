@@ -1,8 +1,6 @@
-## WebAssembly support {#webassembly-support}
+## WebAssembly 支持 {#webassembly-support}
 
-Deno can execute [WebAssembly](https://webassembly.org/) modules with the same
-interfaces that
-[browsers provide](https://developer.mozilla.org/en-US/docs/WebAssembly).
+Deno 可以用[浏览器提供](https://developer.mozilla.org/en-US/docs/WebAssembly)相同的接口执行执行 [WebAssembly](https://webassembly.org/) 模块。
 
 <!-- deno-fmt-ignore -->
 
@@ -21,7 +19,7 @@ const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
 
-And for files:
+对 WebAssembly 文件来说。
 
 ```ts
 const wasmCode = await Deno.readFile("main.wasm");
