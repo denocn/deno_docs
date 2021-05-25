@@ -1,6 +1,6 @@
 ## WebAssembly 支持 {#webassembly-support}
 
-Deno 可以用[浏览器提供](https://developer.mozilla.org/en-US/docs/WebAssembly)相同的接口执行执行 [WebAssembly](https://webassembly.org/) 模块。
+Deno 可以用与[浏览器提供](https://developer.mozilla.org/en-US/docs/WebAssembly)相同的接口来执行 [WebAssembly](https://webassembly.org/) 模块。
 
 <!-- deno-fmt-ignore -->
 
