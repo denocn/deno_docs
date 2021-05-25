@@ -65,8 +65,7 @@ deno run net_client.ts --allow-net
 然而:
 
 1. 这是区分运行时选项和脚本参数的最合乎逻辑的方法。
-2. 这是区分运行时选项和脚本参数的最符合人体工程学的方法。
-3. 实际上，这和其他流行的运行时具有相同的行为。
+2. 实际上，这和其他流行的运行时具有相同的行为。
    - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js` 做语法检查. 而第二个会_执行_ `index.js`，将`-c` 传递为`require("process").argv`。
 
 ---
