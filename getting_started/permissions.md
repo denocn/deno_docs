@@ -8,6 +8,7 @@
 deno run --allow-read mod.ts
 ```
 
+<<<<<<< HEAD
 ### 权限列表 {#permissions-list}
 
 可用权限如下：
@@ -26,6 +27,40 @@ deno run --allow-read mod.ts
 Deno 还允许你控制白名单权限的粒度。
 
 这个例子通过只包含 `/usr` 的白名单来限制文件系统访问权限，但是由于进程试图访问 `/etc` 目录中的文件，所以执行失败。
+=======
+### Permissions list
+
+The following permissions are available:
+
+- **-A, --allow-all** Allow all permissions. This disables all security.
+- **--allow-env** Allow environment access for things like getting and setting
+  of environment variables.
+- **--allow-hrtime** Allow high-resolution time measurement. High-resolution
+  time can be used in timing attacks and fingerprinting.
+- **--allow-net=\<allow-net\>** Allow network access. You can specify an
+  optional, comma-separated list of domains to provide an allow-list of allowed
+  domains.
+- **--allow-plugin** Allow loading plugins. Please note that --allow-plugin is
+  an unstable feature.
+- **--allow-read=\<allow-read\>** Allow file system read access. You can specify
+  an optional, comma-separated list of directories or files to provide an
+  allow-list of allowed file system access.
+- **--allow-run** Allow running subprocesses. Be aware that subprocesses are not
+  run in a sandbox and therefore do not have the same security restrictions as
+  the deno process. Therefore, use with caution.
+- **--allow-write=\<allow-write\>** Allow file system write access. You can
+  specify an optional, comma-separated list of directories or files to provide
+  an allow-list of allowed file system access.
+
+### Permissions allow-list
+
+Deno also allows you to control the granularity of some permissions with
+allow-lists.
+
+This example restricts file system access by allow-listing only the `/usr`
+directory, however the execution fails as the process was attempting to access a
+file in the `/etc` directory:
+>>>>>>> 5dcf7b04a1488511b9558a88295af15e7e56d4c1
 
 ```shell
 $ deno run --allow-read=/usr https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
