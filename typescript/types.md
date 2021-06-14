@@ -101,10 +101,7 @@ When seeing this header, Deno would attempt to retrieve
 `https://example.com/coolLib.d.ts` and use that when type checking the original
 module.
 
-<<<<<<< HEAD
-### Important points {#important-points}
-=======
-### Type Checking Web Workers
+### Type Checking Web Workers {#type-checking-web-workers}
 
 When Deno loads a TypeScript module in a web worker, it will automatically type
 check the module and its dependencies against the Deno web worker library. This
@@ -112,7 +109,7 @@ can present a challenge in other contexts like `deno cache`, `deno bundle`, or
 in editors. There are a couple of ways to instruct Deno to use the worker
 libraries instead of the standard Deno libraries.
 
-#### Using triple-slash directives
+#### Using triple-slash directives {#using-triple-slash-directives}
 
 This option couples the library settings with the code itself. By adding the
 following triple-slash directives near the top of the entry point file for the
@@ -138,7 +135,7 @@ The one disadvantage of this, is that it makes the code less portable to other
 non-Deno platforms like `tsc`, as it is only Deno which has the `"deno.worker"`
 library built into it.
 
-#### Using a `tsconfig.json` file
+#### Using a `tsconfig.json` file {#using-a-codetsconfigjsoncode-file}
 
 Another option is to use a `tsconfig.json` file that is configured to apply the
 library files. A minimal file that would work would look something like this:
@@ -160,8 +157,7 @@ If you also have non-worker scripts, you will either need to omit the `--config`
 argument, or have one that is configured to meet the needs of your non-worker
 scripts.
 
-### Important points
->>>>>>> 2f07875250fcbefd8bcaa050dce6f43d9d59d0f2
+### Important points {#important-points}
 
 #### Type declaration semantics {#type-declaration-semantics}
 
