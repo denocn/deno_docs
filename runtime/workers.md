@@ -117,7 +117,7 @@ hello world
 
 Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用的每个权限都可以在 Worker API 层面上被禁用。你可以在[这里](../getting_started/permissions.md)找到每个权限选项更详细的描述。
 
-默认情况下， worker 将从其创建的线程中继承权限，但为了允许用户限制该 worker 的访问，我们在 worker API 中提供了 `deno.permissions` 选项。
+默认情况下，worker 将从其创建的线程中继承权限，但为了允许用户限制该 worker 的访问，我们在 worker API 中提供了 `deno.permissions` 选项。
 
 - 对于支持更细访问的权限，你可以传入 worker 访问的所需资源的列表，对于只有 on/off 选项的 worker，你可以分别传入 true/false。
 
