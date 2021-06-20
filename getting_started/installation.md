@@ -50,8 +50,15 @@ cargo install deno --locked
 
 Deno 二进制文件也可以手动安装，你可以从 [github.com/denoland/deno/releases](https://github.com/denoland/deno/releases) 下载一个 zip 文件。这些软件包仅包含一个可执行文件。在 macOS 和 Linux 中使用前，需将其设为可执行。
 
+<<<<<<< HEAD
 官方 Docker 镜像目前还不可用 
 ([issue#3356](https://github.com/denoland/deno/issues/3356))，但是目前有一个[社区镜像](https://github.com/hayd/deno-docker) are available.
+=======
+### Docker
+
+For more information and instructions on the official Docker images:
+[https://github.com/denoland/deno_docker](https://github.com/denoland/deno_docker)
+>>>>>>> 833bc2b8139febaf8b64a61e118d9e968491e8ac
 
 ### 测试安装是否成功 {#testing-your-installation}
 
