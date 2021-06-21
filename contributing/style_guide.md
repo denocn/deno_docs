@@ -44,7 +44,7 @@ TODO 注释通常应该在括号中包含 Issue ID 或作者的 Github 用户名
 
 ## TypeScript {#typescript}
 
-代码库中的 TypeScript 部分包括内置的 "cli/js" 和标准库 "std"。
+代码库中的 TypeScript 部分包括标准库 `std`。
 
 ### 使用 TypeScript 而非 JavaScript {#use-typescript-instead-of-javascript}
 
@@ -177,7 +177,7 @@ export type { Person } from "./my_file.ts";
 
 ### 最小化依赖; 不要循环导入 {#minimize-dependencies-do-not-make-circular-imports}
 
-虽然 "cli/js" 和 "std" 没有外部依赖关系，但我们仍须注意保持简单的内部依赖关系和可管理性。特别是要注意不要引入循环导入。
+虽然 "std" 没有外部依赖关系，但我们仍须注意保持简单的内部依赖关系和可管理性。特别是要注意不要引入循环导入。
 
 ### 不要引入下划线开头的文件 {#if-a-filename-starts-with-an-underscore-_foots-do-not-link-to-it}
 
@@ -229,17 +229,18 @@ export function foo() {
  */
 ```
 
-示例代码不应使用三个反引号 (\`\`\`) 来表示。它们仅应由缩进来标记，在代码块之前需要一个空行，且每行代码前应有 6 个额外的空格。这相比于与第一列的注释缩进了 4 个空格。举例：
+示例代码使用 markdown 格式。举例：
 
-```ts
+````ts
 /** A straight forward comment and an example:
- *
- *       import { foo } from "deno";
- *       foo("bar");
+ * ```ts
+ * import { foo } from "deno";
+ * foo("bar");
+ * ```
  */
-```
+````
 
-代码示例不应包含额外的注释，因为它已经在注释里面了。还需要进一步说明的示例不好。
+代码示例不应包含额外的注释，也不应该缩进，因为它已经在注释里面了。还需要进一步说明的示例不好。
 
 ### 使用指令来解决 linting 问题 {#resolve-linting-problems-using-directives}
 
@@ -255,7 +256,7 @@ let x: any;
 ### 每个模块应附带一个测试模块 {#each-module-should-come-with-a-test-module}
 
 每个具有公共功能的模块 `foo.ts` 都应该有一个测试模块 `foo_test.ts`。
-对 "cli/js" 模块的测试应该放在 "cli/js/tests" 中，因为它们拥有不同的上下文，否则它应该只是被测试模块的兄弟。
+对 `std` 模块的测试应该放在 `std/tests` 中，因为它们拥有不同的上下文，否则它应该只是被测试模块的兄弟。
 
 ### 单元测试应该是明确的 {#unit-tests-should-be-explicit}
 
