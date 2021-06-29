@@ -134,9 +134,6 @@ let g:ale_fix_on_save = 1 " run deno fmt when saving a buffer
 }
 ```
 
-<<<<<<< HEAD
-#### LSP 客户端 {#lsp-clients}
-=======
 You can also use built-in Deno language server by using
 [`eglot`](https://github.com/joaotavora/eglot).
 
@@ -154,8 +151,11 @@ Example configuration:
     :lint t))
 ```
 
-#### Atom
->>>>>>> fdfd41f734f958a4805487cb43948e77035bb7ac
+#### Atom {#atom}
+
+Install atom-ide-base package and atom-ide-deno package on Atom.
+
+#### LSP clients {#lsp-clients}
 
 Deno 在 1.6.0 以后的版本对[语言服务器协议](https://langserver.org)提供了内建支持。
 

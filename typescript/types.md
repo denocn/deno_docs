@@ -101,9 +101,6 @@ When seeing this header, Deno would attempt to retrieve
 `https://example.com/coolLib.d.ts` and use that when type checking the original
 module.
 
-<<<<<<< HEAD
-### Type Checking Web Workers {#type-checking-web-workers}
-=======
 ### Using ambient or global types
 
 Overall it is better to use module/UMD type definitions with Deno, where a
@@ -166,7 +163,6 @@ array will be resolved like other specifiers in Deno. In the case of relative
 specifiers, it will be resolved relative to the path to the `tsconfig.json`.
 
 ### Type Checking Web Workers
->>>>>>> fdfd41f734f958a4805487cb43948e77035bb7ac
 
 When Deno loads a TypeScript module in a web worker, it will automatically type
 check the module and its dependencies against the Deno web worker library. This
