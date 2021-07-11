@@ -5,8 +5,8 @@ TypeScript code.
 
 ## Writing tests {#writing-tests}
 
-To define a test you need to call `Deno.test` with a name and function to be
-tested. There are two styles you can use.
+To define a test you need to register it with a call to `Deno.test` with a name
+and function to be tested. There are two styles you can use.
 
 ```ts
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
@@ -27,6 +27,7 @@ Deno.test({
 });
 ```
 
+<<<<<<< HEAD
 ## Assertions {#assertions}
 
 There are some useful assertion utilities at
@@ -46,6 +47,9 @@ Deno.test("hello world", () => {
 ```
 
 ### Async functions {#async-functions}
+=======
+### Async functions
+>>>>>>> 6729901a3bed28cc9809e78e2e5e68d953cc50a8
 
 You can also test asynchronous code by passing a test function that returns a
 promise. For this you can use the `async` keyword when defining a function:
@@ -65,6 +69,7 @@ Deno.test("async hello world", async () => {
 });
 ```
 
+<<<<<<< HEAD
 ### Resource and async op sanitizers {#resource-and-async-op-sanitizers}
 
 Certain actions in Deno create resources in the resource table
@@ -118,6 +123,9 @@ Deno.test({
 ```
 
 ## Running tests {#running-tests}
+=======
+## Running tests
+>>>>>>> 6729901a3bed28cc9809e78e2e5e68d953cc50a8
 
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the
@@ -231,6 +239,7 @@ failure, you can specify the `--fail-fast` flag when running the suite.
 ```shell
 deno test --fail-fast
 ```
+<<<<<<< HEAD
 
 ## Test coverage {#test-coverage}
 
@@ -267,3 +276,5 @@ matching the regular expression `^file:`.
 These filters can be overridden using the `--exclude` and `--include` flags. A
 source file's url must match both regular expressions for it to be a part of the
 report.
+=======
+>>>>>>> 6729901a3bed28cc9809e78e2e5e68d953cc50a8
