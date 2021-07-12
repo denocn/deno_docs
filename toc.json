@@ -72,7 +72,10 @@
   "testing": {
     "name": "测试",
     "children": {
-      "assertions": "断言"
+      "assertions": "断言",
+      "coverage": "覆盖率",
+      "documentation": "文档",
+      "sanitizers": "Sanitizers"
     }
   },
   "tools": {
