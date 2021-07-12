@@ -72,14 +72,10 @@
   "testing": {
     "name": "测试",
     "children": {
-<<<<<<< HEAD
-      "assertions": "断言"
-=======
-      "assertions": "Assertions",
-      "coverage": "Coverage",
-      "documentation": "Documentation",
+      "assertions": "断言",
+      "coverage": "覆盖率",
+      "documentation": "文档",
       "sanitizers": "Sanitizers"
->>>>>>> 6729901a3bed28cc9809e78e2e5e68d953cc50a8
     }
   },
   "tools": {
