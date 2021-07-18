@@ -19,7 +19,11 @@ const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
 
+<<<<<<< HEAD
 对 WebAssembly 文件来说。
+=======
+For files:
+>>>>>>> 207c83b88c24e9355c55c4ac2af17424531beeec
 
 ```ts
 const wasmCode = await Deno.readFile("main.wasm");
@@ -27,4 +31,15 @@ const wasmModule = new WebAssembly.Module(wasmCode);
 const wasmInstance = new WebAssembly.Instance(wasmModule);
 const main = wasmInstance.exports.main as CallableFunction;
 console.log(main().toString());
+```
+
+And for loading WebAssembly modules over the network (note that the file must be
+served with `application/wasm` MIME type):
+
+```ts
+const { instance, module } = await WebAssembly.instantiateStreaming(
+  fetch("https://wpt.live/wasm/incrementer.wasm"),
+);
+const increment = instance.exports.increment as (input: number) => number;
+console.log(increment(41));
 ```
