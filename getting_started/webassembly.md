@@ -19,11 +19,7 @@ const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
 
-<<<<<<< HEAD
 对 WebAssembly 文件来说。
-=======
-For files:
->>>>>>> 207c83b88c24e9355c55c4ac2af17424531beeec
 
 ```ts
 const wasmCode = await Deno.readFile("main.wasm");
