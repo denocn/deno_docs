@@ -106,11 +106,13 @@
   "help": {
     "name": "Help"
   },
+  "help": {
+    "name": "Help"
+  },
   "contributing": {
     "name": "贡献",
     "children": {
       "building_from_source": "从源代码构建",
-      "development_tools": "开发工具",
       "web_platform_tests": "Web 平台测试",
       "style_guide": "样式指南",
       "architecture": "架构",

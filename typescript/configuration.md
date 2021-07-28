@@ -109,7 +109,7 @@ is type checked with `"deno.worker"` instead of `"deno.window"`. See
 [Type Checking Web Workers](./types#type-checking-web-workers) for more
 information on this.
 
-### Using the "lib" property {#using-the-lib-property}
+### Using the "types" property
 
 Deno has several libraries built into it that are not present in other
 platforms, like `tsc`. This is what enables Deno to properly check code written

@@ -42,6 +42,12 @@ brew install deno
 nix-shell -p deno
 ```
 
+使用 [Cargo](https://crates.io/crates/deno) 从源码构建并安装：
+
+```shell
+cargo install deno --locked
+```
+
 使用 [Cargo](https://crates.io/crates/deno) 从源代码构建并安装：
 
 ```shell

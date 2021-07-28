@@ -6,7 +6,6 @@ Worker 可以在多个线程中运行代码，`Worker` 的每个实例都会在�
 
 目前，Deno 只支持 `module` 类型的 worker，因此在创建新的 worker 时必须传递 `type: "module"` 选项。
 
-
 只有在 CLI 上传 `--location <href>`，才支持在主 worker 中使用相对模块说明符。为了便捷性，不建议这样做。你可以使用 `URL` 构造函数和 `import.meta.url` 来为一些周围的脚本轻松创建说明符。但是，对于一些专门的 worker，它们有默认的位置和能力。
 
 ```ts

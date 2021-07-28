@@ -177,7 +177,7 @@ export type { Person } from "./my_file.ts";
 
 ### 最小化依赖; 不要循环导入 {#minimize-dependencies-do-not-make-circular-imports}
 
-虽然 "std" 没有外部依赖关系，但我们仍须注意保持简单的内部依赖关系和可管理性。特别是要注意不要引入循环导入。
+虽然 `std` 没有外部依赖关系，但我们仍须注意保持简单的内部依赖关系和可管理性。特别是要注意不要引入循环导入。
 
 ### 不要引入下划线开头的文件 {#if-a-filename-starts-with-an-underscore-_foots-do-not-link-to-it}
 
