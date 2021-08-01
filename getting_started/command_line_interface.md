@@ -97,11 +97,19 @@ deno run --watch main.ts
 对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
 
 ```
+<<<<<<< HEAD
 --config <FILE>               加载 tsconfig.json 配置文件
 --import-map <FILE>           不稳定的: 加载导入映射文件
 --no-remote                   不要解析远程模块
 --reload=<CACHE_BLOCKLIST>    重新加载源代码缓存（重新编译 TypeScript）
 --unstable                    启用不稳定 API
+=======
+--config <FILE>               Load tsconfig.json configuration file
+--import-map <FILE>           Load import map file
+--no-remote                   Do not resolve remote modules
+--reload=<CACHE_BLOCKLIST>    Reload source code cache (recompile TypeScript)
+--unstable                    Enable unstable APIs
+>>>>>>> 8f46c7fe4ffe8635c9537242d409d05add655b6b
 ```
 
 ### 运行时选项 {#runtime-flags}
