@@ -11,10 +11,13 @@ deno run --unstable mod_which_uses_unstable_stuff.ts
 传递这个选项可以有如下效果：
 
 - 它将允许在运行时使用不稳定的 API。
-- 它将 [`lib.deno.unstable.d.ts`](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.unstable.d.ts) 文件添加到用于类型检查的类型脚本定义列表中。这包括 `deno types` 的输出。
+- 它将
+  [`lib.deno.unstable.d.ts`](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.unstable.d.ts)
+  文件添加到用于类型检查的类型脚本定义列表中。这包括 `deno types` 的输出。
 
 请注意，不稳定的 API 可能**没有经过安全检查**，将来可能有**破坏性改动**，并且**还没有准备投入生产**。
 
 ### 标准模块 {#standard-modules}
 
-Deno 的 [标准模块](https://deno.land/std/) 尚不稳定。为了体现这点，我们用与 CLI 不同的版本号标记标准模块。和 `Deno` 命名空间不同，使用标准模块不需要 `--unstable` 选项（除非该模块使用了不稳定的 Deno 功能）。
+Deno 的 [标准模块](https://deno.land/std/) 尚不稳定。为了体现这点，我们用与 CLI 不同的版本号标记标准模块。和 `Deno`
+命名空间不同，使用标准模块不需要 `--unstable` 选项（除非该模块使用了不稳定的 Deno 功能）。

@@ -36,7 +36,8 @@ TODO 注释通常应该在括号中包含 Issue ID 或作者的 Github 用户名
 
 ## 包容性守则 {#inclusive-code}
 
-请遵循以下网址所概述的包容性守则的指导方针 https://chromium.googlesource.com/chromium/src/+/master/styleguide/inclusive_code.md.
+请遵循以下网址所概述的包容性守则的指导方针
+https://chromium.googlesource.com/chromium/src/+/master/styleguide/inclusive_code.md.
 
 ## Rust {#rust}
 
@@ -50,13 +51,15 @@ TODO 注释通常应该在括号中包含 Issue ID 或作者的 Github 用户名
 
 ### 使用术语 "module" 而非 "library" 或 "package". {#use-the-term-module-instead-of-library-or-package}
 
-为了保持清晰性和一致性，请避免使用 "library" 和 "package"。使用 "module" 来指代一个 JS 或 TS 文件，也可以指代一个目录中的 TS/JS 代码。
+为了保持清晰性和一致性，请避免使用 "library" 和 "package"。使用 "module" 来指代一个 JS 或 TS 文件，也可以指代一个目录中的
+TS/JS 代码。
 
 ### 不要用 `index.ts`/`index.js` 当文件名 {#do-not-use-the-filename-indextsindexjs}
 
 Deno 不会对 "index.js" 或 "index.ts" 进行特殊处理。虽然要使用这些文件名，但又不能将它们排除在模块说明符之外，这令人十分困惑。
 
-如果一个代码目录需要一个默认的入口，请使用文件名 `mod.ts`。文件名 `mod.ts` 遵循 Rust 的惯例， 它比 `index.ts` 更短，并且无需事先知道它是如何工作的。
+如果一个代码目录需要一个默认的入口，请使用文件名 `mod.ts`。文件名 `mod.ts` 遵循 Rust 的惯例， 它比 `index.ts`
+更短，并且无需事先知道它是如何工作的。
 
 ### 导出函数：最多 2 个参数，把其余的参数放入一个配置对象中 {#exported-functions-max-2-args-put-the-rest-into-an-options-object}
 
@@ -64,8 +67,7 @@ Deno 不会对 "index.js" 或 "index.ts" 进行特殊处理。虽然要使用这
 
 1. 组成公共 API 的函数拥有 0-2 个必选参数，和（如果必要）一个可选对象（总共最多 3 个）。
 
-2. 可选参数一般应放入可选对象中。
-   仅有一个不在可选对象中的可选参数是可接受的，并且未来不考虑新增可选参数。
+2. 可选参数一般应放入可选对象中。 仅有一个不在可选对象中的可选参数是可接受的，并且未来不考虑新增可选参数。
 
 3. 可选参数是唯一的参数且是一个常规的对象。
 
@@ -206,7 +208,8 @@ export function foo() {
 /** 从 `deno` 模块中导入一些东西 */
 ```
 
-无需记录函数的参数，除非函数参数无法做到见名知意。（尽管参数做到了见名知意，但最终还应以 API 为准）。因此一般无需使用 `@param`。如果一定要用，它不应当包含 `type`，因为 TypeScript 已经在这方面做的很好了。
+无需记录函数的参数，除非函数参数无法做到见名知意。（尽管参数做到了见名知意，但最终还应以 API 为准）。因此一般无需使用
+`@param`。如果一定要用，它不应当包含 `type`，因为 TypeScript 已经在这方面做的很好了。
 
 ```ts
 /**
@@ -244,7 +247,8 @@ export function foo() {
 
 ### 使用指令来解决 linting 问题 {#resolve-linting-problems-using-directives}
 
-在当前的构建过程中，使用 `dlint` 来校验代码中的 linting 问题。 如果任务对 linter 来说是不合格的话，使用 `deno-lint-ignore <code>` 指令来抑制警告。
+在当前的构建过程中，使用 `dlint` 来校验代码中的 linting 问题。 如果任务对 linter 来说是不合格的话，使用
+`deno-lint-ignore <code>` 指令来抑制警告。
 
 ```typescript
 // deno-lint-ignore no-explicit-any
@@ -255,8 +259,8 @@ let x: any;
 
 ### 每个模块应附带一个测试模块 {#each-module-should-come-with-a-test-module}
 
-每个具有公共功能的模块 `foo.ts` 都应该有一个测试模块 `foo_test.ts`。
-对 `std` 模块的测试应该放在 `std/tests` 中，因为它们拥有不同的上下文，否则它应该只是被测试模块的兄弟。
+每个具有公共功能的模块 `foo.ts` 都应该有一个测试模块 `foo_test.ts`。 对 `std` 模块的测试应该放在 `std/tests`
+中，因为它们拥有不同的上下文，否则它应该只是被测试模块的兄弟。
 
 ### 单元测试应该是明确的 {#unit-tests-should-be-explicit}
 
@@ -279,8 +283,7 @@ Deno.test("myTestFunction", function () {
 
 ### 顶层函数不应使用箭头函数语法。 {#top-level-functions-should-not-use-arrow-syntax}
 
-顶层函数应使用 `function` 关键字。
-箭头语法应局限于闭包。
+顶层函数应使用 `function` 关键字。 箭头语法应局限于闭包。
 
 Bad:
 
@@ -302,8 +305,7 @@ export function foo(): string {
 
 #### 不要依赖外部代码 {#do-not-depend-on-external-code}
 
-`https://deno.land/std/` 旨在成为所有 Deno 程序可以依赖的基础。
-我们向用户保证，这些代码不包含可能未经审查的第三方代码。
+`https://deno.land/std/` 旨在成为所有 Deno 程序可以依赖的基础。 我们向用户保证，这些代码不包含可能未经审查的第三方代码。
 
 #### 记录并维护浏览器的兼容性 {#document-and-maintain-browser-compatibility}
 

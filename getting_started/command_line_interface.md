@@ -15,7 +15,8 @@ deno -h
 deno --help
 ```
 
-Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle` 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
+Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle`
+特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
 
 ```shell
 deno help bundle
@@ -27,7 +28,7 @@ deno bundle --help
 
 ### 脚本来源 {#script-source}
 
-Deno 能够从多个来源抓取脚本，比如一个文件名、一个 URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。 
+Deno 能够从多个来源抓取脚本，比如一个文件名、一个 URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。
 
 ```shell
 deno run main.ts
@@ -66,16 +67,17 @@ deno run net_client.ts --allow-net
 
 1. 这是区分运行时选项和脚本参数的最合乎逻辑的方法。
 2. 实际上，这和其他流行的运行时具有相同的行为。
-   - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js` 做语法检查. 而第二个会 _执行_ `index.js`，将`-c` 传递为`require("process").argv`。
+   - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js`
+     做语法检查. 而第二个会 _执行_ `index.js`，将`-c` 传递为`require("process").argv`。
 
 ---
 
-存在一些有逻辑的选项组，它们在相关的子命令之间共享。
-接下来我们将会讨论。
+存在一些有逻辑的选项组，它们在相关的子命令之间共享。 接下来我们将会讨论。
 
 ### 观察模式 {#watch-mode}
 
-你可以在 `deno run` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
+你可以在 `deno run` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno
+用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
 
 ```
 deno run --watch main.ts

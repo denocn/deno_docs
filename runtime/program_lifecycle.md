@@ -1,7 +1,6 @@
 ## 程序生命周期 {#program-lifecycle}
 
-Deno 支持浏览器兼容的生命周期事件: `load` 和 `unload`。你可以使用
-这些事件在你的程序中提供用于安装和清理的代码。
+Deno 支持浏览器兼容的生命周期事件: `load` 和 `unload`。你可以使用 这些事件在你的程序中提供用于安装和清理的代码。
 
 `load` 事件的监听器可以是异步的，并且将被等待。`unload` 事件的监听器则需要是同步的。这两种事件都不能被取消。
 
@@ -52,8 +51,8 @@ window.onunload = (e: Event): void => {
 console.log("log from imported script");
 ```
 
-请注意，你可以同时使用 `window.addEventListener` 和
-`window.onload`/`window.onunload` 来定义事件处理程序。 它们之间有一个主要的区别, 让我们运行示例:
+请注意，你可以同时使用 `window.addEventListener` 和 `window.onload`/`window.onunload`
+来定义事件处理程序。 它们之间有一个主要的区别, 让我们运行示例:
 
 ```shell
 $ deno run main.ts
@@ -67,9 +66,9 @@ got unload event in event handler (main)
 got unload event in onunload function (main)
 ```
 
-所有通过 `window.addEventListener` 添加的侦听器都被运行, 可是，在 `main.ts` 
-定义的 `window.onload` 和 `window.onunload` 覆盖了在 `imported.ts` 定义的处理程序。
+所有通过 `window.addEventListener` 添加的侦听器都被运行, 可是，在 `main.ts` 定义的 `window.onload` 和
+`window.onunload` 覆盖了在 `imported.ts` 定义的处理程序。
 
-换句话说, 你可以同时注册多个 `window.addEventListener` `"load"` 或
-`"unload"` 事件, 但是，只有最后加载的 `window.onload` 或 `window.onunload`
-事件处理程序会被执行。因此，在可能的情况下，最好是使用 `addEventListener`。
+换句话说, 你可以同时注册多个 `window.addEventListener` `"load"` 或 `"unload"` 事件, 但是，只有最后加载的
+`window.onload` 或 `window.onunload` 事件处理程序会被执行。因此，在可能的情况下，最好是使用
+`addEventListener`。
