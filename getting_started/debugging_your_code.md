@@ -10,7 +10,8 @@ Deno 支持 [V8 Inspector Protocol](https://v8.dev/docs/inspector).
 
 ### Chrome Devtools {#chrome-devtools}
 
-让我们用 Chrome Devtools 来调试一个程序。为此，我们使用一个来自 Deno 标准库的静态文件服务器 [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts)。
+让我们用 Chrome Devtools 来调试一个程序。为此，我们使用一个来自 Deno 标准库的静态文件服务器
+[file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts)。
 
 使用 `——inspect-brk` 标志在第一行中断执行:
 
@@ -32,13 +33,16 @@ Compile https://deno.land/std@$STD_VERSION/http/file_server.ts
 
 您可能会注意到，Devtools 在 `_constants.ts` 的第一行暂停了执行，而不是 `file_server.ts`。
 
-这是预期的行为，是由 V8 评估 ES 模块的方式导致的（`_constants.ts` 是 `file_server.ts` 的最原始、最基础的依赖项，因此将首先对其进行评估）。
+这是预期的行为，是由 V8 评估 ES 模块的方式导致的（`_constants.ts` 是 `file_server.ts`
+的最原始、最基础的依赖项，因此将首先对其进行评估）。
 
-此时所有的源码都可以在 Devtools 中找到的，所以让我们打开 `file_server.ts` 并在其中添加一个断点。转到 “Sources” 面板并展开文件树：
+此时所有的源码都可以在 Devtools 中找到的，所以让我们打开 `file_server.ts` 并在其中添加一个断点。转到 “Sources”
+面板并展开文件树：
 
 ![Open file_server.ts](../images/debugger3.jpg)
 
-_仔细观察，您会发现每个文件都有重复；一份是常规字体，另一份是斜体。前者是编译后的源文件（因此，在 `.ts` 文件的情况下，它将作为 JavaScript 输出），而后者是该文件的 SourceMap。_
+_仔细观察，您会发现每个文件都有重复；一份是常规字体，另一份是斜体。前者是编译后的源文件（因此，在 `.ts` 文件的情况下，它将作为 JavaScript
+输出），而后者是该文件的 SourceMap。_
 
 接下来，在 `listenAndServe` 方法中添加一个断点：
 
@@ -64,7 +68,9 @@ $ curl http://0.0.0.0:4507/
 
 官方插件正在开发中 - https://github.com/denoland/vscode_deno/issues/12
 
-我们仍然可以通过手动提供 [`launch.json`](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations) 配置来附加调试器：
+我们仍然可以通过手动提供
+[`launch.json`](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations)
+配置来附加调试器：
 
 ```json
 {
@@ -103,7 +109,9 @@ for await (const req of server) {
 
 ### JetBrains IDEs {#jetbrains-ides}
 
-您可以使用 JetBrains IDE 调试 Deno，右键单击要调试的文件，然后选择 “调试'Deno：<文件名>'”（`Debug 'Deno: <file name>'`） 选项。这将创建未设置权限标志的 运行/调试 配置。要配置这些标志，请编辑 运行/调试 配置，并使用必需的标志修改 `Arguments` 字段。
+您可以使用 JetBrains IDE 调试 Deno，右键单击要调试的文件，然后选择
+“调试'Deno：<文件名>'”（`Debug 'Deno: <file name>'`） 选项。这将创建未设置权限标志的 运行/调试
+配置。要配置这些标志，请编辑 运行/调试 配置，并使用必需的标志修改 `Arguments` 字段。
 
 ### 其他 {#other}
 

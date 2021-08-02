@@ -1,6 +1,7 @@
 ## 权限 {#permissions}
 
-默认情况下，Deno 是安全的。因此，除非你特意开启，Deno 模块是没有文件、网络以及环境的访问权限的。在命令行参数中为 deno 进程授权后才能访问安全敏感的功能。
+默认情况下，Deno 是安全的。因此，除非你特意开启，Deno 模块是没有文件、网络以及环境的访问权限的。在命令行参数中为 deno
+进程授权后才能访问安全敏感的功能。
 
 在以下示例中，`mod.ts`只被授予文件系统的只读权限。它无法对其进行写入，或执行任何其他对安全性敏感的操作。
 
@@ -18,8 +19,10 @@ deno run --allow-read mod.ts
 - **--allow-net=\<allow-net\>** 允许网络访问。你可以指定一个可选的以逗号分隔的域名列表，来作为域名白名单。
 - **--allow-plugin** 允许加载插件。请注意：--allow-plugin 是一个不稳定功能。
 - **--allow-read=\<allow-read\>** 允许读取文件系统。你可以指定一个可选的以逗号分隔的目录或文件列表，来作为文件系统白名单。
-- **--allow-run=\<allow-run\>** 允许运行子进程。从 Deno 1.9 开始，你可以传入一个用逗号分割的子进程列表。注意，子进程不在沙箱中运行，所以没有与 deno 进程相同的安全限制。因此，请谨慎使用。
-- **--allow-write=\<allow-write\>** 开启文件系统写入权限。你可以指定一个可选的以逗号分隔的目录或文件列表，来作为文件系统白名单。
+- **--allow-run=\<allow-run\>** 允许运行子进程。从 Deno 1.9
+  开始，你可以传入一个用逗号分割的子进程列表。注意，子进程不在沙箱中运行，所以没有与 deno 进程相同的安全限制。因此，请谨慎使用。
+- **--allow-write=\<allow-write\>**
+  开启文件系统写入权限。你可以指定一个可选的以逗号分隔的目录或文件列表，来作为文件系统白名单。
 
 ### 权限白名单 {#permissions-allow-list}
 
@@ -68,5 +71,4 @@ deno run --allow-net fetch.ts
 ### 会议 {#conference}
 
 Ryan Dahl. (9月 25, 2020).
-[Deno安全模型](https://www.youtube.com/watch?v=r5F6dekUmdE#t=34m57).
-Speakeasy JS.
+[Deno安全模型](https://www.youtube.com/watch?v=r5F6dekUmdE#t=34m57). Speakeasy JS.
