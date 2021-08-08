@@ -6,12 +6,28 @@ Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
 ## 功能亮点 {#feature-highlights}
 
+<<<<<<< HEAD
 - 默认安全。代码不能访问文件、网络、环境变量等（除非显式开启）。
 - 支持开箱即用的 TypeScript 的环境。
 - 只发布一个独立的可执行文件 (`deno`)。
 - 有着内置的工具箱，比如依赖查看器 (`deno info`) 和代码格式化工具 (`deno fmt`)。
 - 有一组经过审计的 [标准模块](https://github.com/denoland/deno_std)，保证能在 Deno 上工作。
 - 脚本代码能被打包为单独的 JavaScript 文件。
+=======
+- Web compatible where possible, for example through usage of ES modules, and
+  support for `fetch`.
+- Secure by default. No file, network, or environment access (unless explicitly
+  enabled).
+- Supports TypeScript out of the box.
+- Ships a single executable (`deno`).
+- Has built-in utilities like a code formatter (`deno fmt`), a linter
+  (`deno lint`), and a test runner (`deno test`).
+- Has
+  [a set of reviewed (audited) standard
+  library](https://github.com/denoland/deno_std) that are guaranteed to work
+  with Deno.
+- Can bundle scripts into a single JavaScript file.
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ## 哲学 {#philosophy}
 

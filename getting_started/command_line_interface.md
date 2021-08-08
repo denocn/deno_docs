@@ -15,8 +15,14 @@ deno -h
 deno --help
 ```
 
+<<<<<<< HEAD
 Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle`
 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
+=======
+Deno's CLI is subcommand-based. The above commands should show you a list of
+subcommands supported, such as `deno bundle`. To see subcommand-specific help,
+for example for `bundle`, you can similarly run one of:
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```shell
 deno help bundle
@@ -24,11 +30,21 @@ deno bundle -h
 deno bundle --help
 ```
 
+<<<<<<< HEAD
 在[这里](../tools.md)你能够找到各个子命令更详细的指南。
+=======
+Detailed guides for each subcommand can be found [here](../tools.md).
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ### 脚本来源 {#script-source}
 
+<<<<<<< HEAD
 Deno 能够从多个来源抓取脚本，比如一个文件名、一个 URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。
+=======
+Deno can grab the scripts from multiple sources, a filename, a url, and '-' to
+read the file from stdin. The latter is useful for integration with other
+applications.
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```shell
 deno run main.ts
@@ -38,7 +54,12 @@ cat main.ts | deno run -
 
 ### 脚本参数 {#script-arguments}
 
+<<<<<<< HEAD
 通过在脚本名称后指定参数，您可以将用户空间参数传递给要运行的脚本，这些参数与 Deno 运行时选项区分开。
+=======
+Separately from the Deno runtime flags, you can pass user-space arguments to the
+script you are running by specifying them **after** the script name:
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```shell
 deno run main.ts a b -c --quiet
@@ -76,16 +97,40 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
+<<<<<<< HEAD
 你可以在 `deno run` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno
 用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
+=======
+You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
+`deno fmt` to enable the built in file watcher. The files that are watched
+depend on the subcommand used:
+
+- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
+  files the entrypoint(s) statically import(s) will be watched.
+- for `deno fmt` all local files and directories specified as command line
+  arguments (or the working directory if no specific files/directories is
+  passed) are watched.
+
+Whenever one of the watched files is changed on disk, the program will
+automatically be restarted / formatted / tested / bundled.
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 deno run --watch main.ts
+deno test --watch
+deno fmt --watch
 ```
 
+<<<<<<< HEAD
 ### 完整性选项 {#integrity-flags}
 
 对资源下载到缓存有影响的命令: `deno cache`,`deno run` 和 `deno test`.
+=======
+### Integrity flags (lock files)
+
+Affect commands which can download resources to the cache: `deno cache`,
+`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 --lock <FILE>    检查指定的锁文件
@@ -96,7 +141,14 @@ deno run --watch main.ts
 
 ### 缓存和编译选项 {#cache-and-compilation-flags}
 
+<<<<<<< HEAD
 对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
+=======
+Affect commands which can populate the cache: `deno cache`, `deno run`,
+`deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
+above, this includes those which affect module resolution, compilation
+configuration etc.
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 --config <FILE>               加载 tsconfig.json 配置文件
@@ -119,9 +171,19 @@ deno run --watch main.ts
 对运行环境有影响的更多选项：
 
 ```
+<<<<<<< HEAD
 --cached-only                要求远程依赖已经被缓存
 --inspect=<HOST:PORT>        在 host:port 启动检查器
 --inspect-brk=<HOST:PORT>    在 host:port 启动检查器并且暂停执行
 --seed <NUMBER>              指定 Math.random() 的随机种子
 --v8-flags=<v8-flags>        设置 V8 命令行选项
+=======
+--cached-only                Require that remote dependencies are already cached
+--inspect=<HOST:PORT>        activate inspector on host:port ...
+--inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
+--location <HREF>            Value of 'globalThis.location' used by some web APIs
+--prompt                     Fallback to prompt if required permission wasn't passed
+--seed <NUMBER>              Seed Math.random()
+--v8-flags=<v8-flags>        Set V8 command line options. For help: ...
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 ```
