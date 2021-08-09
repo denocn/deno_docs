@@ -76,9 +76,8 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
-<<<<<<< HEAD
-你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno
-用这个选项启动时，它会监视：
+<<<<<<< HEAD 你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用
+`--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
 
 - for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
   files the entrypoint(s) statically import(s) will be watched.
@@ -96,15 +95,16 @@ deno fmt --watch
 ```
 
 <<<<<<< HEAD
+
 ### 完整性选项 {#integrity-flags}
 
-对资源下载到缓存有影响的命令: `deno cache`,`deno run` 和 `deno test`.
-=======
+# 对资源下载到缓存有影响的命令: `deno cache`,`deno run` 和 `deno test`.
+
 ### Integrity flags (lock files)
 
 Affect commands which can download resources to the cache: `deno cache`,
-`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
->>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
+`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`. >>>>>>>
+20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 --lock <FILE>    检查指定的锁文件
@@ -115,14 +115,12 @@ Affect commands which can download resources to the cache: `deno cache`,
 
 ### 缓存和编译选项 {#cache-and-compilation-flags}
 
-<<<<<<< HEAD
-对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
-=======
+# <<<<<<< HEAD 对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
+
 Affect commands which can populate the cache: `deno cache`, `deno run`,
 `deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
 above, this includes those which affect module resolution, compilation
-configuration etc.
->>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
+configuration etc. >>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 --config <FILE>               加载 tsconfig.json 配置文件
