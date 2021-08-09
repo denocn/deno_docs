@@ -4,6 +4,9 @@ Deno 可运行于 macOS，Linux 以及 Windows。Deno 是一个单独的二进�
 
 ### 下载安装 {#download-and-install}
 
+On macOS, both M1 (arm64) and Intel (x64) executables are provided. On Linux and
+Windows, only x64 is supported.
+
 [deno_install](https://github.com/denoland/deno_install) 为下载和安装二进制提供了快捷简便的脚本。
 
 使用 Shell（macOS 和 Linux）：
@@ -90,4 +93,4 @@ deno upgrade --version 1.0.1
 
 ### 从源文件构建 {#building-from-source}
 
-如何使用源码构建，你可以查看 `Contributing` 章节。
+如何使用源码构建，你可以查看 [`Contributing`](../contributing/building_from_source.md) 章节。

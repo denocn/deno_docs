@@ -38,7 +38,7 @@ cat main.ts | deno run -
 
 ### 脚本参数 {#script-arguments}
 
-通过在脚本名称后指定参数，您可以将用户空间参数传递给要运行的脚本，这些参数与 Deno 运行时选项区分开。
+通过在脚本名称后指定参数，您可以将用户空间参数放在**最后面**以传递给要运行的脚本，这些参数与 Deno 运行时选项区分开。
 
 ```shell
 deno run main.ts a b -c --quiet
@@ -76,16 +76,35 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
-你可以在 `deno run` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno
-用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
+<<<<<<< HEAD 你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用
+`--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
+
+- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
+  files the entrypoint(s) statically import(s) will be watched.
+- for `deno fmt` all local files and directories specified as command line
+  arguments (or the working directory if no specific files/directories is
+  passed) are watched.
+
+Whenever one of the watched files is changed on disk, the program will
+automatically be restarted / formatted / tested / bundled.
 
 ```
 deno run --watch main.ts
+deno test --watch
+deno fmt --watch
 ```
+
+<<<<<<< HEAD
 
 ### 完整性选项 {#integrity-flags}
 
-对资源下载到缓存有影响的命令: `deno cache`,`deno run` 和 `deno test`.
+# 对资源下载到缓存有影响的命令: `deno cache`,`deno run` 和 `deno test`.
+
+### Integrity flags (lock files)
+
+Affect commands which can download resources to the cache: `deno cache`,
+`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`. >>>>>>>
+20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 --lock <FILE>    检查指定的锁文件
@@ -96,7 +115,12 @@ deno run --watch main.ts
 
 ### 缓存和编译选项 {#cache-and-compilation-flags}
 
-对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
+# <<<<<<< HEAD 对增加缓存有影响的命令: `deno cache`, `deno run` 和 `deno test`. 以及影响模块解析、编译配置等的选项。
+
+Affect commands which can populate the cache: `deno cache`, `deno run`,
+`deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
+above, this includes those which affect module resolution, compilation
+configuration etc. >>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 --config <FILE>               加载 tsconfig.json 配置文件
@@ -119,9 +143,19 @@ deno run --watch main.ts
 对运行环境有影响的更多选项：
 
 ```
+<<<<<<< HEAD
 --cached-only                要求远程依赖已经被缓存
 --inspect=<HOST:PORT>        在 host:port 启动检查器
 --inspect-brk=<HOST:PORT>    在 host:port 启动检查器并且暂停执行
 --seed <NUMBER>              指定 Math.random() 的随机种子
 --v8-flags=<v8-flags>        设置 V8 命令行选项
+=======
+--cached-only                Require that remote dependencies are already cached
+--inspect=<HOST:PORT>        activate inspector on host:port ...
+--inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
+--location <HREF>            Value of 'globalThis.location' used by some web APIs
+--prompt                     Fallback to prompt if required permission wasn't passed
+--seed <NUMBER>              Seed Math.random()
+--v8-flags=<v8-flags>        Set V8 command line options. For help: ...
+>>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 ```
