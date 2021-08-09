@@ -15,14 +15,8 @@ deno -h
 deno --help
 ```
 
-<<<<<<< HEAD
 Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle`
 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
-=======
-Deno's CLI is subcommand-based. The above commands should show you a list of
-subcommands supported, such as `deno bundle`. To see subcommand-specific help,
-for example for `bundle`, you can similarly run one of:
->>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```shell
 deno help bundle
@@ -30,21 +24,11 @@ deno bundle -h
 deno bundle --help
 ```
 
-<<<<<<< HEAD
 在[这里](../tools.md)你能够找到各个子命令更详细的指南。
-=======
-Detailed guides for each subcommand can be found [here](../tools.md).
->>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ### 脚本来源 {#script-source}
 
-<<<<<<< HEAD
 Deno 能够从多个来源抓取脚本，比如一个文件名、一个 URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。
-=======
-Deno can grab the scripts from multiple sources, a filename, a url, and '-' to
-read the file from stdin. The latter is useful for integration with other
-applications.
->>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```shell
 deno run main.ts
@@ -54,12 +38,7 @@ cat main.ts | deno run -
 
 ### 脚本参数 {#script-arguments}
 
-<<<<<<< HEAD
-通过在脚本名称后指定参数，您可以将用户空间参数传递给要运行的脚本，这些参数与 Deno 运行时选项区分开。
-=======
-Separately from the Deno runtime flags, you can pass user-space arguments to the
-script you are running by specifying them **after** the script name:
->>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
+通过在脚本名称后指定参数，您可以将用户空间参数放在**最后面**以传递给要运行的脚本，这些参数与 Deno 运行时选项区分开。
 
 ```shell
 deno run main.ts a b -c --quiet
@@ -98,12 +77,8 @@ deno run net_client.ts --allow-net
 ### 观察模式 {#watch-mode}
 
 <<<<<<< HEAD
-你可以在 `deno run` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno
-用这个选项启动时，它会监视入口，以及入口静态导入的所有本地文件。每当这些文件在磁盘上发生变化时，程序将自动重新启动。
-=======
-You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
-`deno fmt` to enable the built in file watcher. The files that are watched
-depend on the subcommand used:
+你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno
+用这个选项启动时，它会监视：
 
 - for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
   files the entrypoint(s) statically import(s) will be watched.
@@ -113,7 +88,6 @@ depend on the subcommand used:
 
 Whenever one of the watched files is changed on disk, the program will
 automatically be restarted / formatted / tested / bundled.
->>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 deno run --watch main.ts
