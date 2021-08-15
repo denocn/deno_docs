@@ -186,7 +186,7 @@ Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用�
         env: false,
         hrtime: false,
         net: "inherit",
-        plugin: false,
+        ffi: false,
         read: false,
         run: false,
         write: false,
