@@ -5,6 +5,7 @@
   "getting_started": {
     "name": "快速入门",
     "children": {
+<<<<<<< HEAD
       "installation": "安装",
       "setup_your_environment": "设置环境",
       "first_steps": "第一步",
@@ -12,6 +13,14 @@
       "permissions": "权限",
       "webassembly": "使用 WebAssembly",
       "debugging_your_code": "调试代码"
+=======
+      "installation": "Installation",
+      "setup_your_environment": "Setup your environment",
+      "first_steps": "First steps",
+      "command_line_interface": "Command line interface",
+      "permissions": "Permissions",
+      "debugging_your_code": "Debugging your code"
+>>>>>>> 2341ae93ccdf8ca43705afcbe28698bb2b0934a8
     }
   },
   "runtime": {
@@ -55,6 +64,14 @@
       "migration": "迁移至 JavaScript 或从 JavaScript 迁移",
       "runtime": "运行时编译器 API",
       "faqs": "FAQ"
+    }
+  },
+  "webassembly": {
+    "name": "Using WebAssembly",
+    "children": {
+      "using_wasm": "Using WebAssembly in Deno",
+      "using_streaming_wasm": "Using the streaming WebAssembly APIs",
+      "wasm_resources": "Helpful resources"
     }
   },
   "standard_library": {
