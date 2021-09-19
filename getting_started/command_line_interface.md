@@ -123,11 +123,19 @@ above, this includes those which affect module resolution, compilation
 configuration etc. >>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
+<<<<<<< HEAD
 --config <FILE>               加载 tsconfig.json 配置文件
 --import-map <FILE>           加载导入映射文件
 --no-remote                   不要解析远程模块
 --reload=<CACHE_BLOCKLIST>    重新加载源代码缓存（重新编译 TypeScript）
 --unstable                    启用不稳定 API
+=======
+--config <FILE>               Load configuration file
+--import-map <FILE>           Load import map file
+--no-remote                   Do not resolve remote modules
+--reload=<CACHE_BLOCKLIST>    Reload source code cache (recompile TypeScript)
+--unstable                    Enable unstable APIs
+>>>>>>> 8b76536b564fb3650c536bc129e997d08361595d
 ```
 
 ### 运行时选项 {#runtime-flags}

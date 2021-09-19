@@ -5,12 +5,22 @@
   "getting_started": {
     "name": "快速入门",
     "children": {
+<<<<<<< HEAD
       "installation": "安装",
       "setup_your_environment": "设置环境",
       "first_steps": "第一步",
       "command_line_interface": "命令行界面",
       "permissions": "权限",
       "debugging_your_code": "调试代码"
+=======
+      "installation": "Installation",
+      "setup_your_environment": "Setup your environment",
+      "first_steps": "First steps",
+      "command_line_interface": "Command line interface",
+      "configuration_file": "Configuration file",
+      "permissions": "Permissions",
+      "debugging_your_code": "Debugging your code"
+>>>>>>> 8b76536b564fb3650c536bc129e997d08361595d
     }
   },
   "runtime": {
