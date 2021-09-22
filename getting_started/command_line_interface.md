@@ -76,8 +76,8 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
-你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用
-`--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
+你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch`
+选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
 
 - for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
   files the entrypoint(s) statically import(s) will be watched.
@@ -112,7 +112,7 @@ Affect commands which can download resources to the cache: `deno cache`,
 Affect commands which can populate the cache: `deno cache`, `deno run`,
 `deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
 above, this includes those which affect module resolution, compilation
-configuration etc. 
+configuration etc.
 
 ```
 --config <FILE>               加载配置文件
