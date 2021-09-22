@@ -197,11 +197,7 @@ The one disadvantage of this, is that it makes the code less portable to other
 non-Deno platforms like `tsc`, as it is only Deno which has the `"deno.worker"`
 library built into it.
 
-<<<<<<< HEAD
-#### Using a `tsconfig.json` file {#using-a-codetsconfigjsoncode-file}
-=======
 #### Using a configuration file
->>>>>>> 8b76536b564fb3650c536bc129e997d08361595d
 
 Another option is to use a configuration file that is configured to apply the
 library files. A minimal file that would work would look something like this:

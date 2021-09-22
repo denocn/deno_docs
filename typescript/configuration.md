@@ -21,9 +21,6 @@ a path on the command line. For example:
 > other TypeScript modules incompatible. Honestly it is best to use the Deno
 > defaults and to think long and hard about using a configuration file.
 
-<<<<<<< HEAD
-### How Deno uses a configuration file {#how-deno-uses-a-configuration-file}
-=======
 > ⚠️ Deno v1.14 started supporting a more general configuration file that is no
 > longer confined to specifying TypeScript compiler settings. Using
 > `tsconfig.json` as a file name will still work, but we recommend to use
@@ -31,7 +28,6 @@ a path on the command line. For example:
 > for an upcoming releases.
 
 ### How Deno uses a configuration file
->>>>>>> 8b76536b564fb3650c536bc129e997d08361595d
 
 Deno does not process a TypeScript configuration file like `tsc` does, as there
 are lots of parts of a TypeScript configuration file that are meaningless in a
