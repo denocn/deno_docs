@@ -1,7 +1,14 @@
 ## 权限 {#permissions}
 
+<<<<<<< HEAD
 默认情况下，Deno 是安全的。因此，除非你特意开启，Deno 模块是没有文件、网络以及环境的访问权限的。在命令行参数中为 deno
 进程授权后才能访问安全敏感的功能。
+=======
+Deno is secure by default. Therefore, unless you specifically enable it, a
+program run with Deno has no file, network, or environment access. Access to
+security sensitive functionality requires that permissions have been granted to
+an executing script through command line flags, or a runtime permission prompt.
+>>>>>>> 9c5f2fb9221a5f74a6c068ad39e9cdc899f8ed7b
 
 在以下示例中，`mod.ts`只被授予文件系统的只读权限。它无法对其进行写入，或执行任何其他对安全性敏感的操作。
 
@@ -14,7 +21,7 @@ deno run --allow-read mod.ts
 The following permissions are available:
 
 - **--allow-env=\<allow-env\>** Allow environment access for things like getting
-  and setting of environment variables. Since Deno 1.9, you can specify a
+  and setting of environment variables. Since Deno 1.9, you can specify an
   optional, comma-separated list of environment variables to provide an
   allow-list of allowed environment variables.
 - **--allow-hrtime** Allow high-resolution time measurement. High-resolution
@@ -30,23 +37,25 @@ The following permissions are available:
   an optional, comma-separated list of directories or files to provide an
   allow-list of allowed file system access.
 - **--allow-run=\<allow-run\>** Allow running subprocesses. Since Deno 1.9, You
-  can specify an options, comma-separated list of subprocesses to provide an
+  can specify an optional, comma-separated list of subprocesses to provide an
   allow-list of allowed subprocesses. Be aware that subprocesses are not run in
-  a sandbox and therefore do not have the same security restrictions as the deno
+  a sandbox and therefore do not have the same security restrictions as the Deno
   process. Therefore, use with caution.
 - **--allow-write=\<allow-write\>** Allow file system write access. You can
   specify an optional, comma-separated list of directories or files to provide
   an allow-list of allowed file system access.
-- **-A, --allow-all** Allow all permissions. This disables all security.
+- **-A, --allow-all** Allow all permissions. This enables all security sensitive
+  functions. Use with caution.
 
-### Permissions allow-list
+### Configurable permissions
 
-Deno allows you to control the granularity of some permissions with allow-lists.
+Some permissions allow you to grant access to a specific list of entities
+(files, servers, etc) rather than to everything.
 
 #### File system access
 
-This example restricts file system access by allow-listing only read access to
-the `/usr` directory. In consequence the execution fails as the process was
+This example restricts file system access by allowing read-only access to the
+`/usr` directory. In consequence the execution fails as the process was
 attempting to read a file in the `/etc` directory:
 
 ```shell
@@ -57,7 +66,12 @@ error: Uncaught PermissionDenied: read access to "/etc/passwd", run again with t
     ...
 ```
 
+<<<<<<< HEAD
 通过设定 `/etc` 为白名单来赋予正确的权限后再次尝试：
+=======
+Try it out again with the correct permissions by allowing access to `/etc`
+instead:
+>>>>>>> 9c5f2fb9221a5f74a6c068ad39e9cdc899f8ed7b
 
 ```shell
 deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
@@ -77,8 +91,8 @@ deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /e
 const result = await fetch("https://deno.land/");
 ```
 
-This is an example of how to allow-list hostnames, ip addresses, optionally
-locked to a specified port:
+This is an example of how to allow network access to specific hostnames or ip
+addresses, optionally locked to a specified port:
 
 ```shell
 # Multiple hostnames, all ports allowed
@@ -95,7 +109,7 @@ deno run --allow-net=[2606:4700:4700::1111] fetch.js
 ```
 
 If `fetch.js` tries to establish network connections to any hostname or IP not
-in the allow-list, the relevant call will error.
+explicitly allowed, the relevant call will throw an exception.
 
 Allow net calls to any hostname/ip:
 
@@ -110,7 +124,7 @@ deno run --allow-net fetch.js
 Deno.env.get("HOME");
 ```
 
-This is an example of how to allow-list environment variables:
+This is an example of how to allow access to environment variables:
 
 ```shell
 # Allow all environment variables
@@ -121,7 +135,7 @@ deno run --allow-env=HOME env.js
 ```
 
 > Note for Windows users: environment variables are case insensitive on Windows,
-> so Deno also matches them case insensitively in the allow-list.
+> so Deno also matches them case insensitively (on Windows only).
 
 #### Subprocess permissions
 
@@ -135,25 +149,25 @@ directly. This is often reffered to as privledge escalation.
 Because of this, make sure you carefully consider if you want to grant a program
 `--allow-run` access: it essentially invalidates the Deno security sandbox. If
 you really need to spawn a specific executable, you can reduce the risk by
-limiting which programs a Deno process can start using an allow-list for the
-`--allow-run` flag:
+limiting which programs a Deno process can start by passing specific executable
+names to the `--allow-run` flag.
 
 ```js
 // run.js
-const proc = Deno.run({ cmd: ["cat", "/etc/passwd"] });
+const proc = Deno.run({ cmd: ["whoami"] });
 ```
 
 ```shell
-# Allow only spawning a `cat` subprocess:
-deno run --allow-run=cat run.js
+# Allow only spawning a `whoami` subprocess:
+deno run --allow-run=whoami run.js
 
 # Allow running any subprocess:
 deno run --allow-run run.js
 ```
 
-> Note for Windows users: the `cat` executable and the `/etc/passwd` file do not
-> exist on Windows. To try out this example you will need to replace these with
-> an alternatives that exist on Windows.
+You can only limit the executables that are allowed; if permission is granted to
+execute it then any parameters can be passed. For example if you pass
+`--allow-run=cat` then the user can use `cat` to read any file.
 
 ### Conference
 
