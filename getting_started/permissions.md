@@ -1,14 +1,9 @@
 ## 权限 {#permissions}
 
-<<<<<<< HEAD
-默认情况下，Deno 是安全的。因此，除非你特意开启，Deno 模块是没有文件、网络以及环境的访问权限的。在命令行参数中为 deno
-进程授权后才能访问安全敏感的功能。
-=======
 Deno is secure by default. Therefore, unless you specifically enable it, a
 program run with Deno has no file, network, or environment access. Access to
 security sensitive functionality requires that permissions have been granted to
 an executing script through command line flags, or a runtime permission prompt.
->>>>>>> 9c5f2fb9221a5f74a6c068ad39e9cdc899f8ed7b
 
 在以下示例中，`mod.ts`只被授予文件系统的只读权限。它无法对其进行写入，或执行任何其他对安全性敏感的操作。
 
@@ -66,12 +61,8 @@ error: Uncaught PermissionDenied: read access to "/etc/passwd", run again with t
     ...
 ```
 
-<<<<<<< HEAD
-通过设定 `/etc` 为白名单来赋予正确的权限后再次尝试：
-=======
 Try it out again with the correct permissions by allowing access to `/etc`
 instead:
->>>>>>> 9c5f2fb9221a5f74a6c068ad39e9cdc899f8ed7b
 
 ```shell
 deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
