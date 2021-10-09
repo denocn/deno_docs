@@ -43,8 +43,6 @@ DOM 事件 API 可以用来调度和监听应用程序中发生的事件。 它�
 
 - 没有冒泡事件，因为 Deno 没有 DOM 层次结构，所以没有树状的事件可以冒泡/捕获。
 
-## Web Worker API {#web-worker-api}
-
 ### 概述 {#overview}
 
 WebWorker API 可以在一个单独的线程中执行代码。 它是按照
@@ -61,15 +59,21 @@ WebWorker API 可以在一个单独的线程中执行代码。 它是按照
 
 ## 其他 APIs {#other-apis}
 
-- [Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
-- [Console](https://developer.mozilla.org/zh-CN/docs/Web/API/Console)
-- [FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData)
-- [Performance](https://developer.mozilla.org/zh-CN/docs/Web/API/Performance)
-- [setTimeout, setInterval, clearInterval](https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout)
-- [Streams API](https://developer.mozilla.org/zh-CN/docs/Web/API/Streams_API)
-- [URL](https://developer.mozilla.org/zh-CN/docs/Web/API/URL)
-- [URLSearchParams](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)
-- [WebSocket](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket)
+- [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
+- [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+- [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
+- [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
+- [Encoding API](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API)
+- [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
+- [Performance](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
+- [setTimeout, setInterval, clearInterval](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
+- [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
+- [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL)
+- [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern)
+- [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+- [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+- [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
+- [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 ---
 

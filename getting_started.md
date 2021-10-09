@@ -8,5 +8,4 @@
 - [编写自定义脚本](./getting_started/first_steps.md)
 - [CLI](./getting_started/command_line_interface.md)
 - [了解权限](./getting_started/permissions.md)
-- [使用 WebAssembly](./getting_started/webassembly.md)
 - [代码调试](./getting_started/debugging_your_code.md)
