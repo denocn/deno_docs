@@ -1,6 +1,12 @@
 # 介绍 {#introduction}
 
+<<<<<<< HEAD
 Deno 是一个 JavaScript/TypeScript 的运行时，默认使用安全环境执行代码，有着卓越的开发体验。
+=======
+Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
+pronounced `dee-no`) is a JavaScript/TypeScript runtime with secure defaults and
+a great developer experience.
+>>>>>>> 9d087df12eb3c1984db734148d091b3c1febd4a5
 
 Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
