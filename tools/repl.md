@@ -107,13 +107,3 @@ readTextFileSync  readFileSync      readDir           readLink          readAllS
 | Meta-T                | Transpose words                                                                                  |
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
-<<<<<<< HEAD
-
-## Special variables {#special-variables}
-
-| Identifier | Description                          |
-| ---------- | ------------------------------------ |
-| _          | Yields the last evaluated expression |
-| _error     | Yields the last thrown error         |
-=======
->>>>>>> 9d087df12eb3c1984db734148d091b3c1febd4a5

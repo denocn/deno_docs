@@ -1,26 +1,19 @@
 # 介绍 {#introduction}
 
-<<<<<<< HEAD
-Deno 是一个 JavaScript/TypeScript 的运行时，默认使用安全环境执行代码，有着卓越的开发体验。
-=======
 Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
-pronounced `dee-no`) is a JavaScript/TypeScript runtime with secure defaults and
-a great developer experience.
->>>>>>> 9d087df12eb3c1984db734148d091b3c1febd4a5
+发音 `dee-no`) 是一个 JavaScript/TypeScript 的运行时，默认使用安全环境执行代码，有着卓越的开发体验。
 
 Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
 ## 功能亮点 {#feature-highlights}
 
-- Web compatible where possible, for example through usage of ES modules, and
-  support for `fetch`.
+- 尽可能的兼容 Web 规范，例如使用 ES modules、支持 `fetch` 等。
 - 默认安全。代码不能访问文件、网络、环境变量等（除非显式开启）。
 - 支持开箱即用的 TypeScript 的环境。
 - 只发布一个独立的可执行文件 (`deno`)。
 - 有着内置的工具箱，比如代码格式化工具 (`deno fmt`)，a linter (`deno lint`) 和测试工具 (`deno test`)。
 - 有一组经过审计的 [标准模块](https://github.com/denoland/deno_std)，保证能在 Deno 上工作。
 - 脚本代码能被打包为单独的 JavaScript 文件。
-- Can bundle scripts into a single JavaScript file.
 
 ## 哲学 {#philosophy}
 
