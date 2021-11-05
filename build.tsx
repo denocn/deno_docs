@@ -27,7 +27,15 @@ async function createHtml(path: string) {
   await Deno.mkdir(`dist/${path}`, { recursive: true }).catch(() => {});
   const content = await Deno.readTextFile(`${path}.md`);
   const savePath = `dist/${path}/index.html`;
-  const html = `<!DOCTYPE html>${render(<App toc={toc} content={content} />)}`;
+  const html = `<!DOCTYPE html>${
+    render(
+      <App
+        toc={toc}
+        content={content}
+        github="https://github.com/denocn/deno_docs"
+      />,
+    )
+  }`;
   await Deno.writeTextFile(savePath, html);
 }
 
