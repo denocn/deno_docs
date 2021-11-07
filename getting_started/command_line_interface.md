@@ -76,8 +76,14 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
+<<<<<<< HEAD
 你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch`
 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
+=======
+You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
+`deno fmt` to enable the built-in file watcher. The files that are watched
+depend on the subcommand used:
+>>>>>>> 8e9978dfece46581f77964cfdb3325b03e3824e0
 
 - for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
   files the entrypoint(s) statically import(s) will be watched.

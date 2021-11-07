@@ -1,6 +1,6 @@
 ## Linter {#linter}
 
-Deno ships with a built in code linter for JavaScript and TypeScript.
+Deno ships with a built-in code linter for JavaScript and TypeScript.
 
 ```shell
 # lint all JS/TS files in the current directory and subdirectories

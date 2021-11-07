@@ -1,6 +1,6 @@
 ## Code formatter {#code-formatter}
 
-Deno ships with a built in code formatter that will auto-format the following
+Deno ships with a built-in code formatter that will auto-format the following
 files:
 
 | File Type  | Extension          |
@@ -28,9 +28,6 @@ deno fmt --check
 # format stdin and write to stdout
 cat file.ts | deno fmt -
 ```
-
-> ⚠️ If you want to redirect output of `deno fmt`, keep in mind that formatted
-> code is output to standard error.
 
 ### Ignoring Code
 
