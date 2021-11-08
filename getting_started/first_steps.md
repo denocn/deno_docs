@@ -121,7 +121,7 @@ deno run --allow-net https://deno.land/std@$STD_VERSION/examples/echo_server.ts
 要测试它，请尝试用 `netcat` 向它发送数据(Windows 系统使用 `telnet`):
 
 > Note for Windows users: netcat is not available on Windows. Instead you can
-> use the built in telnet client. The telnet client is disabled in Windows by
+> use the built-in telnet client. The telnet client is disabled in Windows by
 > default. It is easy to enable however: just follow the instructions
 > [on Microsoft TechNet](https://social.technet.microsoft.com/wiki/contents/articles/38433.windows-10-enabling-telnet-client.aspx)
 
