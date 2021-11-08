@@ -17,19 +17,6 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 
 ### 偏离规范 {#spec-deviations}
 
-<<<<<<< HEAD
-- Deno 的用户代理没有 cookie jar 包。 因此，响应中的 `set-cookie` 头不会被处理，也不会从可见的响应头中被过滤。
-- 因为 Deno 用户代理目前还没有多个源的概念，所以 Deno 没有遵循同源策略, 同时也没有 cookie jar 包。 这意味着 Deno
-  不需要保护认证数据的跨源泄漏。 正因为如此， Deno 没有实现以下 WHATWG `fetch` 规范中的部分：
-  - 第`3.1`节`'Origin' 头`
-  - 第`3.2`节`CORS 协议`
-  - 第`3.5`节`CORB`
-  - 第`3.6`节`'Cross-Origin-Resource-Policy' 头`
-  - `原子 HTTP 重定向处理`
-  - `opaqueredirect` 响应类型
-- `fetch` 请求的 `redirect` 属性设为 `manual` 将不会返回 `opaqueredirect` 响应，而是返回一个 `basic`
-  响应。
-=======
 - The Deno user agent does not have a cookie jar. As such, the `set-cookie`
   header on a response is not processed, or filtered from the visible response
   headers.
@@ -84,7 +71,6 @@ Notes on fetching local files:
   determine things like the content type or content length.
 - Response bodies are streamed from the Rust side, so large files are available
   in chunks, and can be cancelled.
->>>>>>> 8e9978dfece46581f77964cfdb3325b03e3824e0
 
 ## `CustomEvent`, `EventTarget` 和 `EventListener` {#customevent-eventtarget-and-eventlistener}
 
