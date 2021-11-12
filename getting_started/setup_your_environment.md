@@ -62,7 +62,7 @@ Deno is well supported on both [vim](https://www.vim.org/) and
 [ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
 integrate to the Deno language server while ALE supports it _out of the box_.
 The
-[built-in language server](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
+[built-in language server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#denols)
 in Neovim also supports Deno. The built-in language server protocol in Neovim
 also supports Deno.
 
@@ -76,7 +76,7 @@ of 0.6 stable you must
 To use the Deno language server install
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/) and follow the
 instructions to enable the
-[supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols).
+[supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#denols).
 
 Deno's linting is not supported out of the box, but assuming you are using the
 `on_attach` helper function from the
