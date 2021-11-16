@@ -96,13 +96,7 @@ HTTP server listening on http://0.0.0.0:4507/
 Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to
 see your local directory contents.
 
-<<<<<<< HEAD
-## Help {#help}
-
-Help and a complete list of options are available via:
-=======
 The complete list of options are available via:
->>>>>>> cebab1e86f626aa4d5dcbb5c48f7c9b7c1f837ef
 
 ```shell
 file_server --help
