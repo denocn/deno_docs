@@ -17,7 +17,9 @@ Sending files over the network is a common requirement. As seen in the
 important to use streams in order to prevent having to load entire files into
 memory.
 
-## Example {#example}
+The Deno standard library provides you with a
+[file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so that
+you don't have to write your own.
 
 **Command:** `deno run --allow-read --allow-net file_server.ts`
 
