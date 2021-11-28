@@ -9,9 +9,20 @@
   Deno file into a
   [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
 - Use Deno's integrated HTTP server to run your own file server.
+<<<<<<< HEAD
+=======
 
 ## Overview
 
+Sending files over the network is a common requirement. As seen in the
+[Fetch Data example](./fetch_data), because files can be of any size, it is
+important to use streams in order to prevent having to load entire files into
+memory.
+>>>>>>> 9391791a820df606eee4e4b369270bc5e3279faa
+
+## Overview
+
+<<<<<<< HEAD
 Sending files over the network is a common requirement. As seen in the
 [Fetch Data example](./fetch_data), because files can be of any size, it is
 important to use streams in order to prevent having to load entire files into
@@ -21,6 +32,8 @@ The Deno standard library provides you with a
 [file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so that
 you don't have to write your own.
 
+=======
+>>>>>>> 9391791a820df606eee4e4b369270bc5e3279faa
 **Command:** `deno run --allow-read --allow-net file_server.ts`
 
 ```ts
