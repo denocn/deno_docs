@@ -1,6 +1,6 @@
-# File server {#file-server}
+# File server
 
-## Concepts {#concepts}
+## Concepts
 
 - Use [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) to read a
   file's content in chunks.
@@ -17,37 +17,30 @@ Sending files over the network is a common requirement. As seen in the
 important to use streams in order to prevent having to load entire files into
 memory.
 
-The Deno standard library provides you with a
-[file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so that
-you don't have to write your own.
+## Example
 
 **Command:** `deno run --allow-read --allow-net file_server.ts`
 
 ```ts
 import * as path from "https://deno.land/std@$STD_VERSION/path/mod.ts";
 import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
-
 // Start listening on port 8080 of localhost.
 const server = Deno.listen({ port: 8080 });
 console.log("File server running on http://localhost:8080/");
-
 for await (const conn of server) {
   handleHttp(conn);
 }
-
 async function handleHttp(conn: Deno.Conn) {
   const httpConn = Deno.serveHttp(conn);
   for await (const requestEvent of httpConn) {
     // Use the request pathname as filepath
     const url = new URL(requestEvent.request.url);
     const filepath = decodeURIComponent(url.pathname);
-
     // Try opening the file
     let file;
     try {
       file = await Deno.open("." + filepath, { read: true });
       const stat = await file.stat();
-
       // If File instance is a directory, lookup for an index.html
       if (stat.isDirectory) {
         file.close();
@@ -60,11 +53,9 @@ async function handleHttp(conn: Deno.Conn) {
       await requestEvent.respondWith(notFoundResponse);
       return;
     }
-
     // Build a readable stream so the file doesn't have to be fully loaded into
     // memory while we send it
     const readableStream = readableStreamFromReader(file);
-
     // Build and send the response
     const response = new Response(readableStream);
     await requestEvent.respondWith(response);
