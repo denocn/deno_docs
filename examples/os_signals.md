@@ -1,8 +1,9 @@
 # Handle OS Signals
 
 > This program makes use of an unstable Deno feature. Learn more about
-> [unstable features](../runtime/stability.md).
-> ⚠️ Handling OS signals is currently not available on Windows.
+> [unstable features](../runtime/stability.md). ⚠️ Handling OS signals is
+> currently not available on Windows.
+
 ## Concepts
 
 - Use the `--unstable` flag to access new or unstable features in Deno.
@@ -21,8 +22,7 @@ APIs.
 
 > ⚠️ Note that listening for OS signals doesn't prevent event loop from
 > finishing, ie. if there are no more pending async operations the process will
-> exit.
-You can use `Deno.addSignalListener()` function for handling OS signals:
+> exit. You can use `Deno.addSignalListener()` function for handling OS signals:
 
 ```ts
 /**
