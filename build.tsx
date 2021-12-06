@@ -6,8 +6,8 @@ import {
   renderSSR,
 } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/deps.ts";
 
-import type { Toc } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/components/Sidebar.tsx";
-import App from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/App.tsx";
+import type { Toc } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/components/Sidebar.tsx";
+import App from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/App.tsx";
 
 // clean `/dist` dir
 await Deno.remove("dist", { recursive: true }).catch(() => {});
