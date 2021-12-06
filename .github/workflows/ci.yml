@@ -18,3 +18,15 @@ jobs:
 
       - name: Format
         run: deno fmt --check
+
+      - name: Build
+        run: deno run -A --no-check build.tsx
+
+      - name: Deploy
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          source: "dist/*"
+          target: "/var/www/manual.deno.js.cn/"
