@@ -1,6 +1,8 @@
 /** @jsx h */
-import { h } from "https://esm.sh/preact@10";
-import render from "https://esm.sh/preact-render-to-string@5";
+import {
+  h,
+  renderSSR,
+} from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/deps.ts";
 
 import type { Toc } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/components/Sidebar.tsx";
 import App from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/App.tsx";
@@ -27,15 +29,13 @@ async function createHtml(path: string) {
   await Deno.mkdir(`dist/${path}`, { recursive: true }).catch(() => {});
   const content = await Deno.readTextFile(`${path}.md`);
   const savePath = `dist/${path}/index.html`;
-  const html = `<!DOCTYPE html>${
-    render(
-      <App
-        toc={toc}
-        content={content}
-        github="https://github.com/denocn/deno_docs"
-      />,
-    )
-  }`;
+  const html = renderSSR(
+    <App
+      toc={toc}
+      content={content}
+      github="https://github.com/denocn/deno_docs"
+    />,
+  );
   await Deno.writeTextFile(savePath, html);
 }
 
