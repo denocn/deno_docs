@@ -75,7 +75,7 @@ Deno 还提供了不是来自 web 的 api。这些都包含在 `Deno` global 中
 在下面这个程序中，每个命令行参数都假定为一个文件名，打开文件并打印到stdout。
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const filenames = Deno.args;
 for (const filename of filenames) {
   const file = await Deno.open(filename);
@@ -102,7 +102,7 @@ deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Win
 这是一个服务器的例子，它接受端口 8080 上的连接，并向客户机返回它发送的任何内容。
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const hostname = "0.0.0.0";
 const port = 8080;
 const listener = Deno.listen({ hostname, port });

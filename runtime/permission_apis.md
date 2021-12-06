@@ -152,8 +152,10 @@ console.log(await Deno.permissions.revoke(desc));
 ];
 ```
 
-Deno 的权限撤销算法的工作原理是从该集合中删除参数权限描述符比其参数 _强_ 的每个元素因此，要确保不再授予
-`desc`，请传递一个比任何显式授予的权限描述符都要 _强_ 于 `desc` _强_ 的参数描述符。
+Deno's permission revocation algorithm works by removing every element from this
+set which the argument permission descriptor is _stronger than_. So to ensure
+`desc` is no longer granted, pass an argument descriptor _stronger than_
+whichever _explicitly granted permission descriptor_ is _stronger than_ `desc`.
 
 ```ts
 // deno run --allow-read=/foo main.ts

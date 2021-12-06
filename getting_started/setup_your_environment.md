@@ -38,21 +38,10 @@ your project.
 More information can be found in the
 [Using Visual Studio Code](../vscode_deno.md) section of the manual.
 
-#### JetBrains' IntelliJ IDEA and WebStorm
+#### JetBrains IDEs
 
 Currently support for [JetBrains](https://www.jetbrains.com/) IDEs is available
 through [the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno).
-
-安装之后，将 `External Libraries > Deno Library > lib > lib.deno.d.ts` 替换为
-`deno types` 命令的输出。这会为当前版本提供自动补全和代码提示。当你每次升级 Deno 版本后，需要再次执行以上操作。此插件的详细使用说明已发布在
-YouTrack 的
-[评论](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0)
-中。
-
-JetBrain's is considering migrating to the Deno language server (see:
-[YouTrack WEB-48625](https://youtrack.jetbrains.com/issue/WEB-48625)). If you
-are a user of JetBrains and Deno, voicing your support can continue help
-JetBrains prioritize support.
 
 #### vim/Neovim
 
