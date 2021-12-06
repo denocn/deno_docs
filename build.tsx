@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --config deno.jsonc --allow-read=. --allow-write=./dist --allow-net
+#!/usr/bin/env -S deno run --config deno.jsonc --allow-read=. --allow-write=./dist --allow-net --no-check
 
 /** @jsx h */
 import {
