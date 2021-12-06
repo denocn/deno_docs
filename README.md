@@ -1,15 +1,12 @@
-# Deno manual
+# Deno 中文手册
 
-This repository is the official documentation for Deno.
+这个仓库是 Deno 的非官方中文翻译。
 
-Manual is available at: https://deno.land/manual
+在线查看: https://manual.deno.js.cn/introduction
 
-## Contributing
+## 帮助翻译
 
-When opening a PR, make sure the code is formatted correctly. To format the
-code:
+当提交一个 PR 时，请先确认文档的格式是正确的。通过以下步骤格式化文档:
 
-1. Install Deno (https://deno.land/#installation)
-2. Run `deno fmt` at the root of this repository
-
-Before creating new pages, open an issue and discuss the proposed changes.
+1. 安装 Deno (https://x.deno.js.cn)
+2. 运行 `deno fmt`
