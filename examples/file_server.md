@@ -1,16 +1,15 @@
 # File server
 
-## Concepts
+## 概念
 
-- Use [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) to read a
-  file's content in chunks.
-- Use the Deno standard library
-  [streams module](https://deno.land/std@$STD_VERSION/streams/) to transform a
-  Deno file into a
-  [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
-- Use Deno's integrated HTTP server to run your own file server.
+- 使用 [Deno.open](https://doc.deno.land/builtin/stable#Deno.open)
+  按块（chunks）读取文件内容
+- 使用 Deno 标准库的 [streams module](https://deno.land/std@$STD_VERSION/streams/) 将
+  Deno 文件转换为
+  [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+- 使用 Deno 内置的 HTTP 服务器运行 file server
 
-## Overview
+## 概述
 
 Sending files over the network is a common requirement. As seen in the
 [Fetch Data example](./fetch_data), because files can be of any size, it is
@@ -24,43 +23,23 @@ memory.
 ```ts
 import * as path from "https://deno.land/std@$STD_VERSION/path/mod.ts";
 import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
-<<<<<<< HEAD
 // Start listening on port 8080 of localhost.
 const server = Deno.listen({ port: 8080 });
 console.log("File server running on http://localhost:8080/");
 for await (const conn of server) {
   handleHttp(conn);
 }
-=======
-
-// Start listening on port 8080 of localhost.
-const server = Deno.listen({ port: 8080 });
-console.log("File server running on http://localhost:8080/");
-
-for await (const conn of server) {
-  handleHttp(conn);
-}
-
->>>>>>> 5f89a815262db6d6cbc0ddcbac987acab9b7f1a0
 async function handleHttp(conn: Deno.Conn) {
   const httpConn = Deno.serveHttp(conn);
   for await (const requestEvent of httpConn) {
     // Use the request pathname as filepath
     const url = new URL(requestEvent.request.url);
     const filepath = decodeURIComponent(url.pathname);
-<<<<<<< HEAD
-=======
-
->>>>>>> 5f89a815262db6d6cbc0ddcbac987acab9b7f1a0
     // Try opening the file
     let file;
     try {
       file = await Deno.open("." + filepath, { read: true });
       const stat = await file.stat();
-<<<<<<< HEAD
-=======
-
->>>>>>> 5f89a815262db6d6cbc0ddcbac987acab9b7f1a0
       // If File instance is a directory, lookup for an index.html
       if (stat.isDirectory) {
         file.close();
@@ -73,17 +52,9 @@ async function handleHttp(conn: Deno.Conn) {
       await requestEvent.respondWith(notFoundResponse);
       return;
     }
-<<<<<<< HEAD
     // Build a readable stream so the file doesn't have to be fully loaded into
     // memory while we send it
     const readableStream = readableStreamFromReader(file);
-=======
-
-    // Build a readable stream so the file doesn't have to be fully loaded into
-    // memory while we send it
-    const readableStream = readableStreamFromReader(file);
-
->>>>>>> 5f89a815262db6d6cbc0ddcbac987acab9b7f1a0
     // Build and send the response
     const response = new Response(readableStream);
     await requestEvent.respondWith(response);
