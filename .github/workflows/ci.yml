@@ -28,5 +28,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "dist/*"
+          source: "dist"
           target: "/var/www/manual.deno.js.cn/"
