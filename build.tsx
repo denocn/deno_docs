@@ -57,7 +57,7 @@ async function downloadCss() {
   console.log("download css");
   await Deno.mkdir(`dist/public`, { recursive: true }).catch(() => {});
   const response = await fetch(
-    "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/public/style.css",
+    "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/public/style.css",
   );
   const buffer = await response.arrayBuffer();
   await Deno.writeFile("dist/public/style.css", new Uint8Array(buffer));
@@ -67,7 +67,7 @@ async function downloadFavicon() {
   console.log("download favicon");
   await Deno.mkdir(`dist/public`, { recursive: true }).catch(() => {});
   const response = await fetch(
-    "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/public/favicon.ico",
+    "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/public/favicon.ico",
   );
   const buffer = await response.arrayBuffer();
   await Deno.writeFile("dist/favicon.ico", new Uint8Array(buffer));
