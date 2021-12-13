@@ -6,18 +6,26 @@ Deno 可运行于 macOS，Linux 以及 Windows。Deno 是一个单独的二进�
 
 在 macOS 平台可以安装 M1 (arm64) 和 Intel (x64) 架构的可执行文件。在 Linux 和 Windows 只能安装 x64 架构的。
 
-[deno_install](https://github.com/denoland/deno_install) 为下载和安装二进制提供了快捷简便的脚本。
+[deno_install](https://github.com/denocn/deno_install) 为下载和安装二进制提供了快捷简便的脚本。
 
 使用 Shell（macOS 和 Linux）：
 
 ```shell
-curl -fsSL https://deno.land/x/install/install.sh | sh
+curl -fsSL https://x.deno.js.cn/install.sh | sh
 ```
 
 使用 PowerShell（Windows）：
 
 ```shell
-iwr https://deno.land/x/install/install.ps1 -useb | iex
+iwr https://x.deno.js.cn/install.ps1 -useb | iex
+```
+
+使用 [dvm](https://github.com/justjavac/dvm) 安装多个版本：
+
+```shell
+dvm install
+# 或者
+dvm i
 ```
 
 使用 [Scoop](https://scoop.sh/)（Windows）：
@@ -45,12 +53,6 @@ nix-shell -p deno
 ```
 
 使用 [Cargo](https://crates.io/crates/deno) 从源码构建并安装：
-
-```shell
-cargo install deno --locked
-```
-
-使用 [Cargo](https://crates.io/crates/deno) 从源代码构建并安装：
 
 ```shell
 cargo install deno --locked
