@@ -6,7 +6,7 @@
   按块（chunks）读取文件内容
 - 使用 Deno 标准库的 [streams module](https://deno.land/std@$STD_VERSION/streams/) 将
   Deno 文件转换为
-  [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+  [ReadableStream](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream)
 - 使用 Deno 内置的 HTTP 服务器运行 file server
 
 ## 概述
@@ -23,12 +23,15 @@ memory.
 ```ts
 import * as path from "https://deno.land/std@$STD_VERSION/path/mod.ts";
 import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
+
 // Start listening on port 8080 of localhost.
 const server = Deno.listen({ port: 8080 });
 console.log("File server running on http://localhost:8080/");
+
 for await (const conn of server) {
   handleHttp(conn);
 }
+
 async function handleHttp(conn: Deno.Conn) {
   const httpConn = Deno.serveHttp(conn);
   for await (const requestEvent of httpConn) {
@@ -52,9 +55,11 @@ async function handleHttp(conn: Deno.Conn) {
       await requestEvent.respondWith(notFoundResponse);
       return;
     }
+
     // Build a readable stream so the file doesn't have to be fully loaded into
     // memory while we send it
     const readableStream = readableStreamFromReader(file);
+
     // Build and send the response
     const response = new Response(readableStream);
     await requestEvent.respondWith(response);

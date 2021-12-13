@@ -83,6 +83,12 @@
       "jsx": "Configuring"
     }
   },
+  "jsx_dom": {
+    "name": "Using JSX",
+    "children": {
+      "jsx": "Configuring"
+    }
+  },
   "webassembly": {
     "name": "使用 WebAssembly",
     "children": {
