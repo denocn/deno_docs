@@ -1,10 +1,16 @@
 ## 发布时间表 {#release-schedule}
 
-每个月会发布一个 `deno` 的 minor 版本。在每月的第 3 个星期四发布。
+Deno 使用[语义化版本](https://semver.org/lang/zh-CN/)。
 
-There are usually two or three patch releases (done weekly) after a minor
-releases; after that a merge window for new features opens for the upcoming
-minor release.
+```plain
+┌──────── Major (主版本)
+│ ┌────── Minor (次版本)
+│ │ ┌──── Patch (补丁版本)
+│ │ │
+x.y.z
+```
+
+每个月会发布一个 `deno` 的 minor 版本。在每月的第 3 个星期四发布。
 
 在次要版本发布后，通常会有 2 到 3 个 patch 版本(每周发布一次)；然后新的功能会合并到 minor 版本。
 
