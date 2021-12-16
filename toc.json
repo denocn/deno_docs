@@ -25,7 +25,7 @@
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
-      "ffi_api": "Foreign Function Interface API"
+      "ffi_api": "FFI API"
     }
   },
   "linking_to_external_code": {
@@ -39,13 +39,13 @@
     }
   },
   "npm_nodejs": {
-    "name": "Using npm/Node.js code",
+    "name": "使用 npm/Node.js 代码",
     "children": {
-      "compatibility_mode": "Node.js compatibility mode",
+      "compatibility_mode": "Node.js 兼容模式",
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
-      "faqs": "Frequently asked questions"
+      "faqs": "FAQ"
     }
   },
   "typescript": {
@@ -54,47 +54,23 @@
       "overview": "概述",
       "configuration": "配置",
       "types": "类型与类型声明",
-      "migration": "迁移至 JavaScript 或从 JavaScript 迁移",
+      "migration": "JavaScript/JavaScript 迁移",
       "runtime": "运行时编译器 API",
       "faqs": "FAQ"
     }
   },
   "jsx_dom": {
-    "name": "Using JSX",
+    "name": "使用 JSX",
     "children": {
-      "jsx": "Configuring"
-    }
-  },
-  "jsx_dom": {
-    "name": "Using JSX",
-    "children": {
-      "jsx": "Configuring"
-    }
-  },
-  "jsx_dom": {
-    "name": "Using JSX",
-    "children": {
-      "jsx": "Configuring"
-    }
-  },
-  "jsx_dom": {
-    "name": "Using JSX",
-    "children": {
-      "jsx": "Configuring"
-    }
-  },
-  "jsx_dom": {
-    "name": "Using JSX",
-    "children": {
-      "jsx": "Configuring"
+      "jsx": "配置 JSX"
     }
   },
   "webassembly": {
     "name": "使用 WebAssembly",
     "children": {
       "using_wasm": "在 Deno 中使用 wasm",
-      "using_streaming_wasm": "Using the streaming WebAssembly APIs",
-      "wasm_resources": "Helpful resources"
+      "using_streaming_wasm": "使用 wasm 的 Streaming API",
+      "wasm_resources": "一些有用的资源"
     }
   },
   "standard_library": {
@@ -141,7 +117,7 @@
     }
   },
   "continuous_integration": {
-    "name": "Continuous integration"
+    "name": "持续集成(CI)"
   },
   "vscode_deno": {
     "name": "使用 VS Code"
