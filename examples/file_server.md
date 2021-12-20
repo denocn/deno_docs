@@ -2,8 +2,7 @@
 
 ## 概念
 
-- 使用 [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open)
-  按块（chunks）读取文件内容
+- 使用 [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) 按块（chunks）读取文件内容
 - 使用 Deno 标准库的 [streams module](https://deno.land/std@$STD_VERSION/streams/) 将
   Deno 文件转换为
   [ReadableStream](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream)
