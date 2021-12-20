@@ -10,18 +10,10 @@ deno run --unstable mod_which_uses_unstable_stuff.ts
 
 传递这个选项可以有如下效果：
 
-<<<<<<< HEAD
 - 它将允许在运行时使用不稳定的 API。
 - 它将
-  [`lib.deno.unstable.d.ts`](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.unstable.d.ts)
-  文件添加到用于类型检查的类型脚本定义列表中。这包括 `deno types` 的输出。
-=======
-- It enables the use of unstable APIs during runtime.
-- It adds the
   [`lib.deno.unstable.d.ts`](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.unstable.d.ts)
-  file to the list of TypeScript definitions that are used for type checking.
-  This includes the output of `deno types`.
->>>>>>> a7ea15e32090a703976f7777d0f2faacff63637f
+  文件添加到用于类型检查的类型脚本定义列表中。这包括 `deno types` 的输出。
 
 请注意，不稳定的 API 可能**没有经过安全检查**，将来可能有**破坏性改动**，并且**还没有准备投入生产**。
 

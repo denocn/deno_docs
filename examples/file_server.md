@@ -2,22 +2,12 @@
 
 ## 概念
 
-<<<<<<< HEAD
-- 使用 [Deno.open](https://doc.deno.land/builtin/stable#Deno.open)
+- 使用 [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open)
   按块（chunks）读取文件内容
 - 使用 Deno 标准库的 [streams module](https://deno.land/std@$STD_VERSION/streams/) 将
   Deno 文件转换为
   [ReadableStream](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream)
 - 使用 Deno 内置的 HTTP 服务器运行 file server
-=======
-- Use [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) to read a
-  file's content in chunks.
-- Use the Deno standard library
-  [streams module](https://deno.land/std@$STD_VERSION/streams/) to transform a
-  Deno file into a
-  [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
-- Use Deno's integrated HTTP server to run your own file server.
->>>>>>> a7ea15e32090a703976f7777d0f2faacff63637f
 
 ## 概述
 

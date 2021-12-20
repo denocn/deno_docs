@@ -1,12 +1,7 @@
 # 运行时 {#runtime}
 
-<<<<<<< HEAD
-可以在 [`doc.deno.land`](https://doc.deno.land/builtin/stable) 上找到所有运行时功能（Web API +
+可以在 [`doc.deno.land`](https://doc.deno.land/deno/stable) 上找到所有运行时功能（Web API +
 `Deno` global）的文档。
-=======
-Documentation for all runtime functions (Web APIs + `Deno` global) can be found
-on [`doc.deno.land`](https://doc.deno.land/deno/stable).
->>>>>>> a7ea15e32090a703976f7777d0f2faacff63637f
 
 ## Web Platform APIs {#web-platform-apis}
 
@@ -22,10 +17,5 @@ on [`doc.deno.land`](https://doc.deno.land/deno/stable).
 有关 Deno 命名空间的 TypeScript 定义，请参见
 [`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)。
 
-<<<<<<< HEAD
 有关所有 Deno 特定 API 文档，请参见
-[doc.deno.land](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts)。
-=======
-The documentation for all of the Deno specific APIs can be found on
-[doc.deno.land](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts).
->>>>>>> a7ea15e32090a703976f7777d0f2faacff63637f
+[doc.deno.land](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts)。
