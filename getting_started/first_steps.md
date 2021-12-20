@@ -68,7 +68,7 @@ deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/cur
 ### 读取文件 {#reading-a-file}
 
 Deno 还提供了不是来自 web 的 api。这些都包含在 `Deno` global 中。您可以在
-[doc.deno.land](https://doc.deno.land/builtin/stable#Deno) 上找到这些 API 的文档。
+[doc.deno.land](https://doc.deno.land/deno/stable/~/Deno) 上找到这些 API 的文档。
 
 例如，文件系统API没有web标准表单，因此Deno提供了自己的API。
 

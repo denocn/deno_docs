@@ -122,6 +122,13 @@
   "vscode_deno": {
     "name": "使用 VS Code"
   },
+  "language_server": {
+    "name": "Language Server",
+    "children": {
+      "overview": "Overview of the language server",
+      "imports": "Import suggestions and intelligent registries"
+    }
+  },
   "embedding_deno": {
     "name": "嵌入 Deno"
   },

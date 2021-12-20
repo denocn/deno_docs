@@ -1,6 +1,6 @@
 # 运行时 {#runtime}
 
-可以在 [`doc.deno.land`](https://doc.deno.land/builtin/stable) 上找到所有运行时功能（Web API +
+可以在 [`doc.deno.land`](https://doc.deno.land/deno/stable) 上找到所有运行时功能（Web API +
 `Deno` global）的文档。
 
 ## Web Platform APIs {#web-platform-apis}
@@ -18,4 +18,4 @@
 [`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)。
 
 有关所有 Deno 特定 API 文档，请参见
-[doc.deno.land](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts)。
+[doc.deno.land](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts)。
