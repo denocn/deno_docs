@@ -22,6 +22,7 @@
       "permission_apis": "权限 API",
       "web_platform_apis": "Web 平台 API",
       "http_server_apis": "HTTP Server APIs",
+      "http_server_apis_low_level": "HTTP Server APIs (low level)",
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
