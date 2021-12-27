@@ -1,30 +1,25 @@
-## Reloading modules {#reloading-modules}
 
-By default, a module in the cache will be reused without fetching or
-re-compiling it. Sometimes this is not desirable and you can force deno to
-refetch and recompile modules into the cache. You can invalidate your local
-`DENO_DIR` cache using the `--reload` flag of the `deno cache` subcommand. It's
-usage is described below:
+## 重新加载模块 {#reloading-modules}
 
-### To reload everything {#to-reload-everything}
+ 在默认情况下，缓存中的模块是会被重用，而无需重新获取或重新编译它。有时重用是不好使的，你可以强制 deno 重新获取模块并将其重新编译到缓存中。你可以使用`deno cache`的子命令的"--reload "选项来使你的本地`DENO_DIR`缓存无效。它的用法描述如下：
+
+### 重新加载所有内容 {#to-reload-everything}
 
 ```bash
 deno cache --reload my_module.ts
 ```
 
-### To reload specific modules {#to-reload-specific-modules}
+### 重新加载特定模块 {#to-reload-specific-modules}
 
-Sometimes we want to upgrade only some modules. You can control it by passing an
-argument to a `--reload` flag.
+ 有时我们只想升级一部分模块。你可以通过将参数传递给`--reload` 选项。
 
-To reload all \$STD_VERSION standard modules:
+ 要重新加载所有 \$STD_VERSION 标准模块：
 
 ```bash
 deno cache --reload=https://deno.land/std@$STD_VERSION my_module.ts
 ```
 
-To reload specific modules (in this example - colors and file system copy) use a
-comma to separate URLs.
+ 要重新加载特定模块（在此示例中 - 颜色和文件系统副本），请使用逗号分隔 URL。
 
 ```bash
 deno cache --reload=https://deno.land/std@$STD_VERSION/fs/copy.ts,https://deno.land/std@$STD_VERSION/fmt/colors.ts my_module.ts
