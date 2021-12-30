@@ -20,7 +20,7 @@ curl -fsSL https://x.deno.js.cn/install.sh | sh
 iwr https://x.deno.js.cn/install.ps1 -useb | iex
 ```
 
-使用 [dvm](https://github.com/justjavac/dvm) 安装多个版本：
+使用 [dvm](https://github.com/justjavac/dvm) 安装多个版本（**推荐**）：
 
 ```shell
 dvm install
