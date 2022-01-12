@@ -82,9 +82,6 @@ Deno.test("async hello world", async () => {
 });
 ```
 
-<<<<<<< HEAD
-## Running tests {#running-tests}
-=======
 ### Test steps
 
 If you are accustomed to `describe`/`it` syntax or `beforeAll`/`afterAll` hooks
@@ -148,8 +145,7 @@ describe("database test", () => {
 });
 ```
 
-## Running tests
->>>>>>> 78b9dac63393cbf9d2b9947e0d2e874200351920
+## Running tests {#running-tests}
 
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the

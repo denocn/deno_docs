@@ -31,15 +31,11 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
-<<<<<<< HEAD
-### 查询权限 {#query-permissions}
-=======
 > ⚠️ See
 > [`PermissionDescriptor`](https://doc.deno.land/deno/stable/~/Deno.PermissionDescriptor)
 > in API reference for more details.
 
-### Query permissions
->>>>>>> 78b9dac63393cbf9d2b9947e0d2e874200351920
+### 查询权限 {#query-permissions}
 
 通过描述符检查是否授予许可。
 
