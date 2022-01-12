@@ -1,5 +1,9 @@
 # Deno 风格指南 {#deno-style-guide}
 
+> ⚠️ Note that this is the style guide for **internal runtime code** in the Deno
+> runtime, and in the Deno standard library. This is not meant as a general
+> style guide for users of Deno.
+
 ## 版权声明信息 {#copyright-headers}
 
 项目中的大多数模块应有如下版权声明：
