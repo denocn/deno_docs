@@ -34,6 +34,11 @@ const desc5 = { name: "hrtime" } as const;
 > ⚠️ See
 > [`PermissionDescriptor`](https://doc.deno.land/deno/stable/~/Deno.PermissionDescriptor)
 > in API reference for more details.
+<<<<<<< HEAD
+=======
+
+### Query permissions
+>>>>>>> 6d022c01375a487997970f352b36d09cd53fc636
 
 ### 查询权限 {#query-permissions}
 

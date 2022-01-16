@@ -8,7 +8,16 @@ Chrome DevTools or other clients that support the protocol (for example VSCode).
 
 `——inspect` 标志允许在任何时间点连接调试器，而 `——inspect-brk` 将等待调试器连接，并在第一行代码时暂停执行。
 
+<<<<<<< HEAD
 ### Chrome Devtools {#chrome-devtools}
+=======
+> ⚠️ If you use `--inspect` flag, the code will start executing immediately. If
+> your program is short, you might not have enough time to connect the debugger
+> before the program finishes execution. In such cases, try running with
+> `--inspect-brk` flag instead, or add a timeout at the end of your code.
+
+### Chrome Devtools
+>>>>>>> 6d022c01375a487997970f352b36d09cd53fc636
 
 让我们用 Chrome Devtools 来调试一个程序。为此，我们使用一个来自 Deno 标准库的静态文件服务器
 [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts)。

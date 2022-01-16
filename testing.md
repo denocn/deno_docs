@@ -145,7 +145,11 @@ describe("database test", () => {
 });
 ```
 
+<<<<<<< HEAD
 ## Running tests {#running-tests}
+=======
+## Running tests
+>>>>>>> 6d022c01375a487997970f352b36d09cd53fc636
 
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the
