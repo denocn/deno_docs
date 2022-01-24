@@ -1,14 +1,15 @@
 name: ci
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
   deno:
-    runs-on: ubuntu-latest
+    name: ${{ matrix.kind }} ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest, ubuntu-latest, windows-latest]
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -24,6 +25,10 @@ jobs:
 
       - name: Deploy
         uses: appleboy/scp-action@master
+        if: |
+          startsWith(matrix.os, 'ubuntu') &&
+          startsWith(github.repository, 'justjavac') &&
+          github.ref == 'refs/heads/main'
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
