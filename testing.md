@@ -5,9 +5,9 @@ TypeScript code.
 
 `deno test` will search in `./*` and `./**/*` recursively, for test files:
 
-- named `test.{ts, tsx, js, mjs, jsx}`,
-- or ending with `.test.{ts, tsx, js, mjs, jsx}`,
-- or ending with `_test.{ts, tsx, js, mjs, jsx}`
+- named `test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or ending with `.test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or ending with `_test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
 
 ## Writing tests {#writing-tests}
 
@@ -84,15 +84,14 @@ Deno.test("async hello world", async () => {
 
 ### Test steps
 
-If you are accustomed to `describe`/`it` syntax or `beforeAll`/`afterAll` hooks
-you can use test steps API.
-
-> ⚠️ This API was introduced in Deno 1.15 and requires `--unstable` flag to use.
+The test steps API provides a way to report distinct steps within a test and do
+setup and teardown code within that test.
 
 ```ts
-Deno.test("database test", async (t) => {
+Deno.test("database", async (t) => {
   const db = await Database.connect("postgres://localhost/test");
 
+  // provide a step name and function
   await t.step("insert user", async () => {
     const users = await db.query(
       "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
@@ -101,57 +100,108 @@ Deno.test("database test", async (t) => {
     assertEquals(users[0].name, "Deno");
   });
 
-  await t.step("insert book", async () => {
-    const books = await db.query(
-      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
-    );
-    assertEquals(books.length, 1);
-    assertEquals(books[0].name, "The Deno Manual");
+  // or provide a test definition
+  await t.step({
+    name: "insert book",
+    fn: async () => {
+      const books = await db.query(
+        "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
+      );
+      assertEquals(books.length, 1);
+      assertEquals(books[0].name, "The Deno Manual");
+    },
+    ignore: false,
+    // these default to the parent test or step's value
+    sanitizeOps: true,
+    sanitizeResources: true,
+    sanitizeExit: true,
   });
+
+  // nested steps are also supported
+  await t.step("update and delete", async (t) => {
+    await t.step("update", () => {
+      // even though this test throws, the outer promise does not reject
+      // and the next test step will run
+      throw new Error("Fail.");
+    });
+
+    await t.step("delete", () => {
+      // ...etc...
+    });
+  });
+
+  // steps return a value saying if they ran or not
+  const testRan = await t.step({
+    name: "copy books",
+    fn: () => {
+      // ...etc...
+    },
+    ignore: true, // was ignored, so will return `false`
+  });
+
+  // steps can be run concurrently if sanitizers are disabled on sibling steps
+  const testCases = [1, 2, 3];
+  await Promise.all(testCases.map((testCase) =>
+    t.step({
+      name: `case ${testCase}`,
+      fn: async () => {
+        // ...etc...
+      },
+      sanitizeOps: false,
+      sanitizeResources: false,
+      sanitizeExit: false,
+    })
+  ));
 
   db.close();
 });
 ```
 
-The same test written using `describe`/`it` would look like:
+Outputs:
 
-```ts
-describe("database test", () => {
-  let db: Database;
-
-  beforeAll(async () => {
-    db = await Database.connect("postgres://localhost/test");
-  });
-
-  it("insert user", async () => {
-    const users = await db!.query(
-      "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
-    );
-    assertEquals(users.length, 1);
-    assertEquals(users[0].name, "Deno");
-  });
-
-  it("insert book", async () => {
-    const books = await db!.query(
-      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
-    );
-    assertEquals(books.length, 1);
-    assertEquals(books[0].name, "The Deno Manual");
-  });
-
-  afterAll(() => {
-    db!.close();
-  });
-});
+```
+test database ...
+  test insert user ... ok (2ms)
+  test insert book ... ok (14ms)
+  test update and delete ...
+    test update ... FAILED (17ms)
+      Error: Fail.
+          at <stack trace omitted>
+    test delete ... ok (19ms)
+  FAILED (46ms)
+  test copy books ... ignored (0ms)
+  test case 1 ... ok (14ms)
+  test case 2 ... ok (14ms)
+  test case 3 ... ok (14ms)
+FAILED (111ms)
 ```
 
-## Running tests {#running-tests}
+Notes:
+
+1. Test steps **must be awaited** before the parent test/step function resolves
+   or you will get a runtime error.
+2. Test steps cannot be run concurrently unless sanitizers on a sibling step or
+   parent test are disabled.
+3. If nesting steps, ensure you specify a parameter for the parent step.
+   ```ts
+   Deno.test("my test", (t) => {
+     await t.step("step", async (t) => {
+       // note the `t` used here is for the parent step and not the outer `Deno.test`
+       await t.step("sub-step", () => {
+       });
+     });
+   });
+   ```
+
+#### Nested test steps
+
+## Running tests
 
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the
 current directory (recursively) that match the glob
-`{*_,*.,}test.{js,mjs,ts,jsx,tsx}` will be run. If you pass a directory, all
-files in the directory that match this glob will be run.
+`{*_,*.,}test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}` will be run. If you pass a
+directory, all files in the directory that match this glob will be run.
 
 ```shell
 # Run all tests in the current directory and all sub-directories
@@ -162,6 +212,14 @@ deno test util/
 
 # Run just my_test.ts
 deno test my_test.ts
+```
+
+> ⚠️ If you want to pass additional CLI arguments to the test files use `--` to
+> inform Deno that remaining arguments are scripts arguments.
+
+```shell
+# Pass additional arguments to the test file
+deno test my_test.ts -- -e --foo --bar
 ```
 
 `deno test` uses the same permission model as `deno run` and therefore will
