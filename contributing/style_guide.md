@@ -3,11 +3,6 @@
 > ⚠️ Note that this is the style guide for **internal runtime code** in the Deno
 > runtime, and in the Deno standard library. This is not meant as a general
 > style guide for users of Deno.
-<<<<<<< HEAD
-=======
-
-## Copyright Headers
->>>>>>> 5d54a7c8a4731dc582d45329981d1f04174221d2
 
 ## 版权声明信息 {#copyright-headers}
 

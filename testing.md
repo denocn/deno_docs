@@ -84,17 +84,6 @@ Deno.test("async hello world", async () => {
 
 ### Test steps
 
-<<<<<<< HEAD
-If you are accustomed to `describe`/`it` syntax or `beforeAll`/`afterAll` hooks
-you can use test steps API.
-
-> ⚠️ This API was introduced in Deno 1.15 and requires `--unstable` flag to use.
-
-```ts
-Deno.test("database test", async (t) => {
-  const db = await Database.connect("postgres://localhost/test");
-
-=======
 The test steps API provides a way to report distinct steps within a test and do
 setup and teardown code within that test.
 
@@ -103,7 +92,6 @@ Deno.test("database", async (t) => {
   const db = await Database.connect("postgres://localhost/test");
 
   // provide a step name and function
->>>>>>> 5d54a7c8a4731dc582d45329981d1f04174221d2
   await t.step("insert user", async () => {
     const users = await db.query(
       "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
@@ -112,16 +100,6 @@ Deno.test("database", async (t) => {
     assertEquals(users[0].name, "Deno");
   });
 
-<<<<<<< HEAD
-  await t.step("insert book", async () => {
-    const books = await db.query(
-      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
-    );
-    assertEquals(books.length, 1);
-    assertEquals(books[0].name, "The Deno Manual");
-  });
-
-=======
   // or provide a test definition
   await t.step({
     name: "insert book",
@@ -175,46 +153,10 @@ Deno.test("database", async (t) => {
     })
   ));
 
->>>>>>> 5d54a7c8a4731dc582d45329981d1f04174221d2
   db.close();
 });
 ```
 
-<<<<<<< HEAD
-The same test written using `describe`/`it` would look like:
-
-```ts
-describe("database test", () => {
-  let db: Database;
-
-  beforeAll(async () => {
-    db = await Database.connect("postgres://localhost/test");
-  });
-
-  it("insert user", async () => {
-    const users = await db!.query(
-      "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
-    );
-    assertEquals(users.length, 1);
-    assertEquals(users[0].name, "Deno");
-  });
-
-  it("insert book", async () => {
-    const books = await db!.query(
-      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
-    );
-    assertEquals(books.length, 1);
-    assertEquals(books[0].name, "The Deno Manual");
-  });
-
-  afterAll(() => {
-    db!.close();
-  });
-});
-```
-
-## Running tests {#running-tests}
-=======
 Outputs:
 
 ```
@@ -254,7 +196,6 @@ Notes:
 #### Nested test steps
 
 ## Running tests
->>>>>>> 5d54a7c8a4731dc582d45329981d1f04174221d2
 
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the

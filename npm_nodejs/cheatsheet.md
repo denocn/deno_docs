@@ -1,4 +1,4 @@
-## Node -> Deno cheatsheet
+## Node -> Deno 速查表
 
 | Node                                   | Deno                                           |
 | -------------------------------------- | ---------------------------------------------- |
@@ -20,11 +20,9 @@
 | `nyc` / `c8` / `istanbul`              | `deno coverage`                                |
 | benchmarks                             | https://deno.land/std/testing/bench.ts ³       |
 
-¹ See [Linking to external code](../linking_to_external_code.md), the runtime
-downloads and caches the code on first use.
+¹ 查看 [链接至外部代码](../linking_to_external_code.md)，在首次运行的时候 Deno 会下载并缓存所有代码。
 
-² Type checking happens automatically, TypeScript compiler is built into the
-`deno` binary.
+² 自动进行类型检查，TypeScript 编译器已经内置到了 `deno` 可执行文件中。
 
 ³ `deno bench` subcommand is being considered, see
 https://github.com/denoland/deno/issues/9175
