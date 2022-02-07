@@ -37,12 +37,8 @@ Deno.addSignalListener("SIGINT", (_) => {
   console.log("interrupted!");
   Deno.exit();
 });
-<<<<<<< HEAD
-// Add a timeout to prevent process existing immediately.
-=======
 
 // Add a timeout to prevent process exiting immediately.
->>>>>>> e36670d315b38b37fc81ae60809c2fb639cd8ade
 setTimeout(() => {}, 5000);
 ```
 
