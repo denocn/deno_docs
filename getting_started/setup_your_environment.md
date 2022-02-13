@@ -54,7 +54,8 @@ to learn more about how to get started with Deno.
 
 Deno is well supported on both [vim](https://www.vim.org/) and
 [Neovim](https://neovim.io/) via
-[coc.nvim](https://github.com/neoclide/coc.nvim) and
+[coc.nvim](https://github.com/neoclide/coc.nvim),
+[vim-easycomplete](https://github.com/jayli/vim-easycomplete) and
 [ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
 integrate to the Deno language server while ALE supports it _out of the box_.
 The
@@ -135,7 +136,19 @@ to get information on the configuration options available.
 For more information on how to setup ALE (like key bindings) refer to the
 [official documentation](https://github.com/dense-analysis/ale#usage).
 
+<<<<<<< HEAD
 #### Emacs {#emacs}
+=======
+##### Vim-EasyComplete
+
+Vim-EasyComplete supports Deno without any other configuration. Once you have
+[vim-easycomplete installed](https://github.com/jayli/vim-easycomplete#installation),
+you need install deno via `:InstallLspServer deno` if you havn't installed deno.
+You can get more information from
+[official documentation](https://github.com/jayli/vim-easycomplete).
+
+#### Emacs
+>>>>>>> 89dc842442f818724ec4be20a0df2ea52484c9e1
 
 ##### lsp-mode
 
