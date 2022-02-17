@@ -1,10 +1,10 @@
-## Import maps {#import-maps}
+## 导入映射 {#import-maps}
 
-Deno supports [import maps](https://github.com/WICG/import-maps).
+Deno 支持 [导入映射](https://github.com/WICG/import-maps).
 
-You can use import maps with the `--import-map=<FILE>` CLI flag.
+你可以在启动时添加`--import-map<FILE>`选项来启用导入映射
 
-Example:
+示例:
 
 **import_map.json**
 
@@ -24,13 +24,13 @@ import { red } from "fmt/colors.ts";
 console.log(red("hello world"));
 ```
 
-Then:
+运行：
 
 ```shell
 $ deno run --import-map=import_map.json color.ts
 ```
 
-To use your project root for absolute imports:
+为绝对导入使用起始目录：
 
 **import_map.json**
 
@@ -49,5 +49,4 @@ To use your project root for absolute imports:
 import { MyUtil } from "/util.ts";
 ```
 
-This causes import specifiers starting with `/` to be resolved relative to the
-import map's URL or file path.
+这会导致以 `/` 开头的标识符会相对于import maps文件的位置或文件路径进行解析
