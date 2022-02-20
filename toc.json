@@ -108,6 +108,7 @@
   "tools": {
     "name": "工具",
     "children": {
+<<<<<<< HEAD
       "script_installer": "脚本安装器",
       "formatter": "格式化",
       "repl": "REPL",
@@ -116,6 +117,17 @@
       "documentation_generator": "文档生成器",
       "dependency_inspector": "依赖检查器",
       "linter": "Linter"
+=======
+      "script_installer": "Script installer",
+      "formatter": "Formatter",
+      "repl": "Read-eval-print-loop",
+      "bundler": "Bundler",
+      "compiler": "Compiling executables",
+      "documentation_generator": "Documentation generator",
+      "dependency_inspector": "Dependency inspector",
+      "linter": "Linter",
+      "vendor": "Vendoring dependencies"
+>>>>>>> 011aa3387f2c5f037e8ee765995daa725923bab0
     }
   },
   "continuous_integration": {
