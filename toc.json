@@ -115,7 +115,8 @@
       "compiler": "编译可执行文件",
       "documentation_generator": "文档生成器",
       "dependency_inspector": "依赖检查器",
-      "linter": "Linter"
+      "linter": "Linter",
+      "vendor": "Vendoring dependencies"
     }
   },
   "continuous_integration": {
