@@ -1,17 +1,19 @@
 # Handle OS Signals
 
+<<<<<<< HEAD
 > This program makes use of an unstable Deno feature. Learn more about
 > [unstable features](../runtime/stability.md). ⚠️ Handling OS signals is
 > currently not available on Windows.
 
+=======
+>>>>>>> a61e9ef4e7c01b7e7c3e5a5222b262e0e4683b38
 > ⚠️ Handling OS signals is currently not available on Windows.
 
 ## Concepts
 
-- Use the `--unstable` flag to access new or unstable features in Deno.
-- [Deno.addSignalListener()](https://doc.deno.land/deno/unstable/~/Deno.addSignalListener)
+- [Deno.addSignalListener()](https://doc.deno.land/deno/stable/~/Deno.addSignalListener)
   can be used to capture and monitor OS signals.
-- [Deno.removeSignalListener()](https://doc.deno.land/deno/unstable/~/Deno.removeSignalListener)
+- [Deno.removeSignalListener()](https://doc.deno.land/deno/stable/~/Deno.removeSignalListener)
   can be used to stop watching the signal.
 
 ## Set up an OS signal listener
@@ -33,7 +35,12 @@ You can use `Deno.addSignalListener()` function for handling OS signals:
  * add_signal_listener.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
+<<<<<<< HEAD
 Deno.addSignalListener("SIGINT", (_) => {
+=======
+
+Deno.addSignalListener("SIGINT", () => {
+>>>>>>> a61e9ef4e7c01b7e7c3e5a5222b262e0e4683b38
   console.log("interrupted!");
   Deno.exit();
 });
@@ -45,7 +52,7 @@ setTimeout(() => {}, 5000);
 Run with:
 
 ```shell
-deno run --unstable add_signal_listener.ts
+deno run add_signal_listener.ts
 ```
 
 You can use `Deno.removeSignalListener()` function to unregister previously
@@ -56,7 +63,12 @@ added signal handler.
  * signal_listeners.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
+<<<<<<< HEAD
 const sigIntHandler = (_) => {
+=======
+
+const sigIntHandler = () => {
+>>>>>>> a61e9ef4e7c01b7e7c3e5a5222b262e0e4683b38
   console.log("interrupted!");
   Deno.exit();
 };
@@ -74,7 +86,7 @@ setTimeout(() => {
 Run with:
 
 ```shell
-deno run --unstable signal_listeners.ts
+deno run signal_listeners.ts
 ```
 
 ## Async iterator example
@@ -101,5 +113,5 @@ for await (const _ of sig) {
 Run with:
 
 ```shell
-deno run --unstable async_iterator_signal.ts
+deno run async_iterator_signal.ts
 ```
