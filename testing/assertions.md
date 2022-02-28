@@ -109,9 +109,6 @@ Deno.test("Test Assert Strict Equals", () => {
 The `assertStrictEquals()` assertion is best used when you wish to make a
 precise check against two primitive types.
 
-<<<<<<< HEAD
-### Contains {#contains}
-=======
 #### Equality for numbers
 
 When testing equality between numbers, it is important to keep in mind that some
@@ -142,7 +139,6 @@ Deno.test("Test Assert Almost Equals", () => {
 ```
 
 ### Contains
->>>>>>> a61e9ef4e7c01b7e7c3e5a5222b262e0e4683b38
 
 There are two methods available to assert a value contains a value,
 `assertStringIncludes()` and `assertArrayIncludes()`.

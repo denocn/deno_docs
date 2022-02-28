@@ -1,12 +1,5 @@
 # Handle OS Signals
 
-<<<<<<< HEAD
-> This program makes use of an unstable Deno feature. Learn more about
-> [unstable features](../runtime/stability.md). ⚠️ Handling OS signals is
-> currently not available on Windows.
-
-=======
->>>>>>> a61e9ef4e7c01b7e7c3e5a5222b262e0e4683b38
 > ⚠️ Handling OS signals is currently not available on Windows.
 
 ## Concepts
@@ -35,12 +28,8 @@ You can use `Deno.addSignalListener()` function for handling OS signals:
  * add_signal_listener.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-<<<<<<< HEAD
-Deno.addSignalListener("SIGINT", (_) => {
-=======
 
 Deno.addSignalListener("SIGINT", () => {
->>>>>>> a61e9ef4e7c01b7e7c3e5a5222b262e0e4683b38
   console.log("interrupted!");
   Deno.exit();
 });
@@ -63,12 +52,8 @@ added signal handler.
  * signal_listeners.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-<<<<<<< HEAD
-const sigIntHandler = (_) => {
-=======
 
 const sigIntHandler = () => {
->>>>>>> a61e9ef4e7c01b7e7c3e5a5222b262e0e4683b38
   console.log("interrupted!");
   Deno.exit();
 };
