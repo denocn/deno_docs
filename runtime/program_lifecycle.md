@@ -71,9 +71,8 @@ got unload event in event handler (main)
 got unload event in onunload function (main)
 ```
 
-所有通过 `addEventListener` 添加的侦听器都会运行, 但是在 `main.ts` 文件里定义的 `onload` 和
-`onunload` 覆盖了在 `imported.ts` 定义的处理程序。
+所有通过 `addEventListener` 添加的侦听器都会运行, 但是在 `main.ts` 文件里定义的 `onload` 和 `onunload`
+覆盖了在 `imported.ts` 定义的处理程序。
 
 换句话说, 你可以可以使用 `addEventListener` 注册多个 `"load"` 或 `"unload"` 事件, 但是，只有最后加载的
-`onload` 或 `onunload` 事件处理程序会执行。因此，在可能的情况下，最好是使用
-`addEventListener`。
+`onload` 或 `onunload` 事件处理程序会执行。因此，在可能的情况下，最好是使用 `addEventListener`。
