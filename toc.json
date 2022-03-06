@@ -39,10 +39,17 @@
       "import_maps": "Import maps"
     }
   },
+<<<<<<< HEAD
   "npm_nodejs": {
     "name": "使用 npm/Node.js 代码",
     "children": {
       "compatibility_mode": "Node.js 兼容模式",
+=======
+  "node": {
+    "name": "Interoperating with Node and NPM",
+    "children": {
+      "compatibility_mode": "Node compatibility mode",
+>>>>>>> 6d92158013ccb9e490bfdeba74034b983156c808
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
