@@ -39,7 +39,7 @@
       "import_maps": "Import maps"
     }
   },
-  "npm_nodejs": {
+  "node": {
     "name": "使用 Node/Npm 代码",
     "children": {
       "compatibility_mode": "Node 兼容模式",
