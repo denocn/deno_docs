@@ -5,9 +5,6 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 
 以下是 Deno web 平台 API 的实现列表：
 
-<<<<<<< HEAD
-## `fetch` API {#fetch-api}
-=======
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 - [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
 - [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
@@ -30,7 +27,6 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 ## `fetch` API
->>>>>>> 50e20856ff7fef33fafd258b6966ca34afba4b9b
 
 ### 概述 {#overview}
 
@@ -123,41 +119,6 @@ DOM 事件 API 可以用来调度和监听应用程序中发生的事件。 它�
 
 - 没有冒泡事件，因为 Deno 没有 DOM 层次结构，所以没有树状的事件可以冒泡/捕获。
 
-<<<<<<< HEAD
-### 概述 {#overview}
-
-WebWorker API 可以在一个单独的线程中执行代码。 它是按照
-[WHATWG HTML 规范](https://html.spec.whatwg.org/multipage/workers.html#workers)中的规定实现的。
-
-你可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker)里找到关于
-`worker` API 的文档。
-
-### 偏离规范 {#spec-deviations}
-
-- 目前不支持从 blob URLs 创建 worker。
-- 目前发布的数据不是结构化的克隆, 而是被序列化为 JSON。
-- 目前，对象的所有权不能在 worker 之间转移
-
-## 其他 APIs {#other-apis}
-
-- [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
-- [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
-- [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
-- [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
-- [Encoding API](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API)
-- [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
-- [Performance](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
-- [setTimeout, setInterval, clearInterval](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
-- [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
-- [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL)
-- [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern)
-- [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
-- [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
-- [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
-- [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
-
-=======
->>>>>>> 50e20856ff7fef33fafd258b6966ca34afba4b9b
 ---
 
 ## Typings {#typings}

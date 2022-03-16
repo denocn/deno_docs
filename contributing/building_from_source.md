@@ -37,9 +37,6 @@ rustc -V
 cargo -V
 ```
 
-<<<<<<< HEAD
-### Building Deno {#building-deno}
-=======
 For Apple aarch64 users `lld` must be installed.
 
 ```
@@ -48,7 +45,6 @@ brew install llvm
 ```
 
 ### Building Deno
->>>>>>> 50e20856ff7fef33fafd258b6966ca34afba4b9b
 
 The easiest way to build Deno is by using a precompiled version of V8:
 
