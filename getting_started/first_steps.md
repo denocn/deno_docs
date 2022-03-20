@@ -136,4 +136,9 @@ hello world
 
 ### 更多例子 {#more-examples}
 
+<<<<<<< HEAD
 您可以在“示例(Examples)”一章中找到更多示例，如：HTTP文件服务器。
+=======
+You can find more examples, like an HTTP file server, in the
+[Examples](../examples) chapter.
+>>>>>>> a823a93d782ca6d27b036dfc14b695cff9b8f57c

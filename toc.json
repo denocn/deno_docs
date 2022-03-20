@@ -116,8 +116,9 @@
       "documentation_generator": "文档生成器",
       "dependency_inspector": "依赖检查器",
       "linter": "Linter",
+      "task_runner": "Task runner",
       "vendor": "Vendoring dependencies",
-      "bench": "Benchmarking"
+      "benchmarker": "Benchmarking"
     }
   },
   "continuous_integration": {
