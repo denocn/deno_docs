@@ -136,4 +136,4 @@ hello world
 
 ### 更多例子 {#more-examples}
 
-您可以在“示例(Examples)”一章中找到更多示例，如：HTTP文件服务器。
+您可以在[示例](../examples) 一章中找到更多示例，如：HTTP文件服务器。
