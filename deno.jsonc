@@ -1,4 +1,7 @@
 {
+  "tasks": {
+    "build": "deno run --allow-read=. --allow-write=./dist --allow-net --no-check build.tsx"
+  },
   "compilerOptions": {
     "lib": [
       "deno.ns",
