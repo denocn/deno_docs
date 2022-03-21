@@ -2,19 +2,17 @@
 
 ## Concepts {#concepts}
 
-- Deno can run JavaScript or TypeScript out of the box with no additional tools
-  or config required.
+- Deno can run JavaScript or TypeScript out of the box with no additional tools or config required.
 
 ## Overview {#overview}
 
-Deno is a secure runtime for both JavaScript and TypeScript. As the hello world
-examples below highlight the same functionality can be created in JavaScript or
-TypeScript, and Deno will execute both.
+Deno is a secure runtime for both JavaScript and TypeScript. As the hello world examples below highlight the same
+functionality can be created in JavaScript or TypeScript, and Deno will execute both.
 
 ## JavaScript {#javascript}
 
-In this JavaScript example the message `Hello [name]` is printed to the console
-and the code ensures the name provided is capitalized.
+In this JavaScript example the message `Hello [name]` is printed to the console and the code ensures the name provided
+is capitalized.
 
 **Command:** `deno run hello-world.js`
 
@@ -45,11 +43,10 @@ console.log(hello("kai"));
 
 ## TypeScript {#typescript}
 
-This TypeScript example is exactly the same as the JavaScript example above, the
-code just has the additional type information which TypeScript supports.
+This TypeScript example is exactly the same as the JavaScript example above, the code just has the additional type
+information which TypeScript supports.
 
-The `deno run` command is exactly the same, it just references a `*.ts` file
-rather than a `*.js` file.
+The `deno run` command is exactly the same, it just references a `*.ts` file rather than a `*.js` file.
 
 **Command:** `deno run hello-world.ts`
 

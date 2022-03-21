@@ -1,14 +1,13 @@
 ## Workers {#workers}
 
-Deno 支持
-[`Web Worker API`](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker/Worker).
+Deno 支持 [`Web Worker API`](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker/Worker).
 
 Worker 可以在多个线程中运行代码，`Worker` 的每个实例都会在单独的线程中运行，这个线程专属于 worker。
 
 目前，Deno 只支持 `module` 类型的 worker，因此在创建新的 worker 时必须传递 `type: "module"` 选项。
 
-只有在 CLI 上传 `--location <href>`，才支持在主 worker 中使用相对模块说明符。为了便捷性，不建议这样做。你可以使用 `URL`
-构造函数和 `import.meta.url` 来为一些周围的脚本轻松创建说明符。但是，对于一些专门的 worker，它们有默认的位置和能力。
+只有在 CLI 上传 `--location <href>`，才支持在主 worker 中使用相对模块说明符。为了便捷性，不建议这样做。你可以使用 `URL` 构造函数和 `import.meta.url`
+来为一些周围的脚本轻松创建说明符。但是，对于一些专门的 worker，它们有默认的位置和能力。
 
 ```ts
 // Good
@@ -116,11 +115,9 @@ hello world
 
 > 这是一个不稳定的 Deno 特性。更多信息请查阅 [不稳定特性](./stability.md)
 
-Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用的每个权限都可以在 Worker API
-层面上被禁用。你可以在[这里](../getting_started/permissions.md)找到每个权限选项更详细的描述。
+Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用的每个权限都可以在 Worker API 层面上被禁用。你可以在[这里](../getting_started/permissions.md)找到每个权限选项更详细的描述。
 
-默认情况下，worker 将从其创建的线程中继承权限，但为了允许用户限制该 worker 的访问，我们在 worker API 中提供了
-`deno.permissions` 选项。
+默认情况下，worker 将从其创建的线程中继承权限，但为了允许用户限制该 worker 的访问，我们在 worker API 中提供了 `deno.permissions` 选项。
 
 - 对于支持更细访问的权限，你可以传入 worker 访问的所需资源的列表，对于只有 on/off 选项的 worker，你可以分别传入 true/false。
 

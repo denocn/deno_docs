@@ -19,5 +19,5 @@ deno run --unstable mod_which_uses_unstable_stuff.ts
 
 ### 标准模块 {#standard-modules}
 
-Deno 的 [标准模块](https://deno.land/std/) 尚不稳定。为了体现这点，我们用与 CLI 不同的版本号标记标准模块。和 `Deno`
-命名空间不同，使用标准模块不需要 `--unstable` 选项（除非该模块使用了不稳定的 Deno 功能）。
+Deno 的 [标准模块](https://deno.land/std/) 尚不稳定。为了体现这点，我们用与 CLI 不同的版本号标记标准模块。和 `Deno` 命名空间不同，使用标准模块不需要 `--unstable`
+选项（除非该模块使用了不稳定的 Deno 功能）。

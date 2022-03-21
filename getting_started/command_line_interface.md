@@ -15,8 +15,7 @@ deno -h
 deno --help
 ```
 
-Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle`
-特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
+Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle` 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
 
 ```shell
 deno help bundle
@@ -67,8 +66,8 @@ deno run net_client.ts --allow-net
 
 1. 这是区分运行时选项和脚本参数的最合乎逻辑的方法。
 2. 实际上，这和其他流行的运行时具有相同的行为。
-   - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js`
-     做语法检查. 而第二个会 _执行_ `index.js`，将`-c` 传递为`require("process").argv`。
+   - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js` 做语法检查. 而第二个会 _执行_ `index.js`，将`-c`
+     传递为`require("process").argv`。
 
 ---
 
@@ -76,17 +75,15 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
-你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch`
-选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
+你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
 
-- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
-  files the entrypoint(s) statically import(s) will be watched.
-- for `deno fmt` all local files and directories specified as command line
-  arguments (or the working directory if no specific files/directories is
-  passed) are watched.
+- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local files the entrypoint(s) statically
+  import(s) will be watched.
+- for `deno fmt` all local files and directories specified as command line arguments (or the working directory if no
+  specific files/directories is passed) are watched.
 
-Whenever one of the watched files is changed on disk, the program will
-automatically be restarted / formatted / tested / bundled.
+Whenever one of the watched files is changed on disk, the program will automatically be restarted / formatted / tested /
+bundled.
 
 ```
 deno run --watch main.ts
@@ -96,9 +93,8 @@ deno fmt --watch
 
 ### Integrity flags (lock files)
 
-Affect commands which can download resources to the cache: `deno cache`,
-`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`. >>>>>>>
-20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
+Affect commands which can download resources to the cache: `deno cache`, `deno run`, `deno test`, `deno bundle`,
+`deno doc`, and `deno compile`. >>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
 ```
 --lock <FILE>    检查指定的锁文件
@@ -109,9 +105,8 @@ Affect commands which can download resources to the cache: `deno cache`,
 
 ### 缓存和编译选项 {#cache-and-compilation-flags}
 
-Affect commands which can populate the cache: `deno cache`, `deno run`,
-`deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
-above, this includes those which affect module resolution, compilation
+Affect commands which can populate the cache: `deno cache`, `deno run`, `deno test`, `deno bundle`, `deno doc`, and
+`deno compile`. As well as the flags above, this includes those which affect module resolution, compilation
 configuration etc.
 
 ```

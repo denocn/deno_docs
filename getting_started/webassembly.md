@@ -1,7 +1,7 @@
 ## WebAssembly 支持 {#webassembly-support}
 
-Deno 可以用与[浏览器提供](https://developer.mozilla.org/en-US/docs/WebAssembly)相同的接口来执行
-[WebAssembly](https://webassembly.org/) 模块。
+Deno 可以用与[浏览器提供](https://developer.mozilla.org/en-US/docs/WebAssembly)相同的接口来执行 [WebAssembly](https://webassembly.org/)
+模块。
 
 <!-- deno-fmt-ignore -->
 
@@ -32,8 +32,8 @@ const main = wasmInstance.exports.main as CallableFunction;
 console.log(main().toString());
 ```
 
-And for loading WebAssembly modules over the network (note that the file must be
-served with `application/wasm` MIME type):
+And for loading WebAssembly modules over the network (note that the file must be served with `application/wasm` MIME
+type):
 
 ```ts
 const { instance, module } = await WebAssembly.instantiateStreaming(

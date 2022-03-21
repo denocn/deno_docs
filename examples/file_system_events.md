@@ -2,8 +2,7 @@
 
 ## Concepts {#concepts}
 
-- Use [Deno.watchFs](https://doc.deno.land/deno/stable/~/Deno.watchFs) to watch
-  for file system events.
+- Use [Deno.watchFs](https://doc.deno.land/deno/stable/~/Deno.watchFs) to watch for file system events.
 - Results may vary between operating systems.
 
 ## Example {#example}
@@ -27,11 +26,10 @@ Run with:
 deno run --allow-read watcher.ts
 ```
 
-Now try adding, removing and modifying files in the same directory as
-`watcher.ts`.
+Now try adding, removing and modifying files in the same directory as `watcher.ts`.
 
-Note that the exact ordering of the events can vary between operating systems.
-This feature uses different syscalls depending on the platform:
+Note that the exact ordering of the events can vary between operating systems. This feature uses different syscalls
+depending on the platform:
 
 - Linux: [inotify](https://man7.org/linux/man-pages/man7/inotify.7.html)
 - macOS:

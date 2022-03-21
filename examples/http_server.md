@@ -6,8 +6,8 @@
 
 ## Overview {#overview}
 
-With just a few lines of code you can run your own HTTP web server with control
-over the response status, request headers and more.
+With just a few lines of code you can run your own HTTP web server with control over the response status, request
+headers and more.
 
 ## Sample web server {#sample-web-server}
 
@@ -62,10 +62,8 @@ Then navigate to `http://localhost:8080/` in a browser.
 ### Using the `std/http` library
 
 > ℹ️ Since
-> [the stabilization of _native_ HTTP bindings in
-`^1.13.x`](https://deno.com/blog/v1.13#stabilize-native-http-server-api),
-> std/http now supports a _native_ HTTP server from ^0.107.0. The legacy server
-> module was removed in 0.117.0.
+> [the stabilization of _native_ HTTP bindings in `^1.13.x`](https://deno.com/blog/v1.13#stabilize-native-http-server-api),
+> std/http now supports a _native_ HTTP server from ^0.107.0. The legacy server module was removed in 0.117.0.
 
 **webserver.ts**:
 
