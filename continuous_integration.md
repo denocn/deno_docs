@@ -1,10 +1,8 @@
 ## Continuous Integration
 
-Deno's built-in tools make it easy to set up Continuous Integration (CI)
-pipelines for your projects. Testing, linting and formatting of code can all be
-done with the corresponding commands `deno test`, `deno lint` and `deno fmt`. In
-addition, you can generate code coverage reports from test results with
-`deno coverage` in pipelines.
+Deno's built-in tools make it easy to set up Continuous Integration (CI) pipelines for your projects. Testing, linting
+and formatting of code can all be done with the corresponding commands `deno test`, `deno lint` and `deno fmt`. In
+addition, you can generate code coverage reports from test results with `deno coverage` in pipelines.
 
 On this page we will discuss:
 
@@ -16,12 +14,10 @@ On this page we will discuss:
 
 ### Setting up a basic pipeline
 
-This page will show you how to set up basic pipelines for Deno projects in
-GitHub Actions. The concepts explained on this page largely apply to other CI
-providers as well, such as Azure Pipelines, CircleCI or GitLab.
+This page will show you how to set up basic pipelines for Deno projects in GitHub Actions. The concepts explained on
+this page largely apply to other CI providers as well, such as Azure Pipelines, CircleCI or GitLab.
 
-Building a pipeline for Deno generally starts with checking out the repository
-and installing Deno:
+Building a pipeline for Deno generally starts with checking out the repository and installing Deno:
 
 ```yaml
 name: Build
@@ -38,8 +34,7 @@ jobs:
           deno-version: v1.x # Run with latest stable Deno.
 ```
 
-To expand the workflow just add any of the `deno` subcommands that you might
-need:
+To expand the workflow just add any of the `deno` subcommands that you might need:
 
 ```yaml
       # Check if the code is formatted according to Deno's default
@@ -61,10 +56,9 @@ need:
 
 ### Cross-platform workflows
 
-As a Deno module maintainer, you probably want to know that your code works on
-all of the major operating systems in use today: Linux, MacOS and Windows. A
-cross-platform workflow can be achieved by running a matrix of parallel jobs,
-each one running the build on a different OS:
+As a Deno module maintainer, you probably want to know that your code works on all of the major operating systems in use
+today: Linux, MacOS and Windows. A cross-platform workflow can be achieved by running a matrix of parallel jobs, each
+one running the build on a different OS:
 
 ```yaml
 jobs:
@@ -77,21 +71,18 @@ jobs:
       - run: deno test --allow-all --coverage cov/
 ```
 
-> Note: GitHub Actions has a known
-> [issue](https://github.com/actions/checkout/issues/135) with handling
-> Windows-style line endings (CRLF). This may cause issues when running
-> `deno fmt` in a pipeline with jobs that run on `windows`. To prevent this,
-> configure the Actions runner to use Linux-style line endings before running
-> the `actions/checkout@v2` step:
+> Note: GitHub Actions has a known [issue](https://github.com/actions/checkout/issues/135) with handling Windows-style
+> line endings (CRLF). This may cause issues when running `deno fmt` in a pipeline with jobs that run on `windows`. To
+> prevent this, configure the Actions runner to use Linux-style line endings before running the `actions/checkout@v2`
+> step:
 >
 > ```
 > git config --system core.autocrlf false
 > git config --system core.eol lf
 > ```
 
-If you are working with experimental or unstable Deno APIs, you can include a
-matrix job running the canary version of Deno. This can help to spot breaking
-changes early on:
+If you are working with experimental or unstable Deno APIs, you can include a matrix job running the canary version of
+Deno. This can help to spot breaking changes early on:
 
 ```yaml
 jobs:
@@ -113,11 +104,10 @@ jobs:
 
 #### Reducing repetition
 
-In cross-platform runs, certain steps of a pipeline do not need to run for each
-OS necessarily. For example, generating the same test coverage report on Linux,
-MacOS and Windows is a bit redundant. You can use the `if` conditional keyword
-of GitHub Actions in these cases. The example below shows how to run code
-coverage generation and upload steps only on the `ubuntu` (Linux) runner:
+In cross-platform runs, certain steps of a pipeline do not need to run for each OS necessarily. For example, generating
+the same test coverage report on Linux, MacOS and Windows is a bit redundant. You can use the `if` conditional keyword
+of GitHub Actions in these cases. The example below shows how to run code coverage generation and upload steps only on
+the `ubuntu` (Linux) runner:
 
 ```yaml
 - name: Generate coverage report
@@ -135,15 +125,13 @@ coverage generation and upload steps only on the `ubuntu` (Linux) runner:
 
 #### Caching dependencies
 
-As a project grows in size, more and more dependencies tend to be included. Deno
-will download these dependencies during testing and if a workflow is run many
-times a day, this can become a time-consuming process. A common solution to
-speed things up is to cache dependencies so that they do not need to be
-downloaded anew.
+As a project grows in size, more and more dependencies tend to be included. Deno will download these dependencies during
+testing and if a workflow is run many times a day, this can become a time-consuming process. A common solution to speed
+things up is to cache dependencies so that they do not need to be downloaded anew.
 
-[Deno stores dependencies locally in a cache directory](https://deno.land/manual/linking_to_external_code).
-In a pipeline the cache can be preserved between workflows by setting the
-`DENO_DIR` environment variable and adding a caching step to the workflow:
+[Deno stores dependencies locally in a cache directory](https://deno.land/manual/linking_to_external_code). In a
+pipeline the cache can be preserved between workflows by setting the `DENO_DIR` environment variable and adding a
+caching step to the workflow:
 
 ```yaml
 # Set DENO_DIR to an absolute or relative path on the runner.
@@ -158,55 +146,46 @@ steps:
       key: my_cache_key
 ```
 
-At first, when this workflow runs the cache is still empty and commands like
-`deno test` will still have to download dependencies, but when the job succeeds
-the contents of `DENO_DIR` are saved and any subsequent runs can restore them
+At first, when this workflow runs the cache is still empty and commands like `deno test` will still have to download
+dependencies, but when the job succeeds the contents of `DENO_DIR` are saved and any subsequent runs can restore them
 from cache instead of re-downloading.
 
-There is still an issue in the workflow above: at the moment the name of the
-cache key is hardcoded to `my_cache_key`, which is going to restore the same
-cache every time, even if one or more dependencies are updated. This can lead to
-older versions being used in the pipeline even though you have updated some
-dependencies. The solution is to generate a different key each time the cache
-needs to be updated, which can be achieved by using a lockfile and by using the
+There is still an issue in the workflow above: at the moment the name of the cache key is hardcoded to `my_cache_key`,
+which is going to restore the same cache every time, even if one or more dependencies are updated. This can lead to
+older versions being used in the pipeline even though you have updated some dependencies. The solution is to generate a
+different key each time the cache needs to be updated, which can be achieved by using a lockfile and by using the
 `hashFiles` function provided by GitHub Actions:
 
 ```yaml
 key: ${{ hashFiles('lock.json') }}
 ```
 
-To make this work you will also need a have a lockfile in your Deno project,
-which is discussed in detail
-[here](./linking_to_external_code/integrity_checking.md). Now, if the contents
-of `lock.json` are changed, a new cache will be made and used in subsequent
-pipeline runs thereafter.
+To make this work you will also need a have a lockfile in your Deno project, which is discussed in detail
+[here](./linking_to_external_code/integrity_checking.md). Now, if the contents of `lock.json` are changed, a new cache
+will be made and used in subsequent pipeline runs thereafter.
 
-To demonstrate, let's say you have a project that uses the logger from
-`deno.land/std`:
+To demonstrate, let's say you have a project that uses the logger from `deno.land/std`:
 
 ```ts
 import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
 ```
 
-In order to increment this version, you can update the `import` statement and
-then reload the cache and update the lockfile locally:
+In order to increment this version, you can update the `import` statement and then reload the cache and update the
+lockfile locally:
 
 ```
 deno cache --reload --lock=lock.json --lock-write deps.ts
 ```
 
-You should see changes in the lockfile's contents after running this. When this
-is committed and run through the pipeline, you should then see the `hashFiles`
-function saving a new cache and using it in any runs that follow.
+You should see changes in the lockfile's contents after running this. When this is committed and run through the
+pipeline, you should then see the `hashFiles` function saving a new cache and using it in any runs that follow.
 
 ##### Clearing the cache
 
-Occasionally you may run into a cache that has been corrupted or malformed,
-which can happen for various reasons. There is no option in GitHub Actions UI to
-clear a cache yet, but to create a new cache you can simply change the name of
-the cache key. A practical way of doing so without having to forcefully change
-your lockfile is to add a variable to the cache key name, which can be stored as
-a GitHub secret and which can be changed if a new cache is needed:
+Occasionally you may run into a cache that has been corrupted or malformed, which can happen for various reasons. There
+is no option in GitHub Actions UI to clear a cache yet, but to create a new cache you can simply change the name of the
+cache key. A practical way of doing so without having to forcefully change your lockfile is to add a variable to the
+cache key name, which can be stored as a GitHub secret and which can be changed if a new cache is needed:
 
 ```yaml
 key: ${{ secrets.CACHE_VERSION }}-${{ hashFiles('lock.json') }}

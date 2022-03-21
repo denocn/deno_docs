@@ -1,4 +1,13 @@
 {
+  "tasks": {
+    "build": "deno run --allow-read=. --allow-write=./dist --allow-net --no-check build.tsx"
+  },
+  "fmt": {
+    "options": {
+      "singleQuote": false,
+      "lineWidth": 120
+    }
+  },
   "compilerOptions": {
     "lib": [
       "deno.ns",

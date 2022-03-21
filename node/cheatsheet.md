@@ -24,5 +24,4 @@
 
 ² 自动进行类型检查，TypeScript 编译器已经内置到了 `deno` 可执行文件中。
 
-³ `deno bench` subcommand is being considered, see
-https://github.com/denoland/deno/issues/9175
+³ `deno bench` subcommand is being considered, see https://github.com/denoland/deno/issues/9175

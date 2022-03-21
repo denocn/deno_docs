@@ -6,22 +6,20 @@ This page serves as a helper to get you started on contributing.
 
 ## Projects
 
-There are numerous repositories in the [`denoland`](https://github.com/denoland)
-organization that are part of the Deno ecosystem.
+There are numerous repositories in the [`denoland`](https://github.com/denoland) organization that are part of the Deno
+ecosystem.
 
-Repositories have different scopes, use different programming languages and have
-varying difficulty level when it comes to contributions.
+Repositories have different scopes, use different programming languages and have varying difficulty level when it comes
+to contributions.
 
-To help you decide which repository might be the best to start contributing
-(and/or falls into your interest), here's a short comparison (**languages in
-bold comprise most of the codebase**):
+To help you decide which repository might be the best to start contributing (and/or falls into your interest), here's a
+short comparison (**languages in bold comprise most of the codebase**):
 
 ### [`deno`](https://github.com/denoland/deno)
 
 This is the main repository that provides the `deno` CLI.
 
-If you want to fix a bug or add a new feature to `deno` this is the repository
-you want to contribute to.
+If you want to fix a bug or add a new feature to `deno` this is the repository you want to contribute to.
 
 Languages: **Rust**, **JavaScript**
 
@@ -45,8 +43,7 @@ Languages: **Rust**
 
 ### [`deno_doc`](https://github.com/denoland/deno_doc)
 
-Documentation generator that powers `deno doc` subcommand and
-https://doc.deno.land
+Documentation generator that powers `deno doc` subcommand and https://doc.deno.land
 
 Languages: **Rust**
 
@@ -64,8 +61,8 @@ Languages: **Rust**
 
 ### [`serde_v8`](https://github.com/denoland/serde_v8)
 
-Library that provides bijection layer between V8 and Rust objects. Based on
-[`serde`](https://crates.io/crates/serde) library. Very technical and low-level.
+Library that provides bijection layer between V8 and Rust objects. Based on [`serde`](https://crates.io/crates/serde)
+library. Very technical and low-level.
 
 Languages: **Rust**
 
@@ -81,22 +78,19 @@ Official Docker images for Deno.
 
 - Ask for help in the [community chat room](https://discord.gg/deno).
 
-- If you are going to work on an issue, mention so in the issue comments
-  _before_ you start working on the issue.
+- If you are going to work on an issue, mention so in the issue comments _before_ you start working on the issue.
 
-- If you are going to work on a new feature, create an issue and discuss with
-  other contributors _before_ you start working on the feature; we appreciate
-  all contributions, but not all proposed features are getting accepted. We
-  don't want you to spend hours working on a code that might not be accepted.
+- If you are going to work on a new feature, create an issue and discuss with other contributors _before_ you start
+  working on the feature; we appreciate all contributions, but not all proposed features are getting accepted. We don't
+  want you to spend hours working on a code that might not be accepted.
 
 - Please be professional in the forums. We follow
-  [Rust's code of conduct](https://www.rust-lang.org/policies/code-of-conduct)
-  (CoC). Have a problem? Email [ry@tinyclouds.org](mailto:ry@tinyclouds.org).
+  [Rust's code of conduct](https://www.rust-lang.org/policies/code-of-conduct) (CoC). Have a problem? Email
+  [ry@tinyclouds.org](mailto:ry@tinyclouds.org).
 
 ## Submitting a pull request {#submitting-a-pull-request}
 
-Before submitting a PR to any of the repos, please make sure the following is
-done:
+Before submitting a PR to any of the repos, please make sure the following is done:
 
 1. Give the PR a descriptive title.
 
@@ -119,14 +113,13 @@ Examples of bad PR title:
 
 Additionally to the above make sure that:
 
-1. `cargo test` passes - this will run full test suite for `deno` including unit
-   tests, integration tests and Web Platform Tests
+1. `cargo test` passes - this will run full test suite for `deno` including unit tests, integration tests and Web
+   Platform Tests
 
-1. Run `./tools/format.js` - this will format all of the code to adhere to the
-   consistent style in the repository
+1. Run `./tools/format.js` - this will format all of the code to adhere to the consistent style in the repository
 
-1. Run `./tools/lint.js` - this will check Rust and JavaScript code for common
-   mistakes and errors using `clippy` (for Rust) and `dlint` (for JavaScript)
+1. Run `./tools/lint.js` - this will check Rust and JavaScript code for common mistakes and errors using `clippy` (for
+   Rust) and `dlint` (for JavaScript)
 
 ## Submitting a PR to [`deno_std`](https://github.com/denoland/deno_std)
 
@@ -134,28 +127,24 @@ Additionally to the above make sure that:
 
 1. All of the code you wrote is in `TypeScript` (ie. don't use `JavaScript`)
 
-1. `deno test --unstable --allow-all` passes - this will run full test suite for
-   the standard library
+1. `deno test --unstable --allow-all` passes - this will run full test suite for the standard library
 
-1. Run `deno fmt` in the root of repository - this will format all of the code
-   to adhere to the consistent style in the repository.
+1. Run `deno fmt` in the root of repository - this will format all of the code to adhere to the consistent style in the
+   repository.
 
-1. Run `deno lint` - this will check TypeScript code for common mistakes and
-   errors.
+1. Run `deno lint` - this will check TypeScript code for common mistakes and errors.
 
 ## Documenting APIs {#documenting-apis}
 
-It is important to document all public APIs and we want to do that inline with
-the code. This helps ensure that code and documentation are tightly coupled
-together.
+It is important to document all public APIs and we want to do that inline with the code. This helps ensure that code and
+documentation are tightly coupled together.
 
 ### JavaScript and TypeScript
 
-All publicly exposed APIs and types, both via the `deno` module as well as the
-global/`window` namespace should have JSDoc documentation. This documentation is
-parsed and available to the TypeScript compiler, and therefore easy to provide
-further downstream. JSDoc blocks come just prior to the statement they apply to
-and are denoted by a leading `/**` before terminating with a `*/`. For example:
+All publicly exposed APIs and types, both via the `deno` module as well as the global/`window` namespace should have
+JSDoc documentation. This documentation is parsed and available to the TypeScript compiler, and therefore easy to
+provide further downstream. JSDoc blocks come just prior to the statement they apply to and are denoted by a leading
+`/**` before terminating with a `*/`. For example:
 
 ```ts
 /** A simple JSDoc comment */
@@ -166,6 +155,5 @@ Find more at: https://jsdoc.app/
 
 ### Rust
 
-Use
-[this guide](https://doc.rust-lang.org/rustdoc/how-to-write-documentation.html)
-for writing documentation comments in Rust code.
+Use [this guide](https://doc.rust-lang.org/rustdoc/how-to-write-documentation.html) for writing documentation comments
+in Rust code.

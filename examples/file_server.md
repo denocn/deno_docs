@@ -3,17 +3,14 @@
 ## 概念
 
 - 使用 [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) 按块（chunks）读取文件内容
-- 使用 Deno 标准库的 [streams module](https://deno.land/std@$STD_VERSION/streams/) 将
-  Deno 文件转换为
+- 使用 Deno 标准库的 [streams module](https://deno.land/std@$STD_VERSION/streams/) 将 Deno 文件转换为
   [ReadableStream](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream)
 - 使用 Deno 内置的 HTTP 服务器运行 file server
 
 ## 概述
 
-Sending files over the network is a common requirement. As seen in the
-[Fetch Data example](./fetch_data), because files can be of any size, it is
-important to use streams in order to prevent having to load entire files into
-memory.
+Sending files over the network is a common requirement. As seen in the [Fetch Data example](./fetch_data), because files
+can be of any size, it is important to use streams in order to prevent having to load entire files into memory.
 
 ## Example
 
@@ -68,13 +65,11 @@ async function handleHttp(conn: Deno.Conn) {
 
 ## Using the `std/http` file server
 
-The Deno standard library provides you with a
-[file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so that
-you don't have to write your own.
+The Deno standard library provides you with a [file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so
+that you don't have to write your own.
 
-To use it, first install the remote script to your local file system. This will
-install the script to the Deno installation root's bin directory, e.g.
-`/home/alice/.deno/bin/file_server`.
+To use it, first install the remote script to your local file system. This will install the script to the Deno
+installation root's bin directory, e.g. `/home/alice/.deno/bin/file_server`.
 
 ```shell
 deno install --allow-net --allow-read https://deno.land/std@$STD_VERSION/http/file_server.ts
@@ -89,8 +84,7 @@ Downloading https://deno.land/std@$STD_VERSION/http/file_server.ts...
 HTTP server listening on http://0.0.0.0:4507/
 ```
 
-Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to
-see your local directory contents.
+Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to see your local directory contents.
 
 The complete list of options are available via:
 

@@ -21,7 +21,7 @@ jobs:
         run: deno fmt --check
 
       - name: Build
-        run: deno run --config deno.jsonc --allow-read=. --allow-write=./dist --allow-net --no-check build.tsx
+        run: deno task build
 
       - name: Deploy
         uses: appleboy/scp-action@master

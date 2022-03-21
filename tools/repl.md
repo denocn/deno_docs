@@ -1,17 +1,14 @@
 # Read-eval-print-loop {#read-eval-print-loop}
 
-`deno repl` starts a read-eval-print-loop, which lets you interactively build up
-program state in the global context, it is especially useful for quick
-prototyping and checking snippets of code.
+`deno repl` starts a read-eval-print-loop, which lets you interactively build up program state in the global context, it
+is especially useful for quick prototyping and checking snippets of code.
 
-> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript
-> code is not type-checked, instead it is transpiled to JavaScript behind the
-> scenes.
+> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript code is not type-checked, instead it is
+> transpiled to JavaScript behind the scenes.
 
-> ⚠️ To make it easier to copy-paste code samples, Deno REPL supports import and
-> export declarations. It means that you can paste code containing
-> `import ... from ...;`, `export class ...` or `export function ...` and it
-> will work as if you were executing a regular ES module.
+> ⚠️ To make it easier to copy-paste code samples, Deno REPL supports import and export declarations. It means that you
+> can paste code containing `import ... from ...;`, `export class ...` or `export function ...` and it will work as if
+> you were executing a regular ES module.
 
 ## Special variables
 
@@ -37,9 +34,8 @@ undefined
 
 ## `--eval` flag
 
-`--eval` flag allows you to run some code in the runtime before you are dropped
-into the REPL. This is useful for importing some code you commonly use in the
-REPL, or modifying the runtime in some way:
+`--eval` flag allows you to run some code in the runtime before you are dropped into the REPL. This is useful for
+importing some code you commonly use in the REPL, or modifying the runtime in some way:
 
 ```
 $ deno repl --eval 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
@@ -55,8 +51,8 @@ Uncaught AssertionError
 
 ## Tab completions
 
-Tab completions are crucial feature for quick navigation in REPL. After hitting
-`tab` key, Deno will now show a list of all possible completions.
+Tab completions are crucial feature for quick navigation in REPL. After hitting `tab` key, Deno will now show a list of
+all possible completions.
 
 ```
 $ deno repl

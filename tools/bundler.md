@@ -1,7 +1,7 @@
 ## Bundling {#bundling}
 
-`deno bundle [URL]` will output a single JavaScript file, which includes all
-dependencies of the specified input. For example:
+`deno bundle [URL]` will output a single JavaScript file, which includes all dependencies of the specified input. For
+example:
 
 ```bash
 deno bundle https://deno.land/std@$STD_VERSION/examples/colors.ts colors.bundle.js
@@ -19,9 +19,8 @@ The bundle can just be run as any other module in Deno would:
 deno run colors.bundle.js
 ```
 
-The output is a self contained ES Module, where any exports from the main module
-supplied on the command line will be available. For example, if the main module
-looked something like this:
+The output is a self contained ES Module, where any exports from the main module supplied on the command line will be
+available. For example, if the main module looked something like this:
 
 ```ts
 export { foo } from "./foo.js";
@@ -35,8 +34,8 @@ It could be imported like this:
 import { bar, foo } from "./lib.bundle.js";
 ```
 
-Bundles can also be loaded in the web browser. The bundle is a self-contained ES
-module, and so the attribute of `type` must be set to `"module"`. For example:
+Bundles can also be loaded in the web browser. The bundle is a self-contained ES module, and so the attribute of `type`
+must be set to `"module"`. For example:
 
 ```html
 <script type="module" src="website.bundle.js"></script>

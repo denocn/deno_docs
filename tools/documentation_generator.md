@@ -1,7 +1,7 @@
 ## Documentation Generator {#documentation-generator}
 
-`deno doc` followed by a list of one or more source files will print the JSDoc
-documentation for each of the module's **exported** members.
+`deno doc` followed by a list of one or more source files will print the JSDoc documentation for each of the module's
+**exported** members.
 
 For example, given a file `add.ts` with the contents:
 
@@ -25,7 +25,5 @@ function add(x: number, y: number): number
   Adds x and y. @param {number} x @param {number} y @returns {number} Sum of x and y
 ```
 
-Use the `--json` flag to output the documentation in JSON format. This JSON
-format is consumed by the
-[deno doc website](https://github.com/denoland/docland) and is used to generate
-module documentation.
+Use the `--json` flag to output the documentation in JSON format. This JSON format is consumed by the
+[deno doc website](https://github.com/denoland/docland) and is used to generate module documentation.
