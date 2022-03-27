@@ -85,8 +85,13 @@ Deno.bench("async hello world", async () => {
 By default, each bench does 1000 warmup runs and 1000 measures runs. The warmup runs are useful to allow the JavaScript
 engine to optimize the code using JIT compiler.
 
+<<<<<<< HEAD
 You can customize number of iterations and warmup runs using `Deno.BenchDefinition.n` and `Deno.BenchDefintion.warmup`
 respectively:
+=======
+You can customize number of iterations and warmup runs using
+`Deno.BenchDefinition.n` and `Deno.BenchDefinition.warmup` respectively:
+>>>>>>> e524842f8f4ce55c05cb0ef19cf27f272447b7a6
 
 ```ts
 // Do 100k warmup runs and 1 million measured runs
