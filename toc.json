@@ -46,8 +46,14 @@
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
+<<<<<<< HEAD
       "faqs": "FAQ",
       "cheatsheet": "Node->Deno 速查表"
+=======
+      "faqs": "Frequently asked questions",
+      "cheatsheet": "Node->Deno cheatsheet",
+      "dnt": "dnt - Deno to Node Transform"
+>>>>>>> d9a5db9f8d6872dcf91fb58eee5a8ba59d7aac3d
     }
   },
   "typescript": {
@@ -133,6 +139,9 @@
       "overview": "Overview of the language server",
       "imports": "Import suggestions and intelligent registries"
     }
+  },
+  "publishing": {
+    "name": "Publishing Modules"
   },
   "embedding_deno": {
     "name": "嵌入 Deno"
