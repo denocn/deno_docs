@@ -9,7 +9,7 @@ JavaScript and TypeScript. As of Deno 1.7, several disparate APIs we consolidate
 
 The API is defined in the `Deno` namespace as:
 
-```ts
+```ts, ignore
 function emit(
   rootSpecifier: string | URL,
   options?: EmitOptions,
@@ -18,7 +18,7 @@ function emit(
 
 The emit options are defined in the `Deno` namespace as:
 
-```ts
+```ts, ignore
 interface EmitOptions {
   /** Indicate that the source code should be emitted to a single file
    * JavaScript bundle that is a single ES module (`"module"`) or a single
@@ -55,7 +55,7 @@ interface EmitOptions {
 
 The emit result is defined in the `Deno` namespace as:
 
-```ts
+```ts, ignore
 interface EmitResult {
   /** Diagnostic messages returned from the type checker (`tsc`). */
   diagnostics: Diagnostic[];

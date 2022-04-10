@@ -46,8 +46,14 @@
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
+<<<<<<< HEAD
       "faqs": "FAQ",
       "cheatsheet": "Node->Deno 速查表"
+=======
+      "faqs": "Frequently asked questions",
+      "cheatsheet": "Node->Deno cheatsheet",
+      "dnt": "dnt - Deno to Node Transform"
+>>>>>>> 2b2d81a9d356381bddda61b6b9c2627200a6ce80
     }
   },
   "typescript": {
@@ -62,9 +68,21 @@
     }
   },
   "jsx_dom": {
+<<<<<<< HEAD
     "name": "使用 JSX",
     "children": {
       "jsx": "配置 JSX"
+=======
+    "name": "Using JSX and the DOM",
+    "children": {
+      "overview": "Overview",
+      "jsx": "Configuring JSX",
+      "linkedom": "Using LinkeDOM",
+      "deno_dom": "Using deno-dom",
+      "jsdom": "Using jsdom",
+      "css": "Parsing CSS",
+      "twind": "Using Twind"
+>>>>>>> 2b2d81a9d356381bddda61b6b9c2627200a6ce80
     }
   },
   "webassembly": {
@@ -125,14 +143,25 @@
     "name": "持续集成(CI)"
   },
   "vscode_deno": {
+<<<<<<< HEAD
     "name": "使用 VS Code"
+=======
+    "name": "Using Visual Studio Code",
+    "children": {
+      "testing_api": "Testing API"
+    }
+>>>>>>> 2b2d81a9d356381bddda61b6b9c2627200a6ce80
   },
   "language_server": {
     "name": "Language Server",
     "children": {
       "overview": "Overview of the language server",
-      "imports": "Import suggestions and intelligent registries"
+      "imports": "Import suggestions and intelligent registries",
+      "testing_api": "Testing API"
     }
+  },
+  "publishing": {
+    "name": "Publishing Modules"
   },
   "embedding_deno": {
     "name": "嵌入 Deno"

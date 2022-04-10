@@ -78,14 +78,21 @@ Deno 不会对 "index.js" 或 "index.ts" 进行特殊处理。虽然要使用这
 
    这使得 API 即使当选项对象的位置发生变化时，也能以一种向后兼容的方式发展。
 
+<<<<<<< HEAD
 ```ts
 // BAD: 可选参数不是可选对象的一部分 (#2)
+=======
+```ts, ignore
+// BAD: optional parameters not part of options object. (#2)
+>>>>>>> 2b2d81a9d356381bddda61b6b9c2627200a6ce80
 export function resolve(
   hostname: string,
   family?: "ipv4" | "ipv6",
   timeout?: number,
 ): IPAddress[] {}
+```
 
+```ts, ignore
 // GOOD.
 export interface ResolveOptions {
   family?: "ipv4" | "ipv6";
@@ -97,7 +104,7 @@ export function resolve(
 ): IPAddress[] {}
 ```
 
-```ts
+```ts, ignore
 export interface Environment {
   [key: string]: string;
 }
@@ -123,7 +130,9 @@ export function renameSync(
   replaceExisting?: boolean,
   followLinks?: boolean,
 ) {}
+```
 
+```ts
 // GOOD.
 interface RenameOptions {
   replaceExisting?: boolean;
@@ -140,16 +149,18 @@ export function renameSync(
 // BAD: 参数过多 (#1)
 export function pwrite(
   fd: number,
-  buffer: TypedArray,
+  buffer: ArrayBuffer,
   offset: number,
   length: number,
   position: number,
 ) {}
+```
 
+```ts
 // BETTER.
 export interface PWrite {
   fd: number;
-  buffer: TypedArray;
+  buffer: ArrayBuffer;
   offset: number;
   length: number;
   position: number;
@@ -161,7 +172,7 @@ export function pwrite(options: PWrite) {}
 
 被导出函数签名中所依赖的接口，请一并导出。示例如下：
 
-```ts
+```ts, ignore
 // my_file.ts
 export interface Person {
   name: string;
@@ -269,7 +280,7 @@ test myTestFunction ... ok
 
 测试样例:
 
-```ts
+```ts, ignore
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 import { foo } from "./mod.ts";
 
