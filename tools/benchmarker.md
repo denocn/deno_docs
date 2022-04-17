@@ -85,8 +85,13 @@ Deno.bench("async hello world", async () => {
 By default, each bench does 1000 warmup runs and 1000 measures runs. The warmup runs are useful to allow the JavaScript
 engine to optimize the code using JIT compiler.
 
+<<<<<<< HEAD
 You can customize number of iterations and warmup runs using `Deno.BenchDefinition.n` and `Deno.BenchDefintion.warmup`
 respectively:
+=======
+You can customize number of iterations and warmup runs using
+`Deno.BenchDefinition.n` and `Deno.BenchDefinition.warmup` respectively:
+>>>>>>> 96149417282e6731b40525b68fcc6e73a13c3b5f
 
 ```ts
 // Do 100k warmup runs and 1 million measured runs
@@ -149,9 +154,18 @@ The filter flags accept a string or a pattern as value.
 Assuming the following benches:
 
 ```ts
-Deno.bench({ name: "my-bench", fn: myBench });
-Deno.bench({ name: "bench-1", fn: bench1 });
-Deno.bench({ name: "bench2", fn: bench2 });
+Deno.bench({
+  name: "my-bench",
+  fn: () => {/* bench function zero */},
+});
+Deno.bench({
+  name: "bench-1",
+  fn: () => {/* bench function one */},
+});
+Deno.bench({
+  name: "bench2",
+  fn: () => {/* bench function two */},
+});
 ```
 
 This command will run all of these benches because they all contain the word "bench".
@@ -184,7 +198,7 @@ Deno.bench({
   name: "bench windows feature",
   ignore: Deno.build.os === "windows",
   fn() {
-    doWindowsFeature();
+    // do windows feature
   },
 });
 ```
@@ -202,7 +216,7 @@ Deno.bench({
   name: "Focus on this bench only",
   only: true,
   fn() {
-    benchComplicatedStuff();
+    // bench complicated stuff
   },
 });
 ```
