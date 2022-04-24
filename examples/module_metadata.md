@@ -30,7 +30,7 @@ export function outputB() {
 }
 ```
 
-```ts
+```ts, ignore
 /**
  * module_a.ts
  */

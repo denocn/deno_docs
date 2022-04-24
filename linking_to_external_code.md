@@ -63,7 +63,7 @@ export { assert, assertEquals, assertStringIncludes } from "https://deno.land/st
 
 And throughout the same project, you can import from the `deps.ts` and avoid having many references to the same URL:
 
-```ts
+```ts, ignore
 import { assertEquals, runTests, test } from "./deps.ts";
 ```
 

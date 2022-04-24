@@ -22,7 +22,7 @@ deno run colors.bundle.js
 The output is a self contained ES Module, where any exports from the main module supplied on the command line will be
 available. For example, if the main module looked something like this:
 
-```ts
+```ts, ignore
 export { foo } from "./foo.js";
 
 export const bar = "bar";
@@ -30,7 +30,7 @@ export const bar = "bar";
 
 It could be imported like this:
 
-```ts
+```ts, ignore
 import { bar, foo } from "./lib.bundle.js";
 ```
 

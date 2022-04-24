@@ -348,6 +348,7 @@ deno completions fish > ~/.config/fish/completions/deno.fish
 
 There are several environment variables which can impact the behavior of Deno:
 
+<<<<<<< HEAD
 - `DENO_AUTH_TOKENS` - a list of authorization tokens which can be used to allow Deno to access remote private code. See
   the [Private modules and repositories](../linking_to_external_code/private.md) section for more details.
 - `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when establishing TLS connections. The available
@@ -365,6 +366,39 @@ There are several environment variables which can impact the behavior of Deno:
   storage. This defaults to the operating systems default cache location and then under the `deno` path.
 - `DENO_INSTALL_ROOT` - When using `deno install` where the installed scripts are stored. This defaults to
   `$HOME/.deno/bin`.
+=======
+- `DENO_AUTH_TOKENS` - a list of authorization tokens which can be used to allow
+  Deno to access remote private code. See the
+  [Private modules and repositories](../linking_to_external_code/private.md)
+  section for more details.
+- `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when
+  establishing TLS connections. The available stores are `mozilla` and `system`.
+  You can specify one, both or none. The order you specify the store determines
+  the order in which certificate chains will be attempted to resolved. The
+  default value is `mozilla`. The `mozilla` store will use the bundled mozilla
+  certs provided by [`webpki-roots`](https://crates.io/crates/webpki-roots). The
+  `system` store will use your platforms
+  [native certificate store](https://crates.io/crates/rustls-native-certs). The
+  exact set of mozilla certs will depend the version of Deno you are using. If
+  you specify no certificate stores, then no trust will be given to any TLS
+  connection without also specifying `DENO_CERT` or `--cert` or specifying a
+  specific certificate per TLS connection.
+- `DENO_CERT` - load a certificate authority from a PEM encoded file. This
+  "overrides" the `--cert` option. See the
+  [Proxies](../linking_to_external_code/proxies.md) section for more
+  information.
+- `DENO_DIR` - this will set the directory where cached information from the CLI
+  is stored. This includes items like cached remote modules, cached transpiled
+  modules, language server cache information and persisted data from local
+  storage. This defaults to the operating systems default cache location and
+  then under the `deno` path.
+- `DENO_INSTALL_ROOT` - When using `deno install` where the installed scripts
+  are stored. This defaults to `$HOME/.deno/bin`.
+- `DENO_NO_PROMPT` - Set to disable permission prompts on access (alternative to
+  passing `--no-prompt` on invocation).
+- `DENO_FUTURE_CHECK` - Opt-in to the upcoming behavior of the `deno run`
+  subcommand that doesn't perform type-checking by default.
+>>>>>>> 4d541fc83cf5b45246219bee8df01cec8061a807
 - `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
 - `HTTP_PROXY` - The proxy address to use for HTTP requests. See the [Proxies](../linking_to_external_code/proxies.md)
   section for more information.
