@@ -16,7 +16,7 @@ Deno by default standardizes the way modules are imported in both JavaScript and
 It adopts browser-like module resolution, meaning that file names must be specified in full. You may not omit the file
 extension and there is no special handling of `index.js`.
 
-```js
+```js, ignore
 import { add, multiply } from "./arithmetic.ts";
 ```
 
@@ -30,7 +30,7 @@ In this example the `add` and `multiply` functions are imported from a local `ar
 
 **Command:** `deno run local.ts`
 
-```ts
+```ts, ignore
 /**
  * local.ts
  */

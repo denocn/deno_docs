@@ -18,10 +18,15 @@
 | `nvm` / `n` / `fnm`                    | `deno upgrade`                                 |
 | `tsserver`                             | `deno lsp`                                     |
 | `nyc` / `c8` / `istanbul`              | `deno coverage`                                |
-| benchmarks                             | https://deno.land/std/testing/bench.ts ³       |
+| benchmarks                             | `deno bench`                                   |
 
 ¹ 查看 [链接至外部代码](../linking_to_external_code.md)，在首次运行的时候 Deno 会下载并缓存所有代码。
 
+<<<<<<< HEAD
 ² 自动进行类型检查，TypeScript 编译器已经内置到了 `deno` 可执行文件中。
 
 ³ `deno bench` subcommand is being considered, see https://github.com/denoland/deno/issues/9175
+=======
+² Type checking happens automatically, TypeScript compiler is built into the
+`deno` binary.
+>>>>>>> f08a856a67f971b23b3112c7aa3c7c067b312604
