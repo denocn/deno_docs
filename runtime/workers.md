@@ -19,7 +19,31 @@ new Worker(new URL("./worker.js", import.meta.url).href, { type: "classic" });
 new Worker("./worker.js", { type: "module" });
 ```
 
+<<<<<<< HEAD
 ### 实例化权限 {#instantiation-permissions}
+=======
+As with regular modules, you can use top-level `await` in worker modules.
+However, you should be careful to always register the message handler before the
+first `await`, since messages can be lost otherwise. This is not a bug in Deno,
+it's just an unfortunate interaction of features, and it also happens in all
+browsers that support module workers.
+
+```ts, ignore
+import { delay } from "https://deno.land/std@0.136.0/async/mod.ts";
+
+// First await: waits for a second, then continues running the module.
+await delay(1000);
+
+// The message handler is only set after that 1s delay, so some of the messages
+// that reached the worker during that second might have been fired when no
+// handler was registered.
+self.onmessage = (evt) => {
+  console.log(evt.data);
+};
+```
+
+### Instantiation permissions
+>>>>>>> 9e1590630eb49cd948bc42d462e97ae6fbfda80c
 
 创建一个新的 `Worker` 实例的行为与动态导入类似，因此 Deno 需要适当的权限来做这个操作。
 
@@ -79,7 +103,7 @@ hello world
 
 **main.js**
 
-```ts
+```js
 const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
   type: "module",
   deno: {
@@ -91,7 +115,7 @@ worker.postMessage({ filename: "./log.txt" });
 
 **worker.js**
 
-```ts
+```ts, ignore
 self.onmessage = async (e) => {
   const { filename } = e.data;
   const text = await Deno.readTextFile(filename);

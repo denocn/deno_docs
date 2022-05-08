@@ -78,14 +78,21 @@ Deno 不会对 "index.js" 或 "index.ts" 进行特殊处理。虽然要使用这
 
    这使得 API 即使当选项对象的位置发生变化时，也能以一种向后兼容的方式发展。
 
+<<<<<<< HEAD
 ```ts
 // BAD: 可选参数不是可选对象的一部分 (#2)
+=======
+```ts, ignore
+// BAD: optional parameters not part of options object. (#2)
+>>>>>>> 9e1590630eb49cd948bc42d462e97ae6fbfda80c
 export function resolve(
   hostname: string,
   family?: "ipv4" | "ipv6",
   timeout?: number,
 ): IPAddress[] {}
+```
 
+```ts, ignore
 // GOOD.
 export interface ResolveOptions {
   family?: "ipv4" | "ipv6";
@@ -97,7 +104,7 @@ export function resolve(
 ): IPAddress[] {}
 ```
 
-```ts
+```ts, ignore
 export interface Environment {
   [key: string]: string;
 }
@@ -123,7 +130,9 @@ export function renameSync(
   replaceExisting?: boolean,
   followLinks?: boolean,
 ) {}
+```
 
+```ts
 // GOOD.
 interface RenameOptions {
   replaceExisting?: boolean;
@@ -140,16 +149,18 @@ export function renameSync(
 // BAD: 参数过多 (#1)
 export function pwrite(
   fd: number,
-  buffer: TypedArray,
+  buffer: ArrayBuffer,
   offset: number,
   length: number,
   position: number,
 ) {}
+```
 
+```ts
 // BETTER.
 export interface PWrite {
   fd: number;
-  buffer: TypedArray;
+  buffer: ArrayBuffer;
   offset: number;
   length: number;
   position: number;
@@ -161,7 +172,7 @@ export function pwrite(options: PWrite) {}
 
 被导出函数签名中所依赖的接口，请一并导出。示例如下：
 
-```ts
+```ts, ignore
 // my_file.ts
 export interface Person {
   name: string;
@@ -269,7 +280,7 @@ test myTestFunction ... ok
 
 测试样例:
 
-```ts
+```ts, ignore
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 import { foo } from "./mod.ts";
 
@@ -312,4 +323,36 @@ export function foo(): string {
 // This module is browser compatible.
 ```
 
+<<<<<<< HEAD
 通过不使用全局的 `Deno` 命名空间或对其进行功能测试来保持这种模块的浏览器兼容性，来确保任何新的依赖项也能与浏览器兼容。
+=======
+Maintain browser compatibility for such a module by either not using the global
+`Deno` namespace or feature-testing for it. Make sure any new dependencies are
+also browser compatible.
+
+#### Prefer `#` over `private`
+
+We prefer the private fields (`#`) syntax over `private` keyword of TypeScript
+in the standard modules codebase. The private fields make the properties and
+methods private even at runtime. On the other hand, `private` keyword of
+TypeScript guarantee it private only at compile time and the fields are publicly
+accessbile at runtime.
+
+Good:
+
+```ts
+class MyClass {
+  #foo = 1;
+  #bar() {}
+}
+```
+
+Bad:
+
+```ts
+class MyClass {
+  private foo = 1;
+  private bar() {}
+}
+```
+>>>>>>> 9e1590630eb49cd948bc42d462e97ae6fbfda80c
