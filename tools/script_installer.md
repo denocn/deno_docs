@@ -67,7 +67,7 @@ Example:
 ```ts
 // https://example.com/awesome/cli.ts
 async function myAwesomeCli(): Promise<void> {
-  -- snip --
+  // -- snip --
 }
 
 if (import.meta.main) {
