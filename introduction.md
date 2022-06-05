@@ -1,12 +1,19 @@
 # 介绍 {#introduction}
 
+<<<<<<< HEAD
 Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A), 发音 `dee-no`) 是一个 JavaScript/TypeScript
 的运行时，默认使用安全环境执行代码，有着卓越的开发体验。
+=======
+Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
+pronounced `dee-no`) is a JavaScript, TypeScript, and WebAssembly runtime with
+secure defaults and a great developer experience.
+>>>>>>> fbee578aff5d31857f748047af4d26d7c3e7b6da
 
 Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
 ## 功能亮点 {#feature-highlights}
 
+<<<<<<< HEAD
 - 尽可能的兼容 Web 规范，例如使用 ES modules、支持 `fetch` 等。
 - 默认安全。代码不能访问文件、网络、环境变量等（除非显式开启）。
 - 支持开箱即用的 TypeScript 的环境。
@@ -14,6 +21,25 @@ Deno 建立在 V8、Rust 和 Tokio 的基础上。
 - 有着内置的工具箱，比如代码格式化工具 (`deno fmt`)，a linter (`deno lint`) 和测试工具 (`deno test`)。
 - 有一组经过审计的 [标准模块](https://github.com/denoland/deno_std)，保证能在 Deno 上工作。
 - 脚本代码能被打包为单独的 JavaScript 文件。
+=======
+- Provides [web platform functionality](./runtime/web_platform_apis.md) and
+  adopts web platform standards. For example using ES modules, web workers, and
+  support `fetch()`.
+- Secure by default. No file, network, or environment access unless explicitly
+  enabled.
+- Supports [TypeScript](./typescript/) out of the box.
+- Ships a single executable (`deno`).
+- Provides built-in [development tooling](./tools) like a code formatter
+  ([`deno fmt`](./tools/formatter.md)), a linter
+  ([`deno lint`](./tools/linter.md)), a test runner ([`deno test`](./testing)),
+  and a
+  [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
+- Has
+  [a set of reviewed (audited) standard modules](https://doc.deno.land/https://deno.land/std/)
+  that are guaranteed to work with Deno.
+- Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
+  [executable](./tools/compiler.md).
+>>>>>>> fbee578aff5d31857f748047af4d26d7c3e7b6da
 
 ## 哲学 {#philosophy}
 
