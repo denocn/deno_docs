@@ -38,7 +38,7 @@ makes it a general purpose CDN for accessing npm packages as ES Module bundles. 
 [esbuild](https://esbuild.github.io/) to take an arbitrary npm package and ensure that it is consumable as an ES Module.
 In many cases you can just import the npm package into your Deno application:
 
-```ts
+```tsx
 import React from "https://esm.sh/react";
 
 export default class A extends React.Component {
@@ -52,13 +52,13 @@ esm.sh supports the use of both specific versions of packages, as well as [semve
 of packages, so you can express your dependency in a similar way you would in a `package.json` file when you import it.
 For example, to get a specific version of a package:
 
-```ts
+```tsx
 import React from "https://esm.sh/react@17.0.2";
 ```
 
 Or to get the latest patch release of a minor release:
 
-```ts
+```tsx
 import React from "https://esm.sh/react@~16.13.0";
 ```
 
@@ -89,7 +89,7 @@ Skypack detects Deno's user agent when requests for modules are received and ens
 meet the needs of Deno. The easiest way to load a package is to use the
 [lookup URL](https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls) for the package:
 
-```ts
+```tsx
 import React from "https://cdn.skypack.dev/react";
 
 export default class A extends React.Component {
@@ -101,7 +101,7 @@ export default class A extends React.Component {
 
 Lookup URLs can also contain the [semver](https://semver.npmjs.com/) version in the URL:
 
-```ts
+```tsx
 import React from "https://cdn.skypack.dev/react@~16.13.0";
 ```
 

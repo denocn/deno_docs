@@ -18,7 +18,7 @@ x.y.z
 
 - 1.20.0: March 16, 2022
 - 1.21.0: April 20, 2022
-- 1.22.0: May 18, 2022
+- 1.22.0: May 19, 2022
 
 可以在 [GitHub releases 页面](https://github.com/denoland/deno/releases)查看所有的稳定版本。
 

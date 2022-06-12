@@ -37,7 +37,7 @@ And compile it:
 cc -c -o add.o add.c
 cc -shared -W -o libadd.so add.o
 // Windows
-cl /LD add.c /link /EXPORT:libadd
+cl /LD add.c /link /EXPORT:add
 ```
 
 Calling the library from Deno:
@@ -55,7 +55,7 @@ switch (Deno.build.os) {
   case "darwin":
     libSuffix = "dylib";
     break;
-  case "linux":
+  default:
     libSuffix = "so";
     break;
 }
@@ -182,7 +182,7 @@ fn mul(input: Input) -> i32 {
 
 Run `deno_bindgen` to generate bindings. You can now directly import them into Deno:
 
-```typescript
+```ts, ignore
 // mul.ts
 import { mul } from "./bindings/bindings.ts";
 mul({ a: 10, b: 2 }); // 20
