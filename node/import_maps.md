@@ -32,7 +32,7 @@ file system to query it. Deno has chosen not to go down that path.
 But, import maps can be used to provide some of the ease of the developer experience if you wish to use bare specifiers.
 For example, if we want to do the following in our code:
 
-```ts
+```ts, ignore
 import lodash from "lodash";
 ```
 
@@ -76,7 +76,7 @@ For example, let's say we have a package that is using a version of the built-in
 module we want to replace it with when it tries to import it, but we want other code we are loading to use the standard
 library replacement module for `"fs"`. We would want to create an import map that looked something like this:
 
-```ts
+```json
 {
   "imports": {
     "fs": "https://deno.land/std@$STD_VERSION/node/fs.ts"

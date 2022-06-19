@@ -10,6 +10,7 @@ Deno 使用[语义化版本](https://semver.org/lang/zh-CN/)。
 x.y.z
 ```
 
+<<<<<<< HEAD
 每个月会发布一个 `deno` 的 minor 版本。在每月的第 3 个星期四发布。
 
 在次要版本发布后，通常会有 2 到 3 个 patch 版本(每周发布一次)；然后新的功能会合并到 minor 版本。
@@ -21,6 +22,10 @@ x.y.z
 - 1.22.0: May 18, 2022
 
 可以在 [GitHub releases 页面](https://github.com/denoland/deno/releases)查看所有的稳定版本。
+=======
+Stable releases can be found on the
+[GitHub releases page](https://github.com/denoland/deno/releases).
+>>>>>>> b84598fd3cd5b37f337b3c6ce0975bfec81ec73a
 
 ### Canary 频道 {#canary-channel}
 
