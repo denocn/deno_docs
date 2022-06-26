@@ -2,6 +2,7 @@
 
 Deno 使用[语义化版本](https://semver.org/lang/zh-CN/)。
 
+<<<<<<< HEAD
 ```plain
 ┌──────── Major (主版本)
 │ ┌────── Minor (次版本)
@@ -21,6 +22,17 @@ x.y.z
 - 1.22.0: May 18, 2022
 
 可以在 [GitHub releases 页面](https://github.com/denoland/deno/releases)查看所有的稳定版本。
+=======
+See [Milestones on Deno's GitHub](https://github.com/denoland/deno/milestones)
+for the upcoming releases.
+
+There are usually two or three patch releases (done weekly) after a minor
+releases; after that a merge window for new features opens for the upcoming
+minor release.
+
+Stable releases can be found on the
+[GitHub releases page](https://github.com/denoland/deno/releases).
+>>>>>>> 88fc4e7199aadff9b87aafccf32a4ca745b20e67
 
 ### Canary 频道 {#canary-channel}
 

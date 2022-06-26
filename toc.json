@@ -46,13 +46,20 @@
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
+<<<<<<< HEAD
       "faqs": "FAQ",
       "cheatsheet": "Node->Deno 速查表"
+=======
+      "faqs": "Frequently asked questions",
+      "cheatsheet": "Node->Deno cheatsheet",
+      "dnt": "dnt - Deno to Node Transform"
+>>>>>>> 88fc4e7199aadff9b87aafccf32a4ca745b20e67
     }
   },
   "typescript": {
     "name": "使用 TypeScript",
     "children": {
+<<<<<<< HEAD
       "overview": "概述",
       "configuration": "配置",
       "types": "类型与类型声明",
@@ -65,6 +72,25 @@
     "name": "使用 JSX",
     "children": {
       "jsx": "配置 JSX"
+=======
+      "overview": "Overview",
+      "configuration": "Configuration",
+      "types": "Types and type declarations",
+      "migration": "Migrating to/from JavaScript",
+      "faqs": "Frequently asked questions"
+    }
+  },
+  "jsx_dom": {
+    "name": "Using JSX and the DOM",
+    "children": {
+      "overview": "Overview",
+      "jsx": "Configuring JSX",
+      "linkedom": "Using LinkeDOM",
+      "deno_dom": "Using deno-dom",
+      "jsdom": "Using jsdom",
+      "css": "Parsing CSS",
+      "twind": "Using Twind"
+>>>>>>> 88fc4e7199aadff9b87aafccf32a4ca745b20e67
     }
   },
   "webassembly": {
@@ -99,10 +125,20 @@
   "testing": {
     "name": "测试",
     "children": {
+<<<<<<< HEAD
       "assertions": "断言",
       "coverage": "覆盖率",
       "documentation": "文档",
       "sanitizers": "Sanitizers"
+=======
+      "assertions": "Assertions",
+      "coverage": "Coverage",
+      "documentation": "Documentation",
+      "sanitizers": "Sanitizers",
+      "behavior_driven_development": "Behavior-driven development",
+      "mocking": "Mocking",
+      "snapshot_testing": "Snapshots"
+>>>>>>> 88fc4e7199aadff9b87aafccf32a4ca745b20e67
     }
   },
   "tools": {
@@ -125,14 +161,25 @@
     "name": "持续集成(CI)"
   },
   "vscode_deno": {
+<<<<<<< HEAD
     "name": "使用 VS Code"
+=======
+    "name": "Using Visual Studio Code",
+    "children": {
+      "testing_api": "Testing API"
+    }
+>>>>>>> 88fc4e7199aadff9b87aafccf32a4ca745b20e67
   },
   "language_server": {
     "name": "Language Server",
     "children": {
       "overview": "Overview of the language server",
-      "imports": "Import suggestions and intelligent registries"
+      "imports": "Import suggestions and intelligent registries",
+      "testing_api": "Testing API"
     }
+  },
+  "publishing": {
+    "name": "Publishing Modules"
   },
   "embedding_deno": {
     "name": "嵌入 Deno"

@@ -37,7 +37,7 @@ And compile it:
 cc -c -o add.o add.c
 cc -shared -W -o libadd.so add.o
 // Windows
-cl /LD add.c /link /EXPORT:libadd
+cl /LD add.c /link /EXPORT:add
 ```
 
 Calling the library from Deno:
@@ -55,7 +55,7 @@ switch (Deno.build.os) {
   case "darwin":
     libSuffix = "dylib";
     break;
-  case "linux":
+  default:
     libSuffix = "so";
     break;
 }
@@ -152,8 +152,13 @@ Here's a list of types supported currently by the Deno FFI API.
 | `void`       | `void`                   | `()`        |
 | `pointer`[1] | `const uint8_t *`        | `*const u8` |
 
+<<<<<<< HEAD
 - [1] `pointer` type accepts both Typed Arrays and `Deno.UnsafePointer` as parameter, while it always returns the latter
   when used as result type.
+=======
+- [1] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
+  it always returns the latter when used as result type.
+>>>>>>> 88fc4e7199aadff9b87aafccf32a4ca745b20e67
 
 ### deno_bindgen
 
@@ -182,7 +187,7 @@ fn mul(input: Input) -> i32 {
 
 Run `deno_bindgen` to generate bindings. You can now directly import them into Deno:
 
-```typescript
+```ts, ignore
 // mul.ts
 import { mul } from "./bindings/bindings.ts";
 mul({ a: 10, b: 2 }); // 20
