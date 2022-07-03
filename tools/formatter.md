@@ -61,7 +61,12 @@ Starting with Deno v1.14 a formatter can be customized using either
 
 - `--options-indent-width` - The number of characters for an indent. Defaults to 2.
 
+<<<<<<< HEAD
 - `--options-single-quote` - Wheter to use single quote. Defaults to false (using double quote).
+=======
+- `--options-single-quote` - Whether to use single quote. Defaults to false
+  (using double quote).
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 - `--options-prose-wrap={always,never,preserve}` - Define how prose should be wrapped in Markdown files. Defaults to
   "always".

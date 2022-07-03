@@ -41,6 +41,26 @@ In the example above, to run the `data` task we would do:
 deno task data
 ```
 
+## Specifying the current working directory
+
+By default, `deno task` executes commands with the directory of the Deno
+configuration file (ex. _deno.json_) as the current working directory. This
+allows tasks to use relative paths and continue to work regardless of where in
+the directory tree you happen to execute the deno task from. In some scenarios,
+this may not be desired and this behavior can be overridden by providing a
+`--cwd <path>` flag.
+
+For example, given a task called `wasmbuild` in a _deno.json_ file:
+
+```sh
+# use the sub directory project1 as the cwd for the task
+deno task --cwd project1 wasmbuild
+# use the cwd (project2) as the cwd for the task
+cd project2 && deno task --cwd . wasmbuild
+```
+
+Note: Be sure to provide this flag _before_ the task name.
+
 ## Syntax
 
 `deno task` uses a cross platform shell that's a subset of sh/bash to execute defined tasks.
@@ -50,15 +70,25 @@ deno task data
 Boolean lists provide a way to execute additional commands based on the exit code of the initial command. They separate
 commands using the `&&` and `||` operators.
 
+<<<<<<< HEAD
 The `&&` operator provides a way to execute a command and if it _succeeds_ (has an exit code of `0`) it will execute a
 second command:
+=======
+The `&&` operator provides a way to execute a command and if it _succeeds_ (has
+an exit code of `0`) it will execute the next command:
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 ```sh
 deno run --allow-read=. --allow-write=. collect.ts && deno run --allow-read=. analyze.ts
 ```
 
+<<<<<<< HEAD
 The `||` operator is the opposite. It provides a way to execute a command and only if it _fails_ (has a non-zero exit
 code) it will execute a second command:
+=======
+The `||` operator is the opposite. It provides a way to execute a command and
+only if it _fails_ (has a non-zero exit code) it will execute the next command:
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 ```sh
 deno run --allow-read=. --allow-write=. collect.ts || deno run play_sad_music.ts
@@ -114,7 +144,12 @@ To specify environment variable(s) before a command, list them like so:
 VAR=hello VAR2=bye deno run main.ts
 ```
 
+<<<<<<< HEAD
 This will export those environment variable specifically for the following command.
+=======
+This will use those environment variables specifically for the following
+command.
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 ### Shell variables
 
@@ -143,12 +178,25 @@ Shell variables can be useful when we want to re-use a value, but don't want it 
 
 ### Pipelines
 
+<<<<<<< HEAD
 Pipelines provide a way to pipe the output of one command to another. Currently only piping stdout is supported.
 
 The following command pipes the output "Hello" to the stdin of the spawned Deno process:
+=======
+Pipelines provide a way to pipe the output of one command to another.
+
+The following command pipes the stdout output "Hello" to the stdin of the
+spawned Deno process:
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 ```sh
 echo Hello | deno run main.ts
+```
+
+To pipe stdout and stderr, use `|&` instead:
+
+```sh
+deno eval 'console.log(1); console.error(2);' |& deno run main.ts
 ```
 
 ### Command substitution
@@ -167,10 +215,70 @@ Another example using a shell variable:
 REV=$(git rev-parse HEAD) && deno run main.ts $REV && echo $REV
 ```
 
+### Negate exit code
+
+To negate the exit code, add an exclamation point and space before a command:
+
+```sh
+# change the exit code from 1 to 0
+! deno eval 'Deno.exit(1);'
+```
+
+### Redirects
+
+Redirects provide a way to pipe stdout and/or stderr to a file.
+
+For example, the following redirects _stdout_ of `deno run main.ts` to a file
+called `file.txt` on the file system:
+
+```sh
+deno run main.ts > file.txt
+```
+
+To instead redirect _stderr_, use `2>`:
+
+```sh
+deno run main.ts 2> file.txt
+```
+
+To redirect both stdout _and_ stderr, use `&>`:
+
+```sh
+deno run main.ts &> file.txt
+```
+
+To append to a file, instead of overwriting an existing one, use two right angle
+brackets instead of one:
+
+```sh
+deno run main.ts >> file.txt
+```
+
+Suppressing either stdout, stderr, or both of a command is possible by
+redirecting to `/dev/null`. This works in a cross platform way including on
+Windows.
+
+```sh
+# suppress stdout
+deno run main.ts > /dev/null
+# suppress stderr
+deno run main.ts 2> /dev/null
+# suppress both stdout and stderr
+deno run main.ts &> /dev/null
+```
+
+Note that redirecting input and multiple redirects are currently not supported.
+
 ### Future syntax
 
+<<<<<<< HEAD
 We are planning to support [redirects](https://github.com/denoland/deno_task_shell/issues/5) and
 [glob expansion](https://github.com/denoland/deno_task_shell/issues/6) in the future.
+=======
+We are planning to support
+[glob expansion](https://github.com/denoland/deno_task_shell/issues/6) in the
+future.
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 ## Built-in commands
 
@@ -178,6 +286,7 @@ We are planning to support [redirects](https://github.com/denoland/deno_task_she
 
 - [`cp`](https://man7.org/linux/man-pages/man1/cp.1.html) - Copies files.
 - [`mv`](https://man7.org/linux/man-pages/man1/mv.1.html) - Moves files.
+<<<<<<< HEAD
 - [`rm`](https://man7.org/linux/man-pages/man1/rm.1.html) - Remove files or directories.
   - Ex: `rm -rf [FILE]...` - Commonly used to recursively delete files or directories.
 - [`mkdir`](https://man7.org/linux/man-pages/man1/mkdir.1.html) - Makes directories.
@@ -187,6 +296,31 @@ We are planning to support [redirects](https://github.com/denoland/deno_task_she
   - Ex. `sleep 1` to sleep for 1 second or `sleep 0.5` to sleep for half a second
 - [`echo`](https://man7.org/linux/man-pages/man1/echo.1.html) - Displays a line of text.
 - [`exit`](https://man7.org/linux/man-pages/man1/exit.1p.html) - Causes the shell to exit.
+=======
+- [`rm`](https://man7.org/linux/man-pages/man1/rm.1.html) - Remove files or
+  directories.
+  - Ex: `rm -rf [FILE]...` - Commonly used to recursively delete files or
+    directories.
+- [`mkdir`](https://man7.org/linux/man-pages/man1/mkdir.1.html) - Makes
+  directories.
+  - Ex. `mkdir -p DIRECTORY...` - Commonly used to make a directory and all its
+    parents with no error if it exists.
+- [`pwd`](https://man7.org/linux/man-pages/man1/pwd.1.html) - Prints the name of
+  the current/working directory.
+- [`sleep`](https://man7.org/linux/man-pages/man1/sleep.1.html) - Delays for a
+  specified amount of time.
+  - Ex. `sleep 1` to sleep for 1 second or `sleep 0.5` to sleep for half a
+    second
+- [`echo`](https://man7.org/linux/man-pages/man1/echo.1.html) - Displays a line
+  of text.
+- [`cat`](https://man7.org/linux/man-pages/man1/cat.1.html) - Concatenates files
+  and outputs them on stdout. When no arguments are provided it reads and
+  outputs stdin.
+- [`exit`](https://man7.org/linux/man-pages/man1/exit.1p.html) - Causes the
+  shell to exit.
+- [`xargs`](https://man7.org/linux/man-pages/man1/xargs.1p.html) - Builds
+  arguments from stdin and executes a command.
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 If you find a useful flag missing on a command or have any suggestions for additional commands that should be supported
 out of the box, then please [open an issue](https://github.com/denoland/deno_task_shell/issues) on the

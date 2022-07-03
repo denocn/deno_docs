@@ -63,8 +63,14 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 
 ### Fetching local files
 
+<<<<<<< HEAD
 As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to write code that uses the same code path on
 a server as local, as well as easier to author code that work both under the Deno CLI and Deno Deploy.
+=======
+As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to
+write code that uses the same code path on a server as local, as well as easier
+to author code that works both with the Deno CLI and Deno Deploy.
+>>>>>>> 780cc9177f9015a6cd4c3c0df1d54dbc6ad6b3f0
 
 Deno only supports absolute file URLs, this means that `fetch("./some.json")` will not work. It should be noted though
 that if [`--location`](./location_api.md) is specified, relative URLs use the `--location` as the base, but a `file:`
