@@ -85,7 +85,7 @@ deno run net_client.ts --allow-net
 Whenever one of the watched files is changed on disk, the program will automatically be restarted / formatted / tested /
 bundled.
 
-```
+```shell
 deno run --watch main.ts
 deno test --watch
 deno fmt --watch
@@ -96,9 +96,15 @@ deno fmt --watch
 Affect commands which can download resources to the cache: `deno cache`, `deno run`, `deno test`, `deno bundle`,
 `deno doc`, and `deno compile`. >>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
+<<<<<<< HEAD
 ```
 --lock <FILE>    检查指定的锁文件
 --lock-write     写入锁文件. 和 --lock 一起使用.
+=======
+```terminal
+--lock <FILE>    Check the specified lock file
+--lock-write     Write lock file. Use with --lock.
+>>>>>>> bcd660ae468f0ea050f904b23e5a5fa2e775c091
 ```
 
 更多信息在[这里](../linking_to_external_code/integrity_checking.md).
@@ -109,19 +115,65 @@ Affect commands which can populate the cache: `deno cache`, `deno run`, `deno te
 `deno compile`. As well as the flags above, this includes those which affect module resolution, compilation
 configuration etc.
 
+<<<<<<< HEAD
 ```
 --config <FILE>               加载配置文件
 --import-map <FILE>           加载导入映射文件
 --no-remote                   不要解析远程模块
 --reload=<CACHE_BLOCKLIST>    重新加载源代码缓存（重新编译 TypeScript）
 --unstable                    启用不稳定 API
+=======
+```terminal
+--config <FILE>               Load configuration file
+--import-map <FILE>           Load import map file
+--no-remote                   Do not resolve remote modules
+--reload=<CACHE_BLOCKLIST>    Reload source code cache (recompile TypeScript)
+--unstable                    Enable unstable APIs
+>>>>>>> bcd660ae468f0ea050f904b23e5a5fa2e775c091
 ```
 
 ### 运行时选项 {#runtime-flags}
 
 对运行用户代码有影响的命令: `deno run` 和 `deno test`. 这些包括以上所有和以下内容。
 
+<<<<<<< HEAD
 #### 权限选项 {#permission-flags}
+=======
+#### Type checking flags
+
+You can type-check your code (without executing it) using the command:
+
+```shell
+> deno check main.ts
+```
+
+You can also type-check your code before execution by using the `--check`
+argument to deno run:
+
+```shell
+> deno run --check main.ts
+```
+
+This flag affects `deno run`, `deno eval`, `deno repl` and `deno cache`. The
+following table describes the type-checking behavior of various subcommands.
+Here "Local" means that only errors from local code will induce type-errors,
+modules imported from https URLs (remote) may have type errors that are not
+reported. (To turn on type-checking for all modules, use `--check=all`.)
+
+| Subcommand     | Type checking mode |
+| -------------- | ------------------ |
+| `deno bench`   | 📁 Local            |
+| `deno bundle`  | 📁 Local            |
+| `deno cache`   | ❌ None             |
+| `deno check`   | 📁 Local            |
+| `deno compile` | 📁 Local            |
+| `deno eval`    | ❌ None             |
+| `deno repl`    | ❌ None             |
+| `deno run`     | ❌ None             |
+| `deno test`    | 📁 Local            |
+
+#### Permission flags
+>>>>>>> bcd660ae468f0ea050f904b23e5a5fa2e775c091
 
 [这里](./permissions.md#permissions-list)列出了所有权限选项
 
@@ -129,10 +181,17 @@ configuration etc.
 
 对运行环境有影响的更多选项：
 
+<<<<<<< HEAD
 ```
 --cached-only                要求远程依赖已经被缓存
 --inspect=<HOST:PORT>        在 host:port 启动检查器
 --inspect-brk=<HOST:PORT>    在 host:port 启动检查器并且暂停执行
+=======
+```terminal
+--cached-only                Require that remote dependencies are already cached
+--inspect=<HOST:PORT>        activate inspector on host:port ...
+--inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
+>>>>>>> bcd660ae468f0ea050f904b23e5a5fa2e775c091
 --location <HREF>            Value of 'globalThis.location' used by some web APIs
 --seed <NUMBER>              指定 Math.random() 的随机种子
 --v8-flags=<v8-flags>        设置 V8 命令行选项

@@ -36,7 +36,7 @@ When using the automatic transforms, Deno will try to import a JSX runtime modul
 _new_ JSX API and is located at either `jsx-runtime` or `jsx-dev-runtime`. For example if a JSX import source is
 configured to `react`, then the emitted code will add this to the emitted file:
 
-```js
+```jsx, ignore
 import { jsx as jsx_ } from "react/jsx-runtime";
 ```
 
@@ -56,7 +56,7 @@ configuration, you can add the JSX import source pragma to a `.jsx` or `.tsx` mo
 The `@jsxImportSource` pragma needs to be in the leading comments of the module. For example to use Preact from esm.sh,
 you would do something like this:
 
-```javascript
+```jsx, ignore
 /** @jsxImportSource https://esm.sh/preact */
 
 export function App() {
@@ -102,7 +102,7 @@ information, you could setup an import map like this:
 
 And then you could use the following pragma:
 
-```javascript
+```jsx, ignore
 /** @jsxImportSource preact */
 ```
 
