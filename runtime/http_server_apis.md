@@ -7,7 +7,7 @@ The API tries to leverage as much of the web standards as is possible as well as
 
 > ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable` flag.
 
-- [A "Hello World" sever](#a-"hello-world"-server)
+- [A "Hello World" server](#a-hello-world-server)
 - [Inspecting the incoming request](#inspecting-the-incoming-request)
 - [Responding with a response](#responding-with-a-response)
 - [WebSocket support](#websocket-support)
@@ -35,7 +35,7 @@ function handler(req: Request): Response {
 To then listen on a port and handle requests you need to call the `serve` function from the
 `https://deno.land/std@$STD_VERSION/http/server.ts` module, passing in the handler as the first argument:
 
-```ts
+```js
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serve(handler);
@@ -44,7 +44,9 @@ serve(handler);
 By default `serve` will listen on port `8000`, but this can be changed by passing in a port number in the second
 argument options bag:
 
-```ts
+```js
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+
 // To listen on port 4242.
 serve(handler, { port: 4242 });
 ```
@@ -106,7 +108,7 @@ every second:
 
 ```ts
 function handler(req: Request): Response {
-  let timer;
+  let timer: number;
   const body = new ReadableStream({
     async start(controller) {
       timer = setInterval(() => {
@@ -117,7 +119,7 @@ function handler(req: Request): Response {
       clearInterval(timer);
     },
   });
-  return new Response(body, {
+  return new Response(body.pipeThrough(new TextEncoderStream()), {
     headers: {
       "content-type": "text/plain; charset=utf-8",
     },
@@ -153,11 +155,9 @@ client side communication. Documentation for it can be found
 ```ts
 function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
-  let socket, response;
+  let response, socket: WebSocket;
   try {
-    res = Deno.upgradeWebSocket(req);
-    socket = res.socket;
-    response = res.response;
+    ({ response, socket } = Deno.upgradeWebSocket(req));
   } catch {
     return new Response("request isn't trying to upgrade to websocket.");
   }
@@ -166,7 +166,7 @@ function handler(req: Request): Response {
     console.log("socket message:", e.data);
     socket.send(new Date().toString());
   };
-  socket.onerror = (e) => console.log("socket errored:", e.message);
+  socket.onerror = (e) => console.log("socket errored:", e);
   socket.onclose = () => console.log("socket closed");
   return response;
 }
@@ -183,7 +183,7 @@ To use HTTPS, use `serveTls` from the `https://deno.land/std@$STD_VERSION/http/s
 This takes two extra arguments in the options bag: `certFile` and `keyFile`. These are paths to the certificate and key
 files, respectively.
 
-```ts
+```js
 import { serveTls } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serveTls(handler, {
@@ -195,8 +195,14 @@ serveTls(handler, {
 
 ### HTTP/2 support
 
+<<<<<<< HEAD
 HTTP/2 support it "automatic" when using the _native_ APIs with Deno. You just need to create your server, and the
 server will handle HTTP/1 or HTTP/2 requests seamlessly.
+=======
+HTTP/2 support is "automatic" when using the _native_ APIs with Deno. You just
+need to create your server, and the server will handle HTTP/1 or HTTP/2 requests
+seamlessly.
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 ### Automatic body compression
 

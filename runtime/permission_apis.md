@@ -118,17 +118,30 @@ console.log(await Deno.permissions.revoke(desc));
 // PermissionStatus { state: "prompt" }
 ```
 
+<<<<<<< HEAD
 但是，当您尝试撤消仅属于 CLI 授予的权限的 _一部分_ 时，会发生什么情况？
+=======
+What happens when you try to revoke a permission which is _partial_ to one
+granted on the CLI?
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 ```ts
 // deno run --allow-read=/foo main.ts
 
 const desc = { name: "read", path: "/foo/bar" } as const;
 console.log(await Deno.permissions.revoke(desc));
-// PermissionStatus { state: "granted" }
+// PermissionStatus { state: "prompt" }
+const cliDesc = { name: "read", path: "/foo" } as const;
+console.log(await Deno.permissions.revoke(cliDesc));
+// PermissionStatus { state: "prompt" }
 ```
 
+<<<<<<< HEAD
 它没有被撤销。
+=======
+The CLI-granted permission, which implies the revoked permission, was also
+revoked.
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 要了解这种行为，可以想象 Deno 存储了一组内部的 _显式授予的权限描述符_。在 CLI 上指定 `--allow-read=/foo,/bar` 可以将此设置初始化为：
 
@@ -149,20 +162,17 @@ console.log(await Deno.permissions.revoke(desc));
 ];
 ```
 
+<<<<<<< HEAD
 Deno's permission revocation algorithm works by removing every element from this set which the argument permission
 descriptor is _stronger than_. So to ensure `desc` is no longer granted, pass an argument descriptor _stronger than_
 whichever _explicitly granted permission descriptor_ is _stronger than_ `desc`.
+=======
+Deno's permission revocation algorithm works by removing every element from this
+set which is _stronger than_ the argument permission descriptor.
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
-```ts
-// deno run --allow-read=/foo main.ts
-
-const desc = { name: "read", path: "/foo/bar" } as const;
-console.log(await Deno.permissions.revoke(desc)); // Insufficient.
-// PermissionStatus { state: "granted" }
-
-const strongDesc = { name: "read", path: "/foo" } as const;
-await Deno.permissions.revoke(strongDesc); // Good.
-
-console.log(await Deno.permissions.query(desc));
-// PermissionStatus { state: "prompt" }
-```
+Deno does not allow "fragmented" permission states, where some strong permission
+is granted with exclusions of weak permissions implied by it. Such a system
+would prove increasingly complex and unpredictable as you factor in a wider
+variety of use cases and the `"denied"` state. This is a calculated trade-off of
+granularity for security.

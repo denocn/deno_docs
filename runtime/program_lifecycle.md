@@ -8,7 +8,7 @@ Deno 支持浏览器兼容的生命周期事件: `load` 和 `unload`。你可以
 
 **main.ts**
 
-```ts
+```ts, ignore
 import "./imported.ts";
 
 const handler = (e: Event): void => {

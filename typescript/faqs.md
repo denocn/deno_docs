@@ -86,10 +86,13 @@ we wouldn't want to support something that TypeScript doesn't support, plus we d
 for the emit, which would mean we would need to ensure we supported it in all modes, and the other emitter is written in
 Rust, meaning that any emitter plugin for TypeScript wouldn't be available for the Rust emitter.
 
+<<<<<<< HEAD
 The TypeScript in Deno isn't intended to be a fully flexible TypeScript compiler. Its main purpose is to ensure that
 TypeScript and JavaScript can run under Deno. The secondary ability to do TypeScript and JavaScript emitting via the
 runtime API `Deno.emit()` is intended to be simple and straight forward and support a certain set of use cases.
 
+=======
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 ### How do I combine Deno code with non-Deno code in my IDE?
 
 The Deno language server supports the ability to have a "per-resource" configuration of enabling Deno or not. This also

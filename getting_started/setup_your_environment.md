@@ -39,8 +39,9 @@ Marketplace_.
 Check out [this blog post](https://blog.jetbrains.com/webstorm/2020/06/deno-support-in-jetbrains-ides/) to learn more
 about how to get started with Deno.
 
-#### vim/Neovim
+#### Vim/Neovim via plugins
 
+<<<<<<< HEAD
 Deno is well supported on both [vim](https://www.vim.org/) and [Neovim](https://neovim.io/) via
 [coc.nvim](https://github.com/neoclide/coc.nvim), [vim-easycomplete](https://github.com/jayli/vim-easycomplete) and
 [ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to integrate to the Deno language server while ALE
@@ -52,11 +53,22 @@ Neovim also supports Deno. The built-in language server protocol in Neovim also 
 
 Neovim has supported Deno's language server since version 0.5, but recent changes to Deno mean that now
 [Neovim](https://neovim.io/) 0.6 or newer is needed.
+=======
+Deno is well-supported on both [Vim](https://www.vim.org/) and
+[Neovim](https://neovim.io/) via
+[coc.nvim](https://github.com/neoclide/coc.nvim),
+[vim-easycomplete](https://github.com/jayli/vim-easycomplete) and
+[ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
+integrate to the Deno language server while ALE supports it _out of the box_.
+
+#### Neovim 0.6+ using the built-in language server
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 To use the Deno language server install [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/) and follow the
 instructions to enable the
 [supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#denols).
 
+<<<<<<< HEAD
 Deno's linting is not supported out of the box, but assuming you are using the `on_attach` helper function from the
 [basic setup example](https://github.com/neovim/nvim-lspconfig#keybindings-and-completion), the default of
 `lint = false` can be overridden as follows:
@@ -73,36 +85,47 @@ nvim_lsp.denols.setup {
 Note that if you also have `tsserver` as an LSP client, you may run into having issues where both `tsserver` and
 `denols` are attached to your current buffer. To resolve this, make sure to set some unique `root_dir` for both
 `tsserver` and `denols`. Here is an example of such a configuration:
+=======
+Note that if you also have `tsserver` as an LSP client, you may run into issues
+where both `tsserver` and `denols` are attached to your current buffer. To
+resolve this, make sure to set some unique `root_dir` for both `tsserver` and
+`denols`. Here is an example of such a configuration:
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 ```lua
 nvim_lsp.denols.setup {
   on_attach = on_attach,
-  root_dir = nvim_lsp.util.root_pattern("deno.json"),
-  init_options = {
-    lint = true,
-  },
+  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   root_dir = nvim_lsp.util.root_pattern("package.json"),
-  init_options = {
-    lint = true,
-  },
 }
 ```
 
+<<<<<<< HEAD
 Also note here that for a Deno project, the example above assumes that there exists a `deno.json` file at the root of
 the project.
+=======
+For Deno, the example above assumes a `deno.json` or `deno.jsonc` file exists at
+the root of the project.
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 ##### coc.nvim
 
 Once you have [coc.nvim installed](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim) installed, you need to
 install the required plugin via `:CocInstall coc-deno`.
 
+<<<<<<< HEAD
 Once the plugin is installed and you want to enable Deno for a workspace, run the command
 `:CocCommand deno.initializeWorkspace` and you should be able to utilize commands like `gd` (goto definition) and `gr`
 (go/find references).
+=======
+Once the plugin is installed, and you want to enable Deno for a workspace, run
+the command `:CocCommand deno.initializeWorkspace` and you should be able to
+utilize commands like `gd` (goto definition) and `gr` (go/find references).
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 ##### ALE {#ale}
 
@@ -117,8 +140,14 @@ For more information on how to setup ALE (like key bindings) refer to the
 ##### Vim-EasyComplete
 
 Vim-EasyComplete supports Deno without any other configuration. Once you have
+<<<<<<< HEAD
 [vim-easycomplete installed](https://github.com/jayli/vim-easycomplete#installation), you need install deno via
 `:InstallLspServer deno` if you havn't installed deno. You can get more information from
+=======
+[vim-easycomplete installed](https://github.com/jayli/vim-easycomplete#installation),
+you need install deno via `:InstallLspServer deno` if you haven't installed
+deno. You can get more information from
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 [official documentation](https://github.com/jayli/vim-easycomplete).
 
 #### Emacs
@@ -167,10 +196,7 @@ like the below:
   "settings": {
     "LSP": {
       "deno": {
-        "command": [
-          "deno",
-          "lsp"
-        ],
+        "command": ["deno", "lsp"],
         "initializationOptions": {
           // "config": "", // 添加你项目配置文件的路径
           "enable": true,
@@ -226,8 +252,14 @@ The [Nova editor](https://nova.app) can integrate the Deno language server via t
 
 #### GitHub Codespaces
 
+<<<<<<< HEAD
 [GitHub Codespaces](https://github.com/features/codespaces) allows you develop fully online or remotely on your local
 machine without needing to configure or install Deno. It is currently in early access.
+=======
+[GitHub Codespaces](https://github.com/features/codespaces) allows you to
+develop fully online or remotely on your local machine without needing to
+configure or install Deno. It is currently in early access.
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 
 If a project is a Deno enabled project and contains the `.devcontainer` configuration as part of the repository, opening
 the project in GitHub Codespaces should just "work". If you are starting a new project, or you want to add Deno support
@@ -271,7 +303,7 @@ Built into the Deno CLI is support to generate shell completion information for 
 
 Output the completions and add them to the environment:
 
-```
+```shell
 > deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
 > source /usr/local/etc/bash_completion.d/deno.bash
 ```
@@ -280,25 +312,30 @@ Output the completions and add them to the environment:
 
 Output the completions:
 
-```
+```shell
 > deno completions powershell >> $profile
 > .$profile
 ```
 
+<<<<<<< HEAD
 This will be create a Powershell profile at `$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`, and it
+=======
+This will create a Powershell profile at
+`$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`, and it
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
 will be run whenever you launch the PowerShell.
 
 #### zsh example
 
 You should have a directory where the completions can be saved:
 
-```
+```shell
 > mkdir ~/.zsh
 ```
 
 Then output the completions:
 
-```
+```shell
 > deno completions zsh > ~/.zsh/_deno
 ```
 
@@ -320,7 +357,7 @@ shell configuration. [antigen](https://github.com/zsh-users/antigen) is a plugin
 
 Create the directory to store the completions and output the completions:
 
-```
+```shell
 > mkdir ~/.oh-my-zsh/custom/plugins/deno
 > deno completions zsh > ~/.oh-my-zsh/custom/plugins/deno/_deno
 ```
@@ -341,13 +378,14 @@ antigen bundle deno
 Output the completions to a `deno.fish` file into the completions directory in the fish config folder:
 
 ```shell
-deno completions fish > ~/.config/fish/completions/deno.fish
+> deno completions fish > ~/.config/fish/completions/deno.fish
 ```
 
 ### Environment variables
 
 There are several environment variables which can impact the behavior of Deno:
 
+<<<<<<< HEAD
 - `DENO_AUTH_TOKENS` - a list of authorization tokens which can be used to allow Deno to access remote private code. See
   the [Private modules and repositories](../linking_to_external_code/private.md) section for more details.
 - `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when establishing TLS connections. The available
@@ -375,3 +413,50 @@ There are several environment variables which can impact the behavior of Deno:
   accessed at runtime without permission to read the environment variables by checking the value of `Deno.noColor`.
 - `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other environment variables. See the
   [Proxies](../linking_to_external_code/proxies.md) section for more information.
+=======
+- `DENO_AUTH_TOKENS` - a list of authorization tokens which can be used to allow
+  Deno to access remote private code. See the
+  [Private modules and repositories](../linking_to_external_code/private.md)
+  section for more details.
+- `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when
+  establishing TLS connections. The available stores are `mozilla` and `system`.
+  You can specify one, both or none. The order you specify the store determines
+  the order in which certificate chains will be attempted to resolved. The
+  default value is `mozilla`. The `mozilla` store will use the bundled Mozilla
+  certs provided by [`webpki-roots`](https://crates.io/crates/webpki-roots). The
+  `system` store will use your platforms
+  [native certificate store](https://crates.io/crates/rustls-native-certs). The
+  exact set of Mozilla certs will depend on the version of Deno you are using.
+  If you specify no certificate stores, then no trust will be given to any TLS
+  connection without also specifying `DENO_CERT` or `--cert` or specifying a
+  specific certificate per TLS connection.
+- `DENO_CERT` - load a certificate authority from a PEM encoded file. This
+  "overrides" the `--cert` option. See the
+  [Proxies](../linking_to_external_code/proxies.md) section for more
+  information.
+- `DENO_DIR` - this will set the directory where cached information from the CLI
+  is stored. This includes items like cached remote modules, cached transpiled
+  modules, language server cache information and persisted data from local
+  storage. This defaults to the operating systems default cache location and
+  then under the `deno` path.
+- `DENO_INSTALL_ROOT` - When using `deno install` where the installed scripts
+  are stored. This defaults to `$HOME/.deno/bin`.
+- `DENO_NO_PROMPT` - Set to disable permission prompts on access (alternative to
+  passing `--no-prompt` on invocation).
+- `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
+- `HTTP_PROXY` - The proxy address to use for HTTP requests. See the
+  [Proxies](../linking_to_external_code/proxies.md) section for more
+  information.
+- `HTTPS_PROXY` - The proxy address to use for HTTPS requests. See the
+  [Proxies](../linking_to_external_code/proxies.md) section for more
+  information.
+- `NO_COLOR` - If set, this will cause the Deno CLI to not send ANSI color codes
+  when writing to stdout and stderr. See the website <https://no-color.org/> for
+  more information on this _de facto_ standard. The value of this flag can be
+  accessed at runtime without permission to read the environment variables by
+  checking the value of `Deno.noColor`.
+- `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other
+  environment variables. See the
+  [Proxies](../linking_to_external_code/proxies.md) section for more
+  information.
+>>>>>>> 4abeb864cfce684cd30c3b4796d3e1e0d4e9b11d
