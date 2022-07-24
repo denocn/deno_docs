@@ -89,6 +89,7 @@ to a few additional properties compared to Node:
   that your package uses `node-fetch`. By providing a conditional `"deno"` export, you can add an entrypoint that
   doesn't depend on `node-fetch` and instead uses built-in `fetch` API in Deno.
 
+<<<<<<< HEAD
 ### Node built-in modules
 
 Following built-in Node modules are currently supported:
@@ -137,6 +138,8 @@ Following modules are not yet implemented:
 If you try to run Node code that requires any of the not implemented modules, please open an issue in
 https://github.com/denoland/deno_std/issues with example code.
 
+=======
+>>>>>>> 4f5fdc3f21171dcc978ed2f3a372451c75133238
 ### TypeScript support
 
 Currently, the compatibility mode does not support TypeScript.

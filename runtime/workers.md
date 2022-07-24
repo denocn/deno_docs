@@ -6,8 +6,18 @@ Worker 可以在多个线程中运行代码，`Worker` 的每个实例都会在�
 
 目前，Deno 只支持 `module` 类型的 worker，因此在创建新的 worker 时必须传递 `type: "module"` 选项。
 
+<<<<<<< HEAD
 只有在 CLI 上传 `--location <href>`，才支持在主 worker 中使用相对模块说明符。为了便捷性，不建议这样做。你可以使用 `URL` 构造函数和 `import.meta.url`
 来为一些周围的脚本轻松创建说明符。但是，对于一些专门的 worker，它们有默认的位置和能力。
+=======
+Workers currently do not work in [compiled executables](../tools/compiler.md).
+
+Use of relative module specifiers in the main worker are only supported with
+`--location <href>` passed on the CLI. This is not recommended for portability.
+You can instead use the `URL` constructor and `import.meta.url` to easily create
+a specifier for some nearby script. Dedicated workers, however, have a location
+and this capability by default.
+>>>>>>> 4f5fdc3f21171dcc978ed2f3a372451c75133238
 
 ```ts
 // Good
@@ -19,7 +29,31 @@ new Worker(new URL("./worker.js", import.meta.url).href, { type: "classic" });
 new Worker("./worker.js", { type: "module" });
 ```
 
+<<<<<<< HEAD
 ### 实例化权限 {#instantiation-permissions}
+=======
+As with regular modules, you can use top-level `await` in worker modules.
+However, you should be careful to always register the message handler before the
+first `await`, since messages can be lost otherwise. This is not a bug in Deno,
+it's just an unfortunate interaction of features, and it also happens in all
+browsers that support module workers.
+
+```ts, ignore
+import { delay } from "https://deno.land/std@0.136.0/async/mod.ts";
+
+// First await: waits for a second, then continues running the module.
+await delay(1000);
+
+// The message handler is only set after that 1s delay, so some of the messages
+// that reached the worker during that second might have been fired when no
+// handler was registered.
+self.onmessage = (evt) => {
+  console.log(evt.data);
+};
+```
+
+### Instantiation permissions
+>>>>>>> 4f5fdc3f21171dcc978ed2f3a372451c75133238
 
 创建一个新的 `Worker` 实例的行为与动态导入类似，因此 Deno 需要适当的权限来做这个操作。
 
@@ -71,27 +105,31 @@ hello world
 
 ### 在 Worker 中使用 Deno {#using-deno-in-worker}
 
+<<<<<<< HEAD
 > 这是一个不稳定的 Deno 特性。更多信息请查阅 [不稳定特性](./stability.md)
 
 默认情况下，`Deno` 命名空间在 worker 作用域中不可用。
 
 要想启用 `Deno` 命名空间，在创建新的 worker 时传递 `deno.namespace = true` 选项：
+=======
+> Starting in v1.22 the `Deno` namespace is available in worker scope by
+> default. To enable the namespace in earlier versions pass
+> `deno: { namespace: true }` when creating a new worker.
+>>>>>>> 4f5fdc3f21171dcc978ed2f3a372451c75133238
 
 **main.js**
 
-```ts
+```js
 const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
   type: "module",
-  deno: {
-    namespace: true,
-  },
 });
+
 worker.postMessage({ filename: "./log.txt" });
 ```
 
 **worker.js**
 
-```ts
+```js, ignore
 self.onmessage = async (e) => {
   const { filename } = e.data;
   const text = await Deno.readTextFile(filename);
@@ -107,11 +145,20 @@ hello world
 ```
 
 ```shell
-$ deno run --allow-read --unstable main.js
+$ deno run --allow-read main.js
 hello world
 ```
 
+<<<<<<< HEAD
 ### 详述 worker 权限 {#specifying-worker-permissions}
+=======
+> Starting in v1.23 `Deno.exit()` no longer exits the process with the provided
+> exit code. Instead is an alias to `self.close()`, which causes only the worker
+> to shutdown. This better aligns with the Web platform, as there is no way in
+> the browser for a worker to close the page.
+
+### Specifying worker permissions
+>>>>>>> 4f5fdc3f21171dcc978ed2f3a372451c75133238
 
 > 这是一个不稳定的 Deno 特性。更多信息请查阅 [不稳定特性](./stability.md)
 
@@ -125,7 +172,6 @@ Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用�
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         net: [
           "https://deno.land/",
@@ -148,7 +194,6 @@ Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用�
     {
       type: "module",
       deno: {
-        namespace: true,
         permissions: {
           read: [
             "/home/user/Documents/deno/worker/file_1.txt",
@@ -167,7 +212,6 @@ Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用�
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: "inherit",
     },
   });
@@ -178,7 +222,6 @@ Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用�
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         env: false,
         hrtime: false,
@@ -206,7 +249,6 @@ Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用�
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         net: false,
       },
@@ -221,7 +263,6 @@ Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用�
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: "none",
     },
   });
