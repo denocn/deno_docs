@@ -31,7 +31,7 @@ impacts the next import or re-export statement.
 For example if I have a JavaScript modules `coolLib.js` and I had a separate `coolLib.d.ts` file that I wanted to use, I
 would import it like this:
 
-```ts
+```ts, ignore
 // @deno-types="./coolLib.d.ts"
 import * as coolLib from "./coolLib.js";
 ```
@@ -56,7 +56,7 @@ in TypeScript files to _include_ other files and applies it only to JavaScript f
 For example, if I had created `coolLib.js` and along side of it I had created my type definitions for my library in
 `coolLib.d.ts` I could do the following in the `coolLib.js` file:
 
-```js
+```js, ignore
 /// <reference types="./coolLib.d.ts" />
 
 // ... the rest of the JavaScript ...
@@ -107,14 +107,14 @@ definitions. Therefore there are ways to include arbitrary type definitions when
 This option couples the type definitions to the code itself. By adding a triple-slash `types` directive near the type of
 a module, type checking the file will include the type definition. For example:
 
-```ts
+```ts, ignore
 /// <reference types="./types.d.ts" />
 ```
 
 The specifier provided is resolved just like any other specifier in Deno, which means it requires an extension, and is
 relative to the module referencing it. It can be a fully qualified URL as well:
 
-```ts
+```ts, ignore
 /// <reference types="https://deno.land/x/pkg@1.0.0/types.d.ts" />
 ```
 
@@ -152,7 +152,7 @@ This option couples the library settings with the code itself. By adding the fol
 top of the entry point file for the worker script, Deno will now type check it as a Deno worker script, irrespective of
 how the module is analyzed:
 
-```ts
+```ts, ignore
 /// <reference no-default-lib="true" />
 /// <reference lib="deno.worker" />
 ```

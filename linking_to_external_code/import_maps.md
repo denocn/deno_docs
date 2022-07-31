@@ -2,23 +2,29 @@
 
 Deno 支持 [导入映射](https://github.com/WICG/import-maps).
 
+<<<<<<< HEAD
 你可以在启动时添加`--import-map<FILE>`选项来启用导入映射
+=======
+You can use import maps with the `--import-map=<FILE>` CLI flag or `importMap`
+option in the [configuration file](../getting_started/configuration_file.md),
+the former will take precedence.
+>>>>>>> 6e20596b38fd7c1dc42a2cbeaee998a84c74e290
 
 示例:
 
 **import_map.json**
 
-```js
+```json
 {
-   "imports": {
-      "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
-   }
+  "imports": {
+    "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
+  }
 }
 ```
 
 **color.ts**
 
-```ts
+```ts, ignore
 import { red } from "fmt/colors.ts";
 
 console.log(red("hello world"));
@@ -45,7 +51,7 @@ $ deno run --import-map=import_map.json color.ts
 
 **main.ts**
 
-```ts
+```ts, ignore
 import { MyUtil } from "/util.ts";
 ```
 
