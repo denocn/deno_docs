@@ -204,9 +204,17 @@ cause an "unhandled rejection" to occur which will terminate the Deno process, w
 addition, you might want to await the promise returned in order to determine when to do any cleanup from for the
 request/response cycle.
 
+<<<<<<< HEAD
 The web standard `Response` object is pretty powerful, allowing easy creation of complex and rich responses to a client,
 and Deno strives to provide a `Response` object that as closely matches the web standard as possible, so if you are
 wondering how to send a particular response, checkout out the documentation for the web standard
+=======
+The web standard `Response` object is pretty powerful, allowing easy creation of
+complex and rich responses to a client, and Deno strives to provide a `Response`
+object that as closely matches the web standard as possible, so if you are
+wondering how to send a particular response, checkout the documentation for the
+web standard
+>>>>>>> cde14a635124ef13e0c5bd457ff60f5a6097366d
 [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response).
 
 ### HTTP/2 Support
@@ -271,7 +279,7 @@ function handleReq(req: Request): Response {
     console.log("socket message:", e.data);
     socket.send(new Date().toString());
   };
-  socket.onerror = (e) => console.log("socket errored:", e.message);
+  socket.onerror = (e) => console.log("socket errored:", e);
   socket.onclose = () => console.log("socket closed");
   return response;
 }
