@@ -21,9 +21,16 @@ $ git add -u vendor
 $ git commit
 ```
 
+<<<<<<< HEAD
 To then use the vendored dependencies in your program, just add `import-map=vendor/import_map.json` to your Deno
 invocations. You can also add `--no-remote` to your invocation to completely disable fetching of remote modules to
 ensure it's using the modules in the vendor directory.
+=======
+To then use the vendored dependencies in your program, just add
+`--import-map=vendor/import_map.json` to your Deno invocations. You can also add
+`--no-remote` to your invocation to completely disable fetching of remote
+modules to ensure it's using the modules in the vendor directory.
+>>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 ```shell
 deno run --no-remote --import-map=vendor/import_map.json main.ts

@@ -5,10 +5,18 @@
 ## 基础 {#basic}
 
 - [Hello world](./examples/hello_world.md)
+<<<<<<< HEAD
 - [import 和 export 模块](./examples/import_export.md)
 - [管理依赖](./examples/manage_dependencies.md)
 - [请求数据](./examples/fetch_data.md)
 - [文件读写](./examples/read_write_files.md)
+=======
+- [Import and export modules](./examples/import_export.md)
+- [Manage dependencies](./examples/manage_dependencies.md)
+- [Fetch data](./examples/fetch_data.md)
+- [Read and write files](./examples/read_write_files.md)
+- [Shebang](./examples/shebang.md)
+>>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 ## 高级 {#advanced}
 
