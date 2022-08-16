@@ -19,13 +19,15 @@ For more detail, run `deno lint --help`.
 
 ### Available rules {#available-rules}
 
-For a complete list of supported rules visit [the deno_lint rule documentation](https://lint.deno.land).
+For a complete list of supported rules visit
+[the deno_lint rule documentation](https://lint.deno.land).
 
 ### Ignore directives {#ignore-directives}
 
 #### Files {#files}
 
-To ignore whole file `// deno-lint-ignore-file` directive should placed at the top of the file:
+To ignore whole file `// deno-lint-ignore-file` directive should placed at the
+top of the file:
 
 ```ts
 // deno-lint-ignore-file
@@ -37,7 +39,7 @@ function foo(): any {
 
 Ignore directive must be placed before first statement or declaration:
 
-```ts
+```ts, ignore
 // Copyright 2020 the Deno authors. All rights reserved. MIT license.
 
 /**
@@ -65,8 +67,8 @@ function foo(): any {
 
 #### Diagnostics {#diagnostics}
 
-To ignore certain diagnostic `// deno-lint-ignore <codes...>` directive should be placed before offending line.
-Specifying ignored rule name is required:
+To ignore certain diagnostic `// deno-lint-ignore <codes...>` directive should
+be placed before offending line. Specifying ignored rule name is required:
 
 ```ts
 // deno-lint-ignore no-explicit-any
@@ -83,12 +85,14 @@ function bar(a: any) {
 ### Configuration
 
 Starting with Deno v1.14 a linter can be customized using either
-[a configuration file](../getting_started/configuration_file.md) or following CLI flags:
+[a configuration file](../getting_started/configuration_file.md) or following
+CLI flags:
 
-- `--rules-tags` - List of tag names that will be run. Empty list disables all tags and will only use rules from
-  `include`. Defaults to "recommended".
+- `--rules-tags` - List of tag names that will be run. Empty list disables all
+  tags and will only use rules from `include`. Defaults to "recommended".
 
-- `--rules-exclude` - List of rule names that will be excluded from configured tag sets. If the same rule is in
-  `include` it will be run.
+- `--rules-exclude` - List of rule names that will be excluded from configured
+  tag sets. If the same rule is in `include` it will be run.
 
-- `--rules-include` - List of rule names that will be run. Even if the same rule is in `exclude` it will be run.
+- `--rules-include` - List of rule names that will be run. Even if the same rule
+  is in `exclude` it will be run.

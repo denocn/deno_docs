@@ -10,15 +10,10 @@ Deno 使用[语义化版本](https://semver.org/lang/zh-CN/)。
 x.y.z
 ```
 
-每个月会发布一个 `deno` 的 minor 版本。在每月的第 3 个星期四发布。
+See [Milestones on Deno's GitHub](https://github.com/denoland/deno/milestones)
+for the upcoming releases.
 
 在次要版本发布后，通常会有 2 到 3 个 patch 版本(每周发布一次)；然后新的功能会合并到 minor 版本。
-
-即将发布的 minor 版本的发布日期为：
-
-- 1.20.0: March 16, 2022
-- 1.21.0: April 20, 2022
-- 1.22.0: May 18, 2022
 
 可以在 [GitHub releases 页面](https://github.com/denoland/deno/releases)查看所有的稳定版本。
 

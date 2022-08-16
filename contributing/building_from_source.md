@@ -1,7 +1,8 @@
 ## Building `deno` from source
 
-Below are instructions on how to build Deno from source. If you just want to use Deno you can download a prebuilt
-executable (more information in the [`Getting Started`](../getting_started/installation.md#download-and-install)
+Below are instructions on how to build Deno from source. If you just want to use
+Deno you can download a prebuilt executable (more information in the
+[`Getting Started`](../getting_started/installation.md#download-and-install)
 chapter).
 
 ### Cloning the Repository {#cloning-the-repository}
@@ -14,8 +15,8 @@ git clone --recurse-submodules https://github.com/denoland/deno.git
 
 Extra steps for Windows users:
 
-1. [Enable "Developer Mode"](https://www.google.com/search?q=windows+enable+developer+mode) (otherwise symlinks would
-   require administrator privileges).
+1. [Enable "Developer Mode"](https://www.google.com/search?q=windows+enable+developer+mode)
+   (otherwise symlinks would require administrator privileges).
 2. Make sure you are using git version 2.19.2.windows.1 or newer.
 3. Set `core.symlinks=true` before the checkout:
    ```shell
@@ -25,9 +26,11 @@ Extra steps for Windows users:
 
 ### Prerequisites {#prerequisites}
 
-> Deno requires the progressively latest stable release of Rust. Deno does not support the Rust Nightly Releases.
+> Deno requires the progressively latest stable release of Rust. Deno does not
+> support the Rust Nightly Releases.
 
-[Update or Install Rust](https://www.rust-lang.org/tools/install). Check that Rust installed/updated correctly:
+[Update or Install Rust](https://www.rust-lang.org/tools/install). Check that
+Rust installed/updated correctly:
 
 ```
 rustc -V
@@ -57,18 +60,22 @@ V8_FROM_SOURCE=1 cargo build -vv
 
 When building V8 from source, there are more dependencies:
 
-[Python 3](https://www.python.org/downloads) for running WPT tests. Ensure that a suffix-less `python`/`python.exe`
-exists in your `PATH` and it refers to Python 3.
+[Python 3](https://www.python.org/downloads) for running WPT tests. Ensure that
+a suffix-less `python`/`python.exe` exists in your `PATH` and it refers to
+Python 3.
 
-For Linux users glib-2.0 development files must also be installed. (On Ubuntu, run `apt install libglib2.0-dev`.)
+For Linux users glib-2.0 development files must also be installed. (On Ubuntu,
+run `apt install libglib2.0-dev`.)
 
-Mac users must have Command Line Tools installed. ([XCode](https://developer.apple.com/xcode/) already includes CLT. Run
+Mac users must have Command Line Tools installed.
+([XCode](https://developer.apple.com/xcode/) already includes CLT. Run
 `xcode-select --install` to install it without XCode.)
 
 For Windows users:
 
-1. Get [VS Community 2019](https://www.visualstudio.com/downloads/) with "Desktop development with C++" toolkit and make
-   sure to select the following required tools listed below along with all C++ tools.
+1. Get [VS Community 2019](https://www.visualstudio.com/downloads/) with
+   "Desktop development with C++" toolkit and make sure to select the following
+   required tools listed below along with all C++ tools.
 
    - Visual C++ tools for CMake
    - Windows 10 SDK (10.0.17763.0)
@@ -78,12 +85,16 @@ For Windows users:
    - C++/CLI support
    - VC++ 2015.3 v14.00 (v140) toolset for desktop
 
-2. Enable "Debugging Tools for Windows". Go to "Control Panel" → "Programs" → "Programs and Features" → Select "Windows
-   Software Development Kit - Windows 10" → "Change" → "Change" → Check "Debugging Tools For Windows" → "Change" →
-   "Finish". Or use: [Debugging Tools for Windows](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/)
-   (Notice: it will download the files, you should install `X64 Debuggers And Tools-x64_en-us.msi` file manually.)
+2. Enable "Debugging Tools for Windows". Go to "Control Panel" → "Programs" →
+   "Programs and Features" → Select "Windows Software Development Kit - Windows
+   10" → "Change" → "Change" → Check "Debugging Tools For Windows" → "Change" →
+   "Finish". Or use:
+   [Debugging Tools for Windows](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/)
+   (Notice: it will download the files, you should install
+   `X64 Debuggers And Tools-x64_en-us.msi` file manually.)
 
-See [rusty_v8's README](https://github.com/denoland/rusty_v8) for more details about the V8 build.
+See [rusty_v8's README](https://github.com/denoland/rusty_v8) for more details
+about the V8 build.
 
 ### Building {#building}
 

@@ -1,10 +1,12 @@
 ## Location API {#location-api}
 
-Deno 支持从网络获取全局 [`location`](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)。请往下看。
+Deno 支持从网络获取全局
+[`location`](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)。请往下看。
 
 ### Location 标志 {#location-flag}
 
-在 Deno 的流程中，没有基于 location URL 的“网页”。相反，我们允许用户通过使用 `--location` 标志在 CLI 上指定一个文档位置来模拟文档位置。 它可以是 `http` 或 `https` 的 URL。
+在 Deno 的流程中，没有基于 location URL 的“网页”。相反，我们允许用户通过使用 `--location` 标志在 CLI
+上指定一个文档位置来模拟文档位置。 它可以是 `http` 或 `https` 的 URL。
 
 ```ts
 // deno run --location https://example.com/path main.ts
@@ -44,7 +46,8 @@ const response = await fetch("./orgs/denoland");
 // Fetches "https://api.github.com/orgs/denoland".
 ```
 
-如果没有传递 `--location` 标志，则上面的 `fetch()` 调用将抛出异常，因为没有 web-analogous location 的这个基础依赖。
+如果没有传递 `--location` 标志，则上面的 `fetch()` 调用将抛出异常，因为没有 web-analogous location
+的这个基础依赖。
 
 #### Worker modules {#worker-modules}
 
@@ -59,4 +62,5 @@ const worker = new Worker("./workers/hello.ts", { type: "module" });
 
 上面的例子，最好是传递完整的 URL，而不是依赖于 `--location`。如果需要，您可以使用 URL 构造函数手动建立相对 URL。
 
-`--location` 标志用于那些出于某些特定目的模拟一个文档的 location 并且意识到仅在应用程序级别起作用的场景。 当然，您也可以使用它来消除粗暴访问 `location` 全局依赖项的错误。
+`--location` 标志用于那些出于某些特定目的模拟一个文档的 location 并且意识到仅在应用程序级别起作用的场景。
+当然，您也可以使用它来消除粗暴访问 `location` 全局依赖项的错误。

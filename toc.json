@@ -47,7 +47,8 @@
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
       "faqs": "FAQ",
-      "cheatsheet": "Node->Deno 速查表"
+      "cheatsheet": "Node->Deno 速查表",
+      "dnt": "dnt - Deno to Node Transform"
     }
   },
   "typescript": {
@@ -57,14 +58,19 @@
       "configuration": "配置",
       "types": "类型与类型声明",
       "migration": "JavaScript/JavaScript 迁移",
-      "runtime": "运行时编译器 API",
       "faqs": "FAQ"
     }
   },
   "jsx_dom": {
-    "name": "使用 JSX",
+    "name": "使用 JSX 和 DOM",
     "children": {
-      "jsx": "配置 JSX"
+      "overview": "概述",
+      "jsx": "配置 JSX",
+      "linkedom": "使用 LinkeDOM",
+      "deno_dom": "使用 deno-dom",
+      "jsdom": "使用 jsdom",
+      "css": "Parsing CSS",
+      "twind": "使用 Twind"
     }
   },
   "webassembly": {
@@ -93,7 +99,8 @@
       "subprocess": "创建子进程",
       "os_signals": "OS 信号",
       "file_system_events": "文件系统事件",
-      "module_metadata": "模块 metadata"
+      "module_metadata": "模块 metadata",
+      "shebang": "Shebang"
     }
   },
   "testing": {
@@ -102,7 +109,10 @@
       "assertions": "断言",
       "coverage": "覆盖率",
       "documentation": "文档",
-      "sanitizers": "Sanitizers"
+      "sanitizers": "Sanitizers",
+      "behavior_driven_development": "Behavior-driven development",
+      "mocking": "Mocking",
+      "snapshot_testing": "快照"
     }
   },
   "tools": {
@@ -125,14 +135,21 @@
     "name": "持续集成(CI)"
   },
   "vscode_deno": {
-    "name": "使用 VS Code"
+    "name": "使用 VS Code",
+    "children": {
+      "testing_api": "Testing API"
+    }
   },
   "language_server": {
     "name": "Language Server",
     "children": {
       "overview": "Overview of the language server",
-      "imports": "Import suggestions and intelligent registries"
+      "imports": "Import suggestions and intelligent registries",
+      "testing_api": "Testing API"
     }
+  },
+  "publishing": {
+    "name": "Publishing Modules"
   },
   "embedding_deno": {
     "name": "嵌入 Deno"
@@ -147,6 +164,7 @@
       "web_platform_tests": "Web 平台测试",
       "style_guide": "样式指南",
       "architecture": "架构",
+      "profiling": "Profiling",
       "release_schedule": "发布规划表"
     }
   }

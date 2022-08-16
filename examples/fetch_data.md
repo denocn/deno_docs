@@ -4,18 +4,23 @@
 
 - Like browsers, Deno implements web standard APIs such as
   [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
-- Deno is secure by default, meaning explicit permission must be granted to access the network.
+- Deno is secure by default, meaning explicit permission must be granted to
+  access the network.
 - See also: Deno's [permissions](../getting_started/permissions.md) model.
 
 ## Overview {#overview}
 
-When building any sort of web application developers will usually need to retrieve data from somewhere else on the web.
-This works no differently in Deno than in any other JavaScript application, just call the `fetch()` method. For more
-information on fetch read the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+When building any sort of web application developers will usually need to
+retrieve data from somewhere else on the web. This works no differently in Deno
+than in any other JavaScript application, just call the `fetch()` method. For
+more information on fetch read the
+[MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-The exception with Deno occurs when running a script which makes a call over the web. Deno is secure by default which
-means access to IO (Input / Output) is prohibited. To make a call over the web Deno must be explicitly told it is ok to
-do so. This is achieved by adding the `--allow-net` flag to the `deno run` command.
+The exception with Deno occurs when running a script which makes a call over the
+web. Deno is secure by default which means access to IO (Input / Output) is
+prohibited. To make a call over the web Deno must be explicitly told it is ok to
+do so. This is achieved by adding the `--allow-net` flag to the `deno run`
+command.
 
 ## Example {#example}
 
@@ -49,9 +54,9 @@ try {
 ## Files and Streams
 
 Like in browsers, sending and receiving large files is possible thanks to the
-[Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). The standard library's
-[streams module](https://deno.land/std@$STD_VERSION/streams/) can be used to convert a Deno file into a writable or
-readable stream.
+[Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). The
+standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/)
+can be used to convert a Deno file into a writable or readable stream.
 
 **Command:** `deno run --allow-read --allow-write --allow-net fetch_file.ts`
 

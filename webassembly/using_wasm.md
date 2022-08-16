@@ -1,10 +1,12 @@
 ## Using WebAssembly in Deno
 
-To run WebAssembly in Deno, all you need is a binary to run. WebAssembly is a binary data format. This means that
-`.wasm` files are not directly human readable, and not intended to be written by hand. Instead a compiler for a language
-like Rust, C++, or Go _emits_ `.wasm` files.
+To run WebAssembly in Deno, all you need is a binary to run. WebAssembly is a
+binary data format. This means that `.wasm` files are not directly human
+readable, and not intended to be written by hand. Instead a compiler for a
+language like Rust, C++, or Go _emits_ `.wasm` files.
 
-The following binary exports a `main` function that just returns `42` upon invocation:
+The following binary exports a `main` function that just returns `42` upon
+invocation:
 
 <!-- deno-fmt-ignore -->
 ```ts
@@ -25,16 +27,20 @@ const main = wasmInstance.exports.main as CallableFunction;
 console.log(main().toString());
 ```
 
-As the code above shows, the following steps need to be performed in order to load WebAssembly in a JavaScript program:
+As the code above shows, the following steps need to be performed in order to
+load WebAssembly in a JavaScript program:
 
-1. Fetching the binary (usually in the form of a `.wasm` file, though we are using a simple byte array for now)
+1. Fetching the binary (usually in the form of a `.wasm` file, though we are
+   using a simple byte array for now)
 2. Compiling the binary into a `WebAssembly.Module` object
 3. Instantiating the WebAssembly module
 
-For more complex scenarios you will probably want to write in a programming language that compiles down to WebAssembly
-instead of hand writing instructions. A number of languages exist that can do this, such as
-[Rust](https://www.rust-lang.org/), [Go](https://golang.org/) or [AssemblyScript](https://www.assemblyscript.org/). As
-an example, a Rust program that compiles to the aforementioned bytes would look something like this:
+For more complex scenarios you will probably want to write in a programming
+language that compiles down to WebAssembly instead of hand writing instructions.
+A number of languages exist that can do this, such as
+[Rust](https://www.rust-lang.org/), [Go](https://golang.org/) or
+[AssemblyScript](https://www.assemblyscript.org/). As an example, a Rust program
+that compiles to the aforementioned bytes would look something like this:
 
 ```rust
 pub fn main() -> u32 {  // u32 stands for an unsigned integer using 32 bits of memory.
@@ -42,5 +48,6 @@ pub fn main() -> u32 {  // u32 stands for an unsigned integer using 32 bits of m
 }
 ```
 
-Aside from the methods shown in the preceding example, it is also possible to use the streaming methods of the
-WebAssembly API, as will be shown on the next page.
+Aside from the methods shown in the preceding example, it is also possible to
+use the streaming methods of the WebAssembly API, as will be shown on the next
+page.

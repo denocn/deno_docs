@@ -1,8 +1,8 @@
 ## Assertions {#assertions}
 
 To help developers write tests the Deno standard library comes with a built-in
-[assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which can be imported from
-`https://deno.land/std@$STD_VERSION/testing/asserts.ts`.
+[assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which
+can be imported from `https://deno.land/std@$STD_VERSION/testing/asserts.ts`.
 
 ```js
 import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
@@ -12,14 +12,15 @@ Deno.test("Hello Test", () => {
 });
 ```
 
-> ⚠️ Some popular assertion libraries, like [Chai](https://www.chaijs.com/), can be used in Deno too, for example usage
-> see https://deno.land/std@$STD_VERSION/testing/chai_example.ts.
+> ⚠️ Some popular assertion libraries, like [Chai](https://www.chaijs.com/), can
+> be used in Deno too, for example usage see
+> https://deno.land/std@$STD_VERSION/testing/chai_example.ts.
 
 The assertions module provides 14 assertions:
 
 - `assert(expr: unknown, msg = ""): asserts expr`
 - `assertEquals(actual: unknown, expected: unknown, msg?: string): void`
-- `assertExists(actual: unknown,msg?: string): void`
+- `assertExists(actual: unknown, msg?: string): void`
 - `assertNotEquals(actual: unknown, expected: unknown, msg?: string): void`
 - `assertStrictEquals(actual: unknown, expected: unknown, msg?: string): void`
 - `assertAlmostEquals(actual: number, expected: number, epsilon = 1e-7, msg?: string): void`
@@ -32,9 +33,15 @@ The assertions module provides 14 assertions:
 - `assertThrows(fn: () => void, ErrorClass?: Constructor, msgIncludes?: string | undefined, msg?: string | undefined): Error`
 - `assertRejects(fn: () => Promise<unknown>, ErrorClass?: Constructor, msgIncludes?: string | undefined, msg?: string | undefined): Promise<void>`
 
-### Assert {#assert}
+In addition to the above assertions, the
+[snapshot module](https://deno.land/std@$STD_VERSION/testing/snapshot.ts) also
+exposes an `assertSnapshot` function. The documentation for this module can be
+found [here](https://deno.land/manual@$STD_VERSION/testing/snapshot_testing).
 
-The assert method is a simple 'truthy' assertion and can be used to assert any value which can be inferred as true.
+### Assert
+
+The assert method is a simple 'truthy' assertion and can be used to assert any
+value which can be inferred as true.
 
 ```js
 Deno.test("Test Assert", () => {
@@ -59,10 +66,11 @@ Deno.test("Test Assert Exists", () => {
 
 ### Equality {#equality}
 
-There are three equality assertions available, `assertEquals()`, `assertNotEquals()` and `assertStrictEquals()`.
+There are three equality assertions available, `assertEquals()`,
+`assertNotEquals()` and `assertStrictEquals()`.
 
-The `assertEquals()` and `assertNotEquals()` methods provide a general equality check and are capable of asserting
-equality between primitive types and objects.
+The `assertEquals()` and `assertNotEquals()` methods provide a general equality
+check and are capable of asserting equality between primitive types and objects.
 
 ```js
 Deno.test("Test Assert Equals", () => {
@@ -91,8 +99,9 @@ Deno.test("Test Assert Not Equals", () => {
 });
 ```
 
-By contrast `assertStrictEquals()` provides a simpler, stricter equality check based on the `===` operator. As a result
-it will not assert two instances of identical objects as they won't be referentially the same.
+By contrast `assertStrictEquals()` provides a simpler, stricter equality check
+based on the `===` operator. As a result it will not assert two instances of
+identical objects as they won't be referentially the same.
 
 ```js
 Deno.test("Test Assert Strict Equals", () => {
@@ -103,17 +112,24 @@ Deno.test("Test Assert Strict Equals", () => {
 });
 ```
 
-The `assertStrictEquals()` assertion is best used when you wish to make a precise check against two primitive types.
+The `assertStrictEquals()` assertion is best used when you wish to make a
+precise check against two primitive types.
 
 #### Equality for numbers
 
-When testing equality between numbers, it is important to keep in mind that some of them cannot be accurately depicted
-by IEEE-754 double-precision floating-point representation.
+When testing equality between numbers, it is important to keep in mind that some
+of them cannot be accurately depicted by IEEE-754 double-precision
+floating-point representation.
 
-That's especially true when working with decimal numbers, where `assertStrictEquals()` may work in some cases but not in
-others:
+That's especially true when working with decimal numbers, where
+`assertStrictEquals()` may work in some cases but not in others:
 
 ```ts
+import {
+  assertStrictEquals,
+  assertThrows,
+} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Strict Equals with float numbers", () => {
   assertStrictEquals(0.25 + 0.25, 0.25);
   assertThrows(() => assertStrictEquals(0.1 + 0.2, 0.3));
@@ -121,10 +137,16 @@ Deno.test("Test Assert Strict Equals with float numbers", () => {
 });
 ```
 
-Instead, `assertAlmostEquals()` provides a way to test that given numbers are close enough to be considered equals.
-Default tolerance is set to `1e-7` though it is possible to change it by passing a third optional parameter.
+Instead, `assertAlmostEquals()` provides a way to test that given numbers are
+close enough to be considered equals. Default tolerance is set to `1e-7` though
+it is possible to change it by passing a third optional parameter.
 
 ```ts
+import {
+  assertAlmostEquals,
+  assertThrows,
+} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Almost Equals", () => {
   assertAlmostEquals(0.1 + 0.2, 0.3);
   assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
@@ -134,16 +156,19 @@ Deno.test("Test Assert Almost Equals", () => {
 
 #### Instance types
 
-To check if a object is an instance of a specific constructor, you can use `assertInstanceOf()`. This has the added
-benefit that it lets TypeScript know the passed in variable has a specific type:
+To check if a object is an instance of a specific constructor, you can use
+`assertInstanceOf()`. This has the added benefit that it lets TypeScript know
+the passed in variable has a specific type:
 
 ```ts
+import { assertInstanceOf } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Instance Type", () => {
   const variable = new Date() as unknown;
 
   assertInstanceOf(variable, Date);
 
-  // This won't cause type errors now now that
+  // This won't cause type errors now that
   // it's type has been asserted against.
   variable.getDay();
 });
@@ -151,11 +176,11 @@ Deno.test("Test Assert Instance Type", () => {
 
 ### Contains
 
-There are two methods available to assert a value contains a value, `assertStringIncludes()` and
-`assertArrayIncludes()`.
+There are two methods available to assert a value contains a value,
+`assertStringIncludes()` and `assertArrayIncludes()`.
 
-The `assertStringIncludes()` assertion does a simple includes check on a string to see if it contains the expected
-string.
+The `assertStringIncludes()` assertion does a simple includes check on a string
+to see if it contains the expected string.
 
 ```js
 Deno.test("Test Assert String Contains", () => {
@@ -163,8 +188,8 @@ Deno.test("Test Assert String Contains", () => {
 });
 ```
 
-The `assertArrayIncludes()` assertion is slightly more advanced and can find both a value within an array and an array
-of values within an array.
+The `assertArrayIncludes()` assertion is slightly more advanced and can find
+both a value within an array and an array of values within an array.
 
 ```js
 Deno.test("Test Assert Array Contains", () => {
@@ -176,7 +201,8 @@ Deno.test("Test Assert Array Contains", () => {
 
 ### Regex {#regex}
 
-You can assert regular expressions via `assertMatch()` and `assertNotMatch()` assertions.
+You can assert regular expressions via `assertMatch()` and `assertNotMatch()`
+assertions.
 
 ```js
 Deno.test("Test Assert Match", () => {
@@ -197,7 +223,8 @@ Deno.test("Test Assert Not Match", () => {
 
 ### Object {#object}
 
-Use `assertObjectMatch` to check that a JavaScript object matches a subset of the properties of an object.
+Use `assertObjectMatch` to check that a JavaScript object matches a subset of
+the properties of an object.
 
 ```js
 // Simple subset
@@ -211,17 +238,18 @@ assertObjectMatch(
 
 ### Throws {#throws}
 
-There are two ways to assert whether something throws an error in Deno, `assertThrows()` and `assertRejects()`. Both
-assertions allow you to check an
-[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) has been thrown, the
-type of error thrown and what the message was.
+There are two ways to assert whether something throws an error in Deno,
+`assertThrows()` and `assertRejects()`. Both assertions allow you to check an
+[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+has been thrown, the type of error thrown and what the message was.
 
-The difference between the two assertions is `assertThrows()` accepts a standard function and `assertRejects()` accepts
-a function which returns a
+The difference between the two assertions is `assertThrows()` accepts a standard
+function and `assertRejects()` accepts a function which returns a
 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-The `assertThrows()` assertion will check an error has been thrown, and optionally will check the thrown error is of the
-correct type, and assert the error message is as expected.
+The `assertThrows()` assertion will check an error has been thrown, and
+optionally will check the thrown error is of the correct type, and assert the
+error message is as expected.
 
 ```js
 Deno.test("Test Assert Throws", () => {
@@ -235,8 +263,9 @@ Deno.test("Test Assert Throws", () => {
 });
 ```
 
-The `assertRejects()` assertion is a little more complicated, mainly because it deals with Promises. But basically it
-will catch thrown errors or rejections in Promises. You can also optionally check for the error type and error message.
+The `assertRejects()` assertion is a little more complicated, mainly because it
+deals with Promises. But basically it will catch thrown errors or rejections in
+Promises. You can also optionally check for the error type and error message.
 This can be used similar to `assertThrows()` but with async functions.
 
 ```js
@@ -263,8 +292,9 @@ Deno.test("Test Assert Throws Async", () => {
 
 ### Custom Messages {#custom-messages}
 
-Each of Deno's built-in assertions allow you to overwrite the standard CLI error message if you wish. For instance this
-example will output "Values Don't Match!" rather than the standard CLI error message.
+Each of Deno's built-in assertions allow you to overwrite the standard CLI error
+message if you wish. For instance this example will output "Values Don't Match!"
+rather than the standard CLI error message.
 
 ```js
 Deno.test("Test Assert Equal Fail Custom Message", () => {
@@ -274,11 +304,15 @@ Deno.test("Test Assert Equal Fail Custom Message", () => {
 
 ### Custom Tests {#custom-tests}
 
-While Deno comes with powerful [assertions modules](https://deno.land/std@$STD_VERSION/testing/asserts.ts) but there is
-always something specific to the project you can add. Creating `custom assertion function` can improve readability and
-reduce the amount of code.
+While Deno comes with powerful
+[assertions modules](https://deno.land/std@$STD_VERSION/testing/asserts.ts) but
+there is always something specific to the project you can add. Creating
+`custom assertion function` can improve readability and reduce the amount of
+code.
 
-```js
+```ts
+import { AssertionError } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 function assertPowerOf(actual: number, expected: number, msg?: string): void {
   let received = actual;
   while (received % expected === 0) received = received / expected;

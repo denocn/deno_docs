@@ -2,20 +2,26 @@
 
 ### Introduction {#introduction}
 
-Let's say your module depends on remote module `https://some.url/a.ts`. When you compile your module for the first time
-`a.ts` is retrieved, compiled and cached. It will remain this way until you run your module on a new machine (say in
-production) or reload the cache (through `deno cache --reload` for example). But what happens if the content in the
-remote url `https://some.url/a.ts` is changed? This could lead to your production module running with different
-dependency code than your local module. Deno's solution to avoid this is to use integrity checking and lock files.
+Let's say your module depends on remote module `https://some.url/a.ts`. When you
+compile your module for the first time `a.ts` is retrieved, compiled and cached.
+It will remain this way until you run your module on a new machine (say in
+production) or reload the cache (through `deno cache --reload` for example). But
+what happens if the content in the remote url `https://some.url/a.ts` is
+changed? This could lead to your production module running with different
+dependency code than your local module. Deno's solution to avoid this is to use
+integrity checking and lock files.
 
 ### Caching and lock files {#caching-and-lock-files}
 
-Deno can store and check subresource integrity for modules using a small JSON file. Use the `--lock=lock.json` to enable
-and specify lock file checking. To update or create a lock use `--lock=lock.json --lock-write`. The `--lock=lock.json`
-tells Deno what the lock file to use is, while the `--lock-write` is used to output dependency hashes to the lock file
+Deno can store and check subresource integrity for modules using a small JSON
+file. Use the `--lock=lock.json` to enable and specify lock file checking. To
+update or create a lock use `--lock=lock.json --lock-write`. The
+`--lock=lock.json` tells Deno what the lock file to use is, while the
+`--lock-write` is used to output dependency hashes to the lock file
 (`--lock-write` must be used in conjunction with `--lock`).
 
-A `lock.json` might look like this, storing a hash of the file against the dependency:
+A `lock.json` might look like this, storing a hash of the file against the
+dependency:
 
 ```json
 {
@@ -30,7 +36,7 @@ A typical workflow will look like this:
 
 **src/deps.ts**
 
-```ts
+```ts, ignore
 // Add a new dependency to "src/deps.ts", used somewhere else.
 export { xyz } from "https://unpkg.com/xyz-lib@v0.9.0/lib.ts";
 ```
@@ -60,17 +66,20 @@ deno test --allow-read src
 
 ### Runtime verification {#runtime-verification}
 
-Like caching above, you can also use the `--lock=lock.json` option during use of the `deno run` sub command, validating
-the integrity of any locked modules during the run. Remember that this only validates against dependencies previously
-added to the `lock.json` file. New dependencies will be cached but not validated.
+Like caching above, you can also use the `--lock=lock.json` option during use of
+the `deno run` sub command, validating the integrity of any locked modules
+during the run. Remember that this only validates against dependencies
+previously added to the `lock.json` file. New dependencies will be cached but
+not validated.
 
-You can take this a step further as well by using the `--cached-only` flag to require that remote dependencies are
-already cached.
+You can take this a step further as well by using the `--cached-only` flag to
+require that remote dependencies are already cached.
 
 ```shell
 deno run --lock=lock.json --cached-only mod.ts
 ```
 
-This will fail if there are any dependencies in the dependency tree for mod.ts which are not yet cached.
+This will fail if there are any dependencies in the dependency tree for mod.ts
+which are not yet cached.
 
 <!-- TODO - Add detail on dynamic imports -->

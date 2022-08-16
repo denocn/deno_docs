@@ -1,26 +1,30 @@
 # 介绍 {#introduction}
 
-Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A), 发音 `dee-no`) 是一个 JavaScript/TypeScript
-的运行时，默认使用安全环境执行代码，有着卓越的开发体验。
+Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A), 发音
+`dee-no`) 是一个 JavaScript/TypeScript 的运行时，默认使用安全环境执行代码，有着卓越的开发体验。
 
 Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
 ## 功能亮点 {#feature-highlights}
 
-- 尽可能的兼容 Web 规范，例如使用 ES modules、支持 `fetch` 等。
+- 尽可能的兼容 [Web 规范](./runtime/web_platform_apis.md)，例如使用 ES modules、支持 `fetch()`
+  等。
 - 默认安全。代码不能访问文件、网络、环境变量等（除非显式开启）。
-- 支持开箱即用的 TypeScript 的环境。
+- 支持开箱即用的 [TypeScript](./typescript.md) 的环境。
 - 只发布一个独立的可执行文件 (`deno`)。
-- 有着内置的工具箱，比如代码格式化工具 (`deno fmt`)，a linter (`deno lint`) 和测试工具 (`deno test`)。
-- 有一组经过审计的 [标准模块](https://github.com/denoland/deno_std)，保证能在 Deno 上工作。
-- 脚本代码能被打包为单独的 JavaScript 文件。
+- 有着内置的[工具箱](./tools.md)，比如代码格式化工具 ([`deno fmt`](./tools/formatter.md))，a linter
+  ([`deno lint`](./tools/linter.md))，([`deno test`](./testing.md)) 和
+  [编辑器 LSP](./getting_started/setup_your_environment.md#using-an-editoride)。
+- 有一组经过审计的 [标准模块](https://deno.land/std/)，保证能在 Deno 上工作。
+- 脚本代码能被[打包](./tools/bundler.md)为单独的 JavaScript
+  文件，也可以编译为[可执行文件](./tools/compiler.md)。
 
 ## 哲学 {#philosophy}
 
 Deno 旨在为现代程序员提供高效、安全的脚本环境。
 
 Deno 将始终作为单个可执行文件分发。给定一个 Deno 程序的
-URL，您应该能够用[压缩后不超过 25 MB 的 Deno 可执行文件](https://github.com/denoland/deno/releases)运行它。Deno
+URL，您应该能够用[压缩后 31MB 左右的 Deno 可执行文件](https://github.com/denoland/deno/releases)运行它。Deno
 明确地承担了运行时和包管理器的角色。它使用标准的浏览器兼容协议(URL)来加载模块。
 
 对于过去用 Bash 或 Python 编写的工具脚本来说，Deno 是一个优秀的替代品。
@@ -31,7 +35,8 @@ URL，您应该能够用[压缩后不超过 25 MB 的 Deno 可执行文件](http
 - 默认安全。
   - 除非显式开启，否则脚本代码不能访问文件、网络、环境变量。
 - 浏览器兼容。
-  - 完全用 JavaScript 编写且不使用全局 `Deno` 命名空间(或功能测试)的程序是 Deno 程序的子集，能够直接在现代浏览器中运行而无需更改。
+  - 完全用 JavaScript 编写且不使用全局 `Deno` 命名空间(或功能测试)的程序是 Deno
+    程序的子集，能够直接在现代浏览器中运行而无需更改。
 - 提供内置工具来提升开发体验。
   - 比如单元测试、代码格式化、代码检查。
 - 不把 V8 的概念泄露到用户空间。

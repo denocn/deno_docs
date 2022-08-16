@@ -56,8 +56,8 @@ sleep 1
 kill `pgrep deno`
 ```
 
-V8 will write a file in the current directory that looks like this: `isolate-0x7fad98242400-v8.log`. To examine this
-file:
+V8 will write a file in the current directory that looks like this:
+`isolate-0x7fad98242400-v8.log`. To examine this file:
 
 ```sh
 node --prof-process isolate-0x7fad98242400-v8.log > prof.log
@@ -67,8 +67,8 @@ node --prof-process isolate-0x7fad98242400-v8.log > prof.log
 
 To view the log with Web UI, generate JSON file of the log:
 
-Open `rusty_v8/v8/tools/profview/index.html` in your browser, and select `prof.json` to view the distribution
-graphically.
+Open `rusty_v8/v8/tools/profview/index.html` in your browser, and select
+`prof.json` to view the distribution graphically.
 
 Useful V8 flags during profiling:
 
@@ -85,7 +85,8 @@ To learn more about profiling, check out the following links:
 
 ### Debugging with LLDB
 
-To debug the deno binary, we can use `rust-lldb`. It should come with `rustc` and is a wrapper around LLDB.
+To debug the deno binary, we can use `rust-lldb`. It should come with `rustc`
+and is a wrapper around LLDB.
 
 ```shell
 $ rust-lldb -- ./target/debug/deno run --allow-net tests/http_bench.ts
@@ -902,7 +903,7 @@ Options:
         type: bool  default: false
   --stop-sim-at (Simulator stop after x number of instructions)
         type: int  default: 0
-  --sim-stack-alignment (Stack alingment in bytes in simulator (4 or 8, 8 is default))
+  --sim-stack-alignment (Stack alignment in bytes in simulator (4 or 8, 8 is default))
         type: int  default: 8
   --sim-stack-size (Stack size of the ARM64, MIPS64 and PPC64 simulator in kBytes (default is 2 MB))
         type: int  default: 2048

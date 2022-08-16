@@ -9,6 +9,7 @@
 - [管理依赖](./examples/manage_dependencies.md)
 - [请求数据](./examples/fetch_data.md)
 - [文件读写](./examples/read_write_files.md)
+- [Shebang](./examples/shebang.md)
 
 ## 高级 {#advanced}
 

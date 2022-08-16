@@ -14,9 +14,10 @@
 
 #### Resources {#resources}
 
-Resources (AKA `rid`) are Deno's version of file descriptors. They are integer values used to refer to open files,
-sockets, and other concepts. For testing it would be good to be able to query the system for how many open resources
-there are.
+Resources (AKA `rid`) are Deno's version of file descriptors. They are integer
+values used to refer to open files, sockets, and other concepts. For testing it
+would be good to be able to query the system for how many open resources there
+are.
 
 ```ts
 console.log(Deno.resources());
@@ -55,7 +56,9 @@ Metrics is Deno's internal counter for various statistics.
 
 ### Conference {#conference}
 
-- Ryan Dahl. (May 27, 2020). [An interesting case with Deno](https://www.youtube.com/watch?v=1b7FoBwxc7E). Deno Israel.
+- Ryan Dahl. (May 27, 2020).
+  [An interesting case with Deno](https://www.youtube.com/watch?v=1b7FoBwxc7E).
+  Deno Israel.
 - Bartek Iwańczuk. (Oct 6, 2020).
-  [Deno internals - how modern JS/TS runtime is built](https://www.youtube.com/watch?v=AOvg_GbnsbA&t=35m13s). Paris
-  Deno.
+  [Deno internals - how modern JS/TS runtime is built](https://www.youtube.com/watch?v=AOvg_GbnsbA&t=35m13s).
+  Paris Deno.
