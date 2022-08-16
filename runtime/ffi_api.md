@@ -1,7 +1,8 @@
 ## Foreign Function Interface API
 
-As of Deno 1.13 and later, the FFI (foreign function interface) API allows users to call libraries written in native
-languages that support the C ABIs (Rust, C/C++, C#, Zig, Nim, Kotlin, etc) using `Deno.dlopen`.
+As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
+to call libraries written in native languages that support the C ABIs (Rust,
+C/C++, C#, Zig, Nim, Kotlin, etc) using `Deno.dlopen`.
 
 ### Usage
 
@@ -83,11 +84,12 @@ deno run --allow-ffi --unstable ffi.ts
 
 ### Non-blocking FFI
 
-There are many use cases where users might want to run CPU-bound FFI functions in the background without blocking other
-tasks on the main thread.
+There are many use cases where users might want to run CPU-bound FFI functions
+in the background without blocking other tasks on the main thread.
 
-As of Deno 1.15, symbols can be marked `nonblocking` in `Deno.dlopen`. These function calls will run on a dedicated
-blocking thread and will return a `Promise` resolving to the desired `result`.
+As of Deno 1.15, symbols can be marked `nonblocking` in `Deno.dlopen`. These
+function calls will run on a dedicated blocking thread and will return a
+`Promise` resolving to the desired `result`.
 
 Example of executing expensive FFI calls with Deno:
 
@@ -231,15 +233,6 @@ Here's a list of types supported currently by the Deno FFI API.
 | `pointer`[2]  | `bigint \| TypedArray` | `const uint8_t *`        | `*const u8`               |
 | `function`[3] | `bigint`               | `void (*fun)()`          | `Option<extern "C" fn()>` |
 
-<<<<<<< HEAD
-- [1] `pointer` type accepts both Typed Arrays and `Deno.UnsafePointer` as parameter, while it always returns the latter
-  when used as result type.
-
-### deno_bindgen
-
-[`deno_bindgen`](https://github.com/littledivy/deno_bindgen) is an external tool to simplify glue code generation of
-Deno FFI libraries written in Rust.
-=======
 - [1] `void` type can only be used as a result type.
 - [2] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
   it always returns the latter when used as result type.
@@ -251,9 +244,9 @@ Deno FFI libraries written in Rust.
 
 [`deno_bindgen`](https://github.com/denoland/deno_bindgen) is the official tool
 to simplify glue code generation of Deno FFI libraries written in Rust.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
-It is similar to [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) in the Rust WASM ecosystem.
+It is similar to [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) in
+the Rust WASM ecosystem.
 
 Here's an example showing its usage:
 
@@ -273,7 +266,8 @@ fn mul(input: Input) -> i32 {
 }
 ```
 
-Run `deno_bindgen` to generate bindings. You can now directly import them into Deno:
+Run `deno_bindgen` to generate bindings. You can now directly import them into
+Deno:
 
 ```ts, ignore
 // mul.ts
@@ -281,9 +275,8 @@ import { mul } from "./bindings/bindings.ts";
 mul({ a: 10, b: 2 }); // 20
 ```
 
-<<<<<<< HEAD
-Any issues related to `deno_bindgen` should be reported at https://github.com/littledivy/deno_bindgen/issues
-=======
+# <<<<<<< HEAD Any issues related to `deno_bindgen` should be reported at https://github.com/littledivy/deno_bindgen/issues
+
 Any issues related to `deno_bindgen` should be reported at
-https://github.com/denoland/deno_bindgen/issues
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
+https://github.com/denoland/deno_bindgen/issues >>>>>>>
+53f6f04fc0ec73acba84e06034572e35ebf10695

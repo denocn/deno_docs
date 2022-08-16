@@ -23,11 +23,4 @@
 
 ¹ 查看 [链接至外部代码](../linking_to_external_code.md)，在首次运行的时候 Deno 会下载并缓存所有代码。
 
-<<<<<<< HEAD
 ² 自动进行类型检查，TypeScript 编译器已经内置到了 `deno` 可执行文件中。
-
-³ `deno bench` subcommand is being considered, see https://github.com/denoland/deno/issues/9175
-=======
-² Type checking happens automatically, TypeScript compiler is built into the
-`deno` binary.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695

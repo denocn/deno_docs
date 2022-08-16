@@ -15,7 +15,8 @@ deno -h
 deno --help
 ```
 
-Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle` 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
+Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle`
+特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
 
 ```shell
 deno help bundle
@@ -66,8 +67,8 @@ deno run net_client.ts --allow-net
 
 1. 这是区分运行时选项和脚本参数的最合乎逻辑的方法。
 2. 实际上，这和其他流行的运行时具有相同的行为。
-   - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js` 做语法检查. 而第二个会 _执行_ `index.js`，将`-c`
-     传递为`require("process").argv`。
+   - 试试 `node -c index.js` 和 `node index.js -c`. 第一个只会根据`-c`选项对 `index.js`
+     做语法检查. 而第二个会 _执行_ `index.js`，将`-c` 传递为`require("process").argv`。
 
 ---
 
@@ -75,15 +76,17 @@ deno run net_client.ts --allow-net
 
 ### 观察模式 {#watch-mode}
 
-你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch` 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
+你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch`
+选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
 
-- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local files the entrypoint(s) statically
-  import(s) will be watched.
-- for `deno fmt` all local files and directories specified as command line arguments (or the working directory if no
-  specific files/directories is passed) are watched.
+- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
+  files the entrypoint(s) statically import(s) will be watched.
+- for `deno fmt` all local files and directories specified as command line
+  arguments (or the working directory if no specific files/directories is
+  passed) are watched.
 
-Whenever one of the watched files is changed on disk, the program will automatically be restarted / formatted / tested /
-bundled.
+Whenever one of the watched files is changed on disk, the program will
+automatically be restarted / formatted / tested / bundled.
 
 ```shell
 deno run --watch main.ts
@@ -93,52 +96,36 @@ deno fmt --watch
 
 ### Integrity flags (lock files)
 
-Affect commands which can download resources to the cache: `deno cache`, `deno run`, `deno test`, `deno bundle`,
-`deno doc`, and `deno compile`. >>>>>>> 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
+Affect commands which can download resources to the cache: `deno cache`,
+`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`. >>>>>>>
+20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
 
-<<<<<<< HEAD
-```
+```terminal
 --lock <FILE>    检查指定的锁文件
 --lock-write     写入锁文件. 和 --lock 一起使用.
-=======
-```terminal
---lock <FILE>    Check the specified lock file
---lock-write     Write lock file. Use with --lock.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 ```
 
 更多信息在[这里](../linking_to_external_code/integrity_checking.md).
 
 ### 缓存和编译选项 {#cache-and-compilation-flags}
 
-Affect commands which can populate the cache: `deno cache`, `deno run`, `deno test`, `deno bundle`, `deno doc`, and
-`deno compile`. As well as the flags above, this includes those which affect module resolution, compilation
+Affect commands which can populate the cache: `deno cache`, `deno run`,
+`deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
+above, this includes those which affect module resolution, compilation
 configuration etc.
 
-<<<<<<< HEAD
-```
+```terminal
 --config <FILE>               加载配置文件
 --import-map <FILE>           加载导入映射文件
 --no-remote                   不要解析远程模块
 --reload=<CACHE_BLOCKLIST>    重新加载源代码缓存（重新编译 TypeScript）
 --unstable                    启用不稳定 API
-=======
-```terminal
---config <FILE>               Load configuration file
---import-map <FILE>           Load import map file
---no-remote                   Do not resolve remote modules
---reload=<CACHE_BLOCKLIST>    Reload source code cache (recompile TypeScript)
---unstable                    Enable unstable APIs
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 ```
 
 ### 运行时选项 {#runtime-flags}
 
 对运行用户代码有影响的命令: `deno run` 和 `deno test`. 这些包括以上所有和以下内容。
 
-<<<<<<< HEAD
-#### 权限选项 {#permission-flags}
-=======
 #### Type checking flags
 
 You can type-check your code (without executing it) using the command:
@@ -173,7 +160,6 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 | `deno test`    | 📁 Local            |
 
 #### Permission flags
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 [这里](./permissions.md#permissions-list)列出了所有权限选项
 
@@ -181,17 +167,10 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 
 对运行环境有影响的更多选项：
 
-<<<<<<< HEAD
-```
+```terminal
 --cached-only                要求远程依赖已经被缓存
 --inspect=<HOST:PORT>        在 host:port 启动检查器
 --inspect-brk=<HOST:PORT>    在 host:port 启动检查器并且暂停执行
-=======
-```terminal
---cached-only                Require that remote dependencies are already cached
---inspect=<HOST:PORT>        activate inspector on host:port ...
---inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 --location <HREF>            Value of 'globalThis.location' used by some web APIs
 --seed <NUMBER>              指定 Math.random() 的随机种子
 --v8-flags=<v8-flags>        设置 V8 命令行选项

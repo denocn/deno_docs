@@ -2,13 +2,8 @@
 
 Deno 支持 [导入映射](https://github.com/WICG/import-maps).
 
-<<<<<<< HEAD
-你可以在启动时添加`--import-map<FILE>`选项来启用导入映射
-=======
-You can use import maps with the `--import-map=<FILE>` CLI flag or `importMap`
-option in the [configuration file](../getting_started/configuration_file.md),
-the former will take precedence.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
+你可以在启动时添加`--import-map<FILE>`选项来启用导入映射，或者通过[配置文件](../getting_started/configuration_file.md)的
+`importMap`。
 
 示例:
 

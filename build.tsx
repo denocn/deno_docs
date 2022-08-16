@@ -1,7 +1,10 @@
 #!/usr/bin/env -S deno run --config deno.jsonc --allow-read=. --allow-write=./dist --allow-net --no-check
 
 /** @jsx h */
-import { h, renderSSR } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/deps.ts";
+import {
+  h,
+  renderSSR,
+} from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/deps.ts";
 
 import type { Toc } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/components/Sidebar.tsx";
 import App from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/App.tsx";

@@ -1,7 +1,8 @@
 # Deno 风格指南 {#deno-style-guide}
 
-> ⚠️ Note that this is the style guide for **internal runtime code** in the Deno runtime, and in the Deno standard
-> library. This is not meant as a general style guide for users of Deno.
+> ⚠️ Note that this is the style guide for **internal runtime code** in the Deno
+> runtime, and in the Deno standard library. This is not meant as a general
+> style guide for users of Deno.
 
 ## 版权声明信息 {#copyright-headers}
 
@@ -33,17 +34,14 @@ TODO 注释通常应该在括号中包含 Issue ID 或作者的 Github 用户名
 
 ## 不提倡使用元编程，如 Proxy {#meta-programming-is-discouraged-including-the-use-of-proxy}
 
-<<<<<<< HEAD
 即便意味着要写更多的代码，也要明确地表达（代码含义）。
-=======
-Be explicit, even when it means more code.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 在某些情况下，使用元编程是有意义的，但在绝大多数情况下是毫无意义的。
 
 ## 包容性守则 {#inclusive-code}
 
-请遵循以下网址所概述的包容性守则的指导方针 https://chromium.googlesource.com/chromium/src/+/master/styleguide/inclusive_code.md.
+请遵循以下网址所概述的包容性守则的指导方针
+https://chromium.googlesource.com/chromium/src/+/master/styleguide/inclusive_code.md.
 
 ## Rust {#rust}
 
@@ -57,19 +55,15 @@ Be explicit, even when it means more code.
 
 ### 使用术语 "module" 而非 "library" 或 "package". {#use-the-term-module-instead-of-library-or-package}
 
-<<<<<<< HEAD
-为了保持清晰性和一致性，请避免使用 "library" 和 "package"。使用 "module" 来指代一个 JS 或 TS 文件，也可以指代一个目录中的 TS/JS 代码。
-=======
-For clarity and consistency, avoid the terms "library" and "package". Instead
-use "module" to refer to a single JS or TS file and also to refer to a directory
-of TS/JS code.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
+为了保持清晰性和一致性，请避免使用 "library" 和 "package"。使用 "module" 来指代一个 JS 或 TS 文件，也可以指代一个目录中的
+TS/JS 代码。
 
 ### 不要用 `index.ts`/`index.js` 当文件名 {#do-not-use-the-filename-indextsindexjs}
 
 Deno 不会对 "index.js" 或 "index.ts" 进行特殊处理。虽然要使用这些文件名，但又不能将它们排除在模块说明符之外，这令人十分困惑。
 
-如果一个代码目录需要一个默认的入口，请使用文件名 `mod.ts`。文件名 `mod.ts` 遵循 Rust 的惯例， 它比 `index.ts` 更短，并且无需事先知道它是如何工作的。
+如果一个代码目录需要一个默认的入口，请使用文件名 `mod.ts`。文件名 `mod.ts` 遵循 Rust 的惯例， 它比 `index.ts`
+更短，并且无需事先知道它是如何工作的。
 
 ### 导出函数：最多 2 个参数，把其余的参数放入一个配置对象中 {#exported-functions-max-2-args-put-the-rest-into-an-options-object}
 
@@ -88,13 +82,8 @@ Deno 不会对 "index.js" 或 "index.ts" 进行特殊处理。虽然要使用这
 
    这使得 API 即使当选项对象的位置发生变化时，也能以一种向后兼容的方式发展。
 
-<<<<<<< HEAD
-```ts
-// BAD: 可选参数不是可选对象的一部分 (#2)
-=======
 ```ts, ignore
-// BAD: optional parameters not part of options object. (#2)
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
+// BAD: 可选参数不是可选对象的一部分 (#2)
 export function resolve(
   hostname: string,
   family?: "ipv4" | "ipv6",
@@ -180,13 +169,7 @@ export function pwrite(options: PWrite) {}
 
 ### 导出所有被依赖的接口 {#export-all-interfaces-that-are-used-as-parameters-to-an-exported-member}
 
-<<<<<<< HEAD
 被导出函数签名中所依赖的接口，请一并导出。示例如下：
-=======
-Whenever you are using interfaces that are included in the parameters or return
-type of an exported member, you should export the interface that is used. Here
-is an example:
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 ```ts, ignore
 // my_file.ts
@@ -210,13 +193,7 @@ export type { Person } from "./my_file.ts";
 
 ### 不要引入下划线开头的文件 {#if-a-filename-starts-with-an-underscore-_foots-do-not-link-to-it}
 
-<<<<<<< HEAD
 必要的内部模块有着尚不稳定的 API 或未被链接的情况时常会发生。这种情况下我们会在它前面加上下划线。按照惯例，只有同目录下的文件应能导入它。
-=======
-There may be situations where an internal module is necessary but its API is not
-meant to be stable or linked to. In this case prefix it with an underscore. By
-convention, only files in its own directory should import it.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 ### 导出项使用 JSDoc 注释 {#use-jsdoc-for-exported-symbols}
 
@@ -231,14 +208,7 @@ export function foo() {
 }
 ```
 
-<<<<<<< HEAD
 文档易读性是重要的，但也需要提供额外的样式信息，以确保生成的文档是更丰富的文本。因此 JSDoc 一般应遵循 markdown 标记来丰富文本。
-=======
-It is important that documentation is easily human-readable, but there is also a
-need to provide additional styling information to ensure generated documentation
-is more rich text. Therefore JSDoc should generally follow markdown markup to
-enrich the text.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 虽然 markdown 支持 HTML 标签，但在 JSDoc 块中是被禁止的。
 
@@ -248,8 +218,8 @@ enrich the text.
 /** 从 `deno` 模块中导入一些东西 */
 ```
 
-<<<<<<< HEAD
-无需记录函数的参数，除非函数参数无法做到见名知意。（尽管参数做到了见名知意，但最终还应以 API 为准）。因此一般无需使用 `@param`。如果一定要用，它不应当包含 `type`，因为 TypeScript 已经在这方面做的很好了。
+无需记录函数的参数，除非函数参数无法做到见名知意。（尽管参数做到了见名知意，但最终还应以 API 为准）。因此一般无需使用
+`@param`。如果一定要用，它不应当包含 `type`，因为 TypeScript 已经在这方面做的很好了。
 
 ```ts
 /**
@@ -262,36 +232,13 @@ enrich the text.
 
 ```ts
 /** 这是一个被提倡的单行 JSDoc 注释 */
-=======
-Do not document function arguments unless they are non-obvious of their intent
-(though if they are non-obvious intent, the API should be considered anyways).
-Therefore `@param` should generally not be used. If `@param` is used, it should
-not include the `type` as TypeScript is already strongly-typed.
-
-```ts
-/**
- * Function with non-obvious param.
- * @param foo Description of non-obvious parameter.
- */
-```
-
-Vertical spacing should be minimized whenever possible. Therefore, single-line
-comments should be written as:
-
-```ts
-/** This is a good single-line JSDoc. */
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 ```
 
 不要这样做:
 
 ```ts
 /**
-<<<<<<< HEAD
  * 这是一个不被提倡的单行 JSDoc 注释
-=======
- * This is a bad single-line JSDoc.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
  */
 ```
 
@@ -306,17 +253,12 @@ comments should be written as:
  */
 ````
 
-<<<<<<< HEAD
 代码示例不应包含额外的注释，也不应该缩进，因为它已经在注释里面了。还需要进一步说明的示例不好。
-=======
-Code examples should not contain additional comments and must not be indented.
-It is already inside a comment. If it needs further comments, it is not a good
-example.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 ### 使用指令来解决 linting 问题 {#resolve-linting-problems-using-directives}
 
-在当前的构建过程中，使用 `dlint` 来校验代码中的 linting 问题。 如果任务对 linter 来说是不合格的话，使用 `deno-lint-ignore <code>` 指令来抑制警告。
+在当前的构建过程中，使用 `dlint` 来校验代码中的 linting 问题。 如果任务对 linter 来说是不合格的话，使用
+`deno-lint-ignore <code>` 指令来抑制警告。
 
 ```typescript
 // deno-lint-ignore no-explicit-any
@@ -327,22 +269,12 @@ let x: any;
 
 ### 每个模块应附带一个测试模块 {#each-module-should-come-with-a-test-module}
 
-<<<<<<< HEAD
-每个具有公共功能的模块 `foo.ts` 都应该有一个测试模块 `foo_test.ts`。 对 `std` 模块的测试应该放在 `std/tests` 中，因为它们拥有不同的上下文，否则它应该只是被测试模块的兄弟。
-=======
-Every module with public functionality `foo.ts` should come with a test module
-`foo_test.ts`. A test for a `std` module should go in `std/tests` due to their
-different contexts; otherwise, it should just be a sibling to the tested module.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
+每个具有公共功能的模块 `foo.ts` 都应该有一个测试模块 `foo_test.ts`。 对 `std` 模块的测试应该放在 `std/tests`
+中，因为它们拥有不同的上下文，否则它应该只是被测试模块的兄弟。
 
 ### 单元测试应该是明确的 {#unit-tests-should-be-explicit}
 
-<<<<<<< HEAD
 为了更好地理解测试，函数的名称在整个测试命令中都应有正确的提示。如下：
-=======
-For a better understanding of the tests, function should be correctly named as
-it's prompted throughout the test command. Like:
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 ```
 test myTestFunction ... ok
@@ -359,16 +291,9 @@ Deno.test("myTestFunction", function () {
 });
 ```
 
-<<<<<<< HEAD
 ### 顶层函数不应使用箭头函数语法。 {#top-level-functions-should-not-use-arrow-syntax}
 
 顶层函数应使用 `function` 关键字。 箭头语法应局限于闭包。
-=======
-### Top-level functions should not use arrow syntax.
-
-Top-level functions should use the `function` keyword. Arrow syntax should be
-limited to closures.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 Bad:
 
@@ -390,57 +315,14 @@ export function foo(): string {
 
 #### 不要依赖外部代码 {#do-not-depend-on-external-code}
 
-<<<<<<< HEAD
 `https://deno.land/std/` 旨在成为所有 Deno 程序可以依赖的基础。 我们向用户保证，这些代码不包含可能未经审查的第三方代码。
-=======
-`https://deno.land/std/` is intended to be baseline functionality that all Deno
-programs can rely on. We want to guarantee to users that this code does not
-include potentially unreviewed third-party code.
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 #### 记录并维护浏览器的兼容性 {#document-and-maintain-browser-compatibility}
 
-<<<<<<< HEAD
 如果一个模块与浏览器兼容，请在模块顶部的 JSDoc 中加入以下内容。
-=======
-If a module is browser-compatible, include the following in the JSDoc at the top
-of the module:
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
 
 ```ts
 // This module is browser-compatible.
 ```
 
-<<<<<<< HEAD
 通过不使用全局的 `Deno` 命名空间或对其进行功能测试来保持这种模块的浏览器兼容性，来确保任何新的依赖项也能与浏览器兼容。
-=======
-Maintain browser compatibility for such a module by either not using the global
-`Deno` namespace or feature-testing for it. Make sure any new dependencies are
-also browser compatible.
-
-#### Prefer `#` over `private`
-
-We prefer the private fields (`#`) syntax over `private` keyword of TypeScript
-in the standard modules codebase. The private fields make the properties and
-methods private even at runtime. On the other hand, `private` keyword of
-TypeScript guarantee it private only at compile time and the fields are publicly
-accessible at runtime.
-
-Good:
-
-```ts
-class MyClass {
-  #foo = 1;
-  #bar() {}
-}
-```
-
-Bad:
-
-```ts
-class MyClass {
-  private foo = 1;
-  private bar() {}
-}
-```
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
