@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 内置工具集 {#built-in-tooling}
+=======
+# Built-In Tooling
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 Deno 提供了许多内置工具，这些工具在使用 JavaScript 和 TypeScript 时非常有用：
 

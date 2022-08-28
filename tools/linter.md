@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Linter {#linter}
+=======
+# Linter
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 Deno ships with a built-in code linter for JavaScript and TypeScript.
 
@@ -17,14 +21,24 @@ cat file.ts | deno lint -
 
 For more detail, run `deno lint --help`.
 
+<<<<<<< HEAD
 ### Available rules {#available-rules}
+=======
+## Available rules
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 For a complete list of supported rules visit
 [the deno_lint rule documentation](https://lint.deno.land).
 
+<<<<<<< HEAD
 ### Ignore directives {#ignore-directives}
 
 #### Files {#files}
+=======
+## Ignore directives
+
+### Files
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 To ignore whole file `// deno-lint-ignore-file` directive should placed at the
 top of the file:
@@ -65,7 +79,11 @@ function foo(): any {
 }
 ```
 
+<<<<<<< HEAD
 #### Diagnostics {#diagnostics}
+=======
+### Diagnostics
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 To ignore certain diagnostic `// deno-lint-ignore <codes...>` directive should
 be placed before offending line. Specifying ignored rule name is required:
@@ -82,7 +100,7 @@ function bar(a: any) {
 }
 ```
 
-### Configuration
+## Configuration
 
 Starting with Deno v1.14 a linter can be customized using either
 [a configuration file](../getting_started/configuration_file.md) or following

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## 前言 {#first-steps}
+=======
+# First Steps
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 这个页面包含了一些例子，来带您学习 Deno 的基础知识。
 
@@ -6,7 +10,11 @@
 Deno 之前，您需要先学习掌握
 [JavaScript 基础](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)。
 
+<<<<<<< HEAD
 ### Hello World {#hello-world}
+=======
+## Hello World
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 Deno 是 JavaScript/TypeScript 的运行时，它试图与web兼容，并尽可能使用现代功能。
 
@@ -24,7 +32,11 @@ console.log("Welcome to Deno!");
 deno run https://deno.land/std@$STD_VERSION/examples/welcome.ts
 ```
 
+<<<<<<< HEAD
 ### 发送 HTTP 请求 {#making-an-http-request}
+=======
+## Making an HTTP request
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 许多程序使用 HTTP 从 Web 服务器获取数据。让我们写一段代码，来获取一个文件并把文件内容打印到终端上。
 
@@ -65,7 +77,11 @@ deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
 deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
 ```
 
+<<<<<<< HEAD
 ### 读取文件 {#reading-a-file}
+=======
+## Reading a file
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 Deno 还提供了不是来自 web 的 api。这些都包含在 `Deno` global 中。您可以在
 [doc.deno.land](https://doc.deno.land/deno/stable/~/Deno) 上找到这些 API 的文档。
@@ -97,7 +113,11 @@ deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/ho
 deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
+<<<<<<< HEAD
 ### TCP服务器 {#tcp-server}
+=======
+## TCP server
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 这是一个服务器的例子，它接受端口 8080 上的连接，并向客户机返回它发送的任何内容。
 
@@ -134,6 +154,10 @@ hello world
 
 与 `cat.ts` 示例一样，这里的 `copy()` 函数也不会复制不必要的内存。 它从内核接收一个数据包并将其发回，仅此而已。
 
+<<<<<<< HEAD
 ### 更多例子 {#more-examples}
+=======
+## More examples
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 您可以在[示例](../examples) 一章中找到更多示例，如：HTTP文件服务器。

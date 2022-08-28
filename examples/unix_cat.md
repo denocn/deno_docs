@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # An implementation of the unix "cat" program {#an-implementation-of-the-unix-cat-program}
+=======
+# An Implementation of the Unix "cat" Program
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 ## Concepts {#concepts}
 

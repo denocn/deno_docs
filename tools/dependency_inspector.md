@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Dependency Inspector {#dependency-inspector}
+=======
+# Dependency Inspector
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 `deno info [URL]` will inspect an ES module and all of its dependencies.
 

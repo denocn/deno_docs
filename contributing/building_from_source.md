@@ -1,11 +1,15 @@
-## Building `deno` from source
+# Building `deno` from Source
 
 Below are instructions on how to build Deno from source. If you just want to use
 Deno you can download a prebuilt executable (more information in the
 [`Getting Started`](../getting_started/installation.md#download-and-install)
 chapter).
 
+<<<<<<< HEAD
 ### Cloning the Repository {#cloning-the-repository}
+=======
+## Cloning the Repository
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 Clone on Linux or Mac:
 
@@ -24,7 +28,11 @@ Extra steps for Windows users:
    git clone --recurse-submodules https://github.com/denoland/deno.git
    ```
 
+<<<<<<< HEAD
 ### Prerequisites {#prerequisites}
+=======
+## Prerequisites
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 > Deno requires the progressively latest stable release of Rust. Deno does not
 > support the Rust Nightly Releases.
@@ -44,7 +52,7 @@ brew install llvm
 # Add /opt/homebrew/opt/llvm/bin/ to $PATH
 ```
 
-### Building Deno
+## Building Deno
 
 The easiest way to build Deno is by using a precompiled version of V8:
 
@@ -96,7 +104,11 @@ For Windows users:
 See [rusty_v8's README](https://github.com/denoland/rusty_v8) for more details
 about the V8 build.
 
+<<<<<<< HEAD
 ### Building {#building}
+=======
+## Building
+>>>>>>> e4cf9dfb004690a9bb8624d61ca423827757e4ac
 
 Build with Cargo:
 
