@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## 发布时间表 {#release-schedule}
+=======
+# Release Schedule
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 Deno 使用[语义化版本](https://semver.org/lang/zh-CN/)。
 
@@ -17,7 +21,11 @@ for the upcoming releases.
 
 可以在 [GitHub releases 页面](https://github.com/denoland/deno/releases)查看所有的稳定版本。
 
+<<<<<<< HEAD
 ### Canary 频道 {#canary-channel}
+=======
+## Canary channel
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 除了上述稳定频道之外，Canary 每天还会发布多次（对应于主仓库的 main 分支的每次提交）。可以通过运行以下命令升级到最新的 Canary 版本：
 

@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 ## Migrating to and from JavaScript {#migrating-to-and-from-javascript}
+=======
+# Migrating to and from JavaScript
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 One of the advantages of Deno is that it treats TypeScript and JavaScript pretty
 equally. This might mean that transitioning from JavaScript to TypeScript or
 even from TypeScript to JavaScript is something you want to accomplish. There
 are several features of Deno that can help with this.
 
+<<<<<<< HEAD
 ### Type checking JavaScript {#type-checking-javascript}
+=======
+## Type checking JavaScript
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 You might have some JavaScript that you would like to ensure is more type sound
 but you don't want to go through a process of adding type annotations
@@ -34,7 +42,11 @@ configuration file with the check JS option enabled:
 
 And setting the `--config` option on the command line.
 
+<<<<<<< HEAD
 ### Using JSDoc in JavaScript {#using-jsdoc-in-javascript}
+=======
+## Using JSDoc in JavaScript
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 If you are type checking JavaScript, or even importing JavaScript into
 TypeScript you can use JSDoc in JavaScript to express more types information
@@ -49,7 +61,11 @@ For example to set the type of an array:
 const a = [];
 ```
 
+<<<<<<< HEAD
 ### Skipping type checking {#skipping-type-checking}
+=======
+## Skipping type checking
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 You might have TypeScript code that you are experimenting with, where the syntax
 is valid but not fully type safe. You can always bypass type checking for a
@@ -62,7 +78,11 @@ have check JS enabled, by using the no-check pragma:
 // @ts-nocheck
 ```
 
+<<<<<<< HEAD
 ### Just renaming JS files to TS files {#just-renaming-js-files-to-ts-files}
+=======
+## Just renaming JS files to TS files
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 While this might work in some cases, it has some severe limits in Deno. This is
 because Deno, by default, runs type checking in what is called _strict mode_.

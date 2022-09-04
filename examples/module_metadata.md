@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Module metadata {#module-metadata}
+=======
+# Module Metadata
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 ## Concepts {#concepts}
 

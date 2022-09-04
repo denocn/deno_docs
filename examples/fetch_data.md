@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Fetch data {#fetch-data}
+=======
+# Fetch Data
+>>>>>>> fb396696b70771d0106df0f916864260e4676579
 
 ## Concepts {#concepts}
 
