@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Standard library {#standard-library}
+=======
+# Standard Library
+>>>>>>> 05d0ca36aa490597a12af0312dc76ca7ad39aaa1
 
 Deno provides a set of standard modules that are audited by the core team and
 are guaranteed to work with Deno.

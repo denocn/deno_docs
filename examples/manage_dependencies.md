@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Managing dependencies {#managing-dependencies}
+=======
+# Managing Dependencies
+>>>>>>> 05d0ca36aa490597a12af0312dc76ca7ad39aaa1
 
 ## Concepts {#concepts}
 

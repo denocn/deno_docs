@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## 程序生命周期 {#program-lifecycle}
+=======
+# Program Lifecycle
+>>>>>>> 05d0ca36aa490597a12af0312dc76ca7ad39aaa1
 
 Deno 支持浏览器兼容的生命周期事件: `load`, `beforeunload` 和
 `unload`。你可以使用这些事件在你的程序中提供用于安装和清理的代码。

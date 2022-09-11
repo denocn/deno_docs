@@ -28,7 +28,11 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 
 ## `fetch` API
 
+<<<<<<< HEAD
 ### 概述 {#overview}
+=======
+## Overview
+>>>>>>> 05d0ca36aa490597a12af0312dc76ca7ad39aaa1
 
 `fetch` API 可以用来发送 HTTP 请求。 它是按照
 [WHATWG `fetch` 规范](https://fetch.spec.whatwg.org/)中的规定实现的。
@@ -36,7 +40,11 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 你可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API) 中找到关于
 `fetch` API 的文档。
 
+<<<<<<< HEAD
 ### 偏离规范 {#spec-deviations}
+=======
+## Spec deviations
+>>>>>>> 05d0ca36aa490597a12af0312dc76ca7ad39aaa1
 
 - The Deno user agent does not have a cookie jar. As such, the `set-cookie`
   header on a response is not processed, or filtered from the visible response
@@ -71,7 +79,7 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
   `headers` iterator. This behaviour is in the
   [process of being specified](https://github.com/whatwg/fetch/pull/1346).
 
-### Fetching local files
+## Fetching local files
 
 As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to
 write code that uses the same code path on a server as local, as well as easier
@@ -107,7 +115,11 @@ Notes on fetching local files:
 
 ## `CustomEvent`, `EventTarget` 和 `EventListener` {#customevent-eventtarget-and-eventlistener}
 
+<<<<<<< HEAD
 ### 概述 {#overview}
+=======
+## Overview
+>>>>>>> 05d0ca36aa490597a12af0312dc76ca7ad39aaa1
 
 DOM 事件 API 可以用来调度和监听应用程序中发生的事件。 它是按照
 [WHATWG DOM 规范](https://dom.spec.whatwg.org/#events)中的规定实现的。
@@ -115,7 +127,11 @@ DOM 事件 API 可以用来调度和监听应用程序中发生的事件。 它�
 你可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget) 里找到关于
 `EventTarget` API 的文档。
 
+<<<<<<< HEAD
 ### 偏离规范 {#spec-deviations}
+=======
+## Spec deviations
+>>>>>>> 05d0ca36aa490597a12af0312dc76ca7ad39aaa1
 
 - 没有冒泡事件，因为 Deno 没有 DOM 层次结构，所以没有树状的事件可以冒泡/捕获。
 
