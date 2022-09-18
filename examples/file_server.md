@@ -1,4 +1,4 @@
-# File server
+# File Server
 
 ## 概念
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Read and write files {#read-and-write-files}
+=======
+# Read and Write Files
+>>>>>>> 12370bde632ecbaf40205def911e6290032d8f6f
 
 ## Concepts {#concepts}
 

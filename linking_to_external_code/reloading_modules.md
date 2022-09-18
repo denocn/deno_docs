@@ -1,16 +1,28 @@
+<<<<<<< HEAD
 ## 重新加载模块 {#reloading-modules}
+=======
+# Reloading Modules
+>>>>>>> 12370bde632ecbaf40205def911e6290032d8f6f
 
 在默认情况下，缓存中的模块是会被重用，而无需重新获取或重新编译它。有时重用是不好使的，你可以强制 deno
 重新获取模块并将其重新编译到缓存中。你可以使用`deno cache`的子命令的"--reload
 "选项来使你的本地`DENO_DIR`缓存无效。它的用法描述如下：
 
+<<<<<<< HEAD
 ### 重新加载所有内容 {#to-reload-everything}
+=======
+## To reload everything
+>>>>>>> 12370bde632ecbaf40205def911e6290032d8f6f
 
 ```bash
 deno cache --reload my_module.ts
 ```
 
+<<<<<<< HEAD
 ### 重新加载特定模块 {#to-reload-specific-modules}
+=======
+## To reload specific modules
+>>>>>>> 12370bde632ecbaf40205def911e6290032d8f6f
 
 有时我们只想升级一部分模块。你可以通过将参数传递给`--reload` 选项。
 
