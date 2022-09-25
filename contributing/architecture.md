@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ## Internal details {#internal-details}
 
 ### Deno and Linux analogy {#deno-and-linux-analogy}
+=======
+# Internal Details
+
+## Deno and Linux analogy
+>>>>>>> 7a1a1f920f063b84c08e0d5f4ac547d80b9ecc8c
 
 |                       **Linux** | **Deno**                                     |
 | ------------------------------: | :------------------------------------------- |
@@ -12,7 +18,11 @@
 |                 /proc/\$\$/stat | [Deno.metrics()](architecture#metrics)       |
 |                       man pages | deno types                                   |
 
+<<<<<<< HEAD
 #### Resources {#resources}
+=======
+### Resources
+>>>>>>> 7a1a1f920f063b84c08e0d5f4ac547d80b9ecc8c
 
 Resources (AKA `rid`) are Deno's version of file descriptors. They are integer
 values used to refer to open files, sockets, and other concepts. For testing it
@@ -27,7 +37,11 @@ console.log(Deno.resources());
 // { 1: "stdout", 2: "stderr" }
 ```
 
+<<<<<<< HEAD
 #### Metrics {#metrics}
+=======
+### Metrics
+>>>>>>> 7a1a1f920f063b84c08e0d5f4ac547d80b9ecc8c
 
 Metrics is Deno's internal counter for various statistics.
 
@@ -50,11 +64,19 @@ Metrics is Deno's internal counter for various statistics.
 └─────────────────────────┴───────────┘
 ```
 
+<<<<<<< HEAD
 ### Schematic diagram {#schematic-diagram}
 
 ![architectural schematic](https://deno.land/images/schematic_v0.2.png)
 
 ### Conference {#conference}
+=======
+## Schematic diagram
+
+![architectural schematic](https://deno.land/images/schematic_v0.2.png)
+
+## Conference
+>>>>>>> 7a1a1f920f063b84c08e0d5f4ac547d80b9ecc8c
 
 - Ryan Dahl. (May 27, 2020).
   [An interesting case with Deno](https://www.youtube.com/watch?v=1b7FoBwxc7E).

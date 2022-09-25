@@ -9,7 +9,7 @@
 项目中的大多数模块应有如下版权声明：
 
 ```ts
-// Copyright 2018-2021 the Deno authors. All rights reserved. MIT license.
+// Copyright 2018-2022 the Deno authors. All rights reserved. MIT license.
 ```
 
 如果引用了其他地方的代码，请确保文件有恰当的版权声明。我们只允许使用遵循 MIT、BSD 和 Apache 协议的代码。
@@ -325,4 +325,72 @@ export function foo(): string {
 // This module is browser-compatible.
 ```
 
+<<<<<<< HEAD
 通过不使用全局的 `Deno` 命名空间或对其进行功能测试来保持这种模块的浏览器兼容性，来确保任何新的依赖项也能与浏览器兼容。
+=======
+Maintain browser compatibility for such a module by either not using the global
+`Deno` namespace or feature-testing for it. Make sure any new dependencies are
+also browser compatible.
+
+#### Prefer `#` over `private`
+
+We prefer the private fields (`#`) syntax over `private` keyword of TypeScript
+in the standard modules codebase. The private fields make the properties and
+methods private even at runtime. On the other hand, `private` keyword of
+TypeScript guarantee it private only at compile time and the fields are publicly
+accessible at runtime.
+
+Good:
+
+```ts
+class MyClass {
+  #foo = 1;
+  #bar() {}
+}
+```
+
+Bad:
+
+```ts
+class MyClass {
+  private foo = 1;
+  private bar() {}
+}
+```
+
+#### Naming convention
+
+Always use camel or pascal case. Some Web APIs use uppercase acronyms (`JSON`,
+`URL`, `URL.createObjectURL()` etc.). Deno does not follow this convention and
+also uses camel or pascal case.
+
+Good:
+
+```ts
+class HttpObject {
+}
+```
+
+Bad:
+
+```ts
+class HTTPObject {
+}
+```
+
+Good:
+
+```ts
+function convertUrl(url: URL) {
+  return url.href;
+}
+```
+
+Bad:
+
+```ts
+function convertURL(url: URL) {
+  return url.href;
+}
+```
+>>>>>>> 7a1a1f920f063b84c08e0d5f4ac547d80b9ecc8c
