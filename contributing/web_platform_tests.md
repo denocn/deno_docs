@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 ## Web Platform Test {#web-platform-test}
+=======
+# Web Platform Test
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 Deno uses a custom test runner for Web Platform Tests. It can be found at
 `./tools/wpt.ts`.
 
+<<<<<<< HEAD
 ### Running tests {#running-tests}
+=======
+## Running tests
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 > If you are on Windows, or your system does not support shebangs, prefix all
 > `./tools/wpt.ts` commands with
@@ -35,7 +43,11 @@ fail as a whole (test runner encounters an exception outside of a test or all
 tests fail, `false`), or which tests it expects to fail (a string array of test
 case names).
 
+<<<<<<< HEAD
 ### Updating enabled tests or expectations {#updating-enabled-tests-or-expectations}
+=======
+## Updating enabled tests or expectations
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 You can update the `./tools/wpt/expectation.json` file manually by changing the
 value of each of the test file entries in the JSON structure. The alternative
@@ -51,9 +63,15 @@ After running this command the `expectation.json` file will match the current
 output of all the tests that were run. This means that running `wpt.ts run`
 right after a `wpt.ts update` should always pass.
 
+<<<<<<< HEAD
 ### Subcommands {#subcommands}
 
 #### `setup` {#setup}
+=======
+## Subcommands
+
+### `setup`
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 Validate that your environment is configured correctly, or help you configure
 it.
@@ -71,7 +89,11 @@ You can specify the following flags to customize behaviour:
     Automatically configure /etc/hosts if it is not configured (no prompt will be shown).
 ```
 
+<<<<<<< HEAD
 #### `run` {#run}
+=======
+### `run`
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 Run all tests like specified in `expectation.json`.
 
@@ -119,9 +141,15 @@ filters after a `--`:
 ./tools/wpt.ts update -- hr-time streams/piping/general
 ```
 
+<<<<<<< HEAD
 ### FAQ {#faq}
 
 #### Upgrading the wpt submodule: {#upgrading-the-wpt-submodule}
+=======
+## FAQ
+
+### Upgrading the wpt submodule:
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 ```shell
 cd test_util/wpt/

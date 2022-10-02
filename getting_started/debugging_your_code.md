@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## 调试代码 {#debugging-your-code}
+=======
+# Debugging Your Code
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 Deno supports the [V8 Inspector Protocol](https://v8.dev/docs/inspector) used by
 Chrome, Edge and Node.js. This makes it possible to debug Deno programs using
@@ -13,7 +17,11 @@ Chrome DevTools or other clients that support the protocol (for example VSCode).
 > before the program finishes execution. In such cases, try running with
 > `--inspect-brk` flag instead, or add a timeout at the end of your code.
 
+<<<<<<< HEAD
 ### Chrome Devtools {#chrome-devtools}
+=======
+## Chrome Devtools
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 让我们用 Chrome Devtools 来调试一个程序。为此，我们使用一个来自 Deno 标准库的静态文件服务器
 [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts)。
@@ -73,13 +81,21 @@ $ curl http://0.0.0.0:4507/
 
 在这一点上，我们可以内省请求的内容，并逐步调试代码。
 
+<<<<<<< HEAD
 ### VSCode {#vscode}
+=======
+## VSCode
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 Deno can be debugged using VSCode. This is best done with help from the official
 `vscode_deno` extension. Documentation for this can be found
 [here](../vscode_deno#using-the-debugger).
 
+<<<<<<< HEAD
 ### JetBrains IDEs {#jetbrains-ides}
+=======
+## JetBrains IDEs
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 _**Note**: make sure you have
 [this Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) installed
@@ -95,7 +111,11 @@ This will create a run/debug configuration with no permission flags set. If you
 want to configure them, open your run/debug configuration and add the required
 flags to the `Command` field.
 
+<<<<<<< HEAD
 ### 其他 {#other}
+=======
+## Other
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 Any client that implements the DevTools protocol should be able to connect to a
 Deno process.

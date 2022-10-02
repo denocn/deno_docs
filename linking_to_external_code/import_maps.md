@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## 导入映射 {#import-maps}
+=======
+# Import Maps
+>>>>>>> 7dee5f33649837999b1b639c15b990616761bf6e
 
 Deno 支持 [导入映射](https://github.com/WICG/import-maps).
 
