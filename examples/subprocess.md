@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Creating a subprocess {#creating-a-subprocess}
+=======
+# Creating a Subprocess
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 ## Concepts {#concepts}
 

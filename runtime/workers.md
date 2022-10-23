@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Workers {#workers}
+=======
+# Workers
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 Deno 支持
 [`Web Worker API`](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker/Worker).
@@ -45,7 +49,7 @@ self.onmessage = (evt) => {
 };
 ```
 
-### Instantiation permissions
+## Instantiation permissions
 
 创建一个新的 `Worker` 实例的行为与动态导入类似，因此 Deno 需要适当的权限来做这个操作。
 
@@ -95,7 +99,11 @@ $ deno run --allow-net main.ts
 hello world
 ```
 
+<<<<<<< HEAD
 ### 在 Worker 中使用 Deno {#using-deno-in-worker}
+=======
+## Using Deno in worker
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 > Starting in v1.22 the `Deno` namespace is available in worker scope by
 > default. To enable the namespace in earlier versions pass
@@ -138,7 +146,7 @@ hello world
 > to shutdown. This better aligns with the Web platform, as there is no way in
 > the browser for a worker to close the page.
 
-### Specifying worker permissions
+## Specifying worker permissions
 
 > 这是一个不稳定的 Deno 特性。更多信息请查阅 [不稳定特性](./stability.md)
 

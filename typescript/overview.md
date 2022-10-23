@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Overview of TypeScript in Deno {#overview-of-typescript-in-deno}
+=======
+# Overview of TypeScript in Deno
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 One of the benefits of Deno is that it treats TypeScript as a first class
 language, just like JavaScript or Web Assembly, when running code in Deno. What
@@ -20,7 +24,11 @@ TypeScript as easy and straightforward as JavaScript and Web Assembly.
 Behind the scenes, we use a combination of technologies, in Rust and JavaScript,
 to provide that experience.
 
+<<<<<<< HEAD
 ### How does it work? {#how-does-it-work}
+=======
+## How does it work?
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 At a high level, Deno converts TypeScript (as well as TSX and JSX) into
 JavaScript. It does this via a combination of the
@@ -47,7 +55,11 @@ invalidation. You might also see a `.buildinfo` file as well, which is a
 TypeScript compiler incremental build information file, which we cache to help
 speed up type checking.
 
+<<<<<<< HEAD
 ### Type Checking {#type-checking}
+=======
+## Type Checking
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 One of the main advantages of TypeScript is that you can make code more type
 safe, so that what would be syntactically valid JavaScript becomes TypeScript
@@ -75,7 +87,11 @@ hack at some code, or if you are working in an IDE which is type checking your
 code as you author it, using `--no-check` can certainly speed up the process of
 running TypeScript in Deno.
 
+<<<<<<< HEAD
 ### Determining the type of file {#determining-the-type-of-file}
+=======
+## Determining the type of file
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 Since Deno supports JavaScript, TypeScript, JSX, TSX modules, Deno has to make a
 decision about how to treat each of these kinds of files. For local modules,
@@ -95,7 +111,11 @@ looks the same. So we look at the path, and if we see something that has a path
 that ends with `.d.ts` we treat it as a type definition only file instead of
 "runnable" TypeScript.
 
+<<<<<<< HEAD
 #### Supported media types {#supported-media-types}
+=======
+### Supported media types
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 The following table provides a list of media types which Deno supports when
 identifying the type of file of a remote module:
@@ -118,14 +138,22 @@ identifying the type of file of a remote module:
 | `text/plain`               | Attempt to determine that path extension, otherwise unknown |
 | `application/octet-stream` | Attempt to determine that path extension, otherwise unknown |
 
+<<<<<<< HEAD
 ### Strict by default {#strict-by-default}
+=======
+## Strict by default
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 Deno type checks TypeScript in _strict_ mode by default, and the TypeScript core
 team recommends _strict_ mode as a sensible default. This mode generally enables
 features of TypeScript that probably should have been there from the start, but
 as TypeScript continued to evolve, would be breaking changes for existing code.
 
+<<<<<<< HEAD
 ### Mixing JavaScript and TypeScript {#mixing-javascript-and-typescript}
+=======
+## Mixing JavaScript and TypeScript
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 By default, Deno does not type check JavaScript. This can be changed, and is
 discussed further in [Configuring TypeScript in Deno](./configuration.md). Deno
@@ -139,7 +167,11 @@ figure out what the types are of the JavaScript you import into TypeScript,
 including reading any JSDoc comments. Details of this are discussed in detail in
 the [Types and type declarations](./types.md) section.
 
+<<<<<<< HEAD
 ### Diagnostics are terminal {#diagnostics-are-terminal}
+=======
+## Diagnostics are terminal
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 While `tsc` by default will still emit JavaScript when run while encountering
 diagnostic (type checking) issues, Deno currently treats them as terminal. It
@@ -150,7 +182,11 @@ In order to avoid this, you will either need to resolve the issue, utilise the
 `// @ts-ignore` or `// @ts-expect-error` pragmas, or utilise `--no-check` to
 bypass type checking all together.
 
+<<<<<<< HEAD
 ### Type resolution {#type-resolution}
+=======
+## Type resolution
+>>>>>>> 9a894fd4f866dd1bc7416a6e4c3a307ff43037b6
 
 One of the core design principles of Deno is to avoid non-standard module
 resolution, and this applies to type resolution as well. If you want to utilise
