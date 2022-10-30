@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ## Integrity checking & lock files {#integrity-checking--lock-files}
 
 ### Introduction {#introduction}
+=======
+# Integrity Checking & Lock Files
+
+## Introduction
+>>>>>>> 33d3dcb8cdf7deaae53f3216ea91a21ca8453a60
 
 Let's say your module depends on remote module `https://some.url/a.ts`. When you
 compile your module for the first time `a.ts` is retrieved, compiled and cached.
@@ -11,7 +17,11 @@ changed? This could lead to your production module running with different
 dependency code than your local module. Deno's solution to avoid this is to use
 integrity checking and lock files.
 
+<<<<<<< HEAD
 ### Caching and lock files {#caching-and-lock-files}
+=======
+## Caching and lock files
+>>>>>>> 33d3dcb8cdf7deaae53f3216ea91a21ca8453a60
 
 Deno can store and check subresource integrity for modules using a small JSON
 file. Use the `--lock=lock.json` to enable and specify lock file checking. To
@@ -64,7 +74,11 @@ deno cache --reload --lock=lock.json src/deps.ts
 deno test --allow-read src
 ```
 
+<<<<<<< HEAD
 ### Runtime verification {#runtime-verification}
+=======
+## Runtime verification
+>>>>>>> 33d3dcb8cdf7deaae53f3216ea91a21ca8453a60
 
 Like caching above, you can also use the `--lock=lock.json` option during use of
 the `deno run` sub command, validating the integrity of any locked modules

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Deno 中文手册
+=======
+# Deno Manual
+>>>>>>> 33d3dcb8cdf7deaae53f3216ea91a21ca8453a60
 
 这个仓库是 Deno 的非官方中文翻译。
 

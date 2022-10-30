@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Read and write files {#read-and-write-files}
+=======
+# Read and Write Files
+>>>>>>> 33d3dcb8cdf7deaae53f3216ea91a21ca8453a60
 
 ## Concepts {#concepts}
 
@@ -72,6 +76,14 @@ console.log("File written to ./hello.txt");
 /**
  * Output: File written to ./hello.txt
  */
+```
+
+You can _append_ text to a file like this:
+
+```typescript
+await Deno.writeTextFile("./hello.txt", "This text will be appended.", {
+  append: true,
+});
 ```
 
 By combining `Deno.writeTextFile` and `JSON.stringify` you can easily write

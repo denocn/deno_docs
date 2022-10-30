@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # File system events {#file-system-events}
+=======
+# File System Events
+>>>>>>> 33d3dcb8cdf7deaae53f3216ea91a21ca8453a60
 
 ## Concepts {#concepts}
 
