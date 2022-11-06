@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 内置工具集 {#built-in-tooling}
+=======
+# Built-In Tooling
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 
 Deno 提供了许多内置工具，这些工具在使用 JavaScript 和 TypeScript 时非常有用：
 
@@ -12,5 +16,9 @@ Deno 提供了许多内置工具，这些工具在使用 JavaScript 和 TypeScri
 - [linter (`deno lint`)](./tools/linter.md)
 - [repl (`deno repl`)](./tools/repl.md)
 - [task runner (`deno task`)](./tools/task_runner.md)
+<<<<<<< HEAD
 - [测试运行器 (`deno test`)](./testing.md)
+=======
+- [test runner (`deno test`)](./basics/testing.md)
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 - [vendoring dependencies (`deno vendor`)](./tools/vendor.md)

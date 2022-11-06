@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Documentation Generator {#documentation-generator}
+=======
+# Documentation Generator
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 
 `deno doc` followed by a list of one or more source files will print the JSDoc
 documentation for each of the module's **exported** members.

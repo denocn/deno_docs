@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Web 平台 APIs {#web-platform-apis}
+=======
+# Using Web Platform APIs
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 
 Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个有意义的特有 API 。这些 API 通常遵循规范，而且应该与 Chrome
 和 Firefox 中的实现相匹配。在某些情况下，因为 Deno 有着不同的安全模式，所以稍微偏离规范是有意义的。
@@ -7,9 +11,11 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 - [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+- [Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
 - [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
 - [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API)
 - [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
+- [DOM APIs](https://deno.land/api@v1.26.0#DOM_APIs)
 - [DOM `CustomEvent`, `EventTarget` and `EventListener`](#customevent-eventtarget-and-eventlistener)
 - [Encoding API](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API)
 - [Fetch API](#fetch-api)
@@ -22,13 +28,22 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 - [`URLPattern`](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern)
 - [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 - [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+- [Web File API](https://developer.mozilla.org/en-US/docs/Web/API/File_API)
 - [Web Storage API](./web_storage_api.md)
 - [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+- [`WebGPU`](https://gpuweb.github.io/gpuweb/explainer/?)
+
+You can find the Deno reference for these APIs
+[here](https://deno.land/api@v1.26.0).
 
 ## `fetch` API
 
+<<<<<<< HEAD
 ### 概述 {#overview}
+=======
+## Overview
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 
 `fetch` API 可以用来发送 HTTP 请求。 它是按照
 [WHATWG `fetch` 规范](https://fetch.spec.whatwg.org/)中的规定实现的。
@@ -36,7 +51,11 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 你可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API) 中找到关于
 `fetch` API 的文档。
 
+<<<<<<< HEAD
 ### 偏离规范 {#spec-deviations}
+=======
+## Spec deviations
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 
 - The Deno user agent does not have a cookie jar. As such, the `set-cookie`
   header on a response is not processed, or filtered from the visible response
@@ -71,7 +90,7 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
   `headers` iterator. This behaviour is in the
   [process of being specified](https://github.com/whatwg/fetch/pull/1346).
 
-### Fetching local files
+## Fetching local files
 
 As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to
 write code that uses the same code path on a server as local, as well as easier
@@ -98,7 +117,7 @@ Notes on fetching local files:
   permission is needed to be able to read a local file.
 - Fetching locally only supports the `GET` method, and will reject the promise
   with any other method.
-- A file that does not exists simply rejects the promise with a vague
+- A file that does not exist simply rejects the promise with a vague
   `TypeError`. This is to avoid the potential of fingerprinting attacks.
 - No headers are set on the response. Therefore it is up to the consumer to
   determine things like the content type or content length.
@@ -107,7 +126,11 @@ Notes on fetching local files:
 
 ## `CustomEvent`, `EventTarget` 和 `EventListener` {#customevent-eventtarget-and-eventlistener}
 
+<<<<<<< HEAD
 ### 概述 {#overview}
+=======
+## Overview
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 
 DOM 事件 API 可以用来调度和监听应用程序中发生的事件。 它是按照
 [WHATWG DOM 规范](https://dom.spec.whatwg.org/#events)中的规定实现的。
@@ -115,7 +138,11 @@ DOM 事件 API 可以用来调度和监听应用程序中发生的事件。 它�
 你可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget) 里找到关于
 `EventTarget` API 的文档。
 
+<<<<<<< HEAD
 ### 偏离规范 {#spec-deviations}
+=======
+## Spec deviations
+>>>>>>> 8b6c1e90ff2707d2c5627ad0254bb5d6538716e4
 
 - 没有冒泡事件，因为 Deno 没有 DOM 层次结构，所以没有树状的事件可以冒泡/捕获。
 
