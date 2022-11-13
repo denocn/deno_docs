@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Hello world {#hello-world}
+=======
+# Hello World
+>>>>>>> abe2a87f2b55ed14182cacd4a41f01aa3548c400
 
 ## Concepts {#concepts}
 
