@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Read-eval-print-loop {#read-eval-print-loop}
+=======
+# Read-Eval-Print-Loop
+>>>>>>> 7ecb7fde3a161932f5b088758674cb2f5932f492
 
 `deno repl` starts a read-eval-print-loop, which lets you interactively build up
 program state in the global context, it is especially useful for quick

@@ -1,14 +1,16 @@
+<<<<<<< HEAD
 # An implementation of the unix "cat" program {#an-implementation-of-the-unix-cat-program}
+=======
+# An Implementation of the Unix "cat" Program
+>>>>>>> 7ecb7fde3a161932f5b088758674cb2f5932f492
 
 ## Concepts {#concepts}
 
 - Use the Deno runtime API to output the contents of a file to the console.
-- [Deno.args](https://doc.deno.land/deno/stable/~/Deno.args) accesses the
-  command line arguments.
-- [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) is used to get a
-  handle to a file.
-- [copy](https://doc.deno.land/https://deno.land/std@$STD_VERSION/streams/conversion.ts/~/copy)
-  is used to transfer data from the file to the output stream.
+- [Deno.args](/api?s=Deno.args) accesses the command line arguments.
+- [Deno.open](/api?s=Deno.open) is used to get a handle to a file.
+- [copy](https://deno.land/std@$STD_VERSION/streams/conversion.ts?s=copy) is
+  used to transfer data from the file to the output stream.
 - Files should be closed when you are finished with them
 - Modules can be run directly from remote URLs.
 

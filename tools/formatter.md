@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Code formatter {#code-formatter}
+=======
+# Code Formatter
+>>>>>>> 7ecb7fde3a161932f5b088758674cb2f5932f492
 
 Deno ships with a built-in code formatter that will auto-format the following
 files:
@@ -29,7 +33,7 @@ deno fmt --check
 cat file.ts | deno fmt -
 ```
 
-### Ignoring Code
+## Ignoring Code
 
 Ignore formatting code by preceding it with a `// deno-fmt-ignore` comment in
 TS/JS/JSONC:
@@ -51,7 +55,7 @@ file with a `<!-- deno-fmt-ignore-file -->` comment. To ignore a section of
 markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
 `<!-- deno-fmt-ignore-end -->` comments.
 
-### Configuration
+## Configuration
 
 > ℹ️ It is recommended to stick with default options.
 

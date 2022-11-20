@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Simple HTTP web server {#simple-http-web-server}
+=======
+# Simple HTTP Web Server
+>>>>>>> 7ecb7fde3a161932f5b088758674cb2f5932f492
 
 ## Concepts {#concepts}
 
