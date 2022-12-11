@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Fetch data {#fetch-data}
+=======
+# Fetch Data
+>>>>>>> 6a0eb6ff248beb3007c235c7ac29b5e82d65e143
 
 ## Concepts {#concepts}
 
@@ -6,7 +10,7 @@
   [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 - Deno is secure by default, meaning explicit permission must be granted to
   access the network.
-- See also: Deno's [permissions](../getting_started/permissions.md) model.
+- See also: Deno's [permissions](../basics/permissions.md) model.
 
 ## Overview {#overview}
 

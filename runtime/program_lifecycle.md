@@ -1,12 +1,37 @@
+<<<<<<< HEAD
 ## 程序生命周期 {#program-lifecycle}
 
 Deno 支持浏览器兼容的生命周期事件: `load`, `beforeunload` 和
 `unload`。你可以使用这些事件在你的程序中提供用于安装和清理的代码。
+=======
+# Program Lifecycle
+
+Deno supports browser compatible lifecycle events:
+
+- [`load`](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event#:~:text=The%20load%20event%20is%20fired,for%20resources%20to%20finish%20loading.):
+  fired when the whole page has loaded, including all dependent resources such
+  as stylesheets and images.
+- [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#:~:text=The%20beforeunload%20event%20is%20fired,want%20to%20leave%20the%20page.):
+  fired when the event loop has no more work to do and is about to exit.
+  Scheduling more asynchronous work (like timers or network requests) will cause
+  the program to continue.
+- [`unload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event):
+  fired when the document or a child resource is being unloaded.
+- [`unhandledrejection`](https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event):
+  fired when a promise that has no rejection handler is rejected, ie. a promise
+  that has no `.catch()` handler or a second argument to `.then()`.
+
+You can use these events to provide setup and cleanup code in your program.
+>>>>>>> 6a0eb6ff248beb3007c235c7ac29b5e82d65e143
 
 `load` 事件的监听器可以是异步的，并且将被等待， 这个事件无法取消。`beforeunload` 事件的监听器必须是同步的，可以取消。`unload`
 事件的监听器是同步的，可以取消。
 
+<<<<<<< HEAD
 示例:
+=======
+## Example
+>>>>>>> 6a0eb6ff248beb3007c235c7ac29b5e82d65e143
 
 **main.ts**
 
@@ -90,6 +115,105 @@ got unload event in onunload function (main)
 所有通过 `addEventListener` 添加的侦听器都会运行, 但是在 `main.ts` 文件里定义的
 `onload`、`onbeforeunload` 和 `onunload` 覆盖了在 `imported.ts` 定义的处理程序。
 
+<<<<<<< HEAD
 换句话说, 你可以使用 `addEventListener` 注册多个 `"load"`、`"onbeforeunload"` 或 `"unload"` 事件,
 但是，只有最后加载的 `onload`、`onbeforeunload` 或 `onunload` 事件处理程序会执行。因此，在可能的情况下，最好是使用
 `addEventListener`。
+=======
+In other words, you can use `addEventListener` to register multiple `"load"` or
+`"unload"` event handlers, but only the last defined `onload`, `onbeforeunload`,
+`onunload` event handlers will be executed. It is preferable to use
+`addEventListener` when possible for this reason.
+
+## `beforeunload` Example
+
+```js
+// beforeunload.js
+let count = 0;
+
+console.log(count);
+
+globalThis.addEventListener("beforeunload", (e) => {
+  console.log("About to exit...");
+  if (count < 4) {
+    e.preventDefault();
+    console.log("Scheduling more work...");
+    setTimeout(() => {
+      console.log(count);
+    }, 100);
+  }
+
+  count++;
+});
+
+globalThis.addEventListener("unload", (e) => {
+  console.log("Exiting");
+});
+
+count++;
+console.log(count);
+
+setTimeout(() => {
+  count++;
+  console.log(count);
+}, 100);
+```
+
+Running this program will print:
+
+```sh
+$ deno run beforeunload.js
+0
+1
+2
+About to exit...
+Scheduling more work...
+3
+About to exit...
+Scheduling more work...
+4
+About to exit...
+Exiting
+```
+
+This has allowed us to polyfill `process.on("beforeExit")` in the Node
+compatibility layer.
+
+## `unhandledrejection` event Example:
+
+This release adds support for the unhandledrejection event. This event is fired
+when a promise that has no rejection handler is rejected, ie. a promise that has
+no .catch() handler or a second argument to .then().
+
+```js
+// unhandledrejection.js
+globalThis.addEventListener("unhandledrejection", (e) => {
+  console.log("unhandled rejection at:", e.promise, "reason:", e.reason);
+  e.preventDefault();
+});
+
+function Foo() {
+  this.bar = Promise.reject(new Error("bar not available"));
+}
+
+new Foo();
+Promise.reject();
+```
+
+Running this program will print:
+
+```sh
+$ deno run unhandledrejection.js
+unhandled rejection at: Promise {
+  <rejected> Error: bar not available
+    at new Foo (file:///dev/unhandled_rejection.js:7:29)
+    at file:///dev/unhandled_rejection.js:10:1
+} reason: Error: bar not available
+    at new Foo (file:///dev/unhandled_rejection.js:7:29)
+    at file:///dev/unhandled_rejection.js:10:1
+unhandled rejection at: Promise { <rejected> undefined } reason: undefined
+```
+
+This API will allow us to polyfill `process.on("unhandledRejection")` in the
+Node compatibility layer in future releases.
+>>>>>>> 6a0eb6ff248beb3007c235c7ac29b5e82d65e143
