@@ -1,12 +1,14 @@
+<<<<<<< HEAD
 # TCP echo server {#tcp-echo-server}
+=======
+# TCP echo Server
+>>>>>>> 54772587326d85984994b5a287edf2cd9ffcc280
 
 ## Concepts {#concepts}
 
-- Listening for TCP port connections with
-  [Deno.listen](https://doc.deno.land/deno/stable/~/Deno.listen).
-- Use
-  [copy](https://doc.deno.land/https://deno.land/std@$STD_VERSION/streams/conversion.ts/~/copy)
-  to take inbound data and redirect it to be outbound data.
+- Listening for TCP port connections with [Deno.listen](/api?s=Deno.listen).
+- Use [copy](https://deno.land/std@$STD_VERSION/streams/conversion.ts?s=copy) to
+  take inbound data and redirect it to be outbound data.
 
 ## Example {#example}
 
