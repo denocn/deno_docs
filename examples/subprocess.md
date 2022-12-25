@@ -1,15 +1,16 @@
+<<<<<<< HEAD
 # Creating a subprocess {#creating-a-subprocess}
+=======
+# Creating a Subprocess
+>>>>>>> 325e6bfbc433a0a907d1b6d1f95d55ab54bd57f2
 
 ## Concepts {#concepts}
 
-- Deno is capable of spawning a subprocess via
-  [Deno.run](https://doc.deno.land/deno/stable/~/Deno.run).
+- Deno is capable of spawning a subprocess via [Deno.run](/api?s=Deno.run).
 - `--allow-run` permission is required to spawn a subprocess.
 - Spawned subprocesses do not run in a security sandbox.
-- Communicate with the subprocess via the
-  [stdin](https://doc.deno.land/deno/stable/~/Deno.stdin),
-  [stdout](https://doc.deno.land/deno/stable/~/Deno.stdout) and
-  [stderr](https://doc.deno.land/deno/stable/~/Deno.stderr) streams.
+- Communicate with the subprocess via the [stdin](/api?s=Deno.stdin),
+  [stdout](/api?s=Deno.stdout) and [stderr](/api?s=Deno.stderr) streams.
 - Use a specific shell by providing its path/name and its string input switch,
   e.g. `Deno.run({cmd: ["bash", "-c", "ls -la"]});`
 
@@ -78,11 +79,12 @@ const p = Deno.run({
   stderr: "piped",
 });
 
-const { code } = await p.status();
-
 // Reading the outputs closes their pipes
-const rawOutput = await p.output();
-const rawError = await p.stderrOutput();
+const [{ code }, rawOutput, rawError] = await Promise.all([
+  p.status(),
+  p.output(),
+  p.stderrOutput(),
+]);
 
 if (code === 0) {
   await Deno.stdout.write(rawOutput);
