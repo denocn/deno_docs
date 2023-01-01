@@ -1,2 +1,6 @@
 .DS_Store
+<<<<<<< HEAD
 dist/
+=======
+.env
+>>>>>>> c93b0be53c9644defe16883ed580ddabb30ac02e
