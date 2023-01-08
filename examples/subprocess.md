@@ -1,15 +1,16 @@
+<<<<<<< HEAD
 # Creating a subprocess {#creating-a-subprocess}
+=======
+# Creating a Subprocess
+>>>>>>> 8dcda584e4b56cd8c0ab149928e07661159e01d3
 
 ## Concepts {#concepts}
 
-- Deno is capable of spawning a subprocess via
-  [Deno.run](https://doc.deno.land/deno/stable/~/Deno.run).
+- Deno is capable of spawning a subprocess via [Deno.run](/api?s=Deno.run).
 - `--allow-run` permission is required to spawn a subprocess.
 - Spawned subprocesses do not run in a security sandbox.
-- Communicate with the subprocess via the
-  [stdin](https://doc.deno.land/deno/stable/~/Deno.stdin),
-  [stdout](https://doc.deno.land/deno/stable/~/Deno.stdout) and
-  [stderr](https://doc.deno.land/deno/stable/~/Deno.stderr) streams.
+- Communicate with the subprocess via the [stdin](/api?s=Deno.stdin),
+  [stdout](/api?s=Deno.stdout) and [stderr](/api?s=Deno.stderr) streams.
 - Use a specific shell by providing its path/name and its string input switch,
   e.g. `Deno.run({cmd: ["bash", "-c", "ls -la"]});`
 
@@ -78,11 +79,12 @@ const p = Deno.run({
   stderr: "piped",
 });
 
-const { code } = await p.status();
-
 // Reading the outputs closes their pipes
-const rawOutput = await p.output();
-const rawError = await p.stderrOutput();
+const [{ code }, rawOutput, rawError] = await Promise.all([
+  p.status(),
+  p.output(),
+  p.stderrOutput(),
+]);
 
 if (code === 0) {
   await Deno.stdout.write(rawOutput);
@@ -117,10 +119,6 @@ This example is the equivalent of running `yes &> ./process_output` in bash.
  * subprocess_piping_to_file.ts
  */
 
-import {
-  readableStreamFromReader,
-  writableStreamFromWriter,
-} from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 import { mergeReadableStreams } from "https://deno.land/std@$STD_VERSION/streams/merge.ts";
 
 // create the file to attach the process to
@@ -129,7 +127,6 @@ const file = await Deno.open("./process_output.txt", {
   write: true,
   create: true,
 });
-const fileWriter = await writableStreamFromWriter(file);
 
 // start the process
 const process = Deno.run({
@@ -139,14 +136,16 @@ const process = Deno.run({
 });
 
 // example of combining stdout and stderr while sending to a file
-const stdout = readableStreamFromReader(process.stdout);
-const stderr = readableStreamFromReader(process.stderr);
-const joined = mergeReadableStreams(stdout, stderr);
+const joined = mergeReadableStreams(
+  process.stdout.readable,
+  process.stderr.readable,
+);
+
 // returns a promise that resolves when the process is killed/closed
-joined.pipeTo(fileWriter).then(() => console.log("pipe join done"));
+joined.pipeTo(file.writable).then(() => console.log("pipe join done"));
 
 // manually stop process "yes" will never end on its own
-setTimeout(async () => {
+setTimeout(() => {
   process.kill("SIGINT");
 }, 100);
 ```

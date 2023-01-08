@@ -1,12 +1,15 @@
+<<<<<<< HEAD
 # TCP echo server {#tcp-echo-server}
+=======
+# TCP echo Server
+>>>>>>> 8dcda584e4b56cd8c0ab149928e07661159e01d3
 
 ## Concepts {#concepts}
 
-- Listening for TCP port connections with
-  [Deno.listen](https://doc.deno.land/deno/stable/~/Deno.listen).
-- Use
-  [copy](https://doc.deno.land/https://deno.land/std@$STD_VERSION/streams/conversion.ts/~/copy)
-  to take inbound data and redirect it to be outbound data.
+- Listening for TCP port connections with [Deno.listen](/api?s=Deno.listen).
+- Use [Deno.Conn.readable](/api?s=Deno.Conn#prop_readable) and
+  [Deno.Conn.writable](/api?s=Deno.Conn#prop_writable) to take inbound data and
+  redirect it to be outbound data.
 
 ## Example {#example}
 
@@ -17,11 +20,10 @@ returns to the client anything it sends.
 /**
  * echo_server.ts
  */
-import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const listener = Deno.listen({ port: 8080 });
 console.log("listening on 0.0.0.0:8080");
 for await (const conn of listener) {
-  copy(conn, conn).finally(() => conn.close());
+  conn.readable.pipeTo(conn.writable);
 }
 ```
 
@@ -42,6 +44,6 @@ hello world
 hello world
 ```
 
-Like the [cat.ts example](./unix_cat.md), the `copy()` function here also does
+Like the [cat.ts example](./unix_cat.md), the `pipeTo()` method here also does
 not make unnecessary memory copies. It receives a packet from the kernel and
 sends back, without further complexity.
