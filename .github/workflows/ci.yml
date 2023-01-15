@@ -20,6 +20,18 @@ jobs:
       - name: Format
         run: deno fmt --check
 
+<<<<<<< HEAD
+=======
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v1.0.0
+
+>>>>>>> 2d6f924b853c8d0668a46367553894967aa615c1
       - name: Type-check Deno manual
         run: deno test --doc --unstable --import-map=.github/import_map.json --no-check=remote
 

@@ -2,6 +2,7 @@
 
 在本章中，我们将讨论：
 
+<<<<<<< HEAD
 - [安装 Deno](./getting_started/installation.md)
 - [设置环境](./getting_started/setup_your_environment.md)
 - [运行 `Hello World` 脚本](./getting_started/first_steps.md)
@@ -9,3 +10,11 @@
 - [配置文件](./getting_started/configuration_file.md)
 - [了解权限](./getting_started/permissions.md)
 - [代码调试](./getting_started/debugging_your_code.md)
+=======
+- [Installing Deno](./getting_started/installation.md)
+- [Setting Up Your Environment](./getting_started/setup_your_environment.md)
+- [Running a `Hello World` Script](./getting_started/first_steps.md)
+- [Command Line Interface](./getting_started/command_line_interface.md)
+- [Configuration File](./getting_started/configuration_file.md)
+- [Web Frameworks](./getting_started/web_frameworks.md)
+>>>>>>> 2d6f924b853c8d0668a46367553894967aa615c1
