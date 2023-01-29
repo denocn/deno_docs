@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 ## Location API {#location-api}
+=======
+# Location API
+>>>>>>> 269b65fff9d4afd10a59af9d829b8a01ce1884df
 
 Deno 支持从网络获取全局
 [`location`](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)。请往下看。
 
+<<<<<<< HEAD
 ### Location 标志 {#location-flag}
+=======
+## Location flag
+>>>>>>> 269b65fff9d4afd10a59af9d829b8a01ce1884df
 
 在 Deno 的流程中，没有基于 location URL 的“网页”。相反，我们允许用户通过使用 `--location` 标志在 CLI
 上指定一个文档位置来模拟文档位置。 它可以是 `http` 或 `https` 的 URL。
@@ -33,11 +41,19 @@ location.pathname = "./foo";
 // error: Uncaught NotSupportedError: Cannot set "location.pathname".
 ```
 
+<<<<<<< HEAD
 ### 扩展使用 {#extended-usage}
+=======
+## Extended usage
+>>>>>>> 269b65fff9d4afd10a59af9d829b8a01ce1884df
 
 在网络上，资源解析（不包括模块）通常使用 `location.href` 的值作为任何相对 URL 所基于的根。这会影响 Deno 采用的某些 Web API。
 
+<<<<<<< HEAD
 #### Fetch API {#fetch-api}
+=======
+### Fetch API
+>>>>>>> 269b65fff9d4afd10a59af9d829b8a01ce1884df
 
 ```ts
 // deno run --location https://api.github.com/ --allow-net main.ts
@@ -49,7 +65,11 @@ const response = await fetch("./orgs/denoland");
 如果没有传递 `--location` 标志，则上面的 `fetch()` 调用将抛出异常，因为没有 web-analogous location
 的这个基础依赖。
 
+<<<<<<< HEAD
 #### Worker modules {#worker-modules}
+=======
+### Worker modules
+>>>>>>> 269b65fff9d4afd10a59af9d829b8a01ce1884df
 
 ```ts
 // deno run --location https://example.com/index.html --allow-net main.ts
@@ -58,7 +78,11 @@ const worker = new Worker("./workers/hello.ts", { type: "module" });
 // Fetches worker module at "https://example.com/workers/hello.ts".
 ```
 
+<<<<<<< HEAD
 ### 仅在必要时使用 {#only-use-if-necessary}
+=======
+## Only use if necessary
+>>>>>>> 269b65fff9d4afd10a59af9d829b8a01ce1884df
 
 上面的例子，最好是传递完整的 URL，而不是依赖于 `--location`。如果需要，您可以使用 URL 构造函数手动建立相对 URL。
 

@@ -1,16 +1,23 @@
-# File server
+# File Server
 
 ## 概念
 
+<<<<<<< HEAD
 - 使用 [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) 按块（chunks）读取文件内容
 - 将 Deno 文件转换为
   [ReadableStream](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream)
 - 使用 Deno 内置的 HTTP 服务器运行 file server
+=======
+- Use [Deno.open](/api?s=Deno.open) to read a file's content in chunks.
+- Transform a Deno file into a
+  [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+- Use Deno's integrated HTTP server to run your own file server.
+>>>>>>> 269b65fff9d4afd10a59af9d829b8a01ce1884df
 
 ## 概述
 
 Sending files over the network is a common requirement. As seen in the
-[Fetch Data example](./fetch_data), because files can be of any size, it is
+[Fetch Data example](./fetch_data.md), because files can be of any size, it is
 important to use streams in order to prevent having to load entire files into
 memory.
 
