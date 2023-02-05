@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 # File system events {#file-system-events}
+=======
+# File System Events
+>>>>>>> baf5c8d4040e9c71457ce377be2b3c16c2fc9145
 
 ## Concepts {#concepts}
 
-- Use [Deno.watchFs](https://doc.deno.land/deno/stable/~/Deno.watchFs) to watch
-  for file system events.
+- Use [Deno.watchFs](/api?s=Deno.watchFs) to watch for file system events.
 - Results may vary between operating systems.
 
 ## Example {#example}
