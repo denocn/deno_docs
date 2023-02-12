@@ -7,6 +7,7 @@ Deno 建立在 V8、Rust 和 Tokio 的基础上。
 
 ## 功能亮点 {#feature-highlights}
 
+<<<<<<< HEAD
 - 尽可能的兼容 [Web 规范](./runtime/web_platform_apis.md)，例如使用 ES modules、支持 `fetch()`
   等。
 - 默认安全。代码不能访问文件、网络、环境变量等（除非显式开启）。
@@ -18,6 +19,26 @@ Deno 建立在 V8、Rust 和 Tokio 的基础上。
 - 有一组经过审计的 [标准模块](https://deno.land/std/)，保证能在 Deno 上工作。
 - 脚本代码能被[打包](./tools/bundler.md)为单独的 JavaScript
   文件，也可以编译为[可执行文件](./tools/compiler.md)。
+=======
+- Provides [web platform functionality](./runtime/web_platform_apis.md) and
+  adopts web platform standards. For example using ES modules, web workers, and
+  support `fetch()`.
+- Secure by default. No file, network, or environment access unless explicitly
+  enabled.
+- Supports [TypeScript](./advanced/typescript.md) out of the box.
+- Ships a single executable (`deno`).
+- Provides built-in [development tooling](./tools.md) like a code formatter
+  ([`deno fmt`](./tools/formatter.md)), a linter
+  ([`deno lint`](./tools/linter.md)), a test runner
+  ([`deno test`](./basics/testing.md)), and a
+  [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
+- Has
+  [a set of reviewed (audited) standard modules](https://deno.land/std@$STD_VERSION)
+  that are guaranteed to work with Deno.
+- Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
+  [executable](./tools/compiler.md).
+- Supports the use of [existing npm modules](./node.md)
+>>>>>>> 5ca8024894e86c63af181cdc6900f8076268e743
 
 ## 哲学 {#philosophy}
 
@@ -42,6 +63,7 @@ URL，您应该能够用[压缩后 31MB 左右的 Deno 可执行文件](https://
 - 不把 V8 的概念泄露到用户空间。
 - 能够高效地提供 HTTP 服务。
 
+<<<<<<< HEAD
 ## 与 Node.js 的比较 {#comparison-to-nodejs}
 
 - Deno 不使用 `npm`。
@@ -57,6 +79,9 @@ URL，您应该能够用[压缩后 31MB 左右的 Deno 可执行文件](https://
   ```
 
 ## 其他关键行为 {#other-key-behaviors}
+=======
+## Other key behaviors
+>>>>>>> 5ca8024894e86c63af181cdc6900f8076268e743
 
 - 远程代码在第一次运行时获取并缓存，直到代码通过 `--reload` 选项运行。（所以 Deno 在飞行模式也能正常工作）
 - 从远程 URL 加载的模块或文件应当是不可变且可缓存的。

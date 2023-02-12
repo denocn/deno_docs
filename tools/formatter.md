@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Code formatter {#code-formatter}
+=======
+# Code Formatter
+>>>>>>> 5ca8024894e86c63af181cdc6900f8076268e743
 
 Deno ships with a built-in code formatter that will auto-format the following
 files:
@@ -29,7 +33,7 @@ deno fmt --check
 cat file.ts | deno fmt -
 ```
 
-### Ignoring Code
+## Ignoring Code
 
 Ignore formatting code by preceding it with a `// deno-fmt-ignore` comment in
 TS/JS/JSONC:
@@ -51,7 +55,7 @@ file with a `<!-- deno-fmt-ignore-file -->` comment. To ignore a section of
 markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
 `<!-- deno-fmt-ignore-end -->` comments.
 
-### Configuration
+## Configuration
 
 > ℹ️ It is recommended to stick with default options.
 
@@ -67,6 +71,8 @@ CLI flags:
 
 - `--options-indent-width` - The number of characters for an indent. Defaults
   to 2.
+
+- `--options-no-semicolons` - To not use semicolons except where necessary.
 
 - `--options-single-quote` - Whether to use single quote. Defaults to false
   (using double quote).
