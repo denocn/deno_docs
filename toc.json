@@ -1,10 +1,15 @@
 {
+<<<<<<< HEAD
   "introduction": {
     "name": "简介"
   },
+=======
+  "introduction": "Introduction",
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
   "getting_started": {
     "name": "快速入门",
     "children": {
+<<<<<<< HEAD
       "installation": "安装",
       "setup_your_environment": "设置环境",
       "first_steps": "第一步",
@@ -12,20 +17,151 @@
       "configuration_file": "配置文件",
       "permissions": "权限",
       "debugging_your_code": "调试代码"
+=======
+      "installation": "Installation",
+      "setup_your_environment": "Set Up Your Environment",
+      "first_steps": "First Steps",
+      "command_line_interface": "Command Line Interface",
+      "configuration_file": "Configuration File",
+      "web_frameworks": "Web Frameworks"
+    }
+  },
+  "basics": {
+    "name": "Basics",
+    "children": {
+      "modules": {
+        "name": "Modules",
+        "redirectFrom": ["/modules"],
+        "children": {
+          "reloading_modules": {
+            "name": "Reloading Modules",
+            "redirectFrom": ["/linking_to_external_code/reloading_modules"]
+          },
+          "integrity_checking": {
+            "name": "Integrity Checking",
+            "redirectFrom": ["/linking_to_external_code/integrity_checking"]
+          },
+          "proxies": {
+            "name": "Proxies",
+            "redirectFrom": ["/linking_to_external_code/proxies"]
+          },
+          "private": {
+            "name": "Private Modules",
+            "redirectFrom": ["/linking_to_external_code/private"]
+          }
+        }
+      },
+      "standard_library": {
+        "name": "Standard Library",
+        "redirectFrom": ["/standard_library"]
+      },
+      "import_maps": {
+        "name": "Import Maps",
+        "redirectFrom": [
+          "/linking_to_external_code/import_maps",
+          "/node/import_maps",
+          "/basics/modules/import_maps"
+        ]
+      },
+      "permissions": {
+        "name": "Permissions",
+        "redirectFrom": ["/getting_started/permissions"]
+      },
+      "connecting_to_databases": "Connecting to Databases",
+      "react": "Using React with Deno",
+      "env_variables": "Environment Variables",
+      "testing": {
+        "name": "Testing",
+        "redirectFrom": ["/testing"],
+        "children": {
+          "assertions": {
+            "name": "Assertions",
+            "redirectFrom": ["/testing/assertions"]
+          },
+          "coverage": {
+            "name": "Coverage",
+            "redirectFrom": ["/testing/coverage"]
+          },
+          "documentation": {
+            "name": "Documentation",
+            "redirectFrom": ["/testing/documentation"]
+          },
+          "sanitizers": {
+            "name": "Sanitizers",
+            "redirectFrom": ["/testing/sanitizers"]
+          },
+          "behavior_driven_development": {
+            "name": "Behavior-Driven Development",
+            "redirectFrom": ["/testing/behavior_driven_development"]
+          },
+          "mocking": {
+            "name": "Mocking",
+            "redirectFrom": ["/testing/mocking"]
+          },
+          "snapshot_testing": {
+            "name": "Snapshots",
+            "redirectFrom": ["/testing/snapshot_testing"]
+          }
+        }
+      },
+      "debugging_your_code": {
+        "name": "Debugging Your Code",
+        "redirectFrom": ["/getting_started/debugging_your_code"]
+      }
+    }
+  },
+  "node": {
+    "name": "Node and npm Modules",
+    "children": {
+      "npm_specifiers": "npm specifiers",
+      "cdns": {
+        "name": "npm via CDNs",
+        "redirectFrom": ["/npm_nodejs/cdns"]
+      },
+      "node_specifiers": {
+        "name": "Built-in Node Modules",
+        "redirectFrom": "/node/std_node"
+      },
+      "package_json": "package.json",
+      "how_to_with_npm": {
+        "name": "How To guides with npm",
+        "children": {
+          "prisma": "Prisma",
+          "mongoose": "Mongoose",
+          "apollo": "Apollo",
+          "mysql2": "MySQL2",
+          "redis": "Redis",
+          "planetscale": "PlanetScale",
+          "react": "React",
+          "vue": "Vue",
+          "express": "Express"
+        }
+      },
+      "faqs": "Frequently Asked Questions"
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
     }
   },
   "runtime": {
     "name": "运行时",
     "children": {
+<<<<<<< HEAD
       "stability": "稳定性",
       "program_lifecycle": "程序生命周期",
       "permission_apis": "权限 API",
       "web_platform_apis": "Web 平台 API",
+=======
+      "stability": "Stability",
+      "builtin_apis": "Built-in APIs",
+      "import_meta_api": "`import.meta` API",
+      "program_lifecycle": "Program Lifecycle",
+      "permission_apis": "Permission APIs",
+      "web_platform_apis": "Web Platform APIs",
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
       "http_server_apis": "HTTP Server APIs",
-      "http_server_apis_low_level": "HTTP Server APIs (low level)",
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
+<<<<<<< HEAD
       "ffi_api": "FFI API"
     }
   },
@@ -84,9 +220,33 @@
   "standard_library": {
     "name": "标准库"
   },
+=======
+      "ffi_api": "Foreign Function Interface",
+      "webassembly": {
+        "name": "Using WebAssembly",
+        "redirectFrom": ["/webassembly"],
+        "children": {
+          "using_wasm": {
+            "name": "Using WebAssembly in Deno",
+            "redirectFrom": ["/webassembly/using_wasm"]
+          },
+          "using_streaming_wasm": {
+            "name": "Using the Streaming WebAssembly APIs",
+            "redirectFrom": ["/webassembly/using_streaming_wasm"]
+          },
+          "wasm_resources": {
+            "name": "Helpful Resources",
+            "redirectFrom": ["/webassembly/wasm_resources"]
+          }
+        }
+      }
+    }
+  },
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
   "examples": {
     "name": "示例",
     "children": {
+<<<<<<< HEAD
       "hello_world": "Hello world",
       "import_export": "import 和 export 模块",
       "manage_dependencies": "管理依赖",
@@ -113,11 +273,32 @@
       "behavior_driven_development": "Behavior-driven development",
       "mocking": "Mocking",
       "snapshot_testing": "快照"
+=======
+      "hello_world": "Hello World",
+      "manage_dependencies": "Manage Dependencies",
+      "fetch_data": "Fetch Data",
+      "read_write_files": "Read and Write Files",
+      "unix_cat": "Unix cat Program",
+      "http_server": "HTTP Web Server",
+      "file_server": "File Server",
+      "tcp_echo": "TCP echo Server",
+      "subprocess": "Creating a Subprocess",
+      "os_signals": "OS Signals",
+      "file_system_events": "File System Events",
+      "module_metadata": "Module Metadata",
+      "hashbang": {
+        "name": "Hashbang",
+        "redirectFrom": ["/examples/shebang"]
+      },
+      "chat_app": "Chat App",
+      "word_finder": "Word Finder"
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
     }
   },
   "tools": {
     "name": "工具",
     "children": {
+<<<<<<< HEAD
       "script_installer": "脚本安装器",
       "formatter": "格式化",
       "repl": "REPL",
@@ -136,18 +317,182 @@
   },
   "vscode_deno": {
     "name": "使用 VS Code",
-    "children": {
-      "testing_api": "Testing API"
+=======
+      "init": "deno init",
+      "script_installer": "deno install",
+      "formatter": "deno fmt",
+      "repl": "deno repl",
+      "bundler": "deno bundle",
+      "compiler": "deno compile",
+      "documentation_generator": "deno doc",
+      "dependency_inspector": "deno info",
+      "linter": "deno lint",
+      "task_runner": "deno task",
+      "vendor": "deno vendor",
+      "benchmarker": "deno bench"
     }
   },
-  "language_server": {
-    "name": "Language Server",
+  "advanced": {
+    "name": "Advanced",
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
     "children": {
-      "overview": "Overview of the language server",
-      "imports": "Import suggestions and intelligent registries",
-      "testing_api": "Testing API"
+      "publishing": {
+        "name": "Publishing Modules",
+        "redirectFrom": ["/publishing"],
+        "children": {
+          "dnt": {
+            "name": "dnt - Deno to Node.js Transform",
+            "redirectFrom": ["/node/dnt"]
+          }
+        }
+      },
+      "embedding_deno": {
+        "name": "Embedding Deno",
+        "redirectFrom": ["/embedding_deno"]
+      },
+      "language_server": {
+        "name": "Language Server",
+        "redirectFrom": ["/language_server"],
+        "children": {
+          "overview": {
+            "name": "Overview of the Language Server",
+            "redirectFrom": ["/language_server/overview"]
+          },
+          "imports": {
+            "name": "Import Suggestions and Intelligent Registries",
+            "redirectFrom": ["/language_server/imports"]
+          },
+          "testing_api": {
+            "name": "Testing API",
+            "redirectFrom": ["/language_server/testing_api"]
+          }
+        }
+      },
+      "continuous_integration": {
+        "name": "Continuous Integration",
+        "redirectFrom": ["/continuous_integration"]
+      },
+      "deploying_deno": {
+        "name": "Deploying Deno",
+        "children": {
+          "digital_ocean": "Digital Ocean",
+          "google_cloud_run": "Google Cloud Run",
+          "aws_lightsail": "AWS Lightsail",
+          "cloudflare_workers": "Cloudflare Workers"
+        }
+      },
+      "typescript": {
+        "name": "Using TypeScript",
+        "redirectFrom": ["/typescript"],
+        "children": {
+          "overview": {
+            "name": "Overview",
+            "redirectFrom": ["/typescript/overview"]
+          },
+          "configuration": {
+            "name": "Configuration",
+            "redirectFrom": ["/typescript/configuration"]
+          },
+          "types": {
+            "name": "Types and Type Declarations",
+            "redirectFrom": ["/typescript/types"]
+          },
+          "migration": {
+            "name": "Migrating to/from JavaScript",
+            "redirectFrom": ["/typescript/migration"]
+          },
+          "faqs": {
+            "name": "Frequently Asked Questions",
+            "redirectFrom": ["/typescript/faqs"]
+          }
+        }
+      },
+      "jsx_dom": {
+        "name": "Using JSX and the DOM",
+        "redirectFrom": ["/jsx_dom"],
+        "children": {
+          "overview": {
+            "name": "Overview",
+            "redirectFrom": ["/jsx_dom/overview"]
+          },
+          "jsx": {
+            "name": "Configuring JSX",
+            "redirectFrom": ["/jsx_dom/jsx"]
+          },
+          "linkedom": {
+            "name": "Using LinkeDOM",
+            "redirectFrom": ["/jsx_dom/linkedom"]
+          },
+          "deno_dom": {
+            "name": "Using deno-dom",
+            "redirectFrom": ["/jsx_dom/deno_dom"]
+          },
+          "jsdom": {
+            "name": "Using jsdom",
+            "redirectFrom": ["/jsx_dom/jsdom"]
+          },
+          "css": {
+            "name": "Parsing CSS",
+            "redirectFrom": ["/jsx_dom/css"]
+          },
+          "twind": {
+            "name": "Using Twind",
+            "redirectFrom": ["/jsx_dom/twind"]
+          }
+        }
+      }
     }
   },
+  "references": {
+    "name": "References",
+    "children": {
+      "vscode_deno": {
+        "name": "Using Visual Studio Code",
+        "redirectFrom": ["/vscode_deno"],
+        "children": {
+          "testing_api": {
+            "name": "Testing API",
+            "redirectFrom": ["/vscode_deno/testing_api"]
+          }
+        }
+      },
+      "cheatsheet": {
+        "name": "Deno Cheatsheet",
+        "redirectFrom": ["/node/cheatsheet"]
+      },
+      "contributing": {
+        "name": "Contributing",
+        "redirectFrom": ["/contributing"],
+        "children": {
+          "building_from_source": {
+            "name": "Building from Source",
+            "redirectFrom": ["/contributing/building_from_source"]
+          },
+          "web_platform_tests": {
+            "name": "Web Platform Tests",
+            "redirectFrom": ["/contributing/web_platform_tests"]
+          },
+          "style_guide": {
+            "name": "Style Guide",
+            "redirectFrom": ["/contributing/style_guide"]
+          },
+          "architecture": {
+            "name": "Architecture",
+            "redirectFrom": ["/contributing/architecture"]
+          },
+          "profiling": {
+            "name": "Profiling",
+            "redirectFrom": ["/contributing/profiling"]
+          },
+          "release_schedule": {
+            "name": "Release Schedule",
+            "redirectFrom": ["/contributing/release_schedule"]
+          }
+        }
+      }
+    }
+  },
+<<<<<<< HEAD
   "publishing": {
     "name": "Publishing Modules"
   },
@@ -168,4 +513,7 @@
       "release_schedule": "发布规划表"
     }
   }
+=======
+  "help": "Help"
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 }

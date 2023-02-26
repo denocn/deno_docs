@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## 命令行接口 {#command-line-interface}
+=======
+# Command Line Interface
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 Deno 是一个命令行程序。到目前为止，你应该熟悉一些简单的命令，并且已经了解了 shell 使用的基本知识。
 
@@ -15,18 +19,28 @@ deno -h
 deno --help
 ```
 
+<<<<<<< HEAD
 Deno 的 CLI 是基于子命令的。上面提到的帮助命令展示了一个子命令列表，比如 `deno bundle`。 如果你想查看 `bundle`
 特定子命令，可以类比帮助文档的命令行，运行以下命令其中的一种：
+=======
+Deno's CLI is subcommand-based. The above commands should show you a list of
+subcommands supported, such as `deno compile`. To see subcommand-specific help,
+for example for `bundle`, you can similarly run one of:
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 ```shell
 deno help bundle
-deno bundle -h
-deno bundle --help
+deno compile -h
+deno compile --help
 ```
 
 在[这里](../tools.md)你能够找到各个子命令更详细的指南。
 
+<<<<<<< HEAD
 ### 脚本来源 {#script-source}
+=======
+## Script source
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 Deno 能够从多个来源抓取脚本，比如一个文件名、一个 URL，或者是 "-"，表示从标准输入（stdin）读取。最后一项与其他应用集成时很有用。
 
@@ -36,7 +50,11 @@ deno run https://mydomain.com/main.ts
 cat main.ts | deno run -
 ```
 
+<<<<<<< HEAD
 ### 脚本参数 {#script-arguments}
+=======
+## Script arguments
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 通过在脚本名称后指定参数，您可以将用户空间参数放在**最后面**以传递给要运行的脚本，这些参数与 Deno 运行时选项区分开。
 
@@ -74,12 +92,20 @@ deno run net_client.ts --allow-net
 
 存在一些有逻辑的选项组，它们在相关的子命令之间共享。 接下来我们将会讨论。
 
+<<<<<<< HEAD
 ### 观察模式 {#watch-mode}
 
 你可以在 `deno run`、`deno test`、`deno bundle` 和 `deno fmt` 后面应用 `--watch`
 选项，启用内置的文件观察器。当 Deno 用这个选项启动时，它会监视：
+=======
+## Watch mode
 
-- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
+You can supply the `--watch` flag to `deno run`, `deno test`, `deno compile`,
+and `deno fmt` to enable the built-in file watcher. The files that are watched
+depend on the subcommand used:
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
+
+- for `deno run`, `deno test`, and `deno compile` the entrypoint, and all local
   files the entrypoint(s) statically import(s) will be watched.
 - for `deno fmt` all local files and directories specified as command line
   arguments (or the working directory if no specific files/directories is
@@ -94,25 +120,34 @@ deno test --watch
 deno fmt --watch
 ```
 
-### Integrity flags (lock files)
+## Integrity flags (lock files)
 
 Affect commands which can download resources to the cache: `deno cache`,
+<<<<<<< HEAD
 `deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`. >>>>>>>
 20b3c6f375ccdd16ab16c341e4e8604ff344e7c1
+=======
+`deno run`, `deno test`, `deno compile`, `deno doc`, and `deno compile`.
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 ```terminal
 --lock <FILE>    检查指定的锁文件
 --lock-write     写入锁文件. 和 --lock 一起使用.
 ```
 
+<<<<<<< HEAD
 更多信息在[这里](../linking_to_external_code/integrity_checking.md).
 
 ### 缓存和编译选项 {#cache-and-compilation-flags}
+=======
+Find out more about these [here](../basics/modules/integrity_checking.md).
+
+## Cache and compilation flags
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 Affect commands which can populate the cache: `deno cache`, `deno run`,
-`deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
-above, this includes those which affect module resolution, compilation
-configuration etc.
+`deno test`, `deno doc`, and `deno compile`. As well as the flags above, this
+includes those which affect module resolution, compilation configuration etc.
 
 ```terminal
 --config <FILE>               加载配置文件
@@ -122,11 +157,15 @@ configuration etc.
 --unstable                    启用不稳定 API
 ```
 
+<<<<<<< HEAD
 ### 运行时选项 {#runtime-flags}
+=======
+## Runtime flags
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 对运行用户代码有影响的命令: `deno run` 和 `deno test`. 这些包括以上所有和以下内容。
 
-#### Type checking flags
+### Type checking flags
 
 You can type-check your code (without executing it) using the command:
 
@@ -149,21 +188,26 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 
 | Subcommand     | Type checking mode |
 | -------------- | ------------------ |
-| `deno bench`   | 📁 Local            |
-| `deno bundle`  | 📁 Local            |
-| `deno cache`   | ❌ None             |
-| `deno check`   | 📁 Local            |
-| `deno compile` | 📁 Local            |
-| `deno eval`    | ❌ None             |
-| `deno repl`    | ❌ None             |
-| `deno run`     | ❌ None             |
-| `deno test`    | 📁 Local            |
+| `deno bench`   | 📁 Local           |
+| `deno cache`   | ❌ None            |
+| `deno check`   | 📁 Local           |
+| `deno compile` | 📁 Local           |
+| `deno eval`    | ❌ None            |
+| `deno repl`    | ❌ None            |
+| `deno run`     | ❌ None            |
+| `deno test`    | 📁 Local           |
 
-#### Permission flags
+### Permission flags
 
+<<<<<<< HEAD
 [这里](./permissions.md#permissions-list)列出了所有权限选项
 
 #### 其他运行时选项 {#other-runtime-flags}
+=======
+These are listed [here](../basics/permissions.md#permissions-list).
+
+### Other runtime flags
+>>>>>>> 38a19024c4c227f7964daf86e43db32bc062ec25
 
 对运行环境有影响的更多选项：
 
@@ -174,4 +218,16 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 --location <HREF>            Value of 'globalThis.location' used by some web APIs
 --seed <NUMBER>              指定 Math.random() 的随机种子
 --v8-flags=<v8-flags>        设置 V8 命令行选项
+```
+
+## Autocomplete
+
+You can get IDE-style autocompletions for Deno with [Fig](https://fig.io/)
+<a href="https://fig.io/" target="_blank"><img src="https://fig.io/badges/Logo.svg" width="15" height="15"/></a>.
+It works in bash, zsh, and fish.
+
+To install, run:
+
+```shell
+brew install fig
 ```
