@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Code formatter {#code-formatter}
+=======
+# Code Formatter
+>>>>>>> b37e528d3a2aca3e613ecc6aec74a66c301c6b66
 
 Deno ships with a built-in code formatter that will auto-format the following
 files:
@@ -29,7 +33,7 @@ deno fmt --check
 cat file.ts | deno fmt -
 ```
 
-### Ignoring Code
+## Ignoring Code
 
 Ignore formatting code by preceding it with a `// deno-fmt-ignore` comment in
 TS/JS/JSONC:
@@ -51,7 +55,7 @@ file with a `<!-- deno-fmt-ignore-file -->` comment. To ignore a section of
 markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
 `<!-- deno-fmt-ignore-end -->` comments.
 
-### Configuration
+## Configuration
 
 > ℹ️ It is recommended to stick with default options.
 
@@ -59,17 +63,20 @@ Starting with Deno v1.14 a formatter can be customized using either
 [a configuration file](../getting_started/configuration_file.md) or following
 CLI flags:
 
-- `--options-use-tabs` - Whether to use tabs. Defaults to false (using spaces).
+- `--use-tabs` - Whether to use tabs. Defaults to false (using spaces).
 
-- `--options-line-width` - The width of a line the printer will try to stay
-  under. Note that the printer may exceed this width in certain cases. Defaults
-  to 80.
+- `--line-width` - The width of a line the printer will try to stay under. Note
+  that the printer may exceed this width in certain cases. Defaults to 80.
 
-- `--options-indent-width` - The number of characters for an indent. Defaults
-  to 2.
+- `--indent-width` - The number of characters for an indent. Defaults to 2.
 
-- `--options-single-quote` - Whether to use single quote. Defaults to false
-  (using double quote).
+- `--no-semicolons` - To not use semicolons except where necessary.
 
-- `--options-prose-wrap={always,never,preserve}` - Define how prose should be
-  wrapped in Markdown files. Defaults to "always".
+- `--single-quote` - Whether to use single quote. Defaults to false (using
+  double quote).
+
+- `--prose-wrap={always,never,preserve}` - Define how prose should be wrapped in
+  Markdown files. Defaults to "always".
+
+Note: In Deno versions < 1.31 you will have to prefix these flags with
+`options-` (ex. `--options-use-tabs`)
