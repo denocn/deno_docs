@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 ## 权限 APIs {#permission-apis}
+=======
+# Permission APIs
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 运行 `deno` 命令时，会从 CLI 授予权限。用户代码通常会假定自己拥有一组必需的权限，但是在执行过程中不能保证 _已授予的_ 权限集会与此对齐。
 
 在某些情况下，确保容错程序需要一种在运行时与权限系统进行交互的方法。
 
+<<<<<<< HEAD
 ### 权限描述符 {#permission-descriptors}
+=======
+## Permission descriptors
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 在 CLI 上，对 `/foo/bar` 的读取许可被表示为 `--allow-read=/foo/bar`。在运行时 JS 中，它表示如下：
 
@@ -31,11 +39,17 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
-> ⚠️ See
-> [`PermissionDescriptor`](https://doc.deno.land/deno/stable/~/Deno.PermissionDescriptor)
-> in API reference for more details.
+> ⚠️ See [`PermissionDescriptor`](/api?s=Deno.PermissionDescriptor) in API
+> reference for more details.
 
+<<<<<<< HEAD
 ### 查询权限 {#query-permissions}
+=======
+> ⚠️ In 1.30 and onwards, synchronous API counterparts (ex.
+> `Deno.permissions.querySync`) exist for all the APIs described below.
+
+## Query permissions
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 通过描述符检查是否授予许可。
 
@@ -55,13 +69,21 @@ console.log(await Deno.permissions.query(desc3));
 // PermissionStatus { state: "prompt" }
 ```
 
+<<<<<<< HEAD
 ### 权限状态 {#permission-states}
+=======
+## Permission states
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 权限状态可以是 “已授予”（granted），“提示”（prompt） 或 “被拒绝”（denied）。从 CLI 授予的权限将查询到
 `{ state: "granted" }`。那些没有被授予查询的对象默认情况下会查询到 `{ state: "prompt" }`，而
 `{ state: "denied" }` 保留给那些被明确拒绝的对象。 这将在 [请求权限](#request-permissions) 中出现。
 
+<<<<<<< HEAD
 ### 权限强度 {#permission-strength}
+=======
+## Permission strength
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 对 [查询权限](#query-permissions) 中第二个查询的结果的直观理解是，授予了对 `/foo` 的读取访问权限，并且 `/foo/bar`
 位于 `/foo` 之内，因此允许读取 `/foo/bar`。
@@ -85,7 +107,11 @@ const desc3 = { name: "net", host: "127.0.0.1" } as const;
 const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 ```
 
+<<<<<<< HEAD
 ### 请求权限 {#request-permissions}
+=======
+## Request permissions
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 通过 CLI 提示符请求用户的非授权权限。
 
@@ -112,7 +138,11 @@ console.log(status2);
 如果当前许可状态已经是 “已授予”（granted） 或
 “已拒绝”，则请求的行为将类似于查询，并仅返回当前状态。这样既可以防止提示已授予的权限，也可以防止先前拒绝的请求。
 
+<<<<<<< HEAD
 ### 撤消权限 {#revoke-permissions}
+=======
+## Revoke permissions
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 将权限从 “已授予”（granted） 降级为 “提示”（prompt）。
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## Workers {#workers}
+=======
+# Workers
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 Deno 支持
 [`Web Worker API`](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker/Worker).
@@ -32,7 +36,7 @@ it's just an unfortunate interaction of features, and it also happens in all
 browsers that support module workers.
 
 ```ts, ignore
-import { delay } from "https://deno.land/std@0.136.0/async/mod.ts";
+import { delay } from "https://deno.land/std@$STD_VERSION/async/delay.ts";
 
 // First await: waits for a second, then continues running the module.
 await delay(1000);
@@ -45,7 +49,7 @@ self.onmessage = (evt) => {
 };
 ```
 
-### Instantiation permissions
+## Instantiation permissions
 
 创建一个新的 `Worker` 实例的行为与动态导入类似，因此 Deno 需要适当的权限来做这个操作。
 
@@ -95,7 +99,11 @@ $ deno run --allow-net main.ts
 hello world
 ```
 
+<<<<<<< HEAD
 ### 在 Worker 中使用 Deno {#using-deno-in-worker}
+=======
+## Using Deno in worker
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 > Starting in v1.22 the `Deno` namespace is available in worker scope by
 > default. To enable the namespace in earlier versions pass
@@ -138,12 +146,19 @@ hello world
 > to shutdown. This better aligns with the Web platform, as there is no way in
 > the browser for a worker to close the page.
 
-### Specifying worker permissions
+## Specifying worker permissions
 
 > 这是一个不稳定的 Deno 特性。更多信息请查阅 [不稳定特性](./stability.md)
 
+<<<<<<< HEAD
 Worker 可用的权限类似于 CLI 权限标志，这意味着在那里启用的每个权限都可以在 Worker API
 层面上被禁用。你可以在[这里](../getting_started/permissions.md)找到每个权限选项更详细的描述。
+=======
+The permissions available for the worker are analogous to the CLI permission
+flags, meaning every permission enabled there can be disabled at the level of
+the Worker API. You can find a more detailed description of each of the
+permission options [here](../basics/permissions.md).
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 默认情况下，worker 将从其创建的线程中继承权限，但为了允许用户限制该 worker 的访问，我们在 worker API 中提供了
 `deno.permissions` 选项。

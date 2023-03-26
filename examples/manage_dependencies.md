@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Managing dependencies {#managing-dependencies}
+=======
+# Managing Dependencies
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 ## Concepts {#concepts}
 
@@ -7,7 +11,7 @@
   Functionality is then exported out of `deps.ts` for use by local modules.
 - Continuing this convention, dev only dependencies can be kept in a
   `dev_deps.ts` file.
-- See also [Linking to external code](../linking_to_external_code.md)
+- See also [Modules](../basics/modules.md)
 
 ## Overview {#overview}
 
@@ -44,9 +48,9 @@ export {
 ```
 
 In this example the same functionality is created as is the case in the
-[local and remote import examples](./import_export.md). But in this case instead
-of the Ramda module being referenced directly it is referenced by proxy using a
-local `deps.ts` module.
+[local and remote import examples](../basics/modules.md). But in this case
+instead of the Ramda module being referenced directly it is referenced by proxy
+using a local `deps.ts` module.
 
 **Command:** `deno run example.ts`
 

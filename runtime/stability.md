@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## 稳定性 {#stability}
+=======
+# Stability
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 从 Deno 1.0.0 开始， `Deno` 命名空间内的 API 是稳定的。这意味着我们将尽力使 1.0.0 下的代码在未来的 Deno 版本上继续运行。
 
@@ -10,14 +14,32 @@ deno run --unstable mod_which_uses_unstable_stuff.ts
 
 传递这个选项可以有如下效果：
 
+<<<<<<< HEAD
 - 它将允许在运行时使用不稳定的 API。
 - 它将
   [`lib.deno.unstable.d.ts`](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.unstable.d.ts)
   文件添加到用于类型检查的类型脚本定义列表中。这包括 `deno types` 的输出。
+=======
+- It enables the use of unstable APIs during runtime.
+- It adds the
+  [`lib.deno.unstable.d.ts`](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/tsc/dts/lib.deno.unstable.d.ts)
+  file to the list of TypeScript definitions that are used for type checking.
+  This includes the output of `deno types`.
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
 
 请注意，不稳定的 API 可能**没有经过安全检查**，将来可能有**破坏性改动**，并且**还没有准备投入生产**。
 
+<<<<<<< HEAD
 ### 标准模块 {#standard-modules}
 
 Deno 的 [标准模块](https://deno.land/std/) 尚不稳定。为了体现这点，我们用与 CLI 不同的版本号标记标准模块。和 `Deno`
 命名空间不同，使用标准模块不需要 `--unstable` 选项（除非该模块使用了不稳定的 Deno 功能）。
+=======
+## Standard modules
+
+Deno's standard modules (https://deno.land/std@STD_VERSION) are not yet stable.
+We currently version the standard modules differently from the CLI to reflect
+this. Note that unlike the `Deno` namespace, the use of the standard modules do
+not require the `--unstable` flag (unless the standard module itself makes use
+of an unstable Deno feature).
+>>>>>>> 6024e929db45c5a1850fa6ed2c84a96f8fc165c7
