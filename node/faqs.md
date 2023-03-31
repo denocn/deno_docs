@@ -1,40 +1,43 @@
-## Frequently asked questions
+# 常见问题解答
 
-### Getting errors when type checking like `cannot find namespace NodeJS`
+### 在使用 npm 版本说明符时
 
-One of the modules you are using has type definitions that depend upon the
-NodeJS global namespace, but those types don't include the NodeJS global
-namespace in their types.
+如果在使用 npm
+版本说明符时出现此错误，请将三个斜杠类型引用指令添加到您的主入口点，指定从
+`@types/node` 包中包括类型：
 
-The quickest fix is to skip type checking. You can do this by using the
-`--no-check` flag.
+```ts, ignore
+/// <reference types="npm:@types/node" />
+```
 
-Skipping type checking might not be acceptable though. You could try to load the
-Node types yourself. For example from UNPKG it would look something like this:
+### 在使用 CDN 时
+
+如果您在不使用 npm 版本说明符且从 npm CDN 导入时出现此错误，则也可以从 CDN 导入
+`@types/node` 类型。
+
+例如，从 UNPKG 导入看起来像这样：
 
 ```ts, ignore
 import type {} from "https://unpkg.com/@types/node/index.d.ts";
 ```
 
-Or from esm.sh:
+或者从 esm.sh：
 
 ```ts, ignore
 import type {} from "https://esm.sh/@types/node/index.d.ts";
 ```
 
-Or from Skypack:
+或者从 Skypack：
 
 ```ts, ignore
 import type {} from "https://cdn.skypack.dev/@types/node/index.d.ts";
 ```
 
-You could also try to provide only specifically what the 3rd party package is
-missing. For example the package `@aws-sdk/client-dynamodb` has a dependency on
-the `NodeJS.ProcessEnv` type in its type definitions. In one of the modules of
-your project that imports it as a dependency, you could put something like this
-in there which will solve the problem:
+您还可以尝试仅提供第三方包缺少的特定内容。例如，包 `@aws-sdk/client-dynamodb`
+在其类型定义中对 `NodeJS.ProcessEnv`
+类型有一个依赖项。在导入它作为依赖项的项目的其中一个模块中，您可以放置像这样的内容来解决问题：
 
-```ts
+```ts, ignore
 declare global {
   namespace NodeJS {
     type ProcessEnv = Record<string, string>;
@@ -42,13 +45,11 @@ declare global {
 }
 ```
 
-### Getting type errors like cannot find `document` or `HTMLElement`
+## 出现类似于找不到 `document` 或 `HTMLElement` 的类型错误
 
-The library you are using has dependencies on the DOM. This is common for
-packages that are designed to run in a browser as well as server-side. By
-default, Deno only includes the libraries that are directly supported. Assuming
-the package properly identifies what environment it is running in at runtime it
-is "safe" to use the DOM libraries to type check the code. For more information
-on this, check out the
-[Targeting Deno and the Browser](../typescript/configuration.md#targeting-deno-and-the-browser)
-section of the manual.
+您使用的库依赖于
+DOM。这对于旨在在浏览器和服务器端运行的软件包是常见的。默认情况下，Deno
+仅包括直接支持的库。假设软件包在运行时正确识别它正在运行的环境，使用 DOM
+库检查代码是“安全”的。有关更多信息，请查看手册中的
+[针对 Deno 和浏览器](../advanced/typescript/configuration.md#targeting-deno-and-the-browser)
+部分。

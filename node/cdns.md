@@ -1,53 +1,23 @@
-## Packages from CDNs
+# 通过 CDN 使用 npm
 
-Because Deno supports remote HTTP modules, and content delivery networks (CDNs)
-can be powerful tools to transform code, the combination allows an easy way to
-access code in the npm registry via Deno, usually in a way that works with Deno
-without any further actions, and often enriched with TypeScript types. In this
-section we will explore that in detail.
+目前，大多数开发者通过使用其中一种 CDN 导入 npm 模块来在 Deno
+中使用它们。你可以在你的 Deno 代码中或直接在你的浏览器中引用 CDN 的 URL 作为 ES
+Module。这些 CDN URL 可以重复使用，它们也提供了如何在
+Deno、浏览器等中使用的说明。
 
-### What about `deno.land/x/`?
+从 Deno release 1.28 开始，Deno 还提供了稳定支持
+[`npm:` specifiers](./npm_specifiers.md)，这是一种在 Deno 中使用 npm
+模块的新方式。
 
-The [`deno.land/x/`](https://deno.land/x/) is a public registry for code,
-hopefully code written specifically for Deno. It is a public registry though and
-all it does is "redirect" Deno to the location where the code exists. It doesn't
-transform the code in any way. There is a lot of great code on the registry, but
-at the same time, there is some code that just isn't well maintained (or doesn't
-work at all). If you are familiar with the npm registry, you know that as well,
-there are varying degrees of quality.
+从 Deno release 1.31 开始，如果存在，则 Deno 支持解析
+[package.json 中的 npm 依赖项](./package_json.md)。
 
-Because it simply serves up the original published source code, it doesn't
-really help when trying to use code that didn't specifically consider Deno when
-authored.
+### esm.sh
 
-### Deno "friendly" CDNs
-
-Deno friendly content delivery networks (CDNs) not only host packages from npm,
-they provide them in a way that maximizes their integration to Deno. They
-directly address some of the challenges in consuming code written for Node:
-
-- They provide packages and modules in the ES Module format, irrespective of how
-  they are published on npm.
-- They resolve all the dependencies as the modules are served, meaning that all
-  the Node specific module resolution logic is handled by the CDN.
-- Often, they inform Deno of type definitions for a package, meaning that Deno
-  can use them to type check your code and provide a better development
-  experience.
-- The CDNs also "polyfill" the built-in Node modules, making a lot of code that
-  leverages the built-in Node modules _just work_.
-- The CDNs deal with all the semver matching for packages that a package manager
-  like `npm` would be required for a Node application, meaning you as a
-  developer can express your 3rd party dependency versioning as part of the URL
-  you use to import the package.
-
-#### esm.sh
-
-[esm.sh](https://esm.sh/) is a CDN that was specifically designed for Deno,
-though addressing the concerns for Deno also makes it a general purpose CDN for
-accessing npm packages as ES Module bundles. esm.sh uses
-[esbuild](https://esbuild.github.io/) to take an arbitrary npm package and
-ensure that it is consumable as an ES Module. In many cases you can just import
-the npm package into your Deno application:
+[esm.sh](https://esm.sh/) 是一个专门为 Deno 设计的 CDN，虽然解决 Deno
+的问题也使它成为了访问 npm packages 的 ES Module bundles 的通用 CDN。esm.sh 使用
+[esbuild](https://esbuild.github.io/) 来处理任意 npm package，并确保它可以作为
+ES Module 使用。在许多情况下，你可以将 npm package 导入到你的 Deno 应用程序中：
 
 ```tsx
 import React from "https://esm.sh/react";
@@ -59,124 +29,52 @@ export default class A extends React.Component {
 }
 ```
 
-esm.sh supports the use of both specific versions of packages, as well as
-[semver](https://semver.npmjs.com/) versions of packages, so you can express
-your dependency in a similar way you would in a `package.json` file when you
-import it. For example, to get a specific version of a package:
+esm.sh 支持使用特定版本的 packages，以及使用 [semver](https://semver.npmjs.com/)
+版本的 packages，因此，在导入它时，你可以以类似于 `package.json`
+文件的方式表示你的依赖关系。例如，要获取特定版本的 package：
 
 ```tsx
 import React from "https://esm.sh/react@17.0.2";
 ```
 
-Or to get the latest patch release of a minor release:
+或获取一个次要版本的最新补丁发布：
 
 ```tsx
 import React from "https://esm.sh/react@~16.13.0";
 ```
 
-esm.sh uses the `std/node` polyfills to replace the built-in modules in Node,
-meaning that code that uses those built-in modules will have the same
-limitations and caveats as those modules in `std/node`.
-
-esm.sh also automatically sets a header which Deno recognizes that allows Deno
-to be able to retrieve type definitions for the package/module. See
-[Using `X-TypeScript-Types` header](../typescript/types.md#using-x-typescript-types-header)
-in this manual for more details on how this works.
-
-The CDN is also a good choice for people who develop in mainland China, as the
-hosting of the CDN is specifically designed to work with "the great firewall of
-China", as well as esm.sh provides information on self hosting the CDN as well.
-
-Check out the [esm.sh homepage](https://esm.sh/) for more detailed information
-on how the CDN can be used and what features it has.
-
-#### Skypack
-
-[Skypack.dev](https://www.skypack.dev/) is designed to make development overall
-easier by not requiring packages to be installed locally, even for Node
-development, and to make it easy to create web and Deno applications that
-leverage code from the npm registry.
-
-Skypack has a great way of discovering packages in the npm registry, by
-providing a lot of contextual information about the package, as well as a
-"scoring" system to try to help determine if the package follows best-practices.
-
-Skypack detects Deno's user agent when requests for modules are received and
-ensures the code served up is tailored to meet the needs of Deno. The easiest
-way to load a package is to use the
-[lookup URL](https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls) for
-the package:
+或导入子模块：
 
 ```tsx
-import React from "https://cdn.skypack.dev/react";
-
-export default class A extends React.Component {
-  render() {
-    return <div></div>;
-  }
-}
+import { renderToString } from "https://esm.sh/react-dom/server";
 ```
 
-Lookup URLs can also contain the [semver](https://semver.npmjs.com/) version in
-the URL:
+或导入常规文件：
 
-```tsx
-import React from "https://cdn.skypack.dev/react@~16.13.0";
+```tsx, ignore
+import "https://esm.sh/tailwindcss/dist/tailwind.min.css";
 ```
 
-By default, Skypack does not set the types header on packages. In order to have
-the types header set, which is automatically recognized by Deno, you have to
-append `?dts` to the URL for that package:
+esm.sh 还会自动设置一个 header，Deno 识别该 header 使得 Deno 可以检索
+package/module 的类型定义。关于如何使用该 header，请参阅本手册中的
+[Using `X-TypeScript-Types` header](../advanced/typescript/types.md#using-x-typescript-types-header)。
 
-```ts
-import { pathToRegexp } from "https://cdn.skypack.dev/path-to-regexp?dts";
+esm.sh 还提供有关如何自托管 CDN 的信息，请参见
+[self hosting the CDN](https://github.com/ije/esm.sh/blob/main/HOSTING.md)。
 
-const re = pathToRegexp("/path/:id");
-```
+有关 CDN 如何使用和具有哪些功能的更详细信息，请查看
+[esm.sh homepage](https://esm.sh/)。
 
-See
-[Using `X-TypeScript-Types` header](../typescript/types.md#using-x-typescript-types-header)
-in this manual for more details on how this works.
+### UNPKG
 
-Skypack docs have a
-[specific page on usage with Deno](https://docs.skypack.dev/skypack-cdn/code/deno)
-for more information.
+[UNPKG](https://unpkg.com/) 是最知名的 npm packages 的 CDN。对于在其 ES Module
+distribution 中包括浏览器等项目的 package，你可以直接从 UNPKG
+使用它们。尽管如此，所有在 UNPKG 上可用的资源都可以在更适合 Deno 的 CDN 上使用。
 
-### Other CDNs
+### JSPM
 
-There are a couple of other CDNs worth mentioning.
-
-#### UNPKG
-
-[UNPKG](https://unpkg.com/) is the most well known CDN for npm packages. For
-packages that include an ES Module distribution for things like the browsers,
-many of them can be used directly off of UNPKG. That being said, everything
-available on UNPKG is available on more Deno friendly CDNs.
-
-#### JSPM
-
-The [jspm.io](https://jspm.io) CDN is specifically designed to provide npm and
-other registry packages as ES Modules in a way that works well with import maps.
-While it doesn't currently cater to Deno, the fact that Deno can utilize import
-maps, allows you to use the [JSPM.io generator](https://generator.jspm.io/) to
-generate an import-map of all the packages you want to use and have them served
-up from the CDN.
-
-### Considerations
-
-While CDNs can make it easy to allow Deno to consume packages and modules from
-the npm registry, there can still be some things to consider:
-
-- Deno does not (and will not) support Node plugins. If the package requires a
-  native plugin, it won't work under Deno.
-- Dependency management can always be a bit of a challenge and a CDN can make it
-  a bit more obfuscated what dependencies are there. You can always use
-  `deno info` with the module or URL to get a full breakdown of how Deno
-  resolves all the code.
-- While the Deno friendly CDNs try their best to serve up types with the code
-  for consumption with Deno, lots of types for packages conflict with other
-  packages and/or don't consider Deno, which means you can often get strange
-  diagnostic message when type checking code imported from these CDNs, though
-  skipping type checking will result in the code working perfectly fine. This is
-  a fairly complex topic and is covered in the
-  [Types and type declarations](../typescript/types.md) section of the manual.
+[jspm.io](https://jspm.io) CDN 是专门设计为以适合 import maps 的方式提供 npm
+和其他 registry packages 作为 ES Modules。虽然它目前还不支持 Deno，但是由于 Deno
+可以使用 import maps，因此你可以使用
+[JSPM.io generator](https://generator.jspm.io/) 生成你想要使用的所有 packages 的
+import-map，并从 CDN 中提供这些 packages。

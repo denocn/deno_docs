@@ -1,20 +1,26 @@
-# Web 平台 APIs {#web-platform-apis}
+# Using Web Platform APIs
 
-Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个有意义的特有 API 。这些 API 通常遵循规范，而且应该与 Chrome
-和 Firefox 中的实现相匹配。在某些情况下，因为 Deno 有着不同的安全模式，所以稍微偏离规范是有意义的。
+Deno aims to use web platform APIs (like `fetch`) instead of inventing a new
+proprietary API where it makes sense. These APIs generally follow the
+specifications and should match the implementation in Chrome and Firefox. In
+some cases it makes sense to deviate from the spec slightly, because of the
+different security model Deno has.
 
-以下是 Deno web 平台 API 的实现列表：
+Here is a list of web platform APIs Deno implements:
 
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 - [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+- [Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
 - [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
 - [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API)
 - [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
+- [DOM APIs](https://deno.land/api@v1.26.0#DOM_APIs)
 - [DOM `CustomEvent`, `EventTarget` and `EventListener`](#customevent-eventtarget-and-eventlistener)
 - [Encoding API](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API)
 - [Fetch API](#fetch-api)
 - [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 - [Location API](./location_api.md)
+- [`navigator.language` API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language)
 - [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
 - [`setTimeout`, `setInterval`, `clearInterval`](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
 - [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
@@ -22,21 +28,25 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
 - [`URLPattern`](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern)
 - [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 - [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+- [Web File API](https://developer.mozilla.org/en-US/docs/Web/API/File_API)
 - [Web Storage API](./web_storage_api.md)
 - [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
+You can find the Deno reference for these APIs
+[here](https://deno.land/api@$CLI_VERSION).
+
 ## `fetch` API
 
-### 概述 {#overview}
+## Overview
 
-`fetch` API 可以用来发送 HTTP 请求。 它是按照
-[WHATWG `fetch` 规范](https://fetch.spec.whatwg.org/)中的规定实现的。
+The `fetch` API can be used to make HTTP requests. It is implemented as
+specified in the [WHATWG `fetch` spec](https://fetch.spec.whatwg.org/).
 
-你可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API) 中找到关于
-`fetch` API 的文档。
+You can find documentation about this API on
+[MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-### 偏离规范 {#spec-deviations}
+## Spec deviations
 
 - The Deno user agent does not have a cookie jar. As such, the `set-cookie`
   header on a response is not processed, or filtered from the visible response
@@ -71,7 +81,7 @@ Deno 旨在使用 web 平台的 API（如 `fetch`），而不是新发明一个�
   `headers` iterator. This behaviour is in the
   [process of being specified](https://github.com/whatwg/fetch/pull/1346).
 
-### Fetching local files
+## Fetching local files
 
 As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to
 write code that uses the same code path on a server as local, as well as easier
@@ -98,37 +108,58 @@ Notes on fetching local files:
   permission is needed to be able to read a local file.
 - Fetching locally only supports the `GET` method, and will reject the promise
   with any other method.
-- A file that does not exists simply rejects the promise with a vague
+- A file that does not exist simply rejects the promise with a vague
   `TypeError`. This is to avoid the potential of fingerprinting attacks.
 - No headers are set on the response. Therefore it is up to the consumer to
   determine things like the content type or content length.
 - Response bodies are streamed from the Rust side, so large files are available
   in chunks, and can be cancelled.
 
-## `CustomEvent`, `EventTarget` 和 `EventListener` {#customevent-eventtarget-and-eventlistener}
+## `CustomEvent`, `EventTarget` and `EventListener`
 
-### 概述 {#overview}
+## Overview
 
-DOM 事件 API 可以用来调度和监听应用程序中发生的事件。 它是按照
-[WHATWG DOM 规范](https://dom.spec.whatwg.org/#events)中的规定实现的。
+The DOM Event API can be used to dispatch and listen to events happening in an
+application. It is implemented as specified in the
+[WHATWG DOM spec](https://dom.spec.whatwg.org/#events).
 
-你可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget) 里找到关于
-`EventTarget` API 的文档。
+You can find documentation about this API on
+[MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget).
 
-### 偏离规范 {#spec-deviations}
+## Spec deviations
 
-- 没有冒泡事件，因为 Deno 没有 DOM 层次结构，所以没有树状的事件可以冒泡/捕获。
+- Events do not bubble, because Deno does not have a DOM hierarchy, so there is
+  no tree for Events to bubble/capture through.
 
 ---
 
-## Typings {#typings}
+## Typings
 
-用 TypeScript 实现定义的 web APIs
-能够在[`lib.deno.shared_globals.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.shared_globals.d.ts)
-和
+The TypeScript definitions for the implemented web APIs can be found in the
+[`lib.deno.shared_globals.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.shared_globals.d.ts)
+and
 [`lib.deno.window.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.window.d.ts)
-文件中查看。
+files.
 
-关于 workers 的具体定义可以在
+Definitions that are specific to workers can be found in the
 [`lib.deno.worker.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.worker.d.ts)
-文件中查看。
+file.
+
+## Deviations of other APIs from spec
+
+### Cache API
+
+Only the following APIs are implemented:
+
+- [CacheStorage::open()](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open)
+- [CacheStorage::has()](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/has)
+- [CacheStorage::delete()](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/delete)
+- [Cache::match()](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)
+- [Cache::put()](https://developer.mozilla.org/en-US/docs/Web/API/Cache/put)
+- [Cache::delete()](https://developer.mozilla.org/en-US/docs/Web/API/Cache/delete)
+
+A few things that are different compared to browsers:
+
+1. You cannot pass relative paths to the APIs. The request can be an instance of
+   Request or URL or a url string.
+2. `match()` & `delete()` don't support query options yet.

@@ -1,41 +1,36 @@
-# Managing dependencies {#managing-dependencies}
+# 管理依赖关系
 
-## Concepts {#concepts}
+## 概念
 
-- Deno uses URLs for dependency management.
-- One convention places all these dependent URLs into a local `deps.ts` file.
-  Functionality is then exported out of `deps.ts` for use by local modules.
-- Continuing this convention, dev only dependencies can be kept in a
-  `dev_deps.ts` file.
-- See also [Linking to external code](../linking_to_external_code.md)
+- Deno 使用 URL 来管理依赖项。
+- 一种约定是将所有这些依赖的 URL 放入本地的 `deps.ts` 文件中。 然后从 `deps.ts`
+  导出功能以供本地模块使用。
+- 按照这个约定，仅开发时需要的依赖项可以保存在一个 `dev_deps.ts` 文件中。
+- 参见 [模块](../basics/modules.md)
 
-## Overview {#overview}
+## 概述
 
-In Deno there is no concept of a package manager as external modules are
-imported directly into local modules. This raises the question of how to manage
-remote dependencies without a package manager. In big projects with many
-dependencies it will become cumbersome and time consuming to update modules if
-they are all imported individually into individual modules.
+在 Deno 中，由于外部模块直接导入本地模块，因此没有包管理器的概念。
+这就引出了一个问题，即如何在没有包管理器的情况下管理远程依赖项。
+在具有许多依赖项的大型项目中，如果所有模块都单独导入，那么更新模块将变得繁琐和耗时。
 
-The standard practice for solving this problem in Deno is to create a `deps.ts`
-file. All required remote dependencies are referenced in this file and the
-required methods and classes are re-exported. The dependent local modules then
-reference the `deps.ts` rather than the remote dependencies. If now for example
-one remote dependency is used in several files, upgrading to a new version of
-this remote dependency is much simpler as this can be done just within
-`deps.ts`.
+在 Deno 中解决这个问题的标准做法是创建一个 `deps.ts`
+文件。所有必需的远程依赖项都在这个文件中引用，并重新导出所需的方法和类。
+依赖的本地模块将引用 `deps.ts` 而不是远程依赖项。
+例如，如果一个远程依赖项在多个文件中使用，则升级到该远程依赖项的新版本比较简单，因为只需要在
+`deps.ts` 中升级即可。
 
-With all dependencies centralized in `deps.ts`, managing these becomes easier.
-Dev dependencies can also be managed in a separate `dev_deps.ts` file, allowing
-clean separation between dev only and production dependencies.
+将所有依赖项集中在 `deps.ts`
+中，管理这些依赖项变得更加容易。开发依赖项也可以在一个单独的 `dev_deps.ts`
+文件中管理，允许在开发和生产依赖项之间进行清晰的分离。
 
-## Example {#example}
+## 示例
 
 ```ts
 /**
  * deps.ts
  *
- * This module re-exports the required methods from the dependant remote Ramda module.
+ * 此模块重新导出依赖的远程 Ramda 模块中所需的方法。
  */
 export {
   add,
@@ -43,12 +38,10 @@ export {
 } from "https://x.nest.land/ramda@0.27.0/source/index.js";
 ```
 
-In this example the same functionality is created as is the case in the
-[local and remote import examples](./import_export.md). But in this case instead
-of the Ramda module being referenced directly it is referenced by proxy using a
-local `deps.ts` module.
+在此示例中，与[本地和远程导入示例](../basics/modules.md)中创建相同的功能。但是在这种情况下，不是直接引用
+Ramda 模块，而是使用本地的 `deps.ts` 模块代理引用。
 
-**Command:** `deno run example.ts`
+**命令：** `deno run example.ts`
 
 ```ts, ignore
 /**

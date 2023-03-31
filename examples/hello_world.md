@@ -1,22 +1,20 @@
-# Hello world {#hello-world}
+# 你好，世界
 
-## Concepts {#concepts}
+## 概念
 
-- Deno can run JavaScript or TypeScript out of the box with no additional tools
-  or config required.
+- Deno 能够直接运行 JavaScript 或 TypeScript，无需额外的工具或配置。
 
-## Overview {#overview}
+## 概述
 
-Deno is a secure runtime for both JavaScript and TypeScript. As the hello world
-examples below highlight the same functionality can be created in JavaScript or
-TypeScript, and Deno will execute both.
+Deno 是一个安全的运行时环境，可用于运行 JavaScript 和
+TypeScript。如下面的示例所示，JavaScript 和 TypeScript 可以实现相同的功能，而
+Deno 都可以执行。
 
-## JavaScript {#javascript}
+## JavaScript 示例
 
-In this JavaScript example the message `Hello [name]` is printed to the console
-and the code ensures the name provided is capitalized.
+此 JavaScript 示例将消息“Hello [name]”打印到控制台，并确保提供的名字已大写。
 
-**Command:** `deno run hello-world.js`
+**命令：** `deno run hello-world.js`
 
 ```js
 /**
@@ -35,7 +33,7 @@ console.log(hello("Sarah"));
 console.log(hello("kai"));
 
 /**
- * Output:
+ * 输出：
  *
  * Hello John
  * Hello Sarah
@@ -43,15 +41,14 @@ console.log(hello("kai"));
  */
 ```
 
-## TypeScript {#typescript}
+## TypeScript 示例
 
-This TypeScript example is exactly the same as the JavaScript example above, the
-code just has the additional type information which TypeScript supports.
+此 TypeScript 示例与上面的 JavaScript
+示例完全相同，但代码具有额外的类型信息，TypeScript 支持这些信息。
 
-The `deno run` command is exactly the same, it just references a `*.ts` file
-rather than a `*.js` file.
+`deno run` 命令完全相同，只是引用了一个 `*.ts` 文件，而不是 `*.js` 文件。
 
-**Command:** `deno run hello-world.ts`
+**命令：** `deno run hello-world.ts`
 
 ```ts
 /**
@@ -70,7 +67,7 @@ console.log(hello("Sarah"));
 console.log(hello("kai"));
 
 /**
- * Output:
+ * 输出：
  *
  * Hello John
  * Hello Sarah

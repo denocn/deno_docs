@@ -1,10 +1,10 @@
-## Foreign Function Interface API
+# Foreign Function Interface
 
 As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
-to call libraries written in native languages that support the C ABIs (Rust,
-C/C++, C#, Zig, Nim, Kotlin, etc) using `Deno.dlopen`.
+to call libraries written in native languages that support the C ABIs (C/C++,
+Rust, Zig, V, etc.) using `Deno.dlopen`.
 
-### Usage
+## Usage
 
 Here's an example showing how to call a Rust function from Deno:
 
@@ -82,7 +82,7 @@ Run with `--allow-ffi` and `--unstable` flag:
 deno run --allow-ffi --unstable ffi.ts
 ```
 
-### Non-blocking FFI
+## Non-blocking FFI
 
 There are many use cases where users might want to run CPU-bound FFI functions
 in the background without blocking other tasks on the main thread.
@@ -140,7 +140,7 @@ Before
 After
 ```
 
-### Callbacks
+## Callbacks
 
 Deno FFI API supports creating C callbacks from JavaScript functions for calling
 back into Deno from dynamic libraries. An example of how callbacks are created
@@ -185,11 +185,10 @@ library.symbols.check_status();
 ```
 
 If an `UnsafeCallback`'s callback function throws an error, the error will get
-propagated up to the function that triggered the callback to be called (above it
-would be `check_status()`) and can be caught there. If a callback returning a
-pointer throws then Deno will set the return value to a nullptr. Other return
-types are not touched on throw and are thus returned in an undefined state after
-the callback throws.
+propagated up to the function that triggered the callback to be called (above,
+that would be `check_status()`) and can be caught there. If a callback returning
+a value throws then Deno will return 0 (null pointer for pointers) as the
+result.
 
 `UnsafeCallback` is not deallocated by default as it can cause use-after-free
 bugs. To properly dispose of an `UnsafeCallback` its `close()` method must be
@@ -212,35 +211,46 @@ cause unexpected side-effects and undefined behaviour. Preferably any interrupt
 handlers would only set a flag that can later be polled similarly to how
 `check_status()` is used above.
 
-### Supported types
+## Supported types
 
 Here's a list of types supported currently by the Deno FFI API.
 
-| FFI Type      | Deno                   | C                        | Rust                      |
-| ------------- | ---------------------- | ------------------------ | ------------------------- |
-| `i8`          | `number`               | `char` / `signed char`   | `i8`                      |
-| `u8`          | `number`               | `unsigned char`          | `u8`                      |
-| `i16`         | `number`               | `short int`              | `i16`                     |
-| `u16`         | `number`               | `unsigned short int`     | `u16`                     |
-| `i32`         | `number`               | `int` / `signed int`     | `i32`                     |
-| `u32`         | `number`               | `unsigned int`           | `u32`                     |
-| `i64`         | `number \| bigint`     | `long long int`          | `i64`                     |
-| `u64`         | `number \| bigint`     | `unsigned long long int` | `u64`                     |
-| `usize`       | `number \| bigint`     | `size_t`                 | `usize`                   |
-| `f32`         | `number \| bigint`     | `float`                  | `f32`                     |
-| `f64`         | `number \| bigint`     | `double`                 | `f64`                     |
-| `void`[1]     | `undefined`            | `void`                   | `()`                      |
-| `pointer`[2]  | `bigint \| TypedArray` | `const uint8_t *`        | `*const u8`               |
-| `function`[3] | `bigint`               | `void (*fun)()`          | `Option<extern "C" fn()>` |
+| FFI Type               | Deno                 | C                        | Rust                      |
+| ---------------------- | -------------------- | ------------------------ | ------------------------- |
+| `i8`                   | `number`             | `char` / `signed char`   | `i8`                      |
+| `u8`                   | `number`             | `unsigned char`          | `u8`                      |
+| `i16`                  | `number`             | `short int`              | `i16`                     |
+| `u16`                  | `number`             | `unsigned short int`     | `u16`                     |
+| `i32`                  | `number`             | `int` / `signed int`     | `i32`                     |
+| `u32`                  | `number`             | `unsigned int`           | `u32`                     |
+| `i64`                  | `number \| bigint`   | `long long int`          | `i64`                     |
+| `u64`                  | `number \| bigint`   | `unsigned long long int` | `u64`                     |
+| `usize`                | `number \| bigint`   | `size_t`                 | `usize`                   |
+| `f32`                  | `number \| bigint`   | `float`                  | `f32`                     |
+| `f64`                  | `number \| bigint`   | `double`                 | `f64`                     |
+| `void`[1]              | `undefined`          | `void`                   | `()`                      |
+| `pointer`              | `{} \| null`         | `void *`                 | `*mut c_void`             |
+| `buffer`[2]            | `TypedArray \| null` | `uint8_t *`              | `*mut u8`                 |
+| `function`[3]          | `{} \| null`         | `void (*fun)()`          | `Option<extern "C" fn()>` |
+| `{ struct: [...] }`[4] | `TypedArray`         | `struct MyStruct`        | `MyStruct`                |
+
+As of Deno 1.25, the `pointer` type has been split into a `pointer` and a
+`buffer` type to ensure users take advantage of optimizations for Typed Arrays,
+and as of Deno 1.31 the JavaScript representation of `pointer` has become an
+opaque pointer object or `null` for null pointers.
 
 - [1] `void` type can only be used as a result type.
-- [2] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
-  it always returns the latter when used as result type.
-- [3] `function` type parameters and return types are defined using objects, and
-  are passed in as parameters and returned as result types as BigInt pointer
-  values.
+- [2] `buffer` type accepts TypedArrays as parameter, but it always returns a
+  pointer object or `null` when used as result type like the `pointer` type.
+- [3] `function` type works exactly the same as the `pointer` type as a
+  parameter and result type.
+- [4] `struct` type is for passing and returning C structs by value (copy). The
+  `struct` array must enumerate each of the struct's fields' type in order. The
+  structs are padded automatically: Packed structs can be defined by using an
+  appropriate amount of `u8` fields to avoid padding. Only TypedArrays are
+  supported as structs, and structs are always returned as `Uint8Array`s.
 
-### deno_bindgen
+## deno_bindgen
 
 [`deno_bindgen`](https://github.com/denoland/deno_bindgen) is the official tool
 to simplify glue code generation of Deno FFI libraries written in Rust.
@@ -275,8 +285,5 @@ import { mul } from "./bindings/bindings.ts";
 mul({ a: 10, b: 2 }); // 20
 ```
 
-# <<<<<<< HEAD Any issues related to `deno_bindgen` should be reported at https://github.com/littledivy/deno_bindgen/issues
-
 Any issues related to `deno_bindgen` should be reported at
-https://github.com/denoland/deno_bindgen/issues >>>>>>>
-53f6f04fc0ec73acba84e06034572e35ebf10695
+https://github.com/denoland/deno_bindgen/issues

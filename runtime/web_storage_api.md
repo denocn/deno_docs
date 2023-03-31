@@ -1,56 +1,51 @@
-## Web Storage API
+# Web Storage API
 
-Deno 1.10 introduced the
-[Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
-which provides an API for storing string keys and values. Persisting data works
-similar to a browser, and has a 10MB storage limit. The global `sessionStorage`
-object only persists data for the current execution context, while
-`localStorage` persists data from execution to execution.
+Deno 1.10
+引入了[Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)，提供了一个存储字符串键值对的
+API。数据持久化的方式类似于浏览器，并且有一个 10MB 的存储限制。全局的
+`sessionStorage` 对象仅在当前执行上下文中保留数据，而 `localStorage`
+可以在多次执行之间保留数据。
 
-In a browser, `localStorage` persists data uniquely per origin (effectively the
-protocol plus hostname plus port). As of Deno 1.16, Deno has a set of rules to
-determine what is a unique storage location:
+在浏览器中，`localStorage`
+根据来源唯一保留数据（实际上是协议加主机名加端口号）。在 Deno 1.16 中，Deno
+有一组规则来确定什么是唯一的存储位置：
 
-- When using the `--location` flag, the origin for the location is used to
-  uniquely store the data. That means a location of `http://example.com/a.ts`
-  and `http://example.com/b.ts` and `http://example.com:80/` would all share the
-  same storage, but `https://example.com/` would be different.
-- If there is no location specifier, but there is a `--config` configuration
-  file specified, the absolute path to that configuration file is used. That
-  means `deno run --config deno.jsonc a.ts` and
-  `deno run --config deno.jsonc b.ts` would share the same storage, but
-  `deno run --config tsconfig.json a.ts` would be different.
-- If there is no configuration or location specifier, Deno uses the absolute
-  path to the main module to determine what storage is shared. The Deno REPL
-  generates a "synthetic" main module that is based off the current working
-  directory where `deno` is started from. This means that multiple invocations
-  of the REPL from the same path will share the persisted `localStorage` data.
+- 当使用 `--location` 标志时，使用位置的来源唯一存储数据。这意味着
+  `http://example.com/a.ts`、`http://example.com/b.ts` 和
+  `http://example.com:80/` 的位置将共享相同的存储空间，但 `https://example.com/`
+  将不同。
+- 如果没有位置说明符，但指定了 `--config`
+  配置文件，则使用该配置文件的绝对路径。这意味着
+  `deno run --config deno.jsonc a.ts` 和 `deno run --config deno.jsonc b.ts`
+  将共享相同的存储空间，但是 `deno run --config tsconfig.json a.ts` 将不同。
+- 如果没有配置或位置说明符，Deno 使用主模块的绝对路径来确定共享什么存储。Deno
+  REPL 生成一个“合成的”主模块，该模块基于启动 `deno`
+  的当前工作目录。这意味着在相同路径中多次调用 REPL 将共享持久化的
+  `localStorage` 数据。
 
-This means, unlike versions prior to 1.16, `localStorage` is always available in
-the main process.
+这意味着，与版本 1.16 之前的版本不同，`localStorage` 在主进程中始终可用。
 
-### Example
+## 示例
 
-The following snippet accesses the local storage bucket for the current origin
-and adds a data item to it using `setItem()`.
+下面的代码片段访问当前来源的本地存储桶，并使用 `setItem()` 添加数据条目。
 
 ```ts
 localStorage.setItem("myDemo", "Deno App");
 ```
 
-The syntax for reading the localStorage item is as follows:
+读取 localStorage 项目的语法如下：
 
 ```ts
 const cat = localStorage.getItem("myDemo");
 ```
 
-The syntax for removing the localStorage item is as follows:
+删除 localStorage 项目的语法如下：
 
 ```ts
 localStorage.removeItem("myDemo");
 ```
 
-The syntax for removing all the localStorage items is as follows:
+删除所有 localStorage 项目的语法如下：
 
 ```ts
 localStorage.clear();

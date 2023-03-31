@@ -1,10 +1,9 @@
-## Bundling {#bundling}
+# 警告：`deno bundle` 已过时，并将在未来的版本中被移除。请使用 [deno_emit](https://github.com/denoland/deno_emit)、[esbuild](https://esbuild.github.io/) 或 [rollup](https://rollupjs.org)。
 
-# <<<<<<< HEAD `deno bundle [URL]` will output a single JavaScript file, which includes all dependencies of the specified input. For example:
+# 打包
 
-`deno bundle [URL]` will output a single JavaScript file for consumption in
-Deno, which includes all dependencies of the specified input. For example:
->>>>>>> 53f6f04fc0ec73acba84e06034572e35ebf10695
+`deno bundle [URL]` 会输出一个单独的 JavaScript 文件，用于在 Deno
+中使用，其中包含指定输入的所有依赖项。例如：
 
 ```bash
 deno bundle https://deno.land/std@$STD_VERSION/examples/colors.ts colors.bundle.js
@@ -14,17 +13,16 @@ Download https://deno.land/std@$STD_VERSION/fmt/colors.ts
 Emit "colors.bundle.js" (9.83KB)
 ```
 
-If you omit the out file, the bundle will be sent to `stdout`.
+如果省略输出文件，那么打包结果将被发送到 `stdout`。
 
-The bundle can just be run as any other module in Deno would:
+打包结果可以像其他模块一样在 Deno 中运行：
 
 ```bash
 deno run colors.bundle.js
 ```
 
-The output is a self contained ES Module, where any exports from the main module
-supplied on the command line will be available. For example, if the main module
-looked something like this:
+输出是一个独立的 ES
+Module，在命令行上提供的主模块中导出的任何模块都将可用。例如，如果主模块看起来像这样：
 
 ```ts, ignore
 export { foo } from "./foo.js";
@@ -32,17 +30,16 @@ export { foo } from "./foo.js";
 export const bar = "bar";
 ```
 
-It could be imported like this:
+它可以这样导入：
 
 ```ts, ignore
 import { bar, foo } from "./lib.bundle.js";
 ```
 
-### Bundling for the Web
+## 为 Web 打包
 
-The output of `deno bundle` is intended for consumption in Deno and not for use
-in a web browser or other runtimes. That said, depending on the input it may
-work in other environments.
+`deno bundle` 的输出适用于在 Deno 中使用，而不适用于在 Web
+浏览器或其他运行时中使用。尽管如此，根据输入的不同，它可能也可以工作。
 
-If you wish to bundle for the web, we recommend other solutions such as
-[esbuild](https://esbuild.github.io/).
+如果您想要为 Web 打包，我们建议使用其他解决方案，例如
+[esbuild](https://esbuild.github.io/)。

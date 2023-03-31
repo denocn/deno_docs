@@ -1,41 +1,37 @@
-## Compiling Executables {#compiling-executables}
+# 编译可执行文件
 
-`deno compile [--output <OUT>] <SRC>` will compile the script into a
-self-contained executable.
+`deno compile [--output <OUT>] <SRC>` 命令可将脚本编译成一个自包含的可执行文件。
 
 ```
 > deno compile https://deno.land/std/examples/welcome.ts
 ```
 
-If you omit the `OUT` parameter, the name of the executable file will be
-inferred.
+如果省略 `OUT` 参数，可推断出可执行文件的名称。
 
-### Flags {#flags}
+## 标志
 
-As with [`deno install`](./script_installer.md), the runtime flags used to
-execute the script must be specified at compilation time. This includes
-permission flags.
+与 [`deno install`](./script_installer.md)
+一样，编译时要指定用于执行脚本的运行时标志，包括权限标志。
 
 ```
 > deno compile --allow-read --allow-net https://deno.land/std/http/file_server.ts
 ```
 
-[Script arguments](../getting_started/command_line_interface.md#script-arguments)
-can be partially embedded.
+可部分嵌入[脚本参数](../getting_started/command_line_interface.md#script-arguments)。
 
 ```
 > deno compile --allow-read --allow-net https://deno.land/std/http/file_server.ts -p 8080
 > ./file_server --help
 ```
 
-### Cross Compilation {#cross-compilation}
+## 交叉编译
 
-You can compile binaries for other platforms by adding the `--target` CLI flag.
-Deno currently supports compiling to Windows x64, macOS x64, macOS ARM and Linux
-x64. Use `deno compile --help` to list the full values for each compilation
-target.
+可通过添加 `--target` 命令行标识符为其他平台编译二进制文件。Deno 目前支持编译到
+Windows x64、macOS x64、macOS ARM 和 Linux x64。使用 `deno compile --help`
+列出每个编译目标的所有值。
 
-### Unavailable in executables
+## 不可用于可执行文件中
 
 - [Workers](../runtime/workers.md)
-- Dynamic Imports
+- 动态导入
+- [Web Storage API](../runtime/web_storage_api.md)

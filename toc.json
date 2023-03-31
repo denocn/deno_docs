@@ -1,171 +1,466 @@
 {
-  "introduction": {
-    "name": "简介"
-  },
+  "introduction": "介绍",
   "getting_started": {
-    "name": "快速入门",
+    "name": "开始",
     "children": {
       "installation": "安装",
       "setup_your_environment": "设置环境",
       "first_steps": "第一步",
-      "command_line_interface": "命令行",
+      "command_line_interface": "命令行接口",
       "configuration_file": "配置文件",
-      "permissions": "权限",
-      "debugging_your_code": "调试代码"
+      "web_frameworks": "Web 框架"
+    }
+  },
+  "basics": {
+    "name": "基础",
+    "children": {
+      "modules": {
+        "name": "模块",
+        "redirectFrom": [
+          "/modules"
+        ],
+        "children": {
+          "reloading_modules": {
+            "name": "重载模块",
+            "redirectFrom": [
+              "/linking_to_external_code/reloading_modules"
+            ]
+          },
+          "integrity_checking": {
+            "name": "完整性检查",
+            "redirectFrom": [
+              "/linking_to_external_code/integrity_checking"
+            ]
+          },
+          "proxies": {
+            "name": "代理",
+            "redirectFrom": [
+              "/linking_to_external_code/proxies"
+            ]
+          },
+          "private": {
+            "name": "私有模块",
+            "redirectFrom": [
+              "/linking_to_external_code/private"
+            ]
+          }
+        }
+      },
+      "standard_library": {
+        "name": "标准库",
+        "redirectFrom": [
+          "/standard_library"
+        ]
+      },
+      "import_maps": {
+        "name": "导入映射",
+        "redirectFrom": [
+          "/linking_to_external_code/import_maps",
+          "/node/import_maps",
+          "/basics/modules/import_maps"
+        ]
+      },
+      "permissions": {
+        "name": "权限",
+        "redirectFrom": [
+          "/getting_started/permissions"
+        ]
+      },
+      "connecting_to_databases": "连接到数据库",
+      "react": "使用 React 与 Deno",
+      "env_variables": "环境变量",
+      "testing": {
+        "name": "测试",
+        "redirectFrom": [
+          "/testing"
+        ],
+        "children": {
+          "assertions": {
+            "name": "断言",
+            "redirectFrom": [
+              "/testing/assertions"
+            ]
+          },
+          "coverage": {
+            "name": "覆盖率",
+            "redirectFrom": [
+              "/testing/coverage"
+            ]
+          },
+          "documentation": {
+            "name": "文档",
+            "redirectFrom": [
+              "/testing/documentation"
+            ]
+          },
+          "sanitizers": {
+            "name": "Sanitizers",
+            "redirectFrom": [
+              "/testing/sanitizers"
+            ]
+          },
+          "behavior_driven_development": {
+            "name": "行为驱动开发",
+            "redirectFrom": [
+              "/testing/behavior_driven_development"
+            ]
+          },
+          "mocking": {
+            "name": "模拟",
+            "redirectFrom": [
+              "/testing/mocking"
+            ]
+          },
+          "snapshot_testing": {
+            "name": "快照测试",
+            "redirectFrom": [
+              "/testing/snapshot_testing"
+            ]
+          }
+        }
+      },
+      "debugging_your_code": {
+        "name": "调试代码",
+        "redirectFrom": [
+          "/getting_started/debugging_your_code"
+        ]
+      }
+    }
+  },
+  "node": {
+    "name": "Node 和 npm 模块",
+    "children": {
+      "npm_specifiers": "npm: 规范",
+      "node_specifiers": {
+        "name": "node: 规范",
+        "redirectFrom": "/node/std_node"
+      },
+      "package_json": "package.json",
+      "cdns": {
+        "name": "通过 CDNs 使用 npm",
+        "redirectFrom": [
+          "/npm_nodejs/cdns"
+        ]
+      },
+      "how_to_with_npm": {
+        "name": "使用 npm 的指南",
+        "children": {
+          "prisma": "Prisma",
+          "mongoose": "Mongoose",
+          "apollo": "Apollo",
+          "mysql2": "MySQL2",
+          "redis": "Redis",
+          "planetscale": "PlanetScale",
+          "react": "React",
+          "vue": "Vue",
+          "express": "Express"
+        }
+      },
+      "faqs": "常见问题解答"
     }
   },
   "runtime": {
     "name": "运行时",
     "children": {
       "stability": "稳定性",
+      "builtin_apis": "内置 API",
+      "import_meta_api": "import.meta API",
       "program_lifecycle": "程序生命周期",
       "permission_apis": "权限 API",
       "web_platform_apis": "Web 平台 API",
-      "http_server_apis": "HTTP Server APIs",
-      "http_server_apis_low_level": "HTTP Server APIs (low level)",
-      "location_api": "Location API",
-      "web_storage_api": "Web Storage API",
+      "http_server_apis": "HTTP 服务器 API",
+      "location_api": "位置 API",
+      "web_storage_api": "Web 存储 API",
       "workers": "Workers",
-      "ffi_api": "FFI API"
+      "ffi_api": "Foreign Function Interface",
+      "webassembly": {
+        "name": "使用 WebAssembly",
+        "redirectFrom": [
+          "/webassembly"
+        ],
+        "children": {
+          "using_wasm": {
+            "name": "在 Deno 中使用 WebAssembly",
+            "redirectFrom": [
+              "/webassembly/using_wasm"
+            ]
+          },
+          "using_streaming_wasm": {
+            "name": "使用流式 WebAssembly API",
+            "redirectFrom": [
+              "/webassembly/using_streaming_wasm"
+            ]
+          },
+          "wasm_resources": {
+            "name": "有用的资源",
+            "redirectFrom": [
+              "/webassembly/wasm_resources"
+            ]
+          }
+        }
+      }
     }
-  },
-  "linking_to_external_code": {
-    "name": "链接至外部代码",
-    "children": {
-      "reloading_modules": "重新载入模块",
-      "integrity_checking": "完整性检查",
-      "proxies": "代理",
-      "private": "私有模块",
-      "import_maps": "Import maps"
-    }
-  },
-  "node": {
-    "name": "使用 Node/Npm 代码",
-    "children": {
-      "compatibility_mode": "Node 兼容模式",
-      "std_node": "The std/node library",
-      "cdns": "Packages from CDNs",
-      "import_maps": "Using import maps",
-      "faqs": "FAQ",
-      "cheatsheet": "Node->Deno 速查表",
-      "dnt": "dnt - Deno to Node Transform"
-    }
-  },
-  "typescript": {
-    "name": "使用 TypeScript",
-    "children": {
-      "overview": "概述",
-      "configuration": "配置",
-      "types": "类型与类型声明",
-      "migration": "JavaScript/JavaScript 迁移",
-      "faqs": "FAQ"
-    }
-  },
-  "jsx_dom": {
-    "name": "使用 JSX 和 DOM",
-    "children": {
-      "overview": "概述",
-      "jsx": "配置 JSX",
-      "linkedom": "使用 LinkeDOM",
-      "deno_dom": "使用 deno-dom",
-      "jsdom": "使用 jsdom",
-      "css": "Parsing CSS",
-      "twind": "使用 Twind"
-    }
-  },
-  "webassembly": {
-    "name": "使用 WebAssembly",
-    "children": {
-      "using_wasm": "在 Deno 中使用 wasm",
-      "using_streaming_wasm": "使用 wasm 的 Streaming API",
-      "wasm_resources": "一些有用的资源"
-    }
-  },
-  "standard_library": {
-    "name": "标准库"
   },
   "examples": {
     "name": "示例",
     "children": {
-      "hello_world": "Hello world",
-      "import_export": "import 和 export 模块",
+      "hello_world": "Hello World",
       "manage_dependencies": "管理依赖",
-      "fetch_data": "请求数据",
-      "read_write_files": "文件读写",
-      "unix_cat": "实现 unix cat 程序",
-      "http_server": "HTTP web 服务器",
+      "fetch_data": "获取数据",
+      "read_write_files": "读写文件",
+      "unix_cat": "Unix cat 程序",
+      "http_server": "HTTP Web 服务器",
       "file_server": "文件服务器",
-      "tcp_echo": "TCP echo 服务器",
+      "tcp_echo": "TCP 回显服务器",
       "subprocess": "创建子进程",
-      "os_signals": "OS 信号",
+      "os_signals": "操作系统信号",
       "file_system_events": "文件系统事件",
-      "module_metadata": "模块 metadata",
-      "shebang": "Shebang"
-    }
-  },
-  "testing": {
-    "name": "测试",
-    "children": {
-      "assertions": "断言",
-      "coverage": "覆盖率",
-      "documentation": "文档",
-      "sanitizers": "Sanitizers",
-      "behavior_driven_development": "Behavior-driven development",
-      "mocking": "Mocking",
-      "snapshot_testing": "快照"
+      "module_metadata": "模块元数据",
+      "hashbang": {
+        "name": "Hashbang",
+        "redirectFrom": [
+          "/examples/shebang"
+        ]
+      },
+      "chat_app": "聊天应用",
+      "word_finder": "单词查找"
     }
   },
   "tools": {
     "name": "工具",
     "children": {
-      "script_installer": "脚本安装器",
-      "formatter": "格式化",
-      "repl": "REPL",
-      "bundler": "打包工具",
-      "compiler": "编译可执行文件",
-      "documentation_generator": "文档生成器",
-      "dependency_inspector": "依赖检查器",
-      "linter": "Linter",
-      "task_runner": "Task runner",
-      "vendor": "Vendoring dependencies",
-      "benchmarker": "Benchmarking"
+      "init": "deno init",
+      "script_installer": "deno install",
+      "formatter": "deno fmt",
+      "repl": "deno repl",
+      "bundler": "deno bundle",
+      "compiler": "deno compile",
+      "documentation_generator": "deno doc",
+      "dependency_inspector": "deno info",
+      "linter": "deno lint",
+      "task_runner": "deno task",
+      "vendor": "deno vendor",
+      "benchmarker": "deno bench"
     }
   },
-  "continuous_integration": {
-    "name": "持续集成(CI)"
-  },
-  "vscode_deno": {
-    "name": "使用 VS Code",
+  "advanced": {
+    "name": "高级",
     "children": {
-      "testing_api": "Testing API"
-    }
-  },
-  "language_server": {
-    "name": "Language Server",
-    "children": {
-      "overview": "Overview of the language server",
-      "imports": "Import suggestions and intelligent registries",
-      "testing_api": "Testing API"
-    }
-  },
-  "publishing": {
-    "name": "Publishing Modules"
-  },
-  "embedding_deno": {
-    "name": "嵌入 Deno"
-  },
-  "help": {
-    "name": "帮助"
-  },
-  "contributing": {
-    "name": "贡献",
-    "children": {
-      "building_from_source": "从源代码构建",
-      "web_platform_tests": "Web 平台测试",
-      "style_guide": "样式指南",
-      "architecture": "架构",
-      "profiling": "Profiling",
-      "release_schedule": "发布规划表"
-    }
-  }
-}
+      "publishing": {
+        "name": "发布模块",
+        "redirectFrom": [
+          "/publishing"
+        ],
+        "children": {
+          "dnt": {
+            "name": "dnt - Deno to Node.js 转换器",
+            "redirectFrom": [
+              "/node/dnt"
+            ]
+          }
+        }
+      },
+      "embedding_deno": {
+        "name": "嵌入 Deno",
+        "redirectFrom": [
+          "/embedding_deno"
+        ]
+      },
+      "language_server": {
+        "name": "语言服务器",
+        "redirectFrom": [
+          "/language_server"
+        ],
+        "children": {
+          "overview": {
+            "name": "语言服务器概述",
+            "redirectFrom": [
+              "/language_server/overview"
+            ]
+          },
+          "imports": {
+            "name": "导入建议和智能注册表",
+            "redirectFrom": [
+              "/language_server/imports"
+            ]
+          },
+          "testing_api": {
+            "name": "测试 API",
+            "redirectFrom": [
+              "/language_server/testing_api"
+            ]
+          }
+        }
+      },
+      "continuous_integration": {
+        "name": "持续集成",
+        "redirectFrom": [
+          "/continuous_integration"
+        ]
+      },
+      "deploying_deno": {
+        "name": "部署 Deno",
+        "children": {
+          "digital_ocean": "Digital Ocean",
+          "google_cloud_run": "Google Cloud Run",
+          "aws_lightsail": "AWS Lightsail",
+          "cloudflare_workers": "Cloudflare Workers"
+        }
+      },
+      "typescript": {
+        "name": "使用 TypeScript",
+        "redirectFrom": [
+          "/typescript"
+        ],
+        "children": {
+          "overview": {
+            "name": "概述",
+            "redirectFrom": [
+              "/typescript/overview"
+            ]
+          },
+          "configuration": {
+            "name": "配置",
+            "redirectFrom": [
+              "/typescript/configuration"
+            ]
+          },
+          "types": {
+            "name": "类型和类型声明",
+            "redirectFrom": [
+              "/typescript/types"
+            ]
+          },
+          "migration": {
+            "name": "从/到 JavaScript 的迁移",
+            "redirectFrom": [
+              "/typescript/migration"
+            ]
+          },
+          "faqs": {
+            "name": "常见问题",
+            "redirectFrom": [
+              "/typescript/faqs"
+            ]
+          }
+        }
+      },
+      "jsx_dom": {
+        "name": "使用 JSX 和 DOM",
+        "redirectFrom": [
+          "/jsx_dom"
+        ],
+        "children": {
+          "overview": {
+            "name": "概述",
+            "redirectFrom": [
+              "/jsx_dom/overview"
+            ]
+          },
+          "jsx": {
+            "name": "配置 JSX",
+            "redirectFrom": [
+              "/jsx_dom/jsx"
+            ]
+          },
+          "linkedom": {
+            "name": "使用 LinkeDOM",
+            "redirectFrom": [
+              "/jsx_dom/linkedom"
+            ]
+          },
+          "deno_dom": {
+            "name": "使用 deno-dom",
+            "redirectFrom": [
+              "/jsx_dom/deno_dom"
+            ]
+          },
+          "jsdom": {
+            "name": "使用 jsdom",
+            "redirectFrom": [
+              "/jsx_dom/jsdom"
+            ]
+          },
+          "css": {
+            "name": "解析 CSS",
+            "redirectFrom": [
+              "/jsx_dom/css"
+            ]
+          },
+          "twind": {
+            "name": "使用 Twind",
+            "redirectFrom": [
+              "/jsx_dom/twind"
+            ]
+          },
+          "references": {
+            "name": "参考文献",
+            "children": {
+              "vscode_deno": {
+                "name": "使用 Visual Studio Code",
+                "redirectFrom": [
+                  "/vscode_deno"
+                ],
+                "children": {
+                  "testing_api": {
+                    "name": "测试 API",
+                    "redirectFrom": [
+                      "/vscode_deno/testing_api"
+                    ]
+                  }
+                }
+              },
+              "cheatsheet": {
+                "name": "Deno 技巧清单",
+                "redirectFrom": [
+                  "/node/cheatsheet"
+                ]
+              },
+              "contributing": {
+                "name": "贡献",
+                "redirectFrom": [
+                  "/contributing"
+                ],
+                "children": {
+                  "building_from_source": {
+                    "name": "从源代码构建",
+                    "redirectFrom": [
+                      "/contributing/building_from_source"
+                    ]
+                  },
+                  "web_platform_tests": {
+                    "name": "Web 平台测试",
+                    "redirectFrom": [
+                      "/contributing/web_platform_tests"
+                    ]
+                  },
+                  "style_guide": {
+                    "name": "风格指南",
+                    "redirectFrom": [
+                      "/contributing/style_guide"
+                    ]
+                  },
+                  "architecture": {
+                    "name": "架构",
+                    "redirectFrom": [
+                      "/contributing/architecture"
+                    ]
+                  },
+                  "profiling": {
+                    "name": "性能分析",
+                    "redirectFrom": [
+                      "/contributing/profiling"
+                    ]
+                  },
+                  "release_schedule": {
+                    "name": "发布计划",
+                    "redirectFrom": [
+                      "/contributing/release_schedule"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "help": "帮助"
+        }

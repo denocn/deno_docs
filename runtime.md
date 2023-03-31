@@ -1,22 +1,23 @@
-# 运行时 {#runtime}
+# 运行时
 
-Documentation for all runtime functions (Web APIs + `Deno` global) can be found
-on [`doc.deno.land/deno/stable`](https://doc.deno.land/deno/stable@$CLI_VERSION)
-with _unstable_ APIs which are enabled via the `--unstable` flag at
-[`doc.deno.land/deno/unstable`](https://doc.deno.land/deno/unstable@$CLI_VERSION).
+所有运行时函数的文档（Web API + `Deno` 全局函数）可以在 [`/api`](/api)
+找到，或通过添加使用 `--unstable` 标志启用的不稳定 API 在
+[`/api?unstable`](/api?unstable) 找到。
 
-## Web Platform APIs {#web-platform-apis}
+## Web 平台 APIs
 
-对于已经存在的 Web 标准 API（例如，HTTP 请求的 `fetch`），Deno 是去使用这些标准，而不是发明新的专有 API。
+对于已存在 Web 标准的 API，例如 HTTP 请求的 `fetch`，Deno
+使用现有标准而不是发明新的专有 API。
 
-更多详细信息，请参见 [Web Platform APIs](./runtime/web_platform_apis.md)。
+有关更多详细信息，请参见[Web 平台 APIs](./runtime/web_platform_apis.md)这一章节。
 
-## `Deno` global {#deno-global}
+## `Deno` 全局函数
 
-All APIs that are not web standard are contained in the global `Deno` namespace.
-It has the APIs for reading from files, opening TCP sockets,
-[serving HTTP](./runtime/http_server_apis.md), and executing subprocesses, etc.
+所有非 Web 标准的 API 都包含在全局的 `Deno` 命名空间中。它具有读取文件、打开 TCP
+socket、[提供 HTTP 服务](./runtime/http_server_apis.md) 和执行子进程等 API。
 
-The TypeScript definitions for the Deno namespaces can be found in the
-[`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)
-file.
+有关更多详细信息，请参见[内置 APIs](./runtime/builtin_apis.md)这一章节。
+
+Deno 命名空间的 TypeScript 定义可在
+[`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/tsc/dts/lib.deno.ns.d.ts)
+文件中找到。

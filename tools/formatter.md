@@ -1,9 +1,8 @@
-## Code formatter {#code-formatter}
+# 代码格式化器
 
-Deno ships with a built-in code formatter that will auto-format the following
-files:
+Deno 自带一个内置的代码格式化器，可以自动格式化以下文件：
 
-| File Type  | Extension          |
+| 文件类型   | 扩展名             |
 | ---------- | ------------------ |
 | JavaScript | `.js`              |
 | TypeScript | `.ts`              |
@@ -13,26 +12,25 @@ files:
 | JSON       | `.json`            |
 | JSONC      | `.jsonc`           |
 
-In addition, `deno fmt` can format code snippets in Markdown files. Snippets
-must be enclosed in triple backticks and have a language attribute.
+此外，`deno fmt` 还可以格式化 Markdown
+文件中的代码片段。代码片段必须用三个反引号框起来，并带有语言属性。
 
 ```shell
-# format all supported files in the current directory and subdirectories
+# 格式化当前目录和子目录中的所有支持的文件
 deno fmt
-# format specific files
+# 格式化指定的文件
 deno fmt myfile1.ts myfile2.ts
-# format all supported files in specified directory and subdirectories
+# 格式化指定目录及其子目录中的所有支持的文件
 deno fmt src/
-# check if all the supported files in the current directory and subdirectories are formatted
+# 检查当前目录和子目录中的所有支持的文件是否已格式化
 deno fmt --check
-# format stdin and write to stdout
+# 格式化标准输入并写入标准输出
 cat file.ts | deno fmt -
 ```
 
-### Ignoring Code
+## 忽略代码
 
-Ignore formatting code by preceding it with a `// deno-fmt-ignore` comment in
-TS/JS/JSONC:
+在 TS/JS/JSONC 中，您可以使用 `// deno-fmt-ignore` 注释来忽略格式化代码：
 
 ```ts
 // deno-fmt-ignore
@@ -43,33 +41,33 @@ export const identity = [
 ];
 ```
 
-Or ignore an entire file by adding a `// deno-fmt-ignore-file` comment at the
-top of the file.
+或者在文件顶部添加一个 `// deno-fmt-ignore-file` 注释来忽略整个文件。
 
-In markdown you may use a `<!-- deno-fmt-ignore -->` comment or ignore a whole
-file with a `<!-- deno-fmt-ignore-file -->` comment. To ignore a section of
-markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
-`<!-- deno-fmt-ignore-end -->` comments.
+在 Markdown 中，您可以使用 `<!-- deno-fmt-ignore -->` 注释来忽略一个文件，或使用
+`<!-- deno-fmt-ignore-file -->` 注释来忽略整个文件。要忽略 Markdown
+中的一部分，请使用 `<!-- deno-fmt-ignore-start -->` 和
+`<!-- deno-fmt-ignore-end -->` 注释括起来的代码。
 
-### Configuration
+## 配置
 
-> ℹ️ It is recommended to stick with default options.
+> ℹ️ 建议使用默认选项。
 
-Starting with Deno v1.14 a formatter can be customized using either
-[a configuration file](../getting_started/configuration_file.md) or following
-CLI flags:
+从 Deno v1.14 开始，格式化器可以使用配置文件或遵循 CLI 标志进行自定义：
 
-- `--options-use-tabs` - Whether to use tabs. Defaults to false (using spaces).
+- `--use-tabs` - 是否使用制表符。默认为 false（使用空格）。
 
-- `--options-line-width` - The width of a line the printer will try to stay
-  under. Note that the printer may exceed this width in certain cases. Defaults
-  to 80.
+- `--line-width` -
+  打印机将尝试保持在其下的行的宽度。请注意，在某些情况下，打印机可能会超过此宽度。默认为
+  80。
 
-- `--options-indent-width` - The number of characters for an indent. Defaults
-  to 2.
+- `--indent-width` - 缩进的字符数量。默认为 2。
 
-- `--options-single-quote` - Whether to use single quote. Defaults to false
-  (using double quote).
+- `--no-semicolons` - 不使用分号，除非必要。
 
-- `--options-prose-wrap={always,never,preserve}` - Define how prose should be
-  wrapped in Markdown files. Defaults to "always".
+- `--single-quote` - 是否使用单引号。默认为 false（使用双引号）。
+
+- `--prose-wrap={always,never,preserve}` - 定义如何在 Markdown
+  文件中包装散文。默认为“always”。
+
+注意：在 Deno 版本 < 1.31 中，您需要在这些标志前添加 `options-` 前缀（例如
+`--options-use-tabs`）。

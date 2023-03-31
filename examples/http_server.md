@@ -1,45 +1,40 @@
-# Simple HTTP web server {#simple-http-web-server}
+# 简单的 HTTP Web 服务器
 
-## Concepts {#concepts}
+## 概念
 
-- Use Deno's integrated HTTP server to run your own web server.
+- 使用 Deno 集成的 HTTP 服务器运行你自己的 Web 服务器。
 
-## Overview {#overview}
+## 概述
 
-With just a few lines of code you can run your own HTTP web server with control
-over the response status, request headers and more.
+只需几行代码，你就可以运行自己的 HTTP Web 服务器，并控制响应状态、请求头等。
 
-## Sample web server {#sample-web-server}
+## 示例 Web 服务器
 
-In this example, the user-agent of the client is returned to the client:
+在此示例中，将客户端的 User-Agent 返回给客户端：
 
-**webserver.ts**:
+**webserver.ts**：
 
 ```ts
-// Start listening on port 8080 of localhost.
+// 开始在 localhost 的 8080 端口上监听。
 const server = Deno.listen({ port: 8080 });
 console.log(`HTTP webserver running.  Access it at:  http://localhost:8080/`);
 
-// Connections to the server will be yielded up as an async iterable.
+// 连接服务器将作为异步可迭代项产生。
 for await (const conn of server) {
-  // In order to not be blocking, we need to handle each connection individually
-  // without awaiting the function
+  // 为了不阻塞，我们需要分别处理每个连接，而不需要等待函数。
   serveHttp(conn);
 }
 
 async function serveHttp(conn: Deno.Conn) {
-  // This "upgrades" a network connection into an HTTP connection.
+  // 这将把一个网络连接升级为一个 HTTP 连接。
   const httpConn = Deno.serveHttp(conn);
-  // Each request sent over the HTTP connection will be yielded as an async
-  // iterator from the HTTP connection.
+  // 每个通过 HTTP 连接发送的请求将从 HTTP 连接中作为异步迭代器产生。
   for await (const requestEvent of httpConn) {
-    // The native HTTP server uses the web standard `Request` and `Response`
-    // objects.
+    // 原生的 HTTP 服务器使用 Web 标准的 Request 和 Response 对象。
     const body = `Your user-agent is:\n\n${
       requestEvent.request.headers.get("user-agent") ?? "Unknown"
     }`;
-    // The requestEvent's `.respondWith()` method is how we send the response
-    // back to the client.
+    // 请求事件的 .respondWith() 方法是我们将响应发送回客户端的方式。
     requestEvent.respondWith(
       new Response(body, {
         status: 200,
@@ -49,22 +44,20 @@ async function serveHttp(conn: Deno.Conn) {
 }
 ```
 
-Then run this with:
+然后使用以下命令运行：
 
 ```shell
 deno run --allow-net webserver.ts
 ```
 
-Then navigate to `http://localhost:8080/` in a browser.
+然后在浏览器中导航到 `http://localhost:8080/` 。
 
-### Using the `std/http` library
+### 使用 `std/http` 库
 
-> ℹ️ Since
-> [the stabilization of _native_ HTTP bindings in `^1.13.x`](https://deno.com/blog/v1.13#stabilize-native-http-server-api),
-> std/http now supports a _native_ HTTP server from ^0.107.0. The legacy server
-> module was removed in 0.117.0.
+> ℹ️ 从 `^1.13.x` 版本开始，由于 _原生_ HTTP 绑定的稳定化， std/http 现在支持从
+> `^0.107.0` 起的 _原生_ HTTP 服务器。 从 0.117.0 版本起删除了旧的服务器模块。
 
-**webserver.ts**:
+**webserver.ts**：
 
 ```ts
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
@@ -83,7 +76,7 @@ console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);
 await serve(handler, { port });
 ```
 
-Then run this with:
+然后使用以下命令运行：
 
 ```shell
 deno run --allow-net webserver.ts
