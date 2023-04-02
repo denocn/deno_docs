@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 代码格式化器
+=======
+# Code Formatter
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 Deno 自带一个内置的代码格式化器，可以自动格式化以下文件：
 
@@ -28,7 +32,11 @@ deno fmt --check
 cat file.ts | deno fmt -
 ```
 
+<<<<<<< HEAD
 ## 忽略代码
+=======
+## Ignoring Code
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 在 TS/JS/JSONC 中，您可以使用 `// deno-fmt-ignore` 注释来忽略格式化代码：
 
@@ -48,12 +56,17 @@ export const identity = [
 中的一部分，请使用 `<!-- deno-fmt-ignore-start -->` 和
 `<!-- deno-fmt-ignore-end -->` 注释括起来的代码。
 
+<<<<<<< HEAD
 ## 配置
+=======
+## Configuration
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 > ℹ️ 建议使用默认选项。
 
 从 Deno v1.14 开始，格式化器可以使用配置文件或遵循 CLI 标志进行自定义：
 
+<<<<<<< HEAD
 - `--use-tabs` - 是否使用制表符。默认为 false（使用空格）。
 
 - `--line-width` -
@@ -71,3 +84,22 @@ export const identity = [
 
 注意：在 Deno 版本 < 1.31 中，您需要在这些标志前添加 `options-` 前缀（例如
 `--options-use-tabs`）。
+=======
+- `--use-tabs` - Whether to use tabs. Defaults to false (using spaces).
+
+- `--line-width` - The width of a line the printer will try to stay under. Note
+  that the printer may exceed this width in certain cases. Defaults to 80.
+
+- `--indent-width` - The number of characters for an indent. Defaults to 2.
+
+- `--no-semicolons` - To not use semicolons except where necessary.
+
+- `--single-quote` - Whether to use single quote. Defaults to false (using
+  double quote).
+
+- `--prose-wrap={always,never,preserve}` - Define how prose should be wrapped in
+  Markdown files. Defaults to "always".
+
+Note: In Deno versions < 1.31 you will have to prefix these flags with
+`options-` (ex. `--options-use-tabs`)
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6

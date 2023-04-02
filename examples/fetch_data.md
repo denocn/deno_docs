@@ -1,11 +1,23 @@
+<<<<<<< HEAD
 # 获取数据
+=======
+# Fetch Data
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ## 概念
 
+<<<<<<< HEAD
 - 和浏览器一样，Deno 实现了 web 标准 API，如
   [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)。
 - Deno 默认安全，需要显式授权才能访问网络。
 - 也可以查看：Deno 的 [permissions](../basics/permissions.md) 模型。
+=======
+- Like browsers, Deno implements web standard APIs such as
+  [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+- Deno is secure by default, meaning explicit permission must be granted to
+  access the network.
+- See also: Deno's [permissions](../basics/permissions.md) model.
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ## 概述
 
@@ -49,6 +61,7 @@ try {
 
 ## 文件和流
 
+<<<<<<< HEAD
 就像在浏览器中一样，发送和接收大文件是可能的，这要归功于
 [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)。[`Deno.FsFile`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile)
 API
@@ -56,6 +69,15 @@ API
 和
 [`writable`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile#prop_writable)，可以用来将
 Deno 文件转换为可写或可读流。
+=======
+Like in browsers, sending and receiving large files is possible thanks to the
+[Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
+[`Deno.FsFile`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile) API provides
+two properties:
+[`readable`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile#prop_readable) and
+[`writable`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile#prop_writable),
+which can be used to convert a Deno file into a writable or readable stream.
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 **命令：** `deno run --allow-read --allow-write --allow-net fetch_file.ts`
 

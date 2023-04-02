@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 简单的 HTTP Web 服务器
+=======
+# Simple HTTP Web Server
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ## 概念
 

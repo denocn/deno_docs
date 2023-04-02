@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # 模块元数据
+=======
+# Module Metadata
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ## 概念
 
 - [import.meta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta)
+<<<<<<< HEAD
   可以提供有关模块上下文的信息。
 - 布尔值 [import.meta.main](/api?s=ImportMeta#prop_main) 可以告诉您
   当前模块是否为程序入口点。
@@ -12,6 +17,18 @@
   解决相对于当前模块的说明符。如果在启动时提供了导入映射，则此函数将考虑该映射。
 - 字符串 [Deno.mainModule](/api?s=Deno.mainModule) 将为您提供模块的 URL
   主模块入口点，即 deno 运行时调用的模块。
+=======
+  can provide information on the context of the module.
+- The boolean [import.meta.main](/api?s=ImportMeta#prop_main) will let you know
+  if the current module is the program entry point.
+- The string [import.meta.url](/api?s=ImportMeta#prop_url) will give you the URL
+  of the current module.
+- The [import.meta.resolve](/api?s=ImportMeta#prop_resolve) allows you to
+  resolve specifier relative to the current module. This function takes into
+  account an import map (if one was provided on startup).
+- The string [Deno.mainModule](/api?s=Deno.mainModule) will give you the URL of
+  the main module entry point, i.e. the module invoked by the deno runtime.
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ## 示例
 

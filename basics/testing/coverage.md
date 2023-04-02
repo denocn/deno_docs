@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 测试覆盖率
 
 如果在启动 `deno test` 时指定 `--coverage` 标志，Deno
@@ -33,3 +34,45 @@ genhtml -o cov_profile/html cov_profile.lcov
 
 这些过滤器可以使用 `--exclude` 和 `--include` 标志进行覆盖。模块指定符必须
 _匹配_ 包含正则表达式，并且 _不匹配_ 排除表达式，才能成为报告的一部分。
+=======
+# Test Coverage
+
+Deno will collect test coverage into a directory for your code if you specify
+the `--coverage` flag when starting `deno test`.
+
+This coverage information is acquired directly from the JavaScript engine (V8)
+which is very accurate.
+
+This can then be further processed from the internal format into well known
+formats by the `deno coverage` tool.
+
+> ⚠️ To ensure consistent coverage results, make sure to process coverage data
+> immediately after running tests. Otherwise source code and collected coverage
+> data might get out of sync and unexpectedly show uncovered lines.
+
+```bash
+# Go into your project's working directory
+git clone https://github.com/oakserver/oak && cd oak
+
+# Collect your coverage profile with deno test --coverage=<output_directory>
+deno test --coverage=cov_profile
+
+# From this you can get a pretty printed diff of uncovered lines
+deno coverage cov_profile
+
+# Or generate an lcov report
+deno coverage cov_profile --lcov --output=cov_profile.lcov
+
+# Which can then be further processed by tools like genhtml
+genhtml -o cov_profile/html cov_profile.lcov
+```
+
+By default, `deno coverage` will exclude any files matching the regular
+expression `test\.(ts|tsx|mts|js|mjs|jsx|cjs|cts)` and only consider including
+specifiers matching the regular expression `^file:` - ie. remote files will be
+excluded from coverage report.
+
+These filters can be overridden using the `--exclude` and `--include` flags. A
+module specifier must _match_ the include_regular expression and _not match_ the
+exclude_ expression for it to be a part of the report.
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6

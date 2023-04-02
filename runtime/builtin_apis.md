@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 内置API
 
 全局的Deno命名空间包含了一些非Web标准的API，包括用于读取文件、打开TCP套接字、提供HTTP服务和执行子进程等API。
@@ -9,27 +10,57 @@
 Deno运行时自带[20种错误类](https://deno.land/api@$CLI_VERSION#Errors)，可以针对各种情况抛出。
 
 一些示例如下：
+=======
+# Built-in API
+
+The global Deno namespace contains APIs that are not web standard, including
+APIs for reading from files, opening TCP sockets, serving HTTP, and executing
+subprocesses, etc.
+
+For a full list of Deno Built-in APIs, see the
+[reference](https://deno.land/api@$CLI_VERSION?s=Deno). Below we highlight some
+of the most important.
+
+## Errors
+
+The Deno runtime comes with
+[20 error classes](https://deno.land/api@$CLI_VERSION#Errors) that can be raised
+in response to a number of conditions.
+
+Some examples are:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ```sh
 Deno.errors.NotFound;
 Deno.errors.WriteZero;
 ```
 
+<<<<<<< HEAD
 可以按如下方式使用它们：
+=======
+They can be used as below:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ```ts
 try {
   const file = await Deno.open("./some/file.txt");
 } catch (error) {
   if (error instanceof Deno.errors.NotFound) {
+<<<<<<< HEAD
     console.error("未找到文件");
   } else {
     // 否则重新抛出
+=======
+    console.error("the file was not found");
+  } else {
+    // otherwise re-throw
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
     throw error;
   }
 }
 ```
 
+<<<<<<< HEAD
 ## 文件系统
 
 Deno运行时自带[各种用于处理文件和目录的函数](https://deno.land/api@$CLI_VERSION#File_System)。您需要使用--allow-read和--allow-write权限来访问文件系统。
@@ -66,3 +97,48 @@ Deno运行时自带[内置函数用于启动子进程](https://deno.land/api@$CL
 请参阅下面的链接，了解如何创建子进程的代码示例。
 
 - [创建子进程（`Deno.run`）](../examples/subprocess.md)
+=======
+## File System
+
+The Deno runtime comes with
+[various functions for working with files and directories](https://deno.land/api@$CLI_VERSION#File_System).
+You will need to use --allow-read and --allow-write permissions to gain access
+to the file system.
+
+Refer to the links below for code examples of how to use the file system
+functions.
+
+- [Reading files in several different ways](https://examples.deno.land/reading-files)
+- [Reading files in streams](../examples/file_server.md)
+- [Reading a text file (`Deno.readTextFile`)](../examples/read_write_files.md#reading-a-text-file)
+- [Writing a text file (`Deno.writeTextFile`)](../examples/read_write_files.md#writing-a-text-file)
+
+## I/O
+
+The Deno runtime comes with
+[built-in functions for working with resources and I/O](https://deno.land/api@$CLI_VERSION#I/O).
+
+Refer to the links below for code examples for common functions.
+
+- [Closing resources (`Deno.close`)](https://doc.deno.land/deno/stable/~/Deno.close)
+- [Seeking a certain position within the resource (`Deno.seek`)](https://doc.deno.land/deno/stable/~/Deno.seek)
+
+## Network
+
+The Deno runtime comes with
+[built-in functions for dealing with connections to network ports](https://deno.land/api@$CLI_VERSION#Network).
+
+Refer to the links below for code examples for common functions.
+
+- [Connect to the hostname and port (`Deno.connect`)](https://doc.deno.land/deno/stable/~/Deno.connect)
+- [Announcing on the local transport address (`Deno.listen`)](https://doc.deno.land/deno/stable/~/Deno.listen)
+
+## Sub Process
+
+The Deno runtime comes with
+[built-in functions for spinning up subprocesses](https://deno.land/api@$CLI_VERSION#Sub_Process).
+
+Refer to the links below for code samples of how to create a subprocess.
+
+- [Creating a subprocess (`Deno.run`)](../examples/subprocess.md)
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6

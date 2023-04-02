@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 使用 WebAssembly
 
 [WebAssembly](https://webassembly.org/) 旨在与 JavaScript
@@ -11,3 +12,18 @@
 1. [在 Deno 中使用 WebAssembly](webassembly/using_wasm.md)
 2. [使用 Streaming WebAssembly APIs](webassembly/using_streaming_wasm.md)
 3. [有用的资源](webassembly/wasm_resources.md)
+=======
+# Using WebAssembly
+
+Designed to be used alongside JavaScript to speed up key application components,
+[WebAssembly](https://webassembly.org/) can have much higher, and more
+consistent execution speed than JavaScript, similar to C, C++, or Rust. Deno can
+execute WebAssembly modules with the same interfaces that
+[browsers provide](https://developer.mozilla.org/en-US/docs/WebAssembly).
+
+In this chapter we will discuss:
+
+1. [Using WebAssembly in Deno](webassembly/using_wasm.md)
+2. [Using the Streaming WebAssembly APIs](webassembly/using_streaming_wasm.md)
+3. [Helpful Resources](webassembly/wasm_resources.md)
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 从源代码构建 `deno`
 
 以下是从源代码构建 Deno 的说明。如果您只想使用
@@ -8,33 +9,65 @@ Deno，则可以下载预构建的可执行文件（在
 ## 克隆存储库
 
 在 Linux 或 Mac 上进行克隆：
+=======
+# Building `deno` from Source
+
+Below are instructions on how to build Deno from source. If you just want to use
+Deno you can download a prebuilt executable (more information in the
+[`Getting Started`](../../getting_started/installation.md#download-and-install)
+chapter).
+
+## Cloning the Repository
+
+Clone on Linux or Mac:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ```shell
 git clone --recurse-submodules https://github.com/denoland/deno.git
 ```
 
+<<<<<<< HEAD
 Windows 用户需要额外的步骤：
 
 1. [启用“开发人员模式”](https://www.google.com/search?q=windows+enable+developer+mode)（否则，符号链接将需要管理员权限）。
 2. 确保您使用的是 2.19.2.windows.1 或更新版本的 git。
 3. 在检出前设置 `core.symlinks=true`：
+=======
+Extra steps for Windows users:
+
+1. [Enable "Developer Mode"](https://www.google.com/search?q=windows+enable+developer+mode)
+   (otherwise symlinks would require administrator privileges).
+2. Make sure you are using git version 2.19.2.windows.1 or newer.
+3. Set `core.symlinks=true` before the checkout:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
    ```shell
    git config --global core.symlinks true
    git clone --recurse-submodules https://github.com/denoland/deno.git
    ```
 
+<<<<<<< HEAD
 ## 先决条件
 
 > Deno 需要最新稳定版的 Rust。Deno 不支持 Rust Nightly 版本。
 
 [更新或安装 Rust](https://www.rust-lang.org/tools/install)。检查 Rust
 是否已正确安装/更新：
+=======
+## Prerequisites
+
+> Deno requires the progressively latest stable release of Rust. Deno does not
+> support the Rust Nightly Releases.
+
+[Update or Install Rust](https://www.rust-lang.org/tools/install). Check that
+Rust installed/updated correctly:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ```
 rustc -V
 cargo -V
 ```
 
+<<<<<<< HEAD
 对于 Apple aarch64 用户，必须安装 `lld`。
 
 ```
@@ -45,17 +78,34 @@ brew install llvm
 ## 构建 Deno
 
 构建 Deno 的最简单方法是使用预编译版本的 V8：
+=======
+For Apple aarch64 users `lld` must be installed.
+
+```
+brew install llvm
+# Add /opt/homebrew/opt/llvm/bin/ to $PATH
+```
+
+## Building Deno
+
+The easiest way to build Deno is by using a precompiled version of V8:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ```
 cargo build -vv
 ```
 
+<<<<<<< HEAD
 但如果您想从源代码构建 Deno 和 V8：
+=======
+However if you want to build Deno and V8 from source code:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 
 ```
 V8_FROM_SOURCE=1 cargo build -vv
 ```
 
+<<<<<<< HEAD
 从源代码构建 V8 时，有更多的依赖项：
 
 需要 Python 3 运行 WPT 测试。确保您的 `PATH` 中存在没有后缀的
@@ -103,5 +153,57 @@ cargo build -vv
 cargo clean && cargo build -vv
 
 # 运行：
+=======
+When building V8 from source, there are more dependencies:
+
+[Python 3](https://www.python.org/downloads) for running WPT tests. Ensure that
+a suffix-less `python`/`python.exe` exists in your `PATH` and it refers to
+Python 3.
+
+For Linux users glib-2.0 development files must also be installed. (On Ubuntu,
+run `apt install libglib2.0-dev`.)
+
+Mac users must have Command Line Tools installed.
+([XCode](https://developer.apple.com/xcode/) already includes CLT. Run
+`xcode-select --install` to install it without XCode.)
+
+For Windows users:
+
+1. Get [VS Community 2019](https://www.visualstudio.com/downloads/) with
+   "Desktop development with C++" toolkit and make sure to select the following
+   required tools listed below along with all C++ tools.
+
+   - Visual C++ tools for CMake
+   - Windows 10 SDK (10.0.17763.0)
+   - Testing tools core features - Build Tools
+   - Visual C++ ATL for x86 and x64
+   - Visual C++ MFC for x86 and x64
+   - C++/CLI support
+   - VC++ 2015.3 v14.00 (v140) toolset for desktop
+
+2. Enable "Debugging Tools for Windows". Go to "Control Panel" → "Programs" →
+   "Programs and Features" → Select "Windows Software Development Kit - Windows
+   10" → "Change" → "Change" → Check "Debugging Tools For Windows" → "Change" →
+   "Finish". Or use:
+   [Debugging Tools for Windows](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/)
+   (Notice: it will download the files, you should install
+   `X64 Debuggers And Tools-x64_en-us.msi` file manually.)
+
+See [rusty_v8's README](https://github.com/denoland/rusty_v8) for more details
+about the V8 build.
+
+## Building
+
+Build with Cargo:
+
+```shell
+# Build:
+cargo build -vv
+
+# Build errors?  Ensure you have latest main and try building again, or if that doesn't work try:
+cargo clean && cargo build -vv
+
+# Run:
+>>>>>>> 32dbb0e3cc471040eb7db9ffed0e0938276720d6
 ./target/debug/deno run cli/tests/testdata/run/002_hello.ts
 ```
