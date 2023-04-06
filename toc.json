@@ -394,73 +394,73 @@
             ]
           }
         }
-      },
-      "references": {
-        "name": "参考文献",
+      }
+    }
+  },
+  "references": {
+    "name": "参考文献",
+    "children": {
+      "vscode_deno": {
+        "name": "使用 Visual Studio Code",
+        "redirectFrom": [
+          "/vscode_deno"
+        ],
         "children": {
-          "vscode_deno": {
-            "name": "使用 Visual Studio Code",
+          "testing_api": {
+            "name": "测试 API",
             "redirectFrom": [
-              "/vscode_deno"
-            ],
-            "children": {
-              "testing_api": {
-                "name": "测试 API",
-                "redirectFrom": [
-                  "/vscode_deno/testing_api"
-                ]
-              }
-            }
-          },
-          "cheatsheet": {
-            "name": "Deno 技巧清单",
+              "/vscode_deno/testing_api"
+            ]
+          }
+        }
+      },
+      "cheatsheet": {
+        "name": "Deno 技巧清单",
+        "redirectFrom": [
+          "/node/cheatsheet"
+        ]
+      },
+      "contributing": {
+        "name": "贡献",
+        "redirectFrom": [
+          "/contributing"
+        ],
+        "children": {
+          "building_from_source": {
+            "name": "从源代码构建",
             "redirectFrom": [
-              "/node/cheatsheet"
+              "/contributing/building_from_source"
             ]
           },
-          "contributing": {
-            "name": "贡献",
+          "web_platform_tests": {
+            "name": "Web 平台测试",
             "redirectFrom": [
-              "/contributing"
-            ],
-            "children": {
-              "building_from_source": {
-                "name": "从源代码构建",
-                "redirectFrom": [
-                  "/contributing/building_from_source"
-                ]
-              },
-              "web_platform_tests": {
-                "name": "Web 平台测试",
-                "redirectFrom": [
-                  "/contributing/web_platform_tests"
-                ]
-              },
-              "style_guide": {
-                "name": "风格指南",
-                "redirectFrom": [
-                  "/contributing/style_guide"
-                ]
-              },
-              "architecture": {
-                "name": "架构",
-                "redirectFrom": [
-                  "/contributing/architecture"
-                ]
-              },
-              "profiling": {
-                "name": "性能分析",
-                "redirectFrom": [
-                  "/contributing/profiling"
-                ]
-              },
-              "release_schedule": {
-                "name": "发布计划",
-                "redirectFrom": [
-                  "/contributing/release_schedule"
-                ]
-              }
-            }
+              "/contributing/web_platform_tests"
+            ]
+          },
+          "style_guide": {
+            "name": "风格指南",
+            "redirectFrom": [
+              "/contributing/style_guide"
+            ]
+          },
+          "architecture": {
+            "name": "架构",
+            "redirectFrom": [
+              "/contributing/architecture"
+            ]
+          },
+          "profiling": {
+            "name": "性能分析",
+            "redirectFrom": [
+              "/contributing/profiling"
+            ]
+          },
+          "release_schedule": {
+            "name": "发布计划",
+            "redirectFrom": [
+              "/contributing/release_schedule"
+            ]
           }
         }
       }
