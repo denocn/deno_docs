@@ -4,10 +4,10 @@
 import {
   h,
   renderSSR,
-} from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx/deps.ts";
+} from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@latest/deps.ts";
 
-import type { Toc } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/components/Sidebar.tsx";
-import App from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@main/App.tsx";
+import type { Toc } from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@latest/components/Sidebar.tsx";
+import App from "https://cdn.jsdelivr.net/gh/justjavac/deno_docx@latest/App.tsx";
 
 // clean `/dist` dir
 await Deno.remove("dist", { recursive: true }).catch(() => {});
