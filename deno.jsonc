@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "build": "deno run --allow-read=. --allow-write=./dist --allow-net --reload build.tsx"
+    "build": "deno run --allow-read=. --allow-write=./dist --allow-net build.tsx"
   },
   "compilerOptions": {
     "lib": [
