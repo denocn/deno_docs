@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 有用的资源
 
 本页面包含一些在使用和/或开发 WebAssembly 模块时有帮助的进一步信息。
@@ -32,3 +33,46 @@ WebAssembly 来执行计算密集型任务，那么优化速度可能会有益�
 [这里](https://rustwasm.github.io/docs/book/reference/code-size.html)
 找到有关优化（生产）构建的良好指南。此外，[rust-wasm 组](https://rustwasm.github.io/docs/book/reference/tools.html)有一个可以用来优化和操作
 WebAssembly 二进制文件的工具列表。
+=======
+# Helpful Resources
+
+This page contains some further information that is helpful when using and/or
+developing WebAssembly modules.
+
+## WebAssembly API
+
+Further information on all parts of the WebAssembly API can be found on
+[MDN](https://developer.mozilla.org/en-US/docs/WebAssembly).
+
+## Working with Non-Numeric Types
+
+The code samples in this chapter only used numeric types in the WebAssembly
+modules. To run WebAssembly with more complex types (strings, classes) you will
+want to use tools that generate type bindings between JavaScript and the
+language used to compile to WebAssembly.
+
+An example on how to create type bindings between JavaScript and Rust, compiling
+it into a binary and calling it from a JavaScript program can be found on
+[MDN](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm).
+
+If you plan to do a lot of work with Web APIs in Rust+WebAssembly, you may find
+the [web_sys](https://rustwasm.github.io/wasm-bindgen/web-sys/index.html) and
+[js_sys](https://rustwasm.github.io/wasm-bindgen/contributing/js-sys/index.html)
+Rust crates useful. `web_sys` contains bindings to most of the Web APIs that are
+available in Deno, while `js_sys` provides bindings to JavaScript's standard,
+built-in objects.
+
+## Optimization
+
+For production builds it can be a good idea to perform optimizations on
+WebAssembly binaries. If you're mainly serving binaries over networks then
+optimizing for size can make a real difference, whereas if you're mainly
+executing WebAssembly on a server to perform computationally intensive tasks,
+optimizing for speed can be beneficial. You can find a good guide on optimizing
+(production) builds
+[here](https://rustwasm.github.io/docs/book/reference/code-size.html). In
+addition, the
+[rust-wasm group](https://rustwasm.github.io/docs/book/reference/tools.html) has
+a list of tools that can be used to optimize and manipulate WebAssembly
+binaries.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b

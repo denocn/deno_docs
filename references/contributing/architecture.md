@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 内部细节
 
 ## Deno 和 Linux 的类比
@@ -13,6 +14,23 @@
 |                       man pages | deno types                  |
 
 ### 资源
+=======
+# Internal Details
+
+## Deno and Linux analogy
+
+|                       **Linux** | **Deno**                         |
+| ------------------------------: | :------------------------------- |
+|                       Processes | Web Workers                      |
+|                        Syscalls | Ops                              |
+|           File descriptors (fd) | [Resource ids (rid)](#resources) |
+|                       Scheduler | Tokio                            |
+| Userland: libc++ / glib / boost | https://deno.land/std/           |
+|                 /proc/\$\$/stat | [Deno.metrics()](#metrics)       |
+|                       man pages | deno types                       |
+
+### Resources
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 资源 (也称为 `rid`) 是 Deno 的文件描述符版本。
 它们是用于引用打开文件、套接字和其他概念的整数值。
@@ -26,7 +44,11 @@ console.log(Deno.resources());
 // { 1: "stdout", 2: "stderr" }
 ```
 
+<<<<<<< HEAD
 ### 统计信息
+=======
+### Metrics
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 统计信息是 Deno 的内部计数器，用于记录各种统计信息。
 
@@ -49,11 +71,19 @@ console.log(Deno.resources());
 └─────────────────────────┴───────────┘
 ```
 
+<<<<<<< HEAD
 ## 系统框架图
+=======
+## Schematic diagram
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ![体系结构框架图](https://deno.land/images/schematic_v0.2.png)
 
+<<<<<<< HEAD
 ## 会议
+=======
+## Conference
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 - Ryan Dahl。 （2020 年 5 月 27
   日）。[An interesting case with Deno](https://www.youtube.com/watch?v=1b7FoBwxc7E)。Deni

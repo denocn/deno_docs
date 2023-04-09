@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 安装
+=======
+# Installation
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 Deno 可在 macOS、Linux 和 Windows
 上运行，它是一个单独的可执行文件，没有外部依赖。
@@ -6,7 +10,11 @@ Deno 可在 macOS、Linux 和 Windows
 在 macOS 上，提供 M1（arm64）和 Intel（x64）的可执行文件。在 Linux 和 Windows
 上，仅支持 x64。
 
+<<<<<<< HEAD
 ## 下载和安装
+=======
+## Download and install
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 [deno_install](https://github.com/denoland/deno_install)
 提供方便的脚本来下载和安装二进制文件。
@@ -41,7 +49,17 @@ choco install deno
 brew install deno
 ```
 
+<<<<<<< HEAD
 使用 [Nix](https://nixos.org/download.html)（macOS 和 Linux）：
+=======
+Using [MacPorts](https://ports.macports.org/port/deno/) (macOS):
+
+```shell
+sudo port install deno
+```
+
+Using [Nix](https://nixos.org/download.html) (macOS and Linux):
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ```shell
 nix-shell -p deno
@@ -63,14 +81,22 @@ Deno 可执行文件也可以手动安装，通过在
 有关官方 Docker 映像的更多信息和说明：
 [https://github.com/denoland/deno_docker](https://github.com/denoland/deno_docker)
 
+<<<<<<< HEAD
 ## 测试安装
+=======
+## Testing your installation
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 要测试安装，请运行 `deno --version`。如果将 Deno 版本打印到控制台，则安装成功。
 
 使用 `deno help` 查看文档 Deno 的标志和用法。在这里获取 CLI 的详细指南
 [here](./command_line_interface.md)。
 
+<<<<<<< HEAD
 ## 更新
+=======
+## Updating
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 要更新之前安装的 Deno 版本，可以运行：
 
@@ -87,7 +113,14 @@ deno upgrade
 deno upgrade --version 1.0.1
 ```
 
+<<<<<<< HEAD
 ## 从源代码编译
 
 有关如何从源代码构建的信息可以在[`Contributing`](../references/contributing/building_from_source.md)
 章节中找到。
+=======
+## Building from source
+
+Information about how to build from source can be found in the
+[`Contributing`](../references/contributing/building_from_source.md) chapter.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b

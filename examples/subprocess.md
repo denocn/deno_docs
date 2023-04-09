@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # 创建子进程
+=======
+# Creating a Subprocess
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 概念
 
+<<<<<<< HEAD
 - Deno 可以通过 [Deno.run](/api?s=Deno.run) 创建子进程。
 - 需要 `--allow-run` 权限来创建子进程。
 - 创建的子进程不在安全沙箱中运行。
@@ -9,6 +14,15 @@
   [stderr](/api?s=Deno.stderr) 流与子进程进行通信。
 - 通过提供 Shell 的路径/名称及其字符串输入开关来使用特定的 Shell，例如
   `Deno.run({ cmd: ["bash", "-c", "ls -la"]});`
+=======
+- Deno is capable of spawning a subprocess via [Deno.run](/api?s=Deno.run).
+- `--allow-run` permission is required to spawn a subprocess.
+- Spawned subprocesses do not run in a security sandbox.
+- Communicate with the subprocess via the [stdin](/api?s=Deno.stdin),
+  [stdout](/api?s=Deno.stdout) and [stderr](/api?s=Deno.stderr) streams.
+- Use a specific shell by providing its path/name and its string input switch,
+  e.g. `Deno.run({cmd: ["bash", "-c", "ls -la"]});`
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 简单示例
 

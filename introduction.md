@@ -7,6 +7,7 @@ JavaScript、TypeScript 和 WebAssembly 运行时。
 
 ## 特点亮点
 
+<<<<<<< HEAD
 - 提供[Web 平台功能](./runtime/web_platform_apis.md)并采用 Web
   平台标准。例如使用 ES 模块、Web worker 和支持 `fetch()`。
 - 默认情况下安全。除非明确启用，否则无法访问文件、网络或环境。
@@ -20,6 +21,24 @@ JavaScript、TypeScript 和 WebAssembly 运行时。
 - 拥有[一套经过审核的标准模块](https://deno.land/std@$STD_VERSION)，可保证与
   Deno 兼容。
 - 支持使用[现有的 npm 模块](./node.md)。
+=======
+- Provides [web platform functionality](./runtime/web_platform_apis.md) and
+  adopts web platform standards. For example using ES modules, web workers, and
+  support `fetch()`.
+- Secure by default. No file, network, or environment access unless explicitly
+  enabled.
+- Supports [TypeScript](./advanced/typescript.md) out of the box.
+- Ships a single executable (`deno`).
+- Provides built-in [development tooling](./tools.md) like a code formatter
+  ([`deno fmt`](./tools/formatter.md)), a linter
+  ([`deno lint`](./tools/linter.md)), a test runner
+  ([`deno test`](./basics/testing.md)), and a
+  [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
+- Has
+  [a set of reviewed (audited) standard modules](https://deno.land/std@$STD_VERSION)
+  that are guaranteed to work with Deno.
+- Supports the use of [existing npm modules](./node.md)
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 哲学
 
@@ -44,8 +63,18 @@ URL，只需使用[约 31MB 压缩的可执行文件](https://github.com/denolan
 - 将 V8 概念保留在用户界面之外。
 - 高效地提供 HTTP 服务。
 
+<<<<<<< HEAD
 ## 其他关键行为
 
 - 在第一次执行时获取并缓存远程代码，并且直到使用 `--reload`
   标志运行代码才更新它。（因此，即使在飞机上也可以使用。）
 - 从远程 URL 加载的模块/文件预期是不可变且可缓存的。
+=======
+## Other key behaviors
+
+- Fetch and cache remote code upon first execution, and never update it until
+  the code is run with the `--reload` flag. (So, this will still work on an
+  airplane.)
+- Modules/files loaded from remote URLs are intended to be immutable and
+  cacheable.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b

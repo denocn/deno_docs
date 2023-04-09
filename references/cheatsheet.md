@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Node.js -> Deno 速查表
+=======
+# Node.js -> Deno cheatsheet
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 | Node.js                                | Deno                                           |
 | -------------------------------------- | ---------------------------------------------- |
@@ -22,6 +26,11 @@
 | `nyc` / `c8` / `istanbul`              | `deno coverage`                                |
 | benchmarks                             | `deno bench`                                   |
 
+<<<<<<< HEAD
 ¹ 参见 [模块](../basics/modules.md)，运行时会在第一次使用时下载和缓存代码。
+=======
+¹ See [Modules](../basics/modules.md), the runtime downloads and caches the code
+on first use.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ² 类型检查自动进行，TypeScript 编译器内置于 `deno` 二进制文件中。

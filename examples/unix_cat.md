@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # Unix "cat" 程序的实现
+=======
+# An Implementation of the Unix "cat" Program
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 概念
 
+<<<<<<< HEAD
 - 使用 Deno 运行时 API 将文件内容输出到控制台。
 - [Deno.args](/api?s=Deno.args) 可以访问命令行参数。
 - [Deno.open](/api?s=Deno.open) 用于获取文件的句柄。
@@ -10,6 +15,17 @@
 - [Deno.FsFile.readable](/api?s=Deno.FsFile#prop_readable)
   用于从文件中获取可读流（该可读流在完成读取时关闭文件，因此不需要显式关闭文件）。
 - 模块可以直接从远程 URL 运行。
+=======
+- Use the Deno runtime API to output the contents of a file to the console.
+- [Deno.args](/api?s=Deno.args) accesses the command line arguments.
+- [Deno.open](/api?s=Deno.open) is used to get a handle to a file.
+- [Deno.stdout.writable](/api?s=Deno.stdout.writable) is used to get a writable
+  stream to the console standard output.
+- [Deno.FsFile.readable](/api?s=Deno.FsFile#prop_readable) is used to get a
+  readable stream from the file. (This readable stream closes the file when it
+  is finished reading, so it is not necessary to close the file explicitly.)
+- Modules can be run directly from remote URLs.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 示例
 

@@ -1,14 +1,30 @@
+<<<<<<< HEAD
 # 读写文件
+=======
+# Read and Write Files
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 概述
 
+<<<<<<< HEAD
 通过标准库和 Deno 运行时 API，与文件系统交互以读取和写入文件是很常见的。如同
 [获取数据示例](./fetch_data.md) 中所示，出于安全原因，Deno
 默认情况下限制了对输入/输出的访问。因此，在与文件系统交互时，必须使用 `deno run`
 命令的 `--allow-read` 和 `--allow-write` 参数。
+=======
+- Deno's runtime API provides the [Deno.readTextFile](/api?s=Deno.readTextFile)
+  and [Deno.writeTextFile](/api?s=Deno.writeTextFile) asynchronous functions for
+  reading and writing entire text files.
+- Like many of Deno's APIs, synchronous alternatives are also available. See
+  [Deno.readTextFileSync](/api?s=Deno.readTextFileSync) and
+  [Deno.writeTextFileSync](/api?s=Deno.writeTextFileSync).
+- Use `--allow-read` and `--allow-write` permissions to gain access to the file
+  system.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 概念
 
+<<<<<<< HEAD
 Deno 的运行时 API 提供了异步函数 [Deno.readTextFile](/api?s=Deno.readTextFile)
 和
 [Deno.writeTextFile](/api?s=Deno.writeTextFile)，用于读取和写入整个文本文件。与许多
@@ -17,6 +33,16 @@ Deno 的 API 一样，同步函数的替代方案也可用。请参见
 [Deno.writeTextFileSync](/api?s=Deno.writeTextFileSync)。
 
 ## 读取文本文件
+=======
+Interacting with the filesystem to read and write files is a common requirement.
+Deno provides a number of ways to do this via the
+[standard library](https://deno.land/std) and the [Deno runtime API](/api).
+
+As highlighted in the [Fetch Data example](./fetch_data.md) Deno restricts
+access to Input / Output by default for security reasons. Therefore when
+interacting with the filesystem the `--allow-read` and `--allow-write` flags
+must be used with the `deno run` command.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 Deno 运行时 API 通过 `Deno.readTextFile()`
 方法读取文本文件，只需要一个路径字符串或 URL 对象。该方法返回一个
@@ -64,7 +90,22 @@ console.log("File written to ./hello.txt");
  */
 ```
 
+<<<<<<< HEAD
 您可以像这样向文件添加文本：
+=======
+You can _append_ text to a file like this:
+
+```typescript
+await Deno.writeTextFile("./hello.txt", "This text will be appended.", {
+  append: true,
+});
+```
+
+By combining `Deno.writeTextFile` and `JSON.stringify` you can easily write
+serialized JSON objects to a file. This example uses synchronous
+`Deno.writeTextFileSync`, but this can also be done asynchronously using
+`await Deno.writeTextFile`.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ```typescript
 await Deno.writeTextFile("./hello.txt", "This text will be appended.", {

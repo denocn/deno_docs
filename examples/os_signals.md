@@ -4,10 +4,17 @@
 
 ## 概念
 
+<<<<<<< HEAD
 - [Deno.addSignalListener()](/api?s=Deno.addSignalListener)
   可用于捕获和监视操作系统信号。
 - [Deno.removeSignalListener()](/api?s=Deno.removeSignalListener)
   可用于停止监视该信号。
+=======
+- [Deno.addSignalListener()](/api?s=Deno.addSignalListener) can be used to
+  capture and monitor OS signals.
+- [Deno.removeSignalListener()](/api?s=Deno.removeSignalListener) can be used to
+  stop watching the signal.
+>>>>>>> 5cae25fe7acffa9cdf01787f3c699c11dc1f135b
 
 ## 设置操作系统信号监听器
 
