@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 # 警告：`deno bundle` 已过时，并将在未来的版本中被移除。请使用 [deno_emit](https://github.com/denoland/deno_emit)、[esbuild](https://esbuild.github.io/) 或 [rollup](https://rollupjs.org)。
+=======
+# WARNING: `deno bundle` has been deprecated and will be removed in some future release. Use [deno_emit](https://github.com/denoland/deno_emit), [esbuild](https://esbuild.github.io/) or [rollup](https://rollupjs.org) instead.
+
+# Bundling
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 # 打包
 
@@ -36,7 +42,11 @@ export const bar = "bar";
 import { bar, foo } from "./lib.bundle.js";
 ```
 
+<<<<<<< HEAD
 ## 为 Web 打包
+=======
+## Bundling for the Web
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 `deno bundle` 的输出适用于在 Deno 中使用，而不适用于在 Web
 浏览器或其他运行时中使用。尽管如此，根据输入的不同，它可能也可以工作。

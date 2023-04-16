@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 如何使用 Apollo 和 Deno
 
 [Apollo Server](https://www.apollographql.com/) 是一个 GraphQL
@@ -13,11 +14,30 @@ API)一起使用。然后，您可以连接任何 GraphQL 客户端以接收数�
 3. 我们的 `main.ts`，其中服务器将启动
 
 我们将从创建它们开始：
+=======
+# How to use Apollo with Deno
+
+[Apollo Server](https://www.apollographql.com/) is a GraphQL server that you can
+set up in minutes and use with your existing data source (or REST API). You can
+then connect any GraphQL client to it to receive the data and take advantage of
+GraphQL benefits, such as type-checking and efficient fetching.
+
+We're going to get a simple Apollo server up and running that will allow us to
+query some local data. We’re only going to need three files for this:
+
+1. `schema.ts` to set up our data model
+2. `resolvers.ts` to set up how we’re going to populate the data fields in our
+   schema
+3. Our `main.ts` where the server is going to launch
+
+We’ll start by creating them:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```shell, ignore
 touch schema.ts resolvers.ts main.ts
 ```
 
+<<<<<<< HEAD
 让我们逐一了解如何设置每一个。
 
 [在此处查看源代码。](https://github.com/denoland/examples/tree/main/with-apollo)
@@ -36,6 +56,28 @@ touch schema.ts resolvers.ts main.ts
 - `dinosaur` 以恐龙的 `name` 作为参数，并返回有关该类恐龙的信息。
 
 我们将在我们的 `typeDefs` 类型定义中导出所有这些变量:
+=======
+Let’s go through setting up each.
+
+[View source here.](https://github.com/denoland/examples/tree/main/with-apollo)
+
+## schema.ts
+
+Our `schema.ts` file describes our data. In this case, our data is a list of
+dinosaurs. We want our users to be able to get the name and a short description
+of each dino. In GraphQL language, this means that `Dinosaur` is our **type**,
+and `name` and `description` are our **fields**. We can also define the data
+type for each field. In this case, both are strings.
+
+This is also where we describe the queries we allow for our data, using the
+special **Query** type in GraphQL. We have two queries:
+
+- `dinosaurs` which gets a list of all dinosaurs
+- `dinosaur` which takes in the `name` of a dinosaur as an argument and returns
+  information about that one type of dinosaur.
+
+We’re going to export all this within our `typeDefs` type definitions, variable:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```tsx, ignore
 export const typeDefs = `
@@ -51,6 +93,7 @@ export const typeDefs = `
 `;
 ```
 
+<<<<<<< HEAD
 如果我们想编写数据，这也是我们将描述如何进行 **Mutation** 的位置。 Mutations
 是您使用 GraphQL 编写数据的方式。
 因为我们在此处使用的是静态数据集，因此我们将不会编写任何内容。
@@ -60,6 +103,18 @@ export const typeDefs = `
 解析器负责为每个查询填充数据。 在这里，我们有我们的恐龙列表， resolver
 要么将该整个列表传递给客户端（如果用户请求 `dinosaurs`
 查询），要么仅传递一个恐龙（如果用户请求 `dinosaur` 查询）。
+=======
+If we wanted to write data, this is also where we would describe the
+**Mutation** to do so. Mutations are how you write data with GraphQL. Because we
+are using a static dataset here, we won’t be writing anything.
+
+## resolvers.ts
+
+A resolver is responsible for populating the data for each query. Here we have
+our list of dinosaurs and all the resolver is going to do is either a) pass that
+entire list to the client if the user requests the `dinosaurs` query, or pass
+just one if the user requests the `dinosaur` query.
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```tsx, ignore
 const dinosaurs = [
@@ -83,12 +138,22 @@ export const resolvers = {
 };
 ```
 
+<<<<<<< HEAD
 对于后者，我们将来自客户端的参数传递到函数中以将名称与数据集中的名称匹配。
 
 ## main.ts
 
 在我们的 `main.ts` 中，我们将导入 `ApolloServer`、`graphql`
 以及来自模式和解析器的 `typeDefs`：
+=======
+With the latter, we pass the arguments from the client into a function to match
+the name to a name in our dataset.
+
+## main.ts
+
+In our `main.ts` we’re going to import the `ApolloServer` as well as `graphql`
+and our `typeDefs` from the schema and our resolvers:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```tsx, ignore
 import { ApolloServer } from "npm:@apollo/server@^4.1";
@@ -109,6 +174,7 @@ const { url } = await startStandaloneServer(server, {
 console.log(`Server running on: ${url}`);
 ```
 
+<<<<<<< HEAD
 我们将我们的 `typeDefs` 和 `resolvers` 传递给 `ApolloServer`
 来启动一个新服务器。 最后，`startStandaloneServer`
 是一个帮助函数，用于快速启动服务器。
@@ -116,13 +182,28 @@ console.log(`Server running on: ${url}`);
 ## 运行服务器
 
 现在只需运行服务器即可：
+=======
+We pass our `typeDefs` and `resolvers` to `ApolloServer` to spool up a new
+server. Finally, `startStandaloneServer` is a helper function to get the server
+up and running quickly.
+
+## Running the server
+
+All that is left to do now is run the server:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```shell, ignore
 deno run --allow-net --allow-read --allow-env main.ts
 ```
 
+<<<<<<< HEAD
 您应该在终端中看到 `Server running on: 127.0.0.1:8000`。
 如果您转到该地址，您将看到我们可以输入我们的 `dinosaurs` 查询的 Apollo 沙盒：
+=======
+You should see `Server running on: 127.0.0.1:8000` in your terminal. If you go
+to that address you will see the Apollo sandbox where we can enter our
+`dinosaurs` query:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```graphql, ignore
 query {
@@ -133,7 +214,11 @@ query {
 }
 ```
 
+<<<<<<< HEAD
 这将返回我们的数据集：
+=======
+This will return our dataset:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```graphql
 {
@@ -152,7 +237,11 @@ query {
 }
 ```
 
+<<<<<<< HEAD
 或者，如果我们只需要一个 `dinosaur`：
+=======
+Or if we want just one `dinosaur`:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```graphql, ignore
 query {
@@ -163,7 +252,11 @@ query {
 }
 ```
 
+<<<<<<< HEAD
 这将返回：
+=======
+Which returns:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```graphql, ignore
 {
@@ -176,6 +269,12 @@ query {
 }
 ```
 
+<<<<<<< HEAD
 太棒了！
 
 [在 Apollo 和 GraphQL 的教程中了解更多信息](https://www.apollographql.com/tutorials/)。
+=======
+Awesome!
+
+[Learn more about using Apollo and GraphQL in their tutorials](https://www.apollographql.com/tutorials/).
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f

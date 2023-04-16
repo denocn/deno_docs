@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # 内置工具
+=======
+# Built-In Tooling
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 Deno 提供了一些内置工具，对于使用 JavaScript 和 TypeScript 的开发者非常实用：
 
+<<<<<<< HEAD
 - [开始新项目 (`deno init`)](./tools/init.md)
 - [基准测试工具 (`deno bench`)](./tools/benchmarker.md)
 - [打包工具 (`deno bundle`)](./tools/bundler.md)
@@ -15,3 +20,18 @@ Deno 提供了一些内置工具，对于使用 JavaScript 和 TypeScript 的开
 - [任务运行器 (`deno task`)](./tools/task_runner.md)
 - [测试运行器 (`deno test`)](./basics/testing.md)
 - [依赖库打包工具 (`deno vendor`)](./tools/vendor.md)
+=======
+- [start new project (`deno init`)](./tools/init.md)
+- [benchmarker (`deno bench`)](./tools/benchmarker.md)
+- [bundler (`deno bundle`)](./tools/bundler.md)
+- [compiling executables (`deno compile`)](./tools/compiler.md)
+- [installer (`deno install`)](./tools/script_installer.md)
+- [dependency inspector (`deno info`)](./tools/dependency_inspector.md)
+- [documentation generator (`deno doc`)](./tools/documentation_generator.md)
+- [formatter (`deno fmt`)](./tools/formatter.md)
+- [linter (`deno lint`)](./tools/linter.md)
+- [repl (`deno repl`)](./tools/repl.md)
+- [task runner (`deno task`)](./tools/task_runner.md)
+- [test runner (`deno test`)](./basics/testing.md)
+- [vendoring dependencies (`deno vendor`)](./tools/vendor.md)
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f

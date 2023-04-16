@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 通过 CDN 使用 npm
 
 目前，大多数开发者通过使用其中一种 CDN 导入 npm 模块来在 Deno
@@ -18,6 +19,30 @@ Deno、浏览器等中使用的说明。
 的问题也使它成为了访问 npm packages 的 ES Module bundles 的通用 CDN。esm.sh 使用
 [esbuild](https://esbuild.github.io/) 来处理任意 npm package，并确保它可以作为
 ES Module 使用。在许多情况下，你可以将 npm package 导入到你的 Deno 应用程序中：
+=======
+# npm via CDNs
+
+Most developers currently use npm modules in Deno by importing them using one of
+many CDNs. You can reference the CDN URL in your Deno code or directly in your
+browser as an ES Module. These CDN URLs are reusable - they also provide
+instructions on how to be used in Deno, the browser, etc.
+
+**Starting with Deno release 1.28**, Deno also offers stabilized support for
+[`npm:` specifiers](./npm_specifiers.md), which are a new way of using npm
+modules in Deno.
+
+**Starting with Deno release 1.31**, Deno supports resolving npm dependencies
+[from package.json](./package_json.md) if it exists.
+
+### esm.sh
+
+[esm.sh](https://esm.sh/) is a CDN that was specifically designed for Deno,
+though addressing the concerns for Deno also makes it a general purpose CDN for
+accessing npm packages as ES Module bundles. esm.sh uses
+[esbuild](https://esbuild.github.io/) to take an arbitrary npm package and
+ensure that it is consumable as an ES Module. In many cases you can just import
+the npm package into your Deno application:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```tsx
 import React from "https://esm.sh/react";
@@ -43,18 +68,27 @@ import React from "https://esm.sh/react@17.0.2";
 import React from "https://esm.sh/react@~16.13.0";
 ```
 
+<<<<<<< HEAD
 或导入子模块：
+=======
+Or to get a submodule:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```tsx
 import { renderToString } from "https://esm.sh/react-dom/server";
 ```
 
+<<<<<<< HEAD
 或导入常规文件：
+=======
+Or to import regular files:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```tsx, ignore
 import "https://esm.sh/tailwindcss/dist/tailwind.min.css";
 ```
 
+<<<<<<< HEAD
 esm.sh 还会自动设置一个 header，Deno 识别该 header 使得 Deno 可以检索
 package/module 的类型定义。关于如何使用该 header，请参阅本手册中的
 [Using `X-TypeScript-Types` header](../advanced/typescript/types.md#using-x-typescript-types-header)。
@@ -78,3 +112,31 @@ distribution 中包括浏览器等项目的 package，你可以直接从 UNPKG
 可以使用 import maps，因此你可以使用
 [JSPM.io generator](https://generator.jspm.io/) 生成你想要使用的所有 packages 的
 import-map，并从 CDN 中提供这些 packages。
+=======
+esm.sh also automatically sets a header which Deno recognizes that allows Deno
+to be able to retrieve type definitions for the package/module. See
+[Using `X-TypeScript-Types` header](../advanced/typescript/types.md#using-x-typescript-types-header)
+in this manual for more details on how this works.
+
+esm.sh also provides information on
+[self hosting the CDN](https://github.com/ije/esm.sh/blob/main/HOSTING.md).
+
+Check out the [esm.sh homepage](https://esm.sh/) for more detailed information
+on how the CDN can be used and what features it has.
+
+### UNPKG
+
+[UNPKG](https://unpkg.com/) is the most well known CDN for npm packages. For
+packages that include an ES Module distribution for things like the browsers,
+many of them can be used directly off of UNPKG. That being said, everything
+available on UNPKG is available on more Deno friendly CDNs.
+
+### JSPM
+
+The [jspm.io](https://jspm.io) CDN is specifically designed to provide npm and
+other registry packages as ES Modules in a way that works well with import maps.
+While it doesn't currently cater to Deno, the fact that Deno can utilize import
+maps, allows you to use the [JSPM.io generator](https://generator.jspm.io/) to
+generate an import-map of all the packages you want to use and have them served
+up from the CDN.
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f

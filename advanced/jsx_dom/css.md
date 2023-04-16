@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 # 解析和生成 CSS
 
 如果您想将 CSS 解析为抽象语法树（AST），则可以考虑两种解决方案：
+=======
+# Parsing and Stringifying CSS
+
+If you want to parse CSS to a abstract syntax tree (AST) then there are two
+solutions you might want to consider:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 - [reworkcss/css](https://github.com/reworkcss/css)
 - [deno_css](https://deno.land/x/css)
 
+<<<<<<< HEAD
 `reworkcss/css` 最初是为 Node.js 编写的，但在从 CDN 消费时表现良好。从 `esm.sh`
 导入还会自动组合来自 DefinitelyTyped 的类型定义。但需要注意的是，DefinitelyTyped
 上的类型并不是非常好，因为许多应被标记为联合类型的联合类型都仅是联合类型，这使得类型非常模糊，并需要大量的类型转换。
@@ -19,6 +27,26 @@ CSS 的功能。
 在此示例中，我们将解析一些 CSS 成 AST，并修改 `body` 规则中的 `background`
 声明，将颜色更改为 `white`。然后，我们将字符串化修改后的 CSS AST
 并将其输出到控制台：
+=======
+`reworkcss/css` was written originally for Node.js but work well when consumed
+from a CDN. Importing from `esm.sh` also automatically combines the type
+definitions from DefinitelyTyped. It should be noted though that types on
+DefinitelyTyped are not _very good_ as many union types that should be tagged
+union types are just union types which leave the types very ambiguous and
+require a lot of type casting.
+
+Also, if you want to take an AST and generate CSS, `reworkcss/css` also provides
+capability to stringify the AST it generates.
+
+`deno_css` is authored in TypeScript specifically for Deno and is available on
+`deno.land/x`.
+
+## Basic example with `reworkcss/css`
+
+In this example, we will parse some CSS into an AST and make a modification to
+the `background` declaration of the `body` rule, to change the color to `white`.
+Then we will stringify the modified CSS AST and output it to the console:
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```ts, ignore
 import * as css from "https://esm.sh/css@3.0.0";
@@ -35,7 +63,11 @@ body {
   background: #eee;
   color: #888;
 }
+<<<<<<< HEAD
 `); 
+=======
+`);
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 assert(ast.stylesheet);
 const body = ast.stylesheet.rules[0] as css.Rule;
@@ -46,10 +78,17 @@ background.value = "white";
 console.log(css.stringify(ast));
 ```
 
+<<<<<<< HEAD
 ## `deno_css` 的基本示例
 
 在此示例中，我们将解析一些 CSS 成 AST，并将 `body` 规则的 `background`
 声明记录到控制台。
+=======
+## A basic example with `deno_css`
+
+In this example, we will parse some CSS into an AST and log out the `background`
+declaration of the `body` rule to the console.
+>>>>>>> f66f5ac99824533702df0e6b89a7e4d862da402f
 
 ```ts
 import * as css from "https://deno.land/x/css@0.3.0/mod.ts";
