@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 通过 Hashbang（Shebang）使脚本可执行
 
 ## 概念
@@ -14,6 +15,25 @@
 ## 示例
 
 在此程序中，我们为上下文提供权限以访问环境变量，并打印 Deno 安装路径。
+=======
+# Making Scripts Executable With a Hashbang (Shebang)
+
+## Concepts
+
+- [Deno.env] provides the environment variables.
+- [env] runs a program in a modified environment.
+
+## Overview
+
+Making Deno scripts executable can come in handy when creating small tools.
+
+Note: Hashbangs do not work on Windows.
+
+## Example
+
+In this program we give the context permission to access the environment
+variables and print the Deno installation path.
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 ```ts, ignore
 #!/usr/bin/env -S deno run --allow-env
@@ -27,24 +47,39 @@ const path = Deno.env.get("DENO_INSTALL");
 console.log("Deno Install Path:", path);
 ```
 
+<<<<<<< HEAD
 ### 权限
 
 您可能需要为脚本授予执行权限。
 
 #### Linux
+=======
+### Permissions
+
+You may require to give the script execution permissions.
+
+#### Unix
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 ```shell
 chmod +x hashbang.ts
 ```
 
+<<<<<<< HEAD
 ### 执行
 
 通过像任何其他命令一样调用它来启动脚本：
+=======
+### Execute
+
+Start the script by calling it like any other command:
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 ```shell
 ./hashbang.ts
 ```
 
+<<<<<<< HEAD
 ## 详情
 
 - 必须将 Hashbang 放置在第一行。
@@ -60,6 +95,20 @@ chmod +x hashbang.ts
 
 您可能希望不使用扩展名作为脚本的文件名。在这种情况下， 您可以使用 `--ext`
 标志来提供一个：
+=======
+## Details
+
+- A hashbang has to be placed in the first line.
+
+- `-S` splits the command into arguments.
+
+- End the file name in `.ts` for the script to be interpreted as TypeScript.
+
+## Using hashbang in files with no extension
+
+You may wish to not use an extension for your script's filename. In this case,
+you can supply one by using the `--ext` flag:
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 ```shell, ignore
 $ cat my_script

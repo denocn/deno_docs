@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 # 文件系统事件
+=======
+# File System Events
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 ## 概念
 
+<<<<<<< HEAD
 - 使用 [Deno.watchFs](/api?s=Deno.watchFs) 监听文件系统事件。
 - 不同操作系统可能会有不同的结果。
+=======
+- Use [Deno.watchFs](/api?s=Deno.watchFs) to watch for file system events.
+- Results may vary between operating systems.
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 ## 示例
 

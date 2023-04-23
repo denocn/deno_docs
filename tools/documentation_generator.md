@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 文档生成器
+=======
+# Documentation Generator
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 使用 `deno doc`
 命令，加上一个或多个源文件的文件名，将会打印模块**导出**的每个成员的 JSDoc

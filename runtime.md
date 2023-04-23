@@ -1,8 +1,14 @@
 # 运行时
 
+<<<<<<< HEAD
 所有运行时函数的文档（Web API + `Deno` 全局函数）可以在 [`/api`](/api)
 找到，或通过添加使用 `--unstable` 标志启用的不稳定 API 在
 [`/api?unstable`](/api?unstable) 找到。
+=======
+Documentation for all runtime functions (Web APIs + `Deno` global) can be found
+at [`/api`](/api) or with adding the _unstable_ APIs which are enabled via the
+`--unstable` flag at [`/api?unstable`](/api?unstable).
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 ## Web 平台 APIs
 
@@ -16,8 +22,17 @@
 所有非 Web 标准的 API 都包含在全局的 `Deno` 命名空间中。它具有读取文件、打开 TCP
 socket、[提供 HTTP 服务](./runtime/http_server_apis.md) 和执行子进程等 API。
 
+<<<<<<< HEAD
 有关更多详细信息，请参见[内置 APIs](./runtime/builtin_apis.md)这一章节。
 
 Deno 命名空间的 TypeScript 定义可在
 [`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/tsc/dts/lib.deno.ns.d.ts)
 文件中找到。
+=======
+For more details, view the chapter on
+[Built-in APIs](./runtime/builtin_apis.md).
+
+The TypeScript definitions for the Deno namespaces can be found in the
+[`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/tsc/dts/lib.deno.ns.d.ts)
+file.
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51

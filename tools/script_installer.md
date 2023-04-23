@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 脚本安装程序
+=======
+# Script Installer
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 Deno 提供了 `deno install` 命令，便于安装和分发可执行代码。
 
@@ -83,7 +87,11 @@ if (import.meta.main) {
 $ deno install -n awesome_cli https://example.com/awesome/cli.ts
 ```
 
+<<<<<<< HEAD
 ## 卸载
+=======
+## Uninstall
+>>>>>>> 500f1f0131c56360b81018fb92e6a15cc5cf6d51
 
 您可以通过 `deno uninstall` 命令卸载脚本。
 
