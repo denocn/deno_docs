@@ -22,7 +22,7 @@ for (const [path, { name, children }] of Object.entries(toc)) {
   }
 }
 
-await copyImages();
+// await copyImages();
 await downloadCss();
 await downloadFavicon();
 
