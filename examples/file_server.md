@@ -1,18 +1,18 @@
-#文件服务器
+# 文件服务器
 
-##概念
+## 概念
 
 - 使用 [Deno.open](/api?s=Deno.open) 以块读取文件内容。
 - 将 Deno 文件转换为
   [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)。
 - 使用 Deno 集成的 HTTP 服务器运行自己的文件服务器。
 
-##概述
+## 概述
 
 通过网络发送文件是一个常见的需求。如在
 [获取数据示例](./fetch_data.md)中所示，由于文件的大小可以是任意的，因此使用流防止将整个文件加载到内存中至关重要。
 
-##示例
+## 示例
 
 **命令:** `deno run --allow-read --allow-net file_server.ts`
 
@@ -53,7 +53,7 @@ async function handleHttp(conn: Deno.Conn) {
 }
 ```
 
-##使用 `std/http` 文件服务器
+## 使用 `std/http` 文件服务器
 
 Deno 标准库为您提供了
 [file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) ，使

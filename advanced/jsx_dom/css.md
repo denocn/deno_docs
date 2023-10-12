@@ -35,7 +35,7 @@ body {
   background: #eee;
   color: #888;
 }
-`); 
+`);
 
 assert(ast.stylesheet);
 const body = ast.stylesheet.rules[0] as css.Rule;
